@@ -66,3 +66,15 @@ C:\Users\s3594800\Downloads\s3594800-Assignment01-HRRIS-master-20170331T010350Z-
 C:\Users\s3594800\Downloads\s3594800-Assignment01-HRRIS-master-20170331T010350Z-001\s3594800-Assignment01-HRRIS-master\HRRIS\obj\x86\Debug\WindowsApplication1.Room.resources
 C:\Users\s3594800\Downloads\s3594800-Assignment01-HRRIS-master-20170331T010350Z-001\s3594800-Assignment01-HRRIS-master\HRRIS\obj\x86\Debug\HRRIS.vbproj.GenerateResource.Cache
 C:\Users\s3594800\Downloads\s3594800-Assignment01-HRRIS-master-20170331T010350Z-001\s3594800-Assignment01-HRRIS-master\HRRIS\obj\x86\Debug\HRRIS.exe
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\HRRIS.xml
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\HRRIS.pdb
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\bin\Debug\HRRIS.exe
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\bin\Debug\HRRIS.pdb
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\bin\Debug\HRRIS.xml
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Customer.resources
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Booking.resources
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Navigation.resources
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Room.resources
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\HRRIS.vbproj.GenerateResource.Cache
+C:\Users\DELL\Desktop\s3594800-Assignment01-HRRIS\HRRIS\obj\x86\Debug\HRRIS.exe
