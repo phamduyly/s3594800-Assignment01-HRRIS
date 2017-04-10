@@ -16,7 +16,7 @@ Public Class Booking
 
         txtRoomID.DropDownStyle = ComboBoxStyle.DropDownList
         Dim oController As DataController = New DataController
-        Dim lsData = oController.findALl()
+        Dim lsData = oController.RoomfindALl()
         For Each room In lsData
 
             txtRoomID.Items.Add(CStr(room("room_id")))

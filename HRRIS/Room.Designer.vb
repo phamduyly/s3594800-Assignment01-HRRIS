@@ -48,6 +48,13 @@ Partial Class Room
         Me.PicRmAva = New System.Windows.Forms.PictureBox()
         Me.PicRmDes = New System.Windows.Forms.PictureBox()
         Me.btnNav = New System.Windows.Forms.Button()
+        Me.btnFirst = New System.Windows.Forms.Button()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnPrevious = New System.Windows.Forms.Button()
+        Me.btnLast = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnFind = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         CType(Me.PicRmBedNum, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -152,7 +159,6 @@ Partial Class Room
         'txtRmID
         '
         Me.txtRmID.AllowDrop = True
-        Me.txtRmID.Enabled = False
         Me.txtRmID.Location = New System.Drawing.Point(134, 30)
         Me.txtRmID.Name = "txtRmID"
         Me.txtRmID.Size = New System.Drawing.Size(343, 20)
@@ -169,7 +175,7 @@ Partial Class Room
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(565, 72)
+        Me.Button1.Location = New System.Drawing.Point(565, 57)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(91, 23)
         Me.Button1.TabIndex = 33
@@ -286,11 +292,81 @@ Partial Class Room
         Me.btnNav.Text = "Home"
         Me.btnNav.UseVisualStyleBackColor = True
         '
+        'btnFirst
+        '
+        Me.btnFirst.Location = New System.Drawing.Point(565, 242)
+        Me.btnFirst.Name = "btnFirst"
+        Me.btnFirst.Size = New System.Drawing.Size(91, 23)
+        Me.btnFirst.TabIndex = 63
+        Me.btnFirst.Text = "|<"
+        Me.btnFirst.UseVisualStyleBackColor = True
+        '
+        'btnNext
+        '
+        Me.btnNext.Location = New System.Drawing.Point(565, 271)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(91, 23)
+        Me.btnNext.TabIndex = 64
+        Me.btnNext.Text = ">"
+        Me.btnNext.UseVisualStyleBackColor = True
+        '
+        'btnPrevious
+        '
+        Me.btnPrevious.Location = New System.Drawing.Point(565, 300)
+        Me.btnPrevious.Name = "btnPrevious"
+        Me.btnPrevious.Size = New System.Drawing.Size(91, 23)
+        Me.btnPrevious.TabIndex = 65
+        Me.btnPrevious.Text = "<"
+        Me.btnPrevious.UseVisualStyleBackColor = True
+        '
+        'btnLast
+        '
+        Me.btnLast.Location = New System.Drawing.Point(565, 329)
+        Me.btnLast.Name = "btnLast"
+        Me.btnLast.Size = New System.Drawing.Size(91, 23)
+        Me.btnLast.TabIndex = 66
+        Me.btnLast.Text = ">|"
+        Me.btnLast.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(565, 94)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(91, 23)
+        Me.btnDelete.TabIndex = 67
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnFind
+        '
+        Me.btnFind.Location = New System.Drawing.Point(565, 123)
+        Me.btnFind.Name = "btnFind"
+        Me.btnFind.Size = New System.Drawing.Size(91, 23)
+        Me.btnFind.TabIndex = 68
+        Me.btnFind.Text = "Find"
+        Me.btnFind.UseVisualStyleBackColor = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(565, 152)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(91, 23)
+        Me.btnUpdate.TabIndex = 69
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
         'Room
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 402)
+        Me.Controls.Add(Me.btnUpdate)
+        Me.Controls.Add(Me.btnFind)
+        Me.Controls.Add(Me.btnDelete)
+        Me.Controls.Add(Me.btnLast)
+        Me.Controls.Add(Me.btnPrevious)
+        Me.Controls.Add(Me.btnNext)
+        Me.Controls.Add(Me.btnFirst)
         Me.Controls.Add(Me.btnNav)
         Me.Controls.Add(Me.PicRmDes)
         Me.Controls.Add(Me.PicRmAva)
@@ -357,4 +433,11 @@ Partial Class Room
     Friend WithEvents PicRmAva As System.Windows.Forms.PictureBox
     Friend WithEvents PicRmDes As System.Windows.Forms.PictureBox
     Friend WithEvents btnNav As System.Windows.Forms.Button
+    Friend WithEvents btnFirst As Button
+    Friend WithEvents btnNext As Button
+    Friend WithEvents btnPrevious As Button
+    Friend WithEvents btnLast As Button
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents btnFind As Button
+    Friend WithEvents btnUpdate As Button
 End Class

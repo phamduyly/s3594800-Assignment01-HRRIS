@@ -136,8 +136,9 @@ Public Class DataController
 
     End Sub
 
-    'findall()
-    Public Function findALl() As List(Of Hashtable)
+    'ROOM SECTION
+    'Find all function
+    Public Function RoomfindALl() As List(Of Hashtable)
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
 
@@ -166,9 +167,9 @@ Public Class DataController
                 htTempData("floor") = CInt(oDataReader("floor"))
                 htTempData("description") = CStr(oDataReader("description"))
                 lsData.Add(htTempData)
-                Loop
+            Loop
 
-                Debug.Print("the records were found")
+            Debug.Print("the records were found")
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
@@ -178,6 +179,144 @@ Public Class DataController
         End Try
 
         Return lsData
+    End Function
+
+    Public Function RoomsFindById(sId As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+
+            oCommand.Connection = oConnection
+            oCommand.CommandText = "SELECT * FROM room WHERE room_id = ?;"
+            oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
+            oCommand.Parameters("room_id").Value = CInt(sId)
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("room_number") = CInt(oDataReader("room_number"))
+                htTempData("type") = CStr(oDataReader("type"))
+                htTempData("price") = CInt(oDataReader("price"))
+                htTempData("num_beds") = CInt(oDataReader("num_beds"))
+                htTempData("availability") = CStr(oDataReader("availability"))
+                htTempData("floor") = CInt(oDataReader("floor"))
+                htTempData("description") = CStr(oDataReader("description"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+
+    'CRUD room data 
+    'room update
+    Public Function RoomsUpdate(ByVal roomData As Hashtable) As Integer
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim iNumRows As Integer
+
+        Try
+            Debug.Print("Connection string: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            'Todo 
+
+            oCommand.CommandText = "UPDATE room SET room_number = ?, type = ?, price = ?, num_beds = ?, availability = ?, floor = ?, description = ? WHERE room_id = ?;"
+
+            oCommand.Parameters.Add("room_number", OleDbType.Integer, 255)
+            oCommand.Parameters.Add("type", OleDbType.VarChar, 255)
+            oCommand.Parameters.Add("price", OleDbType.Integer, 255)
+            oCommand.Parameters.Add("num_beds", OleDbType.Integer, 255)
+            oCommand.Parameters.Add("availability", OleDbType.VarChar, 255)
+            oCommand.Parameters.Add("floor", OleDbType.Integer, 255)
+            oCommand.Parameters.Add("description", OleDbType.VarChar, 255)
+
+            oCommand.Parameters("room_number").Value = CInt(roomData("room_number"))
+            oCommand.Parameters("type").Value = CStr(roomData("type"))
+            oCommand.Parameters("price").Value = CInt(roomData("price"))
+            oCommand.Parameters("num_beds").Value = CInt(roomData("num_beds"))
+            oCommand.Parameters("availability").Value = CStr(roomData("availability"))
+            oCommand.Parameters("floor").Value = CInt(roomData("floor"))
+            oCommand.Parameters("description").Value = CStr(roomData("description"))
+
+            oCommand.Prepare()
+            iNumRows = oCommand.ExecuteNonQuery()
+
+            Debug.Print(CStr(iNumRows))
+            Debug.Print("the record was updated.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox(" an error occured. The record was not updated")
+
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return iNumRows
+
+    End Function
+
+    'Delete a record lab 5.4
+
+    Public Function RoomsDelete(sId As String) As Integer
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim iNumRows As Integer
+
+        Try
+            Debug.Print("Connection string: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            'todo
+            oCommand.CommandText = "DELETE FROM room WHERE room_id = ?;"
+            oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
+            oCommand.Parameters("room_id").Value = CInt(sId)
+            oCommand.Prepare()
+            iNumRows = oCommand.ExecuteNonQuery()
+
+            Debug.Print(CStr(iNumRows))
+            Debug.Print("The record was deleted.")
+
+        Catch ex As Exception
+            Debug.Print(CStr(iNumRows))
+            Debug.Print("an error occured. the record was not deleted")
+
+        Finally
+            oConnection.Close()
+        End Try
+
+        Return iNumRows
+
     End Function
 
 
