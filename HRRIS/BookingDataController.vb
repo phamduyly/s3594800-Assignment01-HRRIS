@@ -118,7 +118,7 @@ Public Class BookingDataController
 
         oCommand.CommandText = "SELECT * FROM booking WHERE booking_id = ?;"
         oCommand.Parameters.Add("booking_id", OleDbType.Integer, 8)
-        oCommand.Parameters("booking_id").Value = CInt(CStr(sId))
+        oCommand.Parameters("booking_id").Value = CInt(sId)
         oCommand.Prepare()
 
 

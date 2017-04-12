@@ -72,9 +72,6 @@ Partial Class Booking
         Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
         Me.txtCusId = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
-        Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
         Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,6 +81,9 @@ Partial Class Booking
         Me.CheckindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalpriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
+        Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,8 +97,8 @@ Partial Class Booking
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCmt
@@ -503,20 +503,6 @@ Partial Class Booking
         Me.DataGridView1.Size = New System.Drawing.Size(940, 150)
         Me.DataGridView1.TabIndex = 69
         '
-        'HRRISdbDataSet3
-        '
-        Me.HRRISdbDataSet3.DataSetName = "HRRISdbDataSet3"
-        Me.HRRISdbDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BookingBindingSource1
-        '
-        Me.BookingBindingSource1.DataMember = "booking"
-        Me.BookingBindingSource1.DataSource = Me.HRRISdbDataSet3
-        '
-        'BookingTableAdapter1
-        '
-        Me.BookingTableAdapter1.ClearBeforeFill = True
-        '
         'BookingidDataGridViewTextBoxColumn
         '
         Me.BookingidDataGridViewTextBoxColumn.DataPropertyName = "booking_id"
@@ -570,6 +556,20 @@ Partial Class Booking
         Me.CommentsDataGridViewTextBoxColumn.DataPropertyName = "comments"
         Me.CommentsDataGridViewTextBoxColumn.HeaderText = "comments"
         Me.CommentsDataGridViewTextBoxColumn.Name = "CommentsDataGridViewTextBoxColumn"
+        '
+        'BookingBindingSource1
+        '
+        Me.BookingBindingSource1.DataMember = "booking"
+        Me.BookingBindingSource1.DataSource = Me.HRRISdbDataSet3
+        '
+        'HRRISdbDataSet3
+        '
+        Me.HRRISdbDataSet3.DataSetName = "HRRISdbDataSet3"
+        Me.HRRISdbDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BookingTableAdapter1
+        '
+        Me.BookingTableAdapter1.ClearBeforeFill = True
         '
         'Booking
         '
@@ -631,8 +631,8 @@ Partial Class Booking
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

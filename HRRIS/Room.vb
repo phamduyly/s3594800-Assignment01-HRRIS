@@ -184,7 +184,7 @@ Public Class Room
         Catch ex As Exception
             MsgBox("End of Record")
         End Try
-       
+
     End Sub
 
     Private Sub btnPrevious_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrevious.Click
@@ -210,7 +210,7 @@ Public Class Room
         Catch ex As Exception
             MsgBox("Very first record")
         End Try
-        
+
     End Sub
 
     Private Sub btnLast_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLast.Click

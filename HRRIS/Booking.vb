@@ -21,11 +21,15 @@ Public Class Booking
         'TODO: This line of code loads data into the 'HRRISdbDataSet1.booking' table. You can move, or remove it, as needed.
         Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet1.booking)
 
+        Dim oController As BookingDataController = New BookingDataController
+        Dim lsData = oController.BookingfindALl()
+        lsData = oController.BookingfindALl()
+
         'Combobox room - traacking data from database and populate to the box
         txtRoomID.DropDownStyle = ComboBoxStyle.DropDownList
-        Dim oController As RoomDataController = New RoomDataController
-        Dim lsData = oController.RoomfindALl()
-        For Each Room In lsData
+        Dim oController1 As RoomDataController = New RoomDataController
+        Dim lsData1 = oController1.RoomfindALl()
+        For Each Room In lsData1
 
             txtRoomID.Items.Add(CStr(Room("type")))
 
@@ -35,11 +39,10 @@ Public Class Booking
         'main point: show name , import id
         txtCusId.DropDownStyle = ComboBoxStyle.DropDownList
         Dim ooController As CustomerDataController = New CustomerDataController
-        Dim lsData1 = ooController.CusfindALl()
-        For Each Customer In lsData1
+        Dim lsData3 = ooController.CusfindALl()
+        For Each Customer In lsData3
 
             txtCusId.Items.Add(CStr(Customer("firstname")))
-
 
         Next
 
@@ -60,16 +63,24 @@ Public Class Booking
 
 
     End Sub
-
+    'Combo box part - using txt inorder to keep track on and modify the code less 
     Private Sub txtRoomID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtRoomID.SelectedIndexChanged
 
         Dim selectedIndex As Integer = txtRoomID.SelectedIndex
         Dim selectedItem As Object = txtRoomID.SelectedItem
 
-        Debug.Print(selectedIndex.ToString())
+        MsgBox("Room ID is: " & selectedIndex.ToString())
         Debug.Print(selectedItem.ToString())
 
 
+    End Sub
+
+    Private Sub txtCusId_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCusId.SelectedIndexChanged
+        Dim selectedIndex1 As Integer = txtCusId.SelectedIndex
+        Dim selectedItem1 As Object = txtCusId.SelectedItem
+
+        MsgBox("Customer ID is: " & selectedIndex1.ToString())
+        Debug.Print(selectedItem1.ToString())
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
@@ -106,7 +117,7 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        bIsValid = IsNumeric(txtCusId.Text)
+        bIsValid = oValidation.IsNameRight(txtCusId.Text)
         If bIsValid Then
             PicCusID.Visible = False
         Else
@@ -239,6 +250,7 @@ Public Class Booking
     ''' <param name="e"></param>
     ''' <remarks></remarks>
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
+
         Dim htData As Hashtable
         Dim iIndex As Integer
         iIndex = 0
@@ -265,24 +277,29 @@ Public Class Booking
     End Sub
 
     Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = iCurrentIndex + 1
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateBookingFields(lsData.Item(iIndex))
+        Try
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = iCurrentIndex + 1
+            iCurrentIndex = iIndex
+            htData = lsData.Item(iIndex)
+            populateBookingFields(lsData.Item(iIndex))
 
-        Dim sBookingsDetails As String
-        sBookingsDetails = CStr(htData("booking_id"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("booking_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("type"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("firstname"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_days"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_guests"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("checkin_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("total_price"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("comments"))
-        Debug.Print("Booking Details: " & vbCrLf & sBookingsDetails)
+            Dim sBookingsDetails As String
+            sBookingsDetails = CStr(htData("booking_id"))
+            sBookingsDetails = sBookingsDetails & " | " & CDate(htData("booking_date"))
+            sBookingsDetails = sBookingsDetails & " | " & CStr(htData("type"))
+            sBookingsDetails = sBookingsDetails & " | " & CStr(htData("firstname"))
+            sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_days"))
+            sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_guests"))
+            sBookingsDetails = sBookingsDetails & " | " & CDate(htData("checkin_date"))
+            sBookingsDetails = sBookingsDetails & " | " & CInt(htData("total_price"))
+            sBookingsDetails = sBookingsDetails & " | " & CStr(htData("comments"))
+            Debug.Print("Booking Details: " & vbCrLf & sBookingsDetails)
+        Catch ex As Exception
+            MsgBox("end of record")
+        End Try
+        
 
 
     End Sub
@@ -381,13 +398,15 @@ Public Class Booking
 
         txtID.Text = CStr(CInt(bookingData("booking_id")))
         txtDate.Text = CStr(CDate(bookingData("booking_date")))
-        txtRoomID.Text = CStr(CStr(bookingData("type")))
-        txtCusId.Text = CStr(CStr(bookingData("firstname")))
+        txtRoomID.SelectedText = CStr(CStr(bookingData("type")))
+        txtCusId.SelectedText = CStr(CStr(bookingData("firstname")))
         txtStay.Text = CStr(CInt(bookingData("num_days")))
         txtGuesNum.Text = CStr(CInt(bookingData("num_guests")))
         txtCheckinDate.Text = CStr(CDate(bookingData("checkin_date")))
         txtPrice.Text = CStr(CInt(bookingData("total_price")))
         txtCmt.Text = CStr(CStr(bookingData("comments")))
+
+
 
 
 
@@ -424,4 +443,6 @@ Public Class Booking
         Return BookingData
 
     End Function
+
+
 End Class
