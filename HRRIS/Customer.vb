@@ -11,8 +11,6 @@ Imports System.IO
 
 Public Class Customer
 
-
-
     'moving between record section
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
@@ -20,6 +18,7 @@ Public Class Customer
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet2.customer' table. You can move, or remove it, as needed.
         Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet2.customer)
+        Me.Refresh()
         'moving between record section
         Dim MoveRecord As CustomerDataController = New CustomerDataController
         lsData = MoveRecord.CusfindALl()
@@ -95,7 +94,7 @@ Public Class Customer
             bAllFieldsValid = False
         End If
 
-        bIsValid = IsNumeric(txtCusPhone.Text)
+        bIsValid = oValidation.isPhoneVal(txtCusPhone.Text)
         If bIsValid Then
             PicPhone.Visible = False
 
@@ -104,7 +103,7 @@ Public Class Customer
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isAlphaNumericVal(txtCusAdd.Text)
+        bIsValid = oValidation.isAddressRight(txtCusAdd.Text)
         If bIsValid Then
             PicAddr.Visible = False
         Else
@@ -135,12 +134,17 @@ Public Class Customer
             MsgBox("Please recheck input at where error pop up appear")
         End If
 
-        Return bAllFieldsValid
+        Return bAllFieldsValid = True
 
 
 
     End Function
-
+    ''' <summary>
+    '''  menu part - inserting data using menu
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
         Dim bIsValid = CusValid()
 
@@ -162,44 +166,50 @@ Public Class Customer
 
         End If
     End Sub
-
+    ''' <summary>
+    ''' Navigation part - menu
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    ''' <remarks></remarks>
     Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
 
         Dim room1 As New Room
         room1.ShowDialog()
-        Me.Hide()
-       
+
+
     End Sub
 
     Private Sub BookingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BookingToolStripMenuItem.Click
 
         Dim booking1 As New Booking
         booking1.ShowDialog()
-        Me.Hide()
+
     End Sub
 
     'CRUD
     'Moving between records
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = 0
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateCusFields(lsData.Item(iIndex))
+      
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = 0
+            iCurrentIndex = iIndex
+            htData = lsData.Item(iIndex)
+            populateCusFields(lsData.Item(iIndex))
 
-        Dim sCusDetails As String
-        sCusDetails = CStr(htData("customer_id"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-        sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-        Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
-
+            Dim sCusDetails As String
+            sCusDetails = CStr(htData("customer_id"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("title"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("address"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("email"))
+            sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
+            Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
+        
 
 
 
@@ -207,51 +217,62 @@ Public Class Customer
     End Sub
 
     Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = iCurrentIndex + 1
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateCusFields(lsData.Item(iIndex))
+        Try
 
-        Dim sCusDetails As String
-        sCusDetails = CStr(htData("customer_id"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-        sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-        Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = iCurrentIndex + 1
+            iCurrentIndex = iIndex
+            htData = lsData.Item(iIndex)
+            populateCusFields(lsData.Item(iIndex))
+
+            Dim sCusDetails As String
+            sCusDetails = CStr(htData("customer_id"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("title"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("address"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("email"))
+            sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
+            Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
+        Catch ex As Exception
+            MsgBox("End of record")
+        End Try
+
 
     End Sub
 
     Private Sub btnPrevious_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrevious.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = iCurrentIndex - 1
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateCusFields(lsData.Item(iIndex))
+        Try
 
-        Dim sCusDetails As String
-        sCusDetails = CStr(htData("customer_id"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-        sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-        Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = iCurrentIndex - 1
+            iCurrentIndex = iIndex
+            htData = lsData.Item(iIndex)
+            populateCusFields(lsData.Item(iIndex))
 
+            Dim sCusDetails As String
+            sCusDetails = CStr(htData("customer_id"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("title"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("address"))
+            sCusDetails = sCusDetails & " | " & CStr(htData("email"))
+            sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
+            Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
+        Catch ex As Exception
+            MsgBox("Very first record")
+        End Try
 
     End Sub
 
     Private Sub btnLast_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLast.Click
+
         Dim htData As Hashtable
         Dim iIndex As Integer
         iIndex = lsData.Count - 1
@@ -270,6 +291,8 @@ Public Class Customer
         sCusDetails = sCusDetails & " | " & CStr(htData("email"))
         sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
         Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
+
+
 
 
     End Sub

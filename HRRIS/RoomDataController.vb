@@ -111,7 +111,7 @@ Public Class RoomDataController
             oCommand.Connection = oConnection
             oCommand.CommandText = "SELECT * FROM room WHERE room_id = ?;"
             oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
-            oCommand.Parameters("room_id").Value = CInt(sId)
+            oCommand.Parameters("room_id").Value = CStr(sId)
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
 

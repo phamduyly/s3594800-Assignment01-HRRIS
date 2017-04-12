@@ -18,6 +18,7 @@ Public Class Room
     Private Sub Room_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet.room' table. You can move, or remove it, as needed.
         Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
+        Me.Refresh()
         ' moving betweeen record section
         Dim MoveRecord As RoomDataController = New RoomDataController
         lsData = MoveRecord.RoomfindALl()
@@ -31,9 +32,7 @@ Public Class Room
 
     End Sub
 
-    Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-    End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim bIsValid1 = valid()
@@ -130,7 +129,7 @@ Public Class Room
             MsgBox("Please recheck data where the error pop-up appear")
         End If
 
-        Return bAllFieldsValid
+        Return bAllFieldsValid = True
 
     End Function
 
@@ -138,6 +137,7 @@ Public Class Room
 
     'New added features - for assignment 2: Delete , Find all,  
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
+
         Dim htData As Hashtable
         Dim iIndex As Integer
         iIndex = 0
@@ -145,6 +145,8 @@ Public Class Room
         htData = lsData.Item(iIndex)
         populateRoomsFields(lsData.Item(iIndex))
 
+
+        ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
         Dim sRoomsDetails As String
         sRoomsDetails = CStr(htData("room_id"))
         sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
@@ -160,43 +162,55 @@ Public Class Room
     End Sub
 
     Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = iCurrentIndex + 1
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateRoomsFields(lsData.Item(iIndex))
+        Try
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = iCurrentIndex + 1
+            iCurrentIndex = iIndex
+            htData = lsData.Item(iIndex)
+            populateRoomsFields(lsData.Item(iIndex))
 
-        Dim sRoomsDetails As String
-        sRoomsDetails = CStr(htData("room_id"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
-        Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
+            ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
+            Dim sRoomsDetails As String
+            sRoomsDetails = CStr(htData("room_id"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
+            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
+            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
+            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
+            Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
+        Catch ex As Exception
+            MsgBox("End of Record")
+        End Try
+       
     End Sub
 
     Private Sub btnPrevious_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrevious.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = iCurrentIndex - 1
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateRoomsFields(lsData.Item(iIndex))
+        Try
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = iCurrentIndex - 1
+            iCurrentIndex = iIndex
+            htData = lsData.Item(iIndex)
+            populateRoomsFields(lsData.Item(iIndex))
 
-        Dim sRoomsDetails As String
-        sRoomsDetails = CStr(htData("room_id"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
-        Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
+            ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
+            Dim sRoomsDetails As String
+            sRoomsDetails = CStr(htData("room_id"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
+            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
+            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
+            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
+            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
+            Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
+        Catch ex As Exception
+            MsgBox("Very first record")
+        End Try
+        
     End Sub
 
     Private Sub btnLast_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLast.Click
@@ -207,6 +221,7 @@ Public Class Room
         htData = lsData.Item(iIndex)
         populateRoomsFields(lsData.Item(iIndex))
 
+        ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
         Dim sRoomsDetails As String
         sRoomsDetails = CStr(htData("room_id"))
         sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
@@ -239,11 +254,11 @@ Public Class Room
 
         txtRmID.Clear()
         txtRmNum.Clear()
-        txtRmType.Clear()
+        txtRmType.Items.Clear()
         txtRmPrice.Clear()
         txtRmBedNum.Clear()
-        txtRmAva.Clear()
-        txtRmFl.Clear()
+        txtRmAva.Items.Clear()
+        txtRmFl.Items.Clear()
         txtRmDes.Clear()
 
     End Sub

@@ -45,6 +45,7 @@ Public Class CustomerDataController
             Debug.Print("SQL:" & oCommand.CommandText)
             oCommand.ExecuteNonQuery()
             MsgBox("the data is imported")
+            oConection.Close()
         Catch ex As Exception
             MsgBox("data input fail")
         End Try

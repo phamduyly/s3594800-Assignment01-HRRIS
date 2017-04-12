@@ -25,7 +25,6 @@ Partial Class Room
         Me.components = New System.ComponentModel.Container()
         Me.txtRmDes = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtRmFl = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -41,9 +40,7 @@ Partial Class Room
         Me.PicRmPrice = New System.Windows.Forms.PictureBox()
         Me.PicRmNum = New System.Windows.Forms.PictureBox()
         Me.PicRmID = New System.Windows.Forms.PictureBox()
-        Me.txtRmType = New System.Windows.Forms.TextBox()
         Me.txtRmBedNum = New System.Windows.Forms.TextBox()
-        Me.txtRmAva = New System.Windows.Forms.TextBox()
         Me.PicRmFl = New System.Windows.Forms.PictureBox()
         Me.PicRmType = New System.Windows.Forms.PictureBox()
         Me.PicRmAva = New System.Windows.Forms.PictureBox()
@@ -60,15 +57,12 @@ Partial Class Room
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HRRISdbDataSet = New WindowsApplication1.HRRISdbDataSet()
-        Me.RoomBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.RoomTableAdapter = New WindowsApplication1.HRRISdbDataSetTableAdapters.roomTableAdapter()
         Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoomnumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -77,6 +71,12 @@ Partial Class Room
         Me.AvailabilityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FloorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoomBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HRRISdbDataSet = New WindowsApplication1.HRRISdbDataSet()
+        Me.RoomTableAdapter = New WindowsApplication1.HRRISdbDataSetTableAdapters.roomTableAdapter()
+        Me.txtRmType = New System.Windows.Forms.ComboBox()
+        Me.txtRmAva = New System.Windows.Forms.ComboBox()
+        Me.txtRmFl = New System.Windows.Forms.ComboBox()
         CType(Me.PicRmBedNum, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,8 +87,8 @@ Partial Class Room
         CType(Me.PicRmDes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtRmDes
@@ -106,13 +106,6 @@ Partial Class Room
         Me.Label8.Size = New System.Drawing.Size(60, 13)
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "Description"
-        '
-        'txtRmFl
-        '
-        Me.txtRmFl.Location = New System.Drawing.Point(134, 249)
-        Me.txtRmFl.Name = "txtRmFl"
-        Me.txtRmFl.Size = New System.Drawing.Size(343, 20)
-        Me.txtRmFl.TabIndex = 30
         '
         'Label7
         '
@@ -248,26 +241,12 @@ Partial Class Room
         Me.PicRmID.TabStop = False
         Me.PicRmID.Visible = False
         '
-        'txtRmType
-        '
-        Me.txtRmType.Location = New System.Drawing.Point(134, 105)
-        Me.txtRmType.Name = "txtRmType"
-        Me.txtRmType.Size = New System.Drawing.Size(343, 20)
-        Me.txtRmType.TabIndex = 54
-        '
         'txtRmBedNum
         '
         Me.txtRmBedNum.Location = New System.Drawing.Point(134, 183)
         Me.txtRmBedNum.Name = "txtRmBedNum"
         Me.txtRmBedNum.Size = New System.Drawing.Size(343, 20)
         Me.txtRmBedNum.TabIndex = 55
-        '
-        'txtRmAva
-        '
-        Me.txtRmAva.Location = New System.Drawing.Point(134, 218)
-        Me.txtRmAva.Name = "txtRmAva"
-        Me.txtRmAva.Size = New System.Drawing.Size(343, 20)
-        Me.txtRmAva.TabIndex = 56
         '
         'PicRmFl
         '
@@ -400,14 +379,20 @@ Partial Class Room
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
+        '
+        'RoomToolStripMenuItem
+        '
+        Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.RoomToolStripMenuItem.Text = "Room"
         '
         'EditToolStripMenuItem
         '
@@ -433,12 +418,6 @@ Partial Class Room
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'RoomToolStripMenuItem
-        '
-        Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RoomToolStripMenuItem.Text = "Room"
-        '
         'DataGridView1
         '
         Me.DataGridView1.AutoGenerateColumns = False
@@ -449,20 +428,6 @@ Partial Class Room
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(845, 150)
         Me.DataGridView1.TabIndex = 71
-        '
-        'HRRISdbDataSet
-        '
-        Me.HRRISdbDataSet.DataSetName = "HRRISdbDataSet"
-        Me.HRRISdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'RoomBindingSource
-        '
-        Me.RoomBindingSource.DataMember = "room"
-        Me.RoomBindingSource.DataSource = Me.HRRISdbDataSet
-        '
-        'RoomTableAdapter
-        '
-        Me.RoomTableAdapter.ClearBeforeFill = True
         '
         'RoomidDataGridViewTextBoxColumn
         '
@@ -512,11 +477,55 @@ Partial Class Room
         Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "description"
         Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
         '
+        'RoomBindingSource
+        '
+        Me.RoomBindingSource.DataMember = "room"
+        Me.RoomBindingSource.DataSource = Me.HRRISdbDataSet
+        '
+        'HRRISdbDataSet
+        '
+        Me.HRRISdbDataSet.DataSetName = "HRRISdbDataSet"
+        Me.HRRISdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'RoomTableAdapter
+        '
+        Me.RoomTableAdapter.ClearBeforeFill = True
+        '
+        'txtRmType
+        '
+        Me.txtRmType.FormattingEnabled = True
+        Me.txtRmType.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
+        Me.txtRmType.Location = New System.Drawing.Point(134, 105)
+        Me.txtRmType.Name = "txtRmType"
+        Me.txtRmType.Size = New System.Drawing.Size(343, 21)
+        Me.txtRmType.TabIndex = 72
+        '
+        'txtRmAva
+        '
+        Me.txtRmAva.FormattingEnabled = True
+        Me.txtRmAva.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
+        Me.txtRmAva.Location = New System.Drawing.Point(134, 217)
+        Me.txtRmAva.Name = "txtRmAva"
+        Me.txtRmAva.Size = New System.Drawing.Size(343, 21)
+        Me.txtRmAva.TabIndex = 73
+        '
+        'txtRmFl
+        '
+        Me.txtRmFl.FormattingEnabled = True
+        Me.txtRmFl.Items.AddRange(New Object() {"1", "2", "3", "4"})
+        Me.txtRmFl.Location = New System.Drawing.Point(134, 253)
+        Me.txtRmFl.Name = "txtRmFl"
+        Me.txtRmFl.Size = New System.Drawing.Size(343, 21)
+        Me.txtRmFl.TabIndex = 74
+        '
         'Room
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(891, 541)
+        Me.Controls.Add(Me.txtRmFl)
+        Me.Controls.Add(Me.txtRmAva)
+        Me.Controls.Add(Me.txtRmType)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnFind)
@@ -530,9 +539,7 @@ Partial Class Room
         Me.Controls.Add(Me.PicRmAva)
         Me.Controls.Add(Me.PicRmType)
         Me.Controls.Add(Me.PicRmFl)
-        Me.Controls.Add(Me.txtRmAva)
         Me.Controls.Add(Me.txtRmBedNum)
-        Me.Controls.Add(Me.txtRmType)
         Me.Controls.Add(Me.PicRmBedNum)
         Me.Controls.Add(Me.PicRmPrice)
         Me.Controls.Add(Me.PicRmNum)
@@ -540,7 +547,6 @@ Partial Class Room
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtRmDes)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.txtRmFl)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -566,15 +572,14 @@ Partial Class Room
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents txtRmDes As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txtRmFl As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -590,9 +595,7 @@ Partial Class Room
     Friend WithEvents PicRmPrice As System.Windows.Forms.PictureBox
     Friend WithEvents PicRmNum As System.Windows.Forms.PictureBox
     Friend WithEvents PicRmID As System.Windows.Forms.PictureBox
-    Friend WithEvents txtRmType As System.Windows.Forms.TextBox
     Friend WithEvents txtRmBedNum As System.Windows.Forms.TextBox
-    Friend WithEvents txtRmAva As System.Windows.Forms.TextBox
     Friend WithEvents PicRmFl As System.Windows.Forms.PictureBox
     Friend WithEvents PicRmType As System.Windows.Forms.PictureBox
     Friend WithEvents PicRmAva As System.Windows.Forms.PictureBox
@@ -626,4 +629,7 @@ Partial Class Room
     Friend WithEvents AvailabilityDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FloorDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtRmType As System.Windows.Forms.ComboBox
+    Friend WithEvents txtRmAva As System.Windows.Forms.ComboBox
+    Friend WithEvents txtRmFl As System.Windows.Forms.ComboBox
 End Class

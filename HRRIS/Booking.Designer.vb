@@ -32,7 +32,6 @@ Partial Class Booking
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtStay = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtCusId = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -68,7 +67,14 @@ Partial Class Booking
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HRRISdbDataSet1 = New WindowsApplication1.HRRISdbDataSet1()
+        Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
+        Me.txtCusId = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
+        Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
         Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -78,9 +84,6 @@ Partial Class Booking
         Me.CheckindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalpriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HRRISdbDataSet1 = New WindowsApplication1.HRRISdbDataSet1()
-        Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,9 +94,11 @@ Partial Class Booking
         CType(Me.PicDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCmt
@@ -168,13 +173,6 @@ Partial Class Booking
         Me.Label5.Size = New System.Drawing.Size(67, 13)
         Me.Label5.TabIndex = 27
         Me.Label5.Text = "Staying days"
-        '
-        'txtCusId
-        '
-        Me.txtCusId.Location = New System.Drawing.Point(142, 143)
-        Me.txtCusId.Name = "txtCusId"
-        Me.txtCusId.Size = New System.Drawing.Size(343, 20)
-        Me.txtCusId.TabIndex = 26
         '
         'Label4
         '
@@ -432,19 +430,19 @@ Partial Class Booking
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.BookingToolStripMenuItem.Text = "New Booking"
         '
         'EditToolStripMenuItem
@@ -471,16 +469,53 @@ Partial Class Booking
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
         Me.AboutToolStripMenuItem.Text = "About "
         '
+        'BookingBindingSource
+        '
+        Me.BookingBindingSource.DataMember = "booking"
+        Me.BookingBindingSource.DataSource = Me.HRRISdbDataSet1
+        '
+        'HRRISdbDataSet1
+        '
+        Me.HRRISdbDataSet1.DataSetName = "HRRISdbDataSet1"
+        Me.HRRISdbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BookingTableAdapter
+        '
+        Me.BookingTableAdapter.ClearBeforeFill = True
+        '
+        'txtCusId
+        '
+        Me.txtCusId.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.txtCusId.FormattingEnabled = True
+        Me.txtCusId.Location = New System.Drawing.Point(142, 146)
+        Me.txtCusId.Name = "txtCusId"
+        Me.txtCusId.Size = New System.Drawing.Size(343, 21)
+        Me.txtCusId.TabIndex = 68
+        '
         'DataGridView1
         '
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingidDataGridViewTextBoxColumn, Me.BookingdateDataGridViewTextBoxColumn, Me.RoomidDataGridViewTextBoxColumn, Me.CustomeridDataGridViewTextBoxColumn, Me.NumdaysDataGridViewTextBoxColumn, Me.NumguestsDataGridViewTextBoxColumn, Me.CheckindateDataGridViewTextBoxColumn, Me.TotalpriceDataGridViewTextBoxColumn, Me.CommentsDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.BookingBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(35, 386)
+        Me.DataGridView1.DataSource = Me.BookingBindingSource1
+        Me.DataGridView1.Location = New System.Drawing.Point(35, 406)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(940, 150)
-        Me.DataGridView1.TabIndex = 67
+        Me.DataGridView1.TabIndex = 69
+        '
+        'HRRISdbDataSet3
+        '
+        Me.HRRISdbDataSet3.DataSetName = "HRRISdbDataSet3"
+        Me.HRRISdbDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BookingBindingSource1
+        '
+        Me.BookingBindingSource1.DataMember = "booking"
+        Me.BookingBindingSource1.DataSource = Me.HRRISdbDataSet3
+        '
+        'BookingTableAdapter1
+        '
+        Me.BookingTableAdapter1.ClearBeforeFill = True
         '
         'BookingidDataGridViewTextBoxColumn
         '
@@ -536,26 +571,13 @@ Partial Class Booking
         Me.CommentsDataGridViewTextBoxColumn.HeaderText = "comments"
         Me.CommentsDataGridViewTextBoxColumn.Name = "CommentsDataGridViewTextBoxColumn"
         '
-        'BookingBindingSource
-        '
-        Me.BookingBindingSource.DataMember = "booking"
-        Me.BookingBindingSource.DataSource = Me.HRRISdbDataSet1
-        '
-        'HRRISdbDataSet1
-        '
-        Me.HRRISdbDataSet1.DataSetName = "HRRISdbDataSet1"
-        Me.HRRISdbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BookingTableAdapter
-        '
-        Me.BookingTableAdapter.ClearBeforeFill = True
-        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 544)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.txtCusId)
         Me.Controls.Add(Me.btnLast)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnPrevious)
@@ -586,7 +608,6 @@ Partial Class Booking
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtStay)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.txtCusId)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -607,9 +628,11 @@ Partial Class Booking
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -623,7 +646,6 @@ Partial Class Booking
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtStay As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtCusId As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -659,10 +681,14 @@ Partial Class Booking
     Friend WithEvents CustomerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BookingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents HRRISdbDataSet1 As WindowsApplication1.HRRISdbDataSet1
     Friend WithEvents BookingBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents BookingTableAdapter As WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter
+    Friend WithEvents txtCusId As System.Windows.Forms.ComboBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents HRRISdbDataSet3 As WindowsApplication1.HRRISdbDataSet3
+    Friend WithEvents BookingBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents BookingTableAdapter1 As WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter
     Friend WithEvents BookingidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents BookingdateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents RoomidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
