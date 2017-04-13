@@ -10,7 +10,7 @@ Imports System.Data.OleDb
 Imports System.IO
 
 Public Class BookingDataController
-    Public Const CONNECTION_STRING As String = _
+    Public Const CONNECTION_STRING As String =
    "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
 
     'booking ms access data insert 
@@ -156,7 +156,59 @@ Public Class BookingDataController
 
         Return lsData
     End Function
+    'Cus Report fro checking and booking date 
+    Public Function CusbyId(ByVal sCusId As String) As List(Of Hashtable)
 
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        'Try
+        oConnection.Open()
+        Debug.Print("Connection String: " & oConnection.ConnectionString)
+        'st wrong here
+
+        Dim oCommand As OleDbCommand = New OleDbCommand
+        oCommand.Connection = oConnection
+
+        oCommand.CommandText = "SELECT checkin_date, booking_date FROM booking WHERE customer_id = ?;"
+        'st wrong here
+        'SQL cmd is red in F8 
+        oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
+        oCommand.Parameters("customer_id").Value = CInt(sCusId)
+        oCommand.Prepare()
+
+
+
+        Dim oDataReader = oCommand.ExecuteReader()
+
+        Dim htTempData As Hashtable
+
+        Do While oDataReader.Read() = True
+            htTempData = New Hashtable
+            'since the SQL only retrive 3 value, try delete value that not in sql cmd
+            'htTempData value = 0 (Wrong)
+            'htTempData("customer_id") = CInt(CStr(oDataReader("customer_id")))
+            'This have problem - clue: bc of data type - not figure out yet. When put it a side the report run smooth as f
+            htTempData("booking_date") = CDate(oDataReader("booking_date"))
+            htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
+
+            lsData.Add(htTempData)
+        Loop
+
+        Debug.Print("the record was found.")
+
+
+
+        'Catch ex As Exception
+        '    Debug.Print("ERROR: " & ex.Message)
+        '    MsgBox("an error occured. The record(s) could not be found")
+        'Finally
+        '    oConnection.Close()
+
+        'End Try
+
+        Return lsData
+    End Function
     'CRUD room data 
     'room update
     Public Function BookingsUpdate(ByVal bookingData As Hashtable) As Integer
@@ -254,11 +306,13 @@ Public Class BookingDataController
     '<summary
     'Generate report by Customer ID - Require: Booking Date & Last time booked
     '</summary>
-    Public Sub createReport01()
+    Public Sub createReport01(ByVal sCusId As String)
+        'Note: by val sCusID is important becasue it dim the value which will be use for the function
+        'which is very needed
 
         Debug.Print("Create Report ... ")
 
-        Dim lsData = BookingfindALl()
+        Dim lsData = CusbyId(sCusId)
         Dim sReportTitle = "Customer booking Report by ..."
 
         Dim sReportContent = generateCusReportId(lsData, sReportTitle)
@@ -359,6 +413,11 @@ Public Class BookingDataController
 
         Return sTable
     End Function
+
+    'Create a form or whatever to input parameter to conduct report 
+    'sql statement for report :
+    '1.Roomnumber = ? , 
+    ' SELECT 
 
 End Class
 

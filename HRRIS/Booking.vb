@@ -90,9 +90,9 @@ Public Class Booking
 
             Dim bookingData As Hashtable = New Hashtable
 
-            bookingData("customer_id") = cboCusId.SelectedItem
+            bookingData("customer_id") = cboCusId.SelectedIndex
             bookingData("booking_date") = txtDate.Text
-            bookingData("room_id") = cboRoomID.SelectedItem
+            bookingData("room_id") = cboRoomID.SelectedIndex
             bookingData("num_days") = cboStays.Text
             bookingData("num_guests") = cboGuestNum.Text
             bookingData("checkin_date") = txtCheckinDate.Text
@@ -399,13 +399,12 @@ Public Class Booking
     End Sub
 
     Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
+
         Dim GenerateCusReportByID As BookingDataController = New BookingDataController
+        Dim sCusId = cboCusId.SelectedIndex
+        GenerateCusReportByID.createReport01(CStr(sCusId))
 
-        If cboCusId.SelectedIndex = 1 Then
-            GenerateCusReportByID.createReport01()
-        ElseIf cboCusId.SelectedIndex = 2 Then
 
-        End If
     End Sub
 
 
