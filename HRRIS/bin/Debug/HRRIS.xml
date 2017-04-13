@@ -27,15 +27,6 @@ HRRIS
 	<param name="sender"></param>
 	<param name="e"></param>
 	<remarks></remarks>
-</member><member name="M:WindowsApplication1.Booking.txtPrice_TextChanged(System.Object,System.EventArgs)">
-	<summary>
- Calculating price
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
- Need to fix this fucntion
-
 </member><member name="M:WindowsApplication1.Booking.btnFirst_Click(System.Object,System.EventArgs)">
 	<summary>
  CRUD fucntion 
@@ -43,6 +34,12 @@ HRRIS
 	<param name="sender"></param>
 	<param name="e"></param>
 	<remarks></remarks>
+</member><member name="M:WindowsApplication1.Booking.txtPrice_Leave(System.Object,System.EventArgs)">
+	<summary>
+ Calculating done - add more elseif inorder to provide more right calculation
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
 </member><member name="T:WindowsApplication1.HRRISdbDataSet2.customerDataTable">
 	<summary>
 Represents the strongly named DataTable class.

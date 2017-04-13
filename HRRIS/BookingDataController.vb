@@ -103,7 +103,7 @@ Public Class BookingDataController
         Return lsData
 
     End Function
-
+    'Done after fixing the database collum and type which relating to the Database 
     Public Function BookingsFindById(ByVal sId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
@@ -131,8 +131,8 @@ Public Class BookingDataController
             htTempData = New Hashtable
             htTempData("booking_id") = CInt(oDataReader("booking_id"))
             htTempData("booking_date") = CDate(oDataReader("booking_date"))
-            htTempData("type") = CInt(oDataReader("type"))
-            htTempData("firstname") = CInt(oDataReader("firstname"))
+            htTempData("room_id") = CInt(oDataReader("room_id"))
+            htTempData("customer_id") = CInt(oDataReader("customer_id"))
             htTempData("num_days") = CInt(oDataReader("num_days"))
             htTempData("num_guests") = CInt(oDataReader("num_guests"))
             htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
@@ -214,7 +214,7 @@ Public Class BookingDataController
     End Function
 
     'Delete a record lab 5.4
-
+    ' Delete seems to be working 
     Public Function BookingsDelete(ByVal sId As String) As Integer
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)

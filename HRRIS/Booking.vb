@@ -1,4 +1,4 @@
-Option Strict On
+
 Option Explicit On
 
 
@@ -11,89 +11,88 @@ Imports System.IO
 
 Public Class Booking
     ' this code is for navigation between form
-    Dim lsData As New List(Of Hashtable)
+
+    Dim lsDataMov As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
 
 
     Private Sub Booking_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet3.booking' table. You can move, or remove it, as needed.
         Me.BookingTableAdapter1.Fill(Me.HRRISdbDataSet3.booking)
-        'TODO: This line of code loads data into the 'HRRISdbDataSet1.booking' table. You can move, or remove it, as needed.
-        Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet1.booking)
+        Me.Refresh()
 
-        Dim oController As BookingDataController = New BookingDataController
-        Dim lsData = oController.BookingfindALl()
-        lsData = oController.BookingfindALl()
 
-        'Combobox room - traacking data from database and populate to the box
-        txtRoomID.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim Moving As BookingDataController = New BookingDataController
+        lsDataMov = Moving.BookingfindALl()
+
+        'Combobox room - traacking data from database and populate() to the box
+        'TODO: import ID while showing type"
+        cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
         Dim oController1 As RoomDataController = New RoomDataController
         Dim lsData1 = oController1.RoomfindALl()
         For Each Room In lsData1
-
-            txtRoomID.Items.Add(CStr(Room("type")))
-
+            cboRoomID.Items.Add(CStr(Room("type")))
         Next
 
-        'Comboxbox cusID - traacking data from database and populate to the box
+        'Comboxbox cusID - traacking data from database and populate() to the box
         'main point: show name , import id
-        txtCusId.DropDownStyle = ComboBoxStyle.DropDownList
+        cboCusId.DropDownStyle = ComboBoxStyle.DropDownList
         Dim ooController As CustomerDataController = New CustomerDataController
         Dim lsData3 = ooController.CusfindALl()
         For Each Customer In lsData3
-
-            txtCusId.Items.Add(CStr(Customer("firstname")))
-
+            cboCusId.Items.Add(CStr(Customer("firstname")))
         Next
 
         'allow to gain from ROOm id with room type
-        Dim selectedIndex As Integer = txtRoomID.SelectedIndex
-        Dim selectedItem As Object = txtRoomID.SelectedItem
+        Dim selectedIndex As Integer = cboRoomID.SelectedIndex
+        Dim selectedItem As Object = cboRoomID.SelectedItem
 
-        Dim selectedIndex1 As Integer = txtCusId.SelectedIndex
-        Dim selectedItem1 As Object = txtCusId.SelectedItem
+        Dim selectedIndex1 As Integer = cboCusId.SelectedIndex
+        Dim selectedItem1 As Object = cboCusId.SelectedItem
 
-        'populate data when open
+        'populate() data when open - populateBookingFields()
         Dim htData As Hashtable
         Dim iIndex As Integer
         iIndex = 0
         iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateBookingFields(lsData.Item(iIndex))
+        htData = lsDataMov.Item(iIndex)
+        populateBookingFields(lsDataMov.Item(iIndex))
+
+
 
 
     End Sub
     'Combo box part - using txt inorder to keep track on and modify the code less 
-    Private Sub txtRoomID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtRoomID.SelectedIndexChanged
+    Private Sub txtRoomID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboRoomID.SelectedIndexChanged
 
-        Dim selectedIndex As Integer = txtRoomID.SelectedIndex
-        Dim selectedItem As Object = txtRoomID.SelectedItem
+        Dim selectedIndex As Integer = cboRoomID.SelectedIndex
+        Dim selectedItem As Object = cboRoomID.SelectedItem
 
         MsgBox("Room ID is: " & selectedIndex.ToString())
-        Debug.Print(selectedItem.ToString())
+
 
 
     End Sub
 
-    Private Sub txtCusId_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtCusId.SelectedIndexChanged
-        Dim selectedIndex1 As Integer = txtCusId.SelectedIndex
-        Dim selectedItem1 As Object = txtCusId.SelectedItem
+    Private Sub txtCusId_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCusId.SelectedIndexChanged
+        Dim selectedIndex1 As Integer = cboCusId.SelectedIndex
+        Dim selectedItem1 As Object = cboCusId.SelectedItem
 
         MsgBox("Customer ID is: " & selectedIndex1.ToString())
-        Debug.Print(selectedItem1.ToString())
+
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
 
         Dim bIsValid = BookValid()
 
-        If bIsValid = True Then
+        If bIsValid Then
 
             Dim bookingData As Hashtable = New Hashtable
 
-            bookingData("customer_id") = txtCusId.SelectedIndex
+            bookingData("customer_id") = cboCusId.SelectedIndex
             bookingData("booking_date") = txtDate.Text
-            bookingData("room_id") = txtRoomID.SelectedIndex
+            bookingData("room_id") = cboRoomID.SelectedIndex
             bookingData("num_days") = txtStay.Text
             bookingData("num_guests") = txtGuesNum.Text
             bookingData("checkin_date") = txtCheckinDate.Text
@@ -117,7 +116,7 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        bIsValid = oValidation.IsNameRight(txtCusId.Text)
+        bIsValid = oValidation.IsNameRight(cboCusId.Text)
         If bIsValid Then
             PicCusID.Visible = False
         Else
@@ -125,7 +124,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isAlphaNumericVal(txtRoomID.Text)
+        bIsValid = oValidation.isAlphaNumericVal(cboRoomID.Text)
         If bIsValid Then
             PicRoomID.Visible = False
         Else
@@ -189,7 +188,7 @@ Public Class Booking
             MsgBox("Please recheck data where the error pop-up appear")
         End If
 
-        Return bAllFieldsValid = True
+        Return bAllFieldsValid
 
 
     End Function
@@ -204,43 +203,16 @@ Public Class Booking
 
         Dim customer2 As New Customer
         customer2.ShowDialog()
-        Me.Hide()
+
 
     End Sub
 
     Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
 
         Dim room2 As New Room
-        room2.ShowDialog()
-        Me.Hide()
-
-    End Sub
+        room2.Show()
 
 
-    ''' <summary>
-    ''' Calculating price
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    ''' Need to fix this fucntion
-    Private Sub txtPrice_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtPrice.TextChanged
-        If CBool((Trim(CStr(txtRoomID.Text <> String.Empty)))) Then
-
-            If txtRoomID.Text = "Normal" Then
-                Dim i As Integer = 30
-                txtPrice.Text = CStr((CInt(CDbl(txtStay.Text) * i)))
-            ElseIf txtRoomID.Text = "Deluxe" Then
-                Dim i As Integer = 40
-                txtPrice.Text = CStr((CInt(CDbl(txtStay.Text) * i)))
-            ElseIf txtRoomID.Text = "Luxury" Then
-                Dim i As Integer = 50
-                txtPrice.Text = CStr((CInt(CDbl(txtStay.Text) * i)))
-            Else
-                MsgBox("There are no room type, please reinput")
-            End If
-
-        End If
     End Sub
 
     ''' <summary>
@@ -255,23 +227,8 @@ Public Class Booking
         Dim iIndex As Integer
         iIndex = 0
         iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateBookingFields(lsData.Item(iIndex))
-
-        Dim sBookingsDetails As String
-        sBookingsDetails = CStr(htData("booking_id"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("booking_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("type"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("firstname"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_days"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_guests"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("checkin_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("total_price"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("comments"))
-        Debug.Print("Booking Details: " & vbCrLf & sBookingsDetails)
-
-
-
+        htData = lsDataMov.Item(iIndex)
+        populateBookingFields(lsDataMov.Item(iIndex))
 
 
     End Sub
@@ -282,79 +239,43 @@ Public Class Booking
             Dim iIndex As Integer
             iIndex = iCurrentIndex + 1
             iCurrentIndex = iIndex
-            htData = lsData.Item(iIndex)
-            populateBookingFields(lsData.Item(iIndex))
-
-            Dim sBookingsDetails As String
-            sBookingsDetails = CStr(htData("booking_id"))
-            sBookingsDetails = sBookingsDetails & " | " & CDate(htData("booking_date"))
-            sBookingsDetails = sBookingsDetails & " | " & CStr(htData("type"))
-            sBookingsDetails = sBookingsDetails & " | " & CStr(htData("firstname"))
-            sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_days"))
-            sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_guests"))
-            sBookingsDetails = sBookingsDetails & " | " & CDate(htData("checkin_date"))
-            sBookingsDetails = sBookingsDetails & " | " & CInt(htData("total_price"))
-            sBookingsDetails = sBookingsDetails & " | " & CStr(htData("comments"))
-            Debug.Print("Booking Details: " & vbCrLf & sBookingsDetails)
+            htData = lsDataMov.Item(iIndex)
+            populateBookingFields(lsDataMov.Item(iIndex))
         Catch ex As Exception
             MsgBox("end of record")
         End Try
-        
-
 
     End Sub
 
     Private Sub btnPrevious_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrevious.Click
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = iCurrentIndex - 1
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateBookingFields(lsData.Item(iIndex))
-
-        Dim sBookingsDetails As String
-        sBookingsDetails = CStr(htData("booking_id"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("booking_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("type"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("firstname"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_days"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_guests"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("checkin_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("total_price"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("comments"))
-        Debug.Print("Booking Details: " & vbCrLf & sBookingsDetails)
-
-
+        Try
+            Dim htData As Hashtable
+            Dim iIndex As Integer
+            iIndex = iCurrentIndex - 1
+            iCurrentIndex = iIndex
+            htData = lsDataMov.Item(iIndex)
+            populateBookingFields(lsDataMov.Item(iIndex))
+        Catch ex As Exception
+            MsgBox("Very first record")
+        End Try
+        
 
     End Sub
 
     Private Sub btnLast_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLast.Click
         Dim htData As Hashtable
         Dim iIndex As Integer
-        iIndex = lsData.Count - 1
+        iIndex = lsDataMov.Count - 1
         iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateBookingFields(lsData.Item(iIndex))
-
-        Dim sBookingsDetails As String
-        sBookingsDetails = CStr(htData("booking_id"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("booking_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("type"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("firstname"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_days"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("num_guests"))
-        sBookingsDetails = sBookingsDetails & " | " & CDate(htData("checkin_date"))
-        sBookingsDetails = sBookingsDetails & " | " & CInt(htData("total_price"))
-        sBookingsDetails = sBookingsDetails & " | " & CStr(htData("comments"))
-        Debug.Print("Booking Details: " & vbCrLf & sBookingsDetails)
-
-
+        htData = lsDataMov.Item(iIndex)
+        populateBookingFields(lsDataMov.Item(iIndex))
 
     End Sub
 
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As BookingDataController = New BookingDataController
         Dim sId = txtID.Text
+        Dim sureToDelte = DeleteValide()
         Dim iNumRows = oController.BookingsDelete(sId)
 
         If iNumRows = 1 Then
@@ -371,18 +292,29 @@ Public Class Booking
     Private Sub clearForm()
 
         txtID.Clear()
-        txtRoomID.Items.Clear()
-        txtCusId.Items.Clear()
+        cboRoomID.Items.Clear()
+        cboCusId.Items.Clear()
         txtStay.Clear()
         txtGuesNum.Clear()
         txtPrice.Clear()
         txtCmt.Clear()
 
     End Sub
+    ' Not really right but I beliveD I am in the right direction
+    Private Function DeleteValide() As Boolean
+        Dim Sure As Boolean = True
+        If Sure Then
+            MsgBox("Click OK to delete data")
+        Else
+            MsgBox("the Data have not been deleted ")
+        End If
+
+        Return Sure
+    End Function
 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
         Dim oControler As BookingDataController = New BookingDataController
-        Dim sId = txtCusID.Text
+        Dim sId = txtID.Text
         Dim lsData = oControler.BookingsFindById(sId)
 
         If lsData.Count = 1 Then
@@ -394,12 +326,13 @@ Public Class Booking
         End If
     End Sub
 
+    'Populate is still missing two combobox - try to figure out how to populate data into a cbo that relating to database dropdown list
     Private Sub populateBookingFields(ByRef bookingData As Hashtable)
 
         txtID.Text = CStr(CInt(bookingData("booking_id")))
         txtDate.Text = CStr(CDate(bookingData("booking_date")))
-        txtRoomID.SelectedText = CStr(CStr(bookingData("type")))
-        txtCusId.SelectedText = CStr(CStr(bookingData("firstname")))
+        cboRoomID.SelectedText = CStr(CStr(bookingData("type")))
+        cboCusId.SelectedText = CStr(CStr(bookingData("firstname")))
         txtStay.Text = CStr(CInt(bookingData("num_days")))
         txtGuesNum.Text = CStr(CInt(bookingData("num_guests")))
         txtCheckinDate.Text = CStr(CDate(bookingData("checkin_date")))
@@ -431,8 +364,8 @@ Public Class Booking
         'This part is suppiciosus
         BookingData("booking_id") = txtID.Text
         BookingData("booking_date") = txtDate.Text
-        BookingData("type") = txtRoomID.Text
-        BookingData("firstname") = txtCusId.Text
+        BookingData("type") = cboRoomID.SelectedIndex
+        BookingData("firstname") = cboCusId.SelectedIndex
         BookingData("num_days") = txtStay.Text
         BookingData("num_guests") = txtGuesNum.Text
         BookingData("checkin_date") = txtCheckinDate.Text
@@ -443,6 +376,27 @@ Public Class Booking
         Return BookingData
 
     End Function
+    ''' <summary>
+    ''' Calculating done - add more elseif inorder to provide more right calculation
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
+        If cboRoomID.SelectedIndex = 1 Then
+            Dim i As Integer = 30
+            txtPrice.Text = CStr(CInt(txtStay.Text) * i)
+        ElseIf cboRoomID.SelectedIndex = 2 Then
+            Dim i As Integer = 40
+            txtPrice.Text = CStr(CInt(txtStay.Text) * i)
+        ElseIf cboRoomID.SelectedIndex = 4 Then
+            Dim i As Integer = 50
+            txtPrice.Text = CStr(CInt(txtStay.Text) * i)
+        Else
+            MsgBox("There are no room type, please reinput")
+        End If
+    End Sub
+
+
 
 
 End Class

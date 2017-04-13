@@ -45,7 +45,7 @@ Partial Class Booking
         Me.PicRoomID = New System.Windows.Forms.PictureBox()
         Me.PicBookID = New System.Windows.Forms.PictureBox()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.txtRoomID = New System.Windows.Forms.ComboBox()
+        Me.cboRoomID = New System.Windows.Forms.ComboBox()
         Me.PicDate = New System.Windows.Forms.PictureBox()
         Me.PicCkinDt = New System.Windows.Forms.PictureBox()
         Me.btnNav = New System.Windows.Forms.Button()
@@ -70,7 +70,7 @@ Partial Class Booking
         Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet1 = New WindowsApplication1.HRRISdbDataSet1()
         Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
-        Me.txtCusId = New System.Windows.Forms.ComboBox()
+        Me.cboCusId = New System.Windows.Forms.ComboBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -84,6 +84,7 @@ Partial Class Booking
         Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
         Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
+        Me.btnfinall = New System.Windows.Forms.Button()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -296,14 +297,14 @@ Partial Class Booking
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
-        'txtRoomID
+        'cboRoomID
         '
-        Me.txtRoomID.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
-        Me.txtRoomID.FormattingEnabled = True
-        Me.txtRoomID.Location = New System.Drawing.Point(142, 105)
-        Me.txtRoomID.Name = "txtRoomID"
-        Me.txtRoomID.Size = New System.Drawing.Size(343, 21)
-        Me.txtRoomID.TabIndex = 53
+        Me.cboRoomID.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.cboRoomID.FormattingEnabled = True
+        Me.cboRoomID.Location = New System.Drawing.Point(142, 105)
+        Me.cboRoomID.Name = "cboRoomID"
+        Me.cboRoomID.Size = New System.Drawing.Size(343, 21)
+        Me.cboRoomID.TabIndex = 53
         '
         'PicDate
         '
@@ -483,14 +484,14 @@ Partial Class Booking
         '
         Me.BookingTableAdapter.ClearBeforeFill = True
         '
-        'txtCusId
+        'cboCusId
         '
-        Me.txtCusId.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
-        Me.txtCusId.FormattingEnabled = True
-        Me.txtCusId.Location = New System.Drawing.Point(142, 146)
-        Me.txtCusId.Name = "txtCusId"
-        Me.txtCusId.Size = New System.Drawing.Size(343, 21)
-        Me.txtCusId.TabIndex = 68
+        Me.cboCusId.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.cboCusId.FormattingEnabled = True
+        Me.cboCusId.Location = New System.Drawing.Point(142, 146)
+        Me.cboCusId.Name = "cboCusId"
+        Me.cboCusId.Size = New System.Drawing.Size(343, 21)
+        Me.cboCusId.TabIndex = 68
         '
         'DataGridView1
         '
@@ -571,13 +572,23 @@ Partial Class Booking
         '
         Me.BookingTableAdapter1.ClearBeforeFill = True
         '
+        'btnfinall
+        '
+        Me.btnfinall.Location = New System.Drawing.Point(544, 201)
+        Me.btnfinall.Name = "btnfinall"
+        Me.btnfinall.Size = New System.Drawing.Size(105, 23)
+        Me.btnfinall.TabIndex = 70
+        Me.btnfinall.Text = "finall"
+        Me.btnfinall.UseVisualStyleBackColor = True
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 544)
+        Me.Controls.Add(Me.btnfinall)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.txtCusId)
+        Me.Controls.Add(Me.cboCusId)
         Me.Controls.Add(Me.btnLast)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnPrevious)
@@ -590,7 +601,7 @@ Partial Class Booking
         Me.Controls.Add(Me.btnNav)
         Me.Controls.Add(Me.PicCkinDt)
         Me.Controls.Add(Me.PicDate)
-        Me.Controls.Add(Me.txtRoomID)
+        Me.Controls.Add(Me.cboRoomID)
         Me.Controls.Add(Me.PicCmt)
         Me.Controls.Add(Me.PicStayingDay)
         Me.Controls.Add(Me.PicGuestNum)
@@ -659,7 +670,7 @@ Partial Class Booking
     Friend WithEvents PicRoomID As System.Windows.Forms.PictureBox
     Friend WithEvents PicBookID As System.Windows.Forms.PictureBox
     Friend WithEvents btnAdd As System.Windows.Forms.Button
-    Friend WithEvents txtRoomID As System.Windows.Forms.ComboBox
+    Friend WithEvents cboRoomID As System.Windows.Forms.ComboBox
     Friend WithEvents PicDate As System.Windows.Forms.PictureBox
     Friend WithEvents PicCkinDt As System.Windows.Forms.PictureBox
     Friend WithEvents btnNav As System.Windows.Forms.Button
@@ -684,7 +695,7 @@ Partial Class Booking
     Friend WithEvents HRRISdbDataSet1 As WindowsApplication1.HRRISdbDataSet1
     Friend WithEvents BookingBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents BookingTableAdapter As WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter
-    Friend WithEvents txtCusId As System.Windows.Forms.ComboBox
+    Friend WithEvents cboCusId As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents HRRISdbDataSet3 As WindowsApplication1.HRRISdbDataSet3
     Friend WithEvents BookingBindingSource1 As System.Windows.Forms.BindingSource
@@ -698,4 +709,5 @@ Partial Class Booking
     Friend WithEvents CheckindateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TotalpriceDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CommentsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnfinall As Button
 End Class
