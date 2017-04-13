@@ -31,7 +31,7 @@ Public Class Booking
         Dim oController1 As RoomDataController = New RoomDataController
         Dim lsData1 = oController1.RoomfindALl()
         For Each Room In lsData1
-            cboRoomID.Items.Add(CStr(Room("type")))
+            cboRoomID.Items.Add(CStr(Room("room_id")))
         Next
 
         'Comboxbox cusID - traacking data from database and populate() to the box
@@ -93,8 +93,8 @@ Public Class Booking
             bookingData("customer_id") = cboCusId.SelectedItem
             bookingData("booking_date") = txtDate.Text
             bookingData("room_id") = cboRoomID.SelectedItem
-            bookingData("num_days") = txtStay.Text
-            bookingData("num_guests") = txtGuesNum.Text
+            bookingData("num_days") = cboStays.Text
+            bookingData("num_guests") = cboGuestNum.Text
             bookingData("checkin_date") = txtCheckinDate.Text
             bookingData("total_price") = txtPrice.Text
             bookingData("comments") = txtCmt.Text
@@ -132,7 +132,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        bIsValid = IsNumeric(txtStay.Text)
+        bIsValid = IsNumeric(cboStays.Text)
         If bIsValid Then
             PicStayingDay.Visible = False
 
@@ -158,7 +158,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        bIsValid = IsNumeric(txtGuesNum.Text)
+        bIsValid = IsNumeric(cboGuestNum.Text)
         If bIsValid Then
             PicGuestNum.Visible = False
         Else
@@ -294,8 +294,8 @@ Public Class Booking
         txtID.Clear()
         cboRoomID.Items.Clear()
         cboCusId.Items.Clear()
-        txtStay.Clear()
-        txtGuesNum.Clear()
+        cboStays.Items.Clear()
+        cboGuestNum.Items.Clear()
         txtPrice.Clear()
         txtCmt.Clear()
 
@@ -335,8 +335,8 @@ Public Class Booking
         txtDate.Text = CStr(CDate(bookingData("booking_date")))
         cboRoomID.ValueMember = CStr(CStr(bookingData("room_id")))
         cboCusId.ValueMember = CStr(CStr(bookingData("customer_id")))
-        txtStay.Text = CStr(CInt(bookingData("num_days")))
-        txtGuesNum.Text = CStr(CInt(bookingData("num_guests")))
+        cboStays.Text = CStr(CInt(bookingData("num_days")))
+        cboGuestNum.Text = CStr(CInt(bookingData("num_guests")))
         txtCheckinDate.Text = CStr(CDate(bookingData("checkin_date")))
         txtPrice.Text = CStr(CInt(bookingData("total_price")))
         txtCmt.Text = CStr(CStr(bookingData("comments")))
@@ -368,8 +368,8 @@ Public Class Booking
         BookingData("booking_date") = txtDate.Text
         BookingData("type") = cboRoomID.SelectedIndex
         BookingData("firstname") = cboCusId.SelectedIndex
-        BookingData("num_days") = txtStay.Text
-        BookingData("num_guests") = txtGuesNum.Text
+        BookingData("num_days") = cboStays.Text
+        BookingData("num_guests") = cboGuestNum.Text
         BookingData("checkin_date") = txtCheckinDate.Text
         BookingData("total_price") = txtPrice.Text
         BookingData("comments") = txtCmt.Text
@@ -386,15 +386,25 @@ Public Class Booking
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
         If cboRoomID.SelectedIndex = 1 Then
             Dim i As Integer = 30
-            txtPrice.Text = CStr(CInt(txtStay.Text) * i)
+            txtPrice.Text = CStr(CInt(cboStays.Text) * i)
         ElseIf cboRoomID.SelectedIndex = 2 Then
             Dim i As Integer = 40
-            txtPrice.Text = CStr(CInt(txtStay.Text) * i)
+            txtPrice.Text = CStr(CInt(cboStays.Text) * i)
         ElseIf cboRoomID.SelectedIndex = 4 Then
             Dim i As Integer = 50
-            txtPrice.Text = CStr(CInt(txtStay.Text) * i)
-        Else
+            txtPrice.Text = CStr(CInt(cboStays.Text) * i)
+
             MsgBox("There are no room type, please reinput")
+        End If
+    End Sub
+
+    Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
+        Dim GenerateCusReportByID As BookingDataController = New BookingDataController
+
+        If cboCusId.SelectedIndex = 1 Then
+            GenerateCusReportByID.createReport01()
+        ElseIf cboCusId.SelectedIndex = 2 Then
+
         End If
     End Sub
 

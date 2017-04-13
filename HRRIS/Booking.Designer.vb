@@ -28,9 +28,7 @@ Partial Class Booking
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtGuesNum = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtStay = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -84,7 +82,11 @@ Partial Class Booking
         Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
         Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
-        Me.btnfinall = New System.Windows.Forms.Button()
+        Me.btnCusReport = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtType = New System.Windows.Forms.TextBox()
+        Me.cboGuestNum = New System.Windows.Forms.ComboBox()
+        Me.cboStays = New System.Windows.Forms.ComboBox()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,13 +145,6 @@ Partial Class Booking
         Me.Label7.TabIndex = 31
         Me.Label7.Text = "Checkin Date"
         '
-        'txtGuesNum
-        '
-        Me.txtGuesNum.Location = New System.Drawing.Point(142, 222)
-        Me.txtGuesNum.Name = "txtGuesNum"
-        Me.txtGuesNum.Size = New System.Drawing.Size(343, 20)
-        Me.txtGuesNum.TabIndex = 30
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -158,13 +153,6 @@ Partial Class Booking
         Me.Label6.Size = New System.Drawing.Size(87, 13)
         Me.Label6.TabIndex = 29
         Me.Label6.Text = "Number of Guest"
-        '
-        'txtStay
-        '
-        Me.txtStay.Location = New System.Drawing.Point(143, 184)
-        Me.txtStay.Name = "txtStay"
-        Me.txtStay.Size = New System.Drawing.Size(343, 20)
-        Me.txtStay.TabIndex = 28
         '
         'Label5
         '
@@ -187,7 +175,7 @@ Partial Class Booking
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(32, 106)
+        Me.Label3.Location = New System.Drawing.Point(346, 108)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 23
@@ -301,9 +289,9 @@ Partial Class Booking
         '
         Me.cboRoomID.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboRoomID.FormattingEnabled = True
-        Me.cboRoomID.Location = New System.Drawing.Point(142, 105)
+        Me.cboRoomID.Location = New System.Drawing.Point(416, 105)
         Me.cboRoomID.Name = "cboRoomID"
-        Me.cboRoomID.Size = New System.Drawing.Size(343, 21)
+        Me.cboRoomID.Size = New System.Drawing.Size(69, 21)
         Me.cboRoomID.TabIndex = 53
         '
         'PicDate
@@ -572,21 +560,61 @@ Partial Class Booking
         '
         Me.BookingTableAdapter1.ClearBeforeFill = True
         '
-        'btnfinall
+        'btnCusReport
         '
-        Me.btnfinall.Location = New System.Drawing.Point(544, 201)
-        Me.btnfinall.Name = "btnfinall"
-        Me.btnfinall.Size = New System.Drawing.Size(105, 23)
-        Me.btnfinall.TabIndex = 70
-        Me.btnfinall.Text = "finall"
-        Me.btnfinall.UseVisualStyleBackColor = True
+        Me.btnCusReport.Location = New System.Drawing.Point(544, 201)
+        Me.btnCusReport.Name = "btnCusReport"
+        Me.btnCusReport.Size = New System.Drawing.Size(105, 23)
+        Me.btnCusReport.TabIndex = 70
+        Me.btnCusReport.Text = "Customer Report"
+        Me.btnCusReport.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(32, 108)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(31, 13)
+        Me.Label10.TabIndex = 71
+        Me.Label10.Text = "Type"
+        '
+        'txtType
+        '
+        Me.txtType.Location = New System.Drawing.Point(142, 105)
+        Me.txtType.Name = "txtType"
+        Me.txtType.Size = New System.Drawing.Size(183, 20)
+        Me.txtType.TabIndex = 72
+        '
+        'cboGuestNum
+        '
+        Me.cboGuestNum.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.cboGuestNum.FormattingEnabled = True
+        Me.cboGuestNum.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6"})
+        Me.cboGuestNum.Location = New System.Drawing.Point(142, 222)
+        Me.cboGuestNum.Name = "cboGuestNum"
+        Me.cboGuestNum.Size = New System.Drawing.Size(343, 21)
+        Me.cboGuestNum.TabIndex = 73
+        '
+        'cboStays
+        '
+        Me.cboStays.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.cboStays.FormattingEnabled = True
+        Me.cboStays.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8"})
+        Me.cboStays.Location = New System.Drawing.Point(142, 188)
+        Me.cboStays.Name = "cboStays"
+        Me.cboStays.Size = New System.Drawing.Size(343, 21)
+        Me.cboStays.TabIndex = 74
         '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 544)
-        Me.Controls.Add(Me.btnfinall)
+        Me.Controls.Add(Me.cboStays)
+        Me.Controls.Add(Me.cboGuestNum)
+        Me.Controls.Add(Me.txtType)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.btnCusReport)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.cboCusId)
         Me.Controls.Add(Me.btnLast)
@@ -615,9 +643,7 @@ Partial Class Booking
         Me.Controls.Add(Me.txtPrice)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.txtGuesNum)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.txtStay)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -627,7 +653,6 @@ Partial Class Booking
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Booking"
-        Me.Text = "Booking "
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).EndInit()
@@ -653,9 +678,7 @@ Partial Class Booking
     Friend WithEvents txtPrice As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents txtGuesNum As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txtStay As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -709,5 +732,9 @@ Partial Class Booking
     Friend WithEvents CheckindateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TotalpriceDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CommentsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents btnfinall As Button
+    Friend WithEvents btnCusReport As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtType As TextBox
+    Friend WithEvents cboGuestNum As ComboBox
+    Friend WithEvents cboStays As ComboBox
 End Class

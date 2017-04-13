@@ -250,6 +250,115 @@ Public Class BookingDataController
 
     End Function
 
+    'Generate report 
+    '<summary
+    'Generate report by Customer ID - Require: Booking Date & Last time booked
+    '</summary>
+    Public Sub createReport01()
+
+        Debug.Print("Create Report ... ")
+
+        Dim lsData = BookingfindALl()
+        Dim sReportTitle = "Customer booking Report by ..."
+
+        Dim sReportContent = generateCusReportId(lsData, sReportTitle)
+
+        Dim sReportFilename = "CustomerReportbyID-01.html"
+
+
+        saveCusReport(sReportContent, sReportFilename)
+
+        Dim sParam As String = """" & Application.StartupPath & "\" & sReportFilename & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
+
+        'rm the code system.Diagnostics. 
+    End Sub
+
+    Private Function generateCusReportId(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String) As String
+        Debug.Print("GenerateReport01 ...")
+
+        Dim sReportCusIDContent As String
+
+        '1.Generate the start of the HTML file
+
+        Dim sDoctype As String = "<!DOCTYPE html>"
+        Dim sHtmlStartTag As String = "<html lang=""eng"">"
+        Dim sHeadTitle As String = "<head><title>" & sReportTitle & "</title></head>"
+        Dim sBodyStartTag As String = "<body>"
+        Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
+        sReportCusIDContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
+
+        '2.Generate the product table and its rows 
+        Dim sTable = generateTable(lsData)
+        sReportCusIDContent &= sTable & vbCrLf
+
+        '3.Generate the end of the HTML file 
+        Dim sBodyEndTag As String = "</body>"
+        Dim sHTMLEndTag As String = "</html>"
+        sReportCusIDContent &= sBodyEndTag & vbCrLf & sHTMLEndTag
+
+
+
+        Return sReportCusIDContent
+
+    End Function
+
+    Private Sub saveCusReport(ByVal sReportCusIDContent As String, ByVal sReportfilename As String)
+        Debug.Print("SaveReport: " & sReportfilename)
+
+        Dim oReportFile As StreamWriter = New StreamWriter(Application.StartupPath & "\" & sReportfilename)
+
+        'Check if the file is open before starting to write to it 
+
+        If Not (oReportFile Is Nothing) Then
+            oReportFile.Write(sReportCusIDContent)
+            oReportFile.Close()
+        End If
+    End Sub
+    'fucntion is to generate the CUS id table 
+    Private Function generateTable(ByVal lsData As List(Of Hashtable)) As String
+        'Generate the start of the table
+        'vbCrLf = down a line and going to the left or feed or st
+        Dim sTable = "<table border""1"">" & vbCrLf
+        Dim htSample As Hashtable = lsData.Item(0)
+        'Dim lsKeys = htSample.Keys
+        Dim lsKeys As List(Of String) = New List(Of String)
+        lsKeys.Add("Customer_id ")
+        lsKeys.Add("booking_date")
+        lsKeys.Add("checkin_date")
+
+
+
+
+        ' Generate the header row
+        Dim sHeadderRow = "<tr>" & vbCrLf
+        For Each key In lsKeys
+            sHeadderRow &= "<th>" & CStr(key) & "</th>" & vbCrLf
+        Next
+        sHeadderRow &= "</tr>" & vbCrLf
+        Debug.Print("sHeaderRow: " & sHeadderRow)
+        sTable &= sHeadderRow
+
+        'Generate the table rows 
+        For Each record In lsData
+            Dim product As Hashtable = record
+            Dim sTableRow = "<tr>" & vbCrLf
+
+            For Each key In lsKeys
+                sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
+            Next
+            sTableRow &= "</tr>" & vbCrLf
+            Debug.Print("sTableRow: " & sTableRow)
+            sTable &= sTableRow
+        Next
+        'Generate the end of the table
+        sTable &= "</table>" & vbCrLf
+
+        Return sTable
+    End Function
 
 End Class
 

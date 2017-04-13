@@ -57,6 +57,7 @@ Partial Class Customer
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -80,8 +81,8 @@ Partial Class Customer
         Me.CustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet2 = New WindowsApplication1.HRRISdbDataSet2()
         Me.CustomerTableAdapter = New WindowsApplication1.HRRISdbDataSet2TableAdapters.customerTableAdapter()
-        Me.ShowAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtCusTitl = New System.Windows.Forms.ComboBox()
+        Me.CustomerIDToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PicCusID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicDOB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicPhone, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -385,8 +386,15 @@ Partial Class Customer
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
+        'ShowAllToolStripMenuItem
+        '
+        Me.ShowAllToolStripMenuItem.Name = "ShowAllToolStripMenuItem"
+        Me.ShowAllToolStripMenuItem.Size = New System.Drawing.Size(120, 22)
+        Me.ShowAllToolStripMenuItem.Text = "Show All"
+        '
         'ReportToolStripMenuItem
         '
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerIDToolStripMenuItem})
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.ReportToolStripMenuItem.Text = "Report"
@@ -545,12 +553,6 @@ Partial Class Customer
         '
         Me.CustomerTableAdapter.ClearBeforeFill = True
         '
-        'ShowAllToolStripMenuItem
-        '
-        Me.ShowAllToolStripMenuItem.Name = "ShowAllToolStripMenuItem"
-        Me.ShowAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ShowAllToolStripMenuItem.Text = "Show All"
-        '
         'txtCusTitl
         '
         Me.txtCusTitl.FormattingEnabled = True
@@ -559,6 +561,12 @@ Partial Class Customer
         Me.txtCusTitl.Name = "txtCusTitl"
         Me.txtCusTitl.Size = New System.Drawing.Size(330, 21)
         Me.txtCusTitl.TabIndex = 77
+        '
+        'CustomerIDToolStripMenuItem
+        '
+        Me.CustomerIDToolStripMenuItem.Name = "CustomerIDToolStripMenuItem"
+        Me.CustomerIDToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerIDToolStripMenuItem.Text = "Customer ID"
         '
         'Customer
         '
@@ -683,5 +691,5 @@ Partial Class Customer
     Friend WithEvents DobDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ShowAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents txtCusTitl As System.Windows.Forms.ComboBox
-
+    Friend WithEvents CustomerIDToolStripMenuItem As ToolStripMenuItem
 End Class

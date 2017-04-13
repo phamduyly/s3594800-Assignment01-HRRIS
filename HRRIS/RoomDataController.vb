@@ -145,6 +145,57 @@ Public Class RoomDataController
         Return lsData
     End Function
 
+    'group room to generate the ROOM id 
+    'sType -  
+    Public Function RoomsFindByType(ByVal sType As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+
+            oCommand.Connection = oConnection
+            oCommand.CommandText = "SELECT * FROM room WHERE room_id = ?;"
+            'oCommand.CommandText = "SELECT * FROM room WHERE type = " & sType & "?;"
+            'Actually,can variable of type be added to here and then find both at the same time
+            oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
+            oCommand.Parameters("room_id").Value = CStr(sType)
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("room_number") = CInt(oDataReader("room_number"))
+                htTempData("type") = CStr(oDataReader("type"))
+                htTempData("price") = CInt(oDataReader("price"))
+                htTempData("num_beds") = CInt(oDataReader("num_beds"))
+                htTempData("availability") = CStr(oDataReader("availability"))
+                htTempData("floor") = CInt(oDataReader("floor"))
+                htTempData("description") = CStr(oDataReader("description"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+
     'Room finds by type 
     'variable : sType - finds tools
 
