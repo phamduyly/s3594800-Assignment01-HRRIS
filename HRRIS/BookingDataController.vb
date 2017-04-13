@@ -340,7 +340,16 @@ Public Class BookingDataController
 
         Dim sDoctype As String = "<!DOCTYPE html>"
         Dim sHtmlStartTag As String = "<html lang=""eng"">"
-        Dim sHeadTitle As String = "<head><title>" & sReportTitle & "</title></head>"
+        Dim sHeadTitle As String = _
+        "<head>" & vbcrlf & "_
+        "<title>Customer booking Report by ...</title>" & vbcrlf & " _
+        "<meta charset="utf-8"> " & vbcrlf & " _
+        "<meta name="viewport" content="width=device-width, initial-scale=1">" & vbcrlf & " _
+        "<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">" & vbcrlf & " _
+        
+        "<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>" & vbcrlf & " _
+        "<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><title>" & sReportTitle & "" & vbcrlf & " _
+        "</title></head>"
         Dim sBodyStartTag As String = "<body>"
         Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
         sReportCusIDContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
@@ -376,7 +385,7 @@ Public Class BookingDataController
     Private Function generateTable(ByVal lsData As List(Of Hashtable)) As String
         'Generate the start of the table
         'vbCrLf = down a line and going to the left or feed or st
-        Dim sTable = "<table border""1"">" & vbCrLf
+        Dim sTable = "<table class="table table-hover">" & vbCrLf
         Dim htSample As Hashtable = lsData.Item(0)
         'Dim lsKeys = htSample.Keys
         Dim lsKeys As List(Of String) = New List(Of String)
@@ -414,10 +423,16 @@ Public Class BookingDataController
         Return sTable
     End Function
 
-    'Create a form or whatever to input parameter to conduct report 
-    'sql statement for report :
-    '1.Roomnumber = ? , 
-    ' SELECT 
+'sql in ass2 doc 
+
+' note for website part 
+'<meta charset="utf-8">
+'  <meta name="viewport" content="width=device-width, initial-scale=1">
+'  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+'  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+'  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+'<table class="table table-hover"> 
 
 End Class
 
