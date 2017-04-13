@@ -90,9 +90,9 @@ Public Class Booking
 
             Dim bookingData As Hashtable = New Hashtable
 
-            bookingData("customer_id") = cboCusId.SelectedIndex
+            bookingData("customer_id") = cboCusId.SelectedItem
             bookingData("booking_date") = txtDate.Text
-            bookingData("room_id") = cboRoomID.SelectedIndex
+            bookingData("room_id") = cboRoomID.SelectedItem
             bookingData("num_days") = txtStay.Text
             bookingData("num_guests") = txtGuesNum.Text
             bookingData("checkin_date") = txtCheckinDate.Text
@@ -326,13 +326,15 @@ Public Class Booking
         End If
     End Sub
 
+    'Initial function room (checked box) - generate ID to the next 
+
     'Populate is still missing two combobox - try to figure out how to populate data into a cbo that relating to database dropdown list
     Private Sub populateBookingFields(ByRef bookingData As Hashtable)
 
         txtID.Text = CStr(CInt(bookingData("booking_id")))
         txtDate.Text = CStr(CDate(bookingData("booking_date")))
-        cboRoomID.SelectedText = CStr(CStr(bookingData("type")))
-        cboCusId.SelectedText = CStr(CStr(bookingData("firstname")))
+        cboRoomID.ValueMember = CStr(CStr(bookingData("room_id")))
+        cboCusId.ValueMember = CStr(CStr(bookingData("customer_id")))
         txtStay.Text = CStr(CInt(bookingData("num_days")))
         txtGuesNum.Text = CStr(CInt(bookingData("num_guests")))
         txtCheckinDate.Text = CStr(CDate(bookingData("checkin_date")))
@@ -395,6 +397,34 @@ Public Class Booking
             MsgBox("There are no room type, please reinput")
         End If
     End Sub
+
+
+
+
+    ' using checked box - idead: can create another same findbyID in room DB to group and return the value for room ID by room type: 
+    ' ther are 4 room type , 4 floor, 
+
+    'Code for checked box and DIMING bien 
+    ' Dim str As String
+    '   str = " "
+    '   If CheckBox1.Checked = True Then
+    '       str &= CheckBox1.Text
+    '       str &= " "
+    '   End If
+    ' If CheckBox2.Checked = True Then
+    '       str &= CheckBox2.Text
+    '       str &= " "
+    '   End If
+    ' If CheckBox3.Checked = True Then
+    '       str &= CheckBox3.Text
+    '       str &= " "
+    '   End If
+    ' 'Interesting code :
+    ' Private Sub CheckBox4_CheckedChanged(sender As Object,
+    'e As EventArgs) Handles CheckBox4.CheckedChanged
+    '     Label1.Visible = True
+    '     TextBox1.Visible = True
+    ' End Sub
 
 
 

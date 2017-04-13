@@ -110,6 +110,7 @@ Public Class RoomDataController
 
             oCommand.Connection = oConnection
             oCommand.CommandText = "SELECT * FROM room WHERE room_id = ?;"
+            'Actually,can variable of type be added to here and then find both at the same time
             oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
             oCommand.Parameters("room_id").Value = CStr(sId)
             oCommand.Prepare()
@@ -143,6 +144,11 @@ Public Class RoomDataController
 
         Return lsData
     End Function
+
+    'Room finds by type 
+    'variable : sType - finds tools
+
+
 
     'CRUD room data 
     'room update

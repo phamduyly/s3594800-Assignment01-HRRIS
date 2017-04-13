@@ -5,6 +5,7 @@ Option Strict On
 'Date:
 'Author: Pham Duy Ly 
 
+'Note: adding a  fucntion with calling ID and GROUP room type - writing on roomDataController - based on findsbyID 
 Imports System.Data.OleDb
 Imports System.IO
 
