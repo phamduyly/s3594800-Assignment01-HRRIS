@@ -708,6 +708,7 @@ Partial Class Booking
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Booking"
+        Me.Text = "Booking Form"
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).EndInit()
