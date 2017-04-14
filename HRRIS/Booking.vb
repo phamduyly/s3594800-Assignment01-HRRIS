@@ -79,6 +79,7 @@ Public Class Booking
         Dim selectedItem1 As Object = cboCusId.SelectedItem
 
         MsgBox("Customer ID is: " & selectedIndex1.ToString())
+        Debug.Print(CStr(cboCusId.SelectedIndex))
 
     End Sub
 
@@ -403,6 +404,8 @@ Public Class Booking
         Dim GenerateCusReportByID As BookingDataController = New BookingDataController
         Dim sCusId = cboCusId.SelectedIndex
         GenerateCusReportByID.createReport01(CStr(sCusId))
+        'this part some how generate the sCusId -1, which make it out of range, and therefore cannot perform the next procedures 
+
 
 
     End Sub

@@ -340,16 +340,15 @@ Public Class BookingDataController
 
         Dim sDoctype As String = "<!DOCTYPE html>"
         Dim sHtmlStartTag As String = "<html lang=""eng"">"
-        Dim sHeadTitle As String = _
-        "<head>" & vbcrlf & "_
-        "<title>Customer booking Report by ...</title>" & vbcrlf & " _
-        "<meta charset="utf-8"> " & vbcrlf & " _
-        "<meta name="viewport" content="width=device-width, initial-scale=1">" & vbcrlf & " _
-        "<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">" & vbcrlf & " _
-        
-        "<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>" & vbcrlf & " _
-        "<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><title>" & sReportTitle & "" & vbcrlf & " _
-        "</title></head>"
+        Dim sHeadTitle As String = "<head>" & vbCrLf &
+            "<title>" & sReportTitle & "</title>" & vbCrLf &
+        "<meta charset=""utf-8"">" & vbCrLf &
+        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf &
+        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
+        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
+        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
+        "</head>"
+
         Dim sBodyStartTag As String = "<body>"
         Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
         sReportCusIDContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
@@ -385,8 +384,9 @@ Public Class BookingDataController
     Private Function generateTable(ByVal lsData As List(Of Hashtable)) As String
         'Generate the start of the table
         'vbCrLf = down a line and going to the left or feed or st
-        Dim sTable = "<table class="table table-hover">" & vbCrLf
+        Dim sTable = "<table class=""table table-hover"">" & vbCrLf
         Dim htSample As Hashtable = lsData.Item(0)
+        'error here -  but its work last night, index is out of range
         'Dim lsKeys = htSample.Keys
         Dim lsKeys As List(Of String) = New List(Of String)
         lsKeys.Add("Customer_id ")
