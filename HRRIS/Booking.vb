@@ -300,7 +300,7 @@ Public Class Booking
         txtCmt.Clear()
 
     End Sub
-    ' Not really right but I beliveD I am in the right direction
+    ' Not really right but I beliveD I am in the right direction - clue- using checked box as a trigger 
     Private Function DeleteValide() As Boolean
         Dim Sure As Boolean = True
         If Sure Then
@@ -398,18 +398,9 @@ Public Class Booking
         End If
     End Sub
 
-    Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
 
-        Dim GenerateCusReportByID As BookingDataController = New BookingDataController
-        Dim sCusId = cboCusId.SelectedIndex
-        GenerateCusReportByID.createReport01(CStr(sCusId))
-
-
-    End Sub
-
-
-
-
+    ' REPORT BUTTON SECTION 
+    'IDEA: 
     ' using checked box - idead: can create another same findbyID in room DB to group and return the value for room ID by room type: 
     ' ther are 4 room type , 4 floor, 
 
@@ -435,7 +426,58 @@ Public Class Booking
     '     TextBox1.Visible = True
     ' End Sub
 
+    '1.generate cus report ABOUT last-booking time , days booked  
+    Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
+
+        Dim GenerateCusReportByID As BookingDataController = New BookingDataController
+        Dim sCusId = cboCusId.SelectedIndex
+        GenerateCusReportByID.createReport01(CStr(sCusId))
+
+
+    End Sub
+
+    '2.Generate room_id report ABOUT booking_date, total_price 
+    'SQL statement SELECT booking_date, total_price FROM booking WHERE room_id = ?; 
+    Private Sub btnReport2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport2.Click
+
+        Dim Report2 As New BookingDataController
+        Dim sRoomId = cboRoomID.SelectedIndex
+        Report2.CreateReport02(CStr(sRoomId))
+
+    End Sub
+    '3.Report customer_id report ABOUT given period = " year and month = 
+    'SQL code is SELECT * FROM booking WHERE customer_id = ? AND booking_date = ?; 
+    'Create input for months(cbbox) and years(text), dim here 
+    Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
+
+        Dim report3 As New BookingDataController
+
+        'Dim iYears =  txtYear.Text
+        'Dim iMonths = cboMonths.Text
+
+    End Sub
+    '4. all bookings in given months and years (??)
+    'SQL code is SELECT * FROM booking WHERE (bookingdate = ?); find how to do it with date and year
+    Private Sub btnReport4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport4.Click
 
 
 
+        'Dim iYears =  txtYear.Text
+        'Dim iMonths = cboMonths.Text
+    End Sub
+    '5.show customer = ? who are due for checkin in a given month or year 
+    'SQL code is SELECT * FROM booking WHERE 
+    'Clue: using the visible and invisible radio box 
+
+    Private Sub btnReport5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport5.Click
+
+
+        'Dim iYears =  txtYear.Text
+        'Dim iMonths = cboMonths.Text
+    End Sub
+    '6.show room_id = ? ABOUT bookings * in given months or year 
+    'SQL code is SELECT * FROM bookings WHERE room_id = ? AND month = ? OR year = ?;
+    Private Sub btnReport6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport6.Click
+
+    End Sub
 End Class
