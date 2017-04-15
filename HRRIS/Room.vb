@@ -337,5 +337,9 @@ Public Class Room
             MsgBox("You have already opened Booking Form")
         End Try
     End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
 End Class
 
