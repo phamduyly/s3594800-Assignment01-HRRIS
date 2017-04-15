@@ -1,3 +1,16 @@
+'Delete code 
+        Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
+            Case MsgBoxResult.Yes
+                Dim iNumRows = oController.BookingsDelete(sId)
+                If iNumRows = 1 Then
+                    clearForm()
+                    MsgBox("The record was delete")
+                End If
+            Case MsgBoxResult.No
+                MsgBox("The record was not delete")
+        End Select
+
+
 Option Explicit On
 Option Strict On
 
