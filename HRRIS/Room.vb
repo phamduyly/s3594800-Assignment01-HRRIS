@@ -1,3 +1,24 @@
+'Delete code 
+        Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
+            Case MsgBoxResult.Yes
+                Dim iNumRows = oController.BookingsDelete(sId)
+                If iNumRows = 1 Then
+                    clearForm()
+                    MsgBox("The record was delete")
+                End If
+            Case MsgBoxResult.No
+                MsgBox("The record was not delete")
+        End Select
+'Code for cust ID 
+        Try
+            Dim sCusId = cboCusId.SelectedIndex
+            GenerateCusReportByID.createReport01(CStr(sCusId))
+        Catch ex As Exception
+            Debug.Print("the error is " & ex.Message)
+            MsgBox("Please choose a customer")
+        End Try
+        
+
 Option Explicit On
 Option Strict On
 
@@ -336,6 +357,10 @@ Public Class Room
         Catch ex As Exception
             MsgBox("You have already opened Booking Form")
         End Try
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
     End Sub
 End Class
 
