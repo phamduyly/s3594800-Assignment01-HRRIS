@@ -92,6 +92,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HRRISdbDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.Designer.vb">
+      <DependentUpon>Invoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportController.vb" />
     <Compile Include="RoomDataController.vb" />
     <Compile Include="HRRISdbDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -137,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Booking.resx">
       <DependentUpon>Booking.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Invoice.resx">
+      <DependentUpon>Invoice.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

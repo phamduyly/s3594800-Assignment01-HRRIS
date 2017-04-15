@@ -10,7 +10,7 @@ Imports System.IO
 
 Public Class RoomDataController
 
-    Public Const CONNECTION_STRING As String = _
+    Public Const CONNECTION_STRING As String =
     "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
 
 

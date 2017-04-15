@@ -58,7 +58,7 @@ Public Class BookingDataController
 
     End Sub
 
-    'ROOM SECTION
+
     'Find all function
     Public Function BookingfindALl() As List(Of Hashtable)
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
@@ -89,6 +89,46 @@ Public Class BookingDataController
                 htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
                 htTempData("total_price") = CInt(oDataReader("total_price"))
                 htTempData("comments") = CStr(oDataReader("comments"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the records were found")
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("An Error occurred. The records could not be found!")
+        Finally
+            oConnection.Close()
+        End Try
+
+        Return lsData
+
+    End Function
+    'For Invoice 
+    'Purpose: populate information into the form
+    Public Function InvoiceFindALl() As List(Of Hashtable)
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            oCommand.CommandText = "SELECT * FROM invoice ORDER BY booking_id;"
+
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("booking_id") = CInt(oDataReader("booking_id"))
+                htTempData("date") = CDate(oDataReader("date"))
+                htTempData("total_price") = CInt(oDataReader("total_price"))
                 lsData.Add(htTempData)
             Loop
 
@@ -165,18 +205,16 @@ Public Class BookingDataController
         'Try
         oConnection.Open()
         Debug.Print("Connection String: " & oConnection.ConnectionString)
-        'st wrong here
+
 
         Dim oCommand As OleDbCommand = New OleDbCommand
         oCommand.Connection = oConnection
 
         oCommand.CommandText = "SELECT num_days, booking_date FROM booking WHERE customer_id = ?;"
-        'st wrong here
-        'SQL cmd is red in F8 
+
         oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
         oCommand.Parameters("customer_id").Value = CInt(sCusId)
         oCommand.Prepare()
-
 
 
         Dim oDataReader = oCommand.ExecuteReader()
@@ -430,6 +468,41 @@ Public Class BookingDataController
 
     End Function
 
+    'Invoice delete function
+    'Purpose : to delete the invoice information
+    Public Function InvoiceDelete(ByVal sId As String) As Integer
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim iNumRows As Integer
+
+        Try
+            Debug.Print("Connection string: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            'todo
+            oCommand.CommandText = "DELETE FROM invoice WHERE booking_id = ?;"
+            oCommand.Parameters.Add("booking_id", OleDbType.Integer, 8)
+            oCommand.Parameters("booking_id").Value = CInt(sId)
+            oCommand.Prepare()
+            iNumRows = oCommand.ExecuteNonQuery()
+
+            Debug.Print(CStr(iNumRows))
+            Debug.Print("The record was deleted.")
+
+        Catch ex As Exception
+            Debug.Print(CStr(iNumRows))
+            Debug.Print("an error occured. the record was not deleted")
+
+        Finally
+            oConnection.Close()
+        End Try
+
+        Return iNumRows
+
+    End Function
     'REPORT SECTION
     'Create report 1 - cusID 
     'Function used inside : 1.BookingsFindById, 2.generateReport (generateTable) 3.SaveReport 
@@ -468,7 +541,7 @@ Public Class BookingDataController
 
         Dim sDoctype As String = "<!DOCTYPE html>"
         Dim sHtmlStartTag As String = "<html lang=""eng"">"
-<<<<<<< HEAD
+
         Dim sHeadTitle As String = "<head>" & vbCrLf &
             "<title>" & sReportTitle & "</title>" & vbCrLf &
         "<meta charset=""utf-8"">" & vbCrLf &
@@ -476,15 +549,6 @@ Public Class BookingDataController
         "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
         "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
         "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
-=======
-        Dim sHeadTitle As String = "<head>" & vbCrLf & _
-            "<title>" & sReportTitle & "</title>" & vbCrLf & _
-        "<meta charset=""utf-8"">" & vbCrLf & _
-        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf & _
-        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf & _
-        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf & _
-        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf & _
->>>>>>> master
         "</head>"
 
         Dim sBodyStartTag As String = "<body>"

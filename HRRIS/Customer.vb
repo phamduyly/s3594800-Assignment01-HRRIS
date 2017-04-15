@@ -190,26 +190,13 @@ Public Class Customer
     'CRUD
     'Moving between records
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
-      
-            Dim htData As Hashtable
-            Dim iIndex As Integer
-            iIndex = 0
-            iCurrentIndex = iIndex
-            htData = lsData.Item(iIndex)
-            populateCusFields(lsData.Item(iIndex))
 
-            Dim sCusDetails As String
-            sCusDetails = CStr(htData("customer_id"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-            sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-            Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
-        
+        Dim htData As Hashtable
+        Dim iIndex As Integer
+        iIndex = 0
+        iCurrentIndex = iIndex
+        htData = lsData.Item(iIndex)
+        populateCusFields(lsData.Item(iIndex))
 
 
 
@@ -226,17 +213,6 @@ Public Class Customer
             htData = lsData.Item(iIndex)
             populateCusFields(lsData.Item(iIndex))
 
-            Dim sCusDetails As String
-            sCusDetails = CStr(htData("customer_id"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-            sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-            Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
         Catch ex As Exception
             MsgBox("End of record")
         End Try
@@ -254,17 +230,6 @@ Public Class Customer
             htData = lsData.Item(iIndex)
             populateCusFields(lsData.Item(iIndex))
 
-            Dim sCusDetails As String
-            sCusDetails = CStr(htData("customer_id"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-            sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-            sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-            Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
         Catch ex As Exception
             MsgBox("Very first record")
         End Try
@@ -280,19 +245,6 @@ Public Class Customer
         htData = lsData.Item(iIndex)
         populateCusFields(lsData.Item(iIndex))
 
-        Dim sCusDetails As String
-        sCusDetails = CStr(htData("customer_id"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("title"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("gender"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("firstname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("lastname"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("phone"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("address"))
-        sCusDetails = sCusDetails & " | " & CStr(htData("email"))
-        sCusDetails = sCusDetails & " | " & CDate(htData("dob"))
-        Debug.Print("CusDetails: " & vbCrLf & sCusDetails)
-
-
 
 
     End Sub
@@ -300,17 +252,17 @@ Public Class Customer
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As CustomerDataController = New CustomerDataController
         Dim sId = txtCusID.Text
-        Dim iNumRows = oController.CustsDelete(sId)
 
-        If iNumRows = 1 Then
-            clearForm()
-            Debug.Print("Deleted")
-
-        Else
-            Debug.Print("Not Deleted")
-        End If
-
-
+        Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
+            Case MsgBoxResult.Yes
+                Dim iNumRows = oController.CustsDelete(sId)
+                If iNumRows = 1 Then
+                    clearForm()
+                    MsgBox("The record was delete")
+                End If
+            Case MsgBoxResult.No
+                MsgBox("The record was not delete")
+        End Select
     End Sub
 
     Private Sub clearForm()

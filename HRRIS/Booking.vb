@@ -1,4 +1,4 @@
-
+Option Strict On
 Option Explicit On
 
 
@@ -8,6 +8,12 @@ Imports System.IO
 'Name: booking input and validation form for HRRI systems
 'Date: 11 March 2017
 'Author: Ly Pham Duy 
+
+
+
+'Nore : modifing combo box, checkbox , radio box 
+'ACTUALLY, the report can be do by menustrip , do not need to add so much btn 
+
 
 Public Class Booking
     ' this code is for navigation between form
@@ -63,7 +69,7 @@ Public Class Booking
 
     End Sub
     'Combo box part - using txt inorder to keep track on and modify the code less 
-    Private Sub txtRoomID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboRoomID.SelectedIndexChanged
+    Private Sub cboRoomID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboRoomID.SelectedIndexChanged
 
         Dim selectedIndex As Integer = cboRoomID.SelectedIndex
         Dim selectedItem As Object = cboRoomID.SelectedItem
@@ -74,7 +80,7 @@ Public Class Booking
 
     End Sub
 
-    Private Sub txtCusId_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCusId.SelectedIndexChanged
+    Private Sub cboCusId_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCusId.SelectedIndexChanged
         Dim selectedIndex1 As Integer = cboCusId.SelectedIndex
         Dim selectedItem1 As Object = cboCusId.SelectedItem
 
@@ -259,7 +265,7 @@ Public Class Booking
         Catch ex As Exception
             MsgBox("Very first record")
         End Try
-        
+
 
     End Sub
 
@@ -276,17 +282,17 @@ Public Class Booking
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As BookingDataController = New BookingDataController
         Dim sId = txtID.Text
-        Dim sureToDelte = DeleteValide()
-        Dim iNumRows = oController.BookingsDelete(sId)
 
-        If iNumRows = 1 Then
-            clearForm()
-            Debug.Print("Deleted")
-
-        Else
-            Debug.Print("Not Deleted")
-        End If
-
+        Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
+            Case MsgBoxResult.Yes
+                Dim iNumRows = oController.BookingsDelete(sId)
+                If iNumRows = 1 Then
+                    clearForm()
+                    MsgBox("The record was delete")
+                End If
+            Case MsgBoxResult.No
+                MsgBox("The record was not delete")
+        End Select
 
     End Sub
 
@@ -301,17 +307,7 @@ Public Class Booking
         txtCmt.Clear()
 
     End Sub
-    ' Not really right but I beliveD I am in the right direction - clue- using checked box as a trigger 
-    Private Function DeleteValide() As Boolean
-        Dim Sure As Boolean = True
-        If Sure Then
-            MsgBox("Click OK to delete data")
-        Else
-            MsgBox("the Data have not been deleted ")
-        End If
 
-        Return Sure
-    End Function
 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
         Dim oControler As BookingDataController = New BookingDataController
@@ -379,11 +375,9 @@ Public Class Booking
         Return BookingData
 
     End Function
-    ''' <summary>
-    ''' Calculating done - add more elseif inorder to provide more right calculation
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
+
+    'Calculating done - add more elseif inorder to provide more right calculation
+
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
         If cboRoomID.SelectedIndex = 1 Then
             Dim i As Integer = 30
@@ -399,22 +393,8 @@ Public Class Booking
         End If
     End Sub
 
-<<<<<<< HEAD
-    Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
-
-        Dim GenerateCusReportByID As BookingDataController = New BookingDataController
-        Dim sCusId = cboCusId.SelectedIndex
-        GenerateCusReportByID.createReport01(CStr(sCusId))
-        'this part some how generate the sCusId -1, which make it out of range, and therefore cannot perform the next procedures 
 
 
-
-    End Sub
-
-
-
-=======
->>>>>>> master
 
     ' REPORT BUTTON SECTION 
     'IDEA: 
@@ -447,8 +427,17 @@ Public Class Booking
     Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
 
         Dim GenerateCusReportByID As BookingDataController = New BookingDataController
-        Dim sCusId = cboCusId.SelectedIndex
-        GenerateCusReportByID.createReport01(CStr(sCusId))
+
+
+
+        Try
+            Dim sCusId = cboCusId.SelectedIndex
+            GenerateCusReportByID.createReport01(CStr(sCusId))
+        Catch ex As Exception
+            Debug.Print("the error is " & ex.Message)
+            MsgBox("Please choose a customer")
+        End Try
+
 
 
     End Sub
@@ -458,8 +447,19 @@ Public Class Booking
     Private Sub btnReport2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport2.Click
 
         Dim Report2 As New BookingDataController
-        Dim sRoomId = cboRoomID.SelectedIndex
-        Report2.CreateReport02(CStr(sRoomId))
+
+        'For excepttion and case that forgot to choose room ID
+        Try
+            Dim sRoomId = cboRoomID.SelectedIndex
+            Report2.CreateReport02(CStr(sRoomId))
+
+        Catch ex As Exception
+            Debug.Print("error is : " & ex.Message)
+            MsgBox("Please choose room ID ")
+
+        End Try
+
+
 
     End Sub
     '3.Report customer_id report ABOUT given period = " year and month = 

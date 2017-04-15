@@ -1,24 +1,3 @@
-'Delete code 
-        Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
-            Case MsgBoxResult.Yes
-                Dim iNumRows = oController.BookingsDelete(sId)
-                If iNumRows = 1 Then
-                    clearForm()
-                    MsgBox("The record was delete")
-                End If
-            Case MsgBoxResult.No
-                MsgBox("The record was not delete")
-        End Select
-'Code for cust ID 
-        Try
-            Dim sCusId = cboCusId.SelectedIndex
-            GenerateCusReportByID.createReport01(CStr(sCusId))
-        Catch ex As Exception
-            Debug.Print("the error is " & ex.Message)
-            MsgBox("Please choose a customer")
-        End Try
-        
-
 Option Explicit On
 Option Strict On
 
@@ -258,16 +237,17 @@ Public Class Room
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As RoomDataController = New RoomDataController
         Dim sId = txtRmID.Text
-        Dim iNumRows = oController.RoomsDelete(sId)
 
-        If iNumRows = 1 Then
-            clearForm()
-            Debug.Print("Deleted")
-
-        Else
-            Debug.Print("Not Deleted")
-        End If
-
+        Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
+            Case MsgBoxResult.Yes
+                Dim iNumRows = oController.RoomsDelete(sId)
+                If iNumRows = 1 Then
+                    clearForm()
+                    MsgBox("The record was delete")
+                End If
+            Case MsgBoxResult.No
+                MsgBox("The record was not delete")
+        End Select
 
     End Sub
 
