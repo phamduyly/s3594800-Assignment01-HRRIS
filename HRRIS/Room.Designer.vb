@@ -58,6 +58,7 @@ Partial Class Room
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -77,7 +78,6 @@ Partial Class Room
         Me.txtRmType = New System.Windows.Forms.ComboBox()
         Me.txtRmAva = New System.Windows.Forms.ComboBox()
         Me.txtRmFl = New System.Windows.Forms.ComboBox()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PicRmBedNum, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -372,7 +372,7 @@ Partial Class Room
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerToolStripMenuItem, Me.BookingToolStripMenuItem, Me.RoomToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RoomToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.BookingToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -393,7 +393,13 @@ Partial Class Room
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
         Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RoomToolStripMenuItem.Text = "Room"
+        Me.RoomToolStripMenuItem.Text = "New"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit "
         '
         'EditToolStripMenuItem
         '
@@ -518,12 +524,6 @@ Partial Class Room
         Me.txtRmFl.Name = "txtRmFl"
         Me.txtRmFl.Size = New System.Drawing.Size(343, 21)
         Me.txtRmFl.TabIndex = 74
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit "
         '
         'Room
         '

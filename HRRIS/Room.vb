@@ -318,6 +318,7 @@ Public Class Room
         Return roomData
 
     End Function
+    'Menu section
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
         Try
@@ -342,5 +343,7 @@ Public Class Room
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
+
+
 End Class
 

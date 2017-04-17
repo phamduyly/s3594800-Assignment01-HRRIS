@@ -139,39 +139,11 @@ Public Class Customer
 
 
     End Function
-    ''' <summary>
-    '''  menu part - inserting data using menu
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
+    'Menu section 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
-        Dim bIsValid = CusValid()
-
-        If bIsValid Then
-
-            Dim CusData As Hashtable = New Hashtable
-
-            CusData("title") = txtCusTitl.Text
-            CusData("gender") = txtGender.Text
-            CusData("firstname") = txtCusFirName.Text
-            CusData("lastname") = txtCusLasName.Text
-            CusData("phone") = txtCusPhone.Text
-            CusData("address") = txtCusAdd.Text
-            CusData("email") = txtCusEmail.Text
-            CusData("dob") = txtCusDOB.Text
-
-            Dim Cusimport As CustomerDataController = New CustomerDataController
-            Cusimport.CusInsert(CusData)
-
-        End If
+        txtCusID.Visible = False
     End Sub
-    ''' <summary>
-    ''' Navigation part - menu
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
+
     Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
 
         Dim room1 As New Room

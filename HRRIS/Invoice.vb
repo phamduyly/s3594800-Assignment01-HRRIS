@@ -25,7 +25,7 @@ Imports System.IO
 
 Public Class Invoice
 
-    'code for navi
+    'code for nav 
     Dim lsDataMov As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
 
@@ -40,19 +40,30 @@ Public Class Invoice
 
         Next
 
-        'Dim Moving As New BookingDataController
-        'lsDataMov = Moving.invoiceFindALl()
-        'This fucntion is have not written yet
+        Dim Moving As New BookingDataController
+        lsDataMov = Moving.InvoiceFindALl()
+        'This fucntion Is have Not written yet
 
     End Sub
-
+    'Populate data right when selected bookingId
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim oControler As BookingDataController = New BookingDataController
+        Dim sId = ComboBox1.Text
+        Dim lsData = oControler.BookingsFindById(sId)
+
+        If lsData.Count = 1 Then
+            populateInvoice(lsData.Item(0))
+
+        Else
+            MsgBox("the booking have not been made")
+        End If
+
 
     End Sub
 
     'btn add - after populate the record into the form by performing
     'Bookingfindall() - then the record can now be add into the database 
-    ' 
+    ' 'Have not tested due to no record 15/4/2017
 
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
 
@@ -80,7 +91,7 @@ Public Class Invoice
 
     End Sub
 
-    Private Sub btnPrevious_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrevious.Click
+    Private Sub btnPrevious_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrev.Click
         Try
             Dim htData As Hashtable
             Dim iIndex As Integer
@@ -105,6 +116,7 @@ Public Class Invoice
 
     End Sub
     'This function is to delete the record
+    'Have not tested due to no record 15/4/2017
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As BookingDataController = New BookingDataController
         Dim sId = ComboBox1.Text
@@ -123,9 +135,9 @@ Public Class Invoice
 
     End Sub
     'This function is to clear the form 
+
     Private Sub clearForm()
 
-        TextBox1.Clear()
         ComboBox1.Items.Clear()
         TextBox2.Clear()
 
@@ -133,18 +145,9 @@ Public Class Invoice
 
     'This fucntio is to populate the price acording to the BOOKING id VALUE to the form
 
-    Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
-        Dim oControler As BookingDataController = New BookingDataController
-        Dim sId = ComboBox1.Text
-        Dim lsData = oControler.BookingsFindById(sId)
+    Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs)
 
-        If lsData.Count = 1 Then
-            populateInvoice(lsData.Item(0))
 
-        Else
-            MsgBox("the booking have not been made")
-
-        End If
     End Sub
 
     'Initial function room (checked box) - generate ID to the next 
@@ -155,9 +158,14 @@ Public Class Invoice
 
     Private Sub populateInvoice(ByRef bookingData As Hashtable)
 
-        TextBox1.Text = CStr(CInt(bookingData("total_price")
+        TextBox2.Text = CStr(CInt(bookingData("total_price")))
 
     End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+    End Sub
+
 
     'Missing exit and navgation between fomr
     'Missing the add function

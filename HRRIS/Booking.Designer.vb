@@ -46,7 +46,6 @@ Partial Class Booking
         Me.cboRoomID = New System.Windows.Forms.ComboBox()
         Me.PicDate = New System.Windows.Forms.PictureBox()
         Me.PicCkinDt = New System.Windows.Forms.PictureBox()
-        Me.btnNav = New System.Windows.Forms.Button()
         Me.txtDate = New System.Windows.Forms.DateTimePicker()
         Me.txtCheckinDate = New System.Windows.Forms.DateTimePicker()
         Me.btnDelete = New System.Windows.Forms.Button()
@@ -59,10 +58,19 @@ Partial Class Booking
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -92,7 +100,7 @@ Partial Class Booking
         Me.btnReport4 = New System.Windows.Forms.Button()
         Me.btnReport5 = New System.Windows.Forms.Button()
         Me.btnReport6 = New System.Windows.Forms.Button()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnInvoince = New System.Windows.Forms.Button()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -284,7 +292,7 @@ Partial Class Booking
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(544, 61)
+        Me.btnAdd.Location = New System.Drawing.Point(544, 27)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(105, 23)
         Me.btnAdd.TabIndex = 37
@@ -320,15 +328,6 @@ Partial Class Booking
         Me.PicCkinDt.TabStop = False
         Me.PicCkinDt.Visible = False
         '
-        'btnNav
-        '
-        Me.btnNav.Location = New System.Drawing.Point(544, 23)
-        Me.btnNav.Name = "btnNav"
-        Me.btnNav.Size = New System.Drawing.Size(105, 23)
-        Me.btnNav.TabIndex = 56
-        Me.btnNav.Text = "Home"
-        Me.btnNav.UseVisualStyleBackColor = True
-        '
         'txtDate
         '
         Me.txtDate.Location = New System.Drawing.Point(143, 64)
@@ -345,7 +344,7 @@ Partial Class Booking
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(544, 96)
+        Me.btnDelete.Location = New System.Drawing.Point(544, 57)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(105, 23)
         Me.btnDelete.TabIndex = 59
@@ -354,7 +353,7 @@ Partial Class Booking
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(544, 125)
+        Me.btnFind.Location = New System.Drawing.Point(544, 86)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(105, 23)
         Me.btnFind.TabIndex = 60
@@ -417,7 +416,7 @@ Partial Class Booking
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerToolStripMenuItem, Me.RoomToolStripMenuItem, Me.BookingToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerToolStripMenuItem, Me.BookingToolStripMenuItem, Me.RoomToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -426,31 +425,87 @@ Partial Class Booking
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
         Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CustomerToolStripMenuItem.Text = "Customer"
-        '
-        'RoomToolStripMenuItem
-        '
-        Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RoomToolStripMenuItem.Text = "Room"
+        Me.CustomerToolStripMenuItem.Text = "New"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
         Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BookingToolStripMenuItem.Text = "New Booking"
+        Me.BookingToolStripMenuItem.Text = "Room"
+        '
+        'RoomToolStripMenuItem
+        '
+        Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Text = "Customer"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
         '
+        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpToolStripMenuItem, Me.UpdateToolStripMenuItem})
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
+        'UpToolStripMenuItem
+        '
+        Me.UpToolStripMenuItem.Name = "UpToolStripMenuItem"
+        Me.UpToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.UpToolStripMenuItem.Text = "Delete"
+        '
+        'UpdateToolStripMenuItem
+        '
+        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
+        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.UpdateToolStripMenuItem.Text = "Update"
+        '
         'ReportToolStripMenuItem
         '
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6, Me.ToolStripMenuItem7})
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.ReportToolStripMenuItem.Text = "Report"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(83, 22)
+        Me.ToolStripMenuItem2.Text = "1."
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(83, 22)
+        Me.ToolStripMenuItem3.Text = "2."
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(83, 22)
+        Me.ToolStripMenuItem4.Text = "3."
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(83, 22)
+        Me.ToolStripMenuItem5.Text = "4."
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(83, 22)
+        Me.ToolStripMenuItem6.Text = "5."
+        '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(83, 22)
+        Me.ToolStripMenuItem7.Text = "6."
         '
         'HelpToolStripMenuItem
         '
@@ -568,7 +623,7 @@ Partial Class Booking
         '
         'btnCusReport
         '
-        Me.btnCusReport.Location = New System.Drawing.Point(544, 201)
+        Me.btnCusReport.Location = New System.Drawing.Point(759, 37)
         Me.btnCusReport.Name = "btnCusReport"
         Me.btnCusReport.Size = New System.Drawing.Size(105, 23)
         Me.btnCusReport.TabIndex = 70
@@ -613,60 +668,64 @@ Partial Class Booking
         '
         'btnReport2
         '
-        Me.btnReport2.Location = New System.Drawing.Point(544, 230)
+        Me.btnReport2.Location = New System.Drawing.Point(759, 82)
         Me.btnReport2.Name = "btnReport2"
-        Me.btnReport2.Size = New System.Drawing.Size(105, 23)
+        Me.btnReport2.Size = New System.Drawing.Size(105, 27)
         Me.btnReport2.TabIndex = 75
         Me.btnReport2.Text = "2nd Report"
         Me.btnReport2.UseVisualStyleBackColor = True
         '
         'btnReport3
         '
-        Me.btnReport3.Location = New System.Drawing.Point(544, 259)
+        Me.btnReport3.Location = New System.Drawing.Point(759, 111)
         Me.btnReport3.Name = "btnReport3"
-        Me.btnReport3.Size = New System.Drawing.Size(105, 23)
+        Me.btnReport3.Size = New System.Drawing.Size(105, 27)
         Me.btnReport3.TabIndex = 76
         Me.btnReport3.Text = "3rd Report"
         Me.btnReport3.UseVisualStyleBackColor = True
         '
         'btnReport4
         '
-        Me.btnReport4.Location = New System.Drawing.Point(655, 201)
+        Me.btnReport4.Location = New System.Drawing.Point(759, 133)
         Me.btnReport4.Name = "btnReport4"
-        Me.btnReport4.Size = New System.Drawing.Size(105, 23)
+        Me.btnReport4.Size = New System.Drawing.Size(105, 27)
         Me.btnReport4.TabIndex = 77
         Me.btnReport4.Text = "4th Report"
         Me.btnReport4.UseVisualStyleBackColor = True
         '
         'btnReport5
         '
-        Me.btnReport5.Location = New System.Drawing.Point(655, 230)
+        Me.btnReport5.Location = New System.Drawing.Point(759, 162)
         Me.btnReport5.Name = "btnReport5"
-        Me.btnReport5.Size = New System.Drawing.Size(105, 23)
+        Me.btnReport5.Size = New System.Drawing.Size(105, 27)
         Me.btnReport5.TabIndex = 78
         Me.btnReport5.Text = "5th Report"
         Me.btnReport5.UseVisualStyleBackColor = True
         '
         'btnReport6
         '
-        Me.btnReport6.Location = New System.Drawing.Point(655, 259)
+        Me.btnReport6.Location = New System.Drawing.Point(759, 180)
         Me.btnReport6.Name = "btnReport6"
-        Me.btnReport6.Size = New System.Drawing.Size(105, 23)
+        Me.btnReport6.Size = New System.Drawing.Size(105, 27)
         Me.btnReport6.TabIndex = 80
         Me.btnReport6.Text = "6th Report"
         Me.btnReport6.UseVisualStyleBackColor = True
         '
-        'ExitToolStripMenuItem
+        'btnInvoince
         '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit"
+        Me.btnInvoince.Location = New System.Drawing.Point(544, 115)
+        Me.btnInvoince.Name = "btnInvoince"
+        Me.btnInvoince.Size = New System.Drawing.Size(105, 23)
+        Me.btnInvoince.TabIndex = 81
+        Me.btnInvoince.Text = "Generate Invoice"
+        Me.btnInvoince.UseVisualStyleBackColor = True
         '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 544)
+        Me.Controls.Add(Me.btnInvoince)
         Me.Controls.Add(Me.btnReport6)
         Me.Controls.Add(Me.btnReport5)
         Me.Controls.Add(Me.btnReport4)
@@ -688,7 +747,6 @@ Partial Class Booking
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtCheckinDate)
         Me.Controls.Add(Me.txtDate)
-        Me.Controls.Add(Me.btnNav)
         Me.Controls.Add(Me.PicCkinDt)
         Me.Controls.Add(Me.PicDate)
         Me.Controls.Add(Me.cboRoomID)
@@ -759,7 +817,6 @@ Partial Class Booking
     Friend WithEvents cboRoomID As System.Windows.Forms.ComboBox
     Friend WithEvents PicDate As System.Windows.Forms.PictureBox
     Friend WithEvents PicCkinDt As System.Windows.Forms.PictureBox
-    Friend WithEvents btnNav As System.Windows.Forms.Button
     Friend WithEvents txtDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtCheckinDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnDelete As System.Windows.Forms.Button
@@ -806,4 +863,13 @@ Partial Class Booking
     Friend WithEvents btnReport5 As System.Windows.Forms.Button
     Friend WithEvents btnReport6 As System.Windows.Forms.Button
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnInvoince As Button
+    Friend WithEvents UpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpdateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
 End Class

@@ -200,34 +200,8 @@ Public Class Booking
 
     End Function
 
-    ''' <summary>
-    ''' Menu - File - Navigation section 
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
-    Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
+    ' CRUD fucntion 
 
-        Dim customer2 As New Customer
-        customer2.ShowDialog()
-
-
-    End Sub
-
-    Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
-
-        Dim room2 As New Room
-        room2.Show()
-
-
-    End Sub
-
-    ''' <summary>
-    ''' CRUD fucntion 
-    ''' </summary>
-    ''' <param name="sender"></param>
-    ''' <param name="e"></param>
-    ''' <remarks></remarks>
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
 
         Dim htData As Hashtable
@@ -498,7 +472,33 @@ Public Class Booking
 
     End Sub
 
+    'Move to invoice form 
+    Private Sub btnInvoince_Click(sender As Object, e As EventArgs) Handles btnInvoince.Click
+
+        Dim invoiceNav As New Invoice
+        invoiceNav.ShowDialog()
+
+
+    End Sub
+
+    'MENU SECTION 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
+    End Sub
+
+    Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
+        txtID.Visible = False
+
+    End Sub
+    'handles case
+    Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MyBaseToolStripMenuItem.Click
+        Dim rom1 As New Room
+        rom1.Show()
+
+    End Sub
+
+    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
+        Dim customer As New Customer
+        customer.Show()
     End Sub
 End Class
