@@ -30,6 +30,13 @@ Public Class Customer
         htData = lsData.Item(iIndex)
         populateCusFields(lsData.Item(iIndex))
 
+        'Implemeting tooltip for the Customer form 
+        Dim tooltip1 As New ToolTip
+        tooltip1.SetToolTip(txtCusID, "Customer ID")
+
+
+
+
     End Sub
     'btnInsert and validate data: Valiate data stage - trying using menu 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -62,21 +69,21 @@ Public Class Customer
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        bIsValid = oValidation.isAlphaNumericVal(txtCusTitl.Text)
-        If bIsValid Then
-            PicTitle.Visible = False
-        Else
-            PicTitle.Visible = True
-            bAllFieldsValid = False
-        End If
+        'bIsValid = oValidation.isAlphaNumericVal(txtCusTitl.Text)
+        'If bIsValid Then
+        '    PicTitle.Visible = False
+        'Else
+        '    PicTitle.Visible = True
+        '    bAllFieldsValid = False
+        'End If
 
-        bIsValid = oValidation.isAlphaNumericVal(txtGender.Text)
-        If bIsValid Then
-            PicGender.Visible = False
-        Else
-            PicGender.Visible = True
-            bAllFieldsValid = False
-        End If
+        'bIsValid = oValidation.isAlphaNumericVal(txtGender.Text)
+        'If bIsValid Then
+        '    PicGender.Visible = False
+        'Else
+        '    PicGender.Visible = True
+        '    bAllFieldsValid = False
+        'End If
 
         bIsValid = oValidation.IsNameRight(txtCusFirName.Text)
         If bIsValid Then
@@ -139,25 +146,7 @@ Public Class Customer
 
 
     End Function
-    'Menu section 
-    Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
-        txtCusID.Visible = False
-    End Sub
 
-    Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
-
-        Dim room1 As New Room
-        room1.ShowDialog()
-
-
-    End Sub
-
-    Private Sub BookingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BookingToolStripMenuItem.Click
-
-        Dim booking1 As New Booking
-        booking1.ShowDialog()
-
-    End Sub
 
     'CRUD
     'Moving between records
@@ -305,8 +294,27 @@ Public Class Customer
 
     End Function
 
-
+    'menu section
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
+    End Sub
+
+    Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
+        txtCusID.Visible = False
+    End Sub
+
+    Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
+
+        Dim room1 As New Room
+        room1.ShowDialog()
+
+
+    End Sub
+
+    Private Sub BookingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BookingToolStripMenuItem.Click
+
+        Dim booking1 As New Booking
+        booking1.ShowDialog()
+
     End Sub
 End Class

@@ -57,9 +57,9 @@ Partial Class Booking
         Me.btnLast = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -72,7 +72,6 @@ Partial Class Booking
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet1 = New WindowsApplication1.HRRISdbDataSet1()
         Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
@@ -101,6 +100,7 @@ Partial Class Booking
         Me.btnReport5 = New System.Windows.Forms.Button()
         Me.btnReport6 = New System.Windows.Forms.Button()
         Me.btnInvoince = New System.Windows.Forms.Button()
+        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -407,7 +407,7 @@ Partial Class Booking
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(987, 24)
@@ -416,28 +416,28 @@ Partial Class Booking
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerToolStripMenuItem, Me.BookingToolStripMenuItem, Me.RoomToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.RoomToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'CustomerToolStripMenuItem
+        'NewToolStripMenuItem
         '
-        Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CustomerToolStripMenuItem.Text = "New"
-        '
-        'BookingToolStripMenuItem
-        '
-        Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BookingToolStripMenuItem.Text = "Room"
+        Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewToolStripMenuItem.Text = "New"
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
         Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.RoomToolStripMenuItem.Text = "Customer"
+        Me.RoomToolStripMenuItem.Text = "Room"
+        '
+        'CustomerToolStripMenuItem
+        '
+        Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'ExitToolStripMenuItem
         '
@@ -509,15 +509,10 @@ Partial Class Booking
         '
         'HelpToolStripMenuItem
         '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(55, 20)
-        Me.AboutToolStripMenuItem.Text = "About "
         '
         'BookingBindingSource
         '
@@ -720,6 +715,12 @@ Partial Class Booking
         Me.btnInvoince.Text = "Generate Invoice"
         Me.btnInvoince.UseVisualStyleBackColor = True
         '
+        'AboutToolStripMenuItem1
+        '
+        Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Text = "About"
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -831,10 +832,9 @@ Partial Class Booking
     Friend WithEvents EditToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CustomerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BookingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HRRISdbDataSet1 As WindowsApplication1.HRRISdbDataSet1
     Friend WithEvents BookingBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents BookingTableAdapter As WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter
@@ -872,4 +872,5 @@ Partial Class Booking
     Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
 End Class

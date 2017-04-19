@@ -27,6 +27,35 @@ Public Class Booking
         Me.BookingTableAdapter1.Fill(Me.HRRISdbDataSet3.booking)
         Me.Refresh()
 
+        'Enable booking ID field whenever click into the form in order to perform CRUD task 
+
+        'Tooltip part for
+        Dim tootipBookg As New ToolTip
+        'Input fields part 
+        tootipBookg.SetToolTip(txtID, "Input ID to perform program function")
+        tootipBookg.SetToolTip(txtDate, "Choose booking date here")
+        tootipBookg.SetToolTip(txtType, "Choose room type for the customer")
+        tootipBookg.SetToolTip(cboCusId, "Choose customer ID from the dropdown box")
+        tootipBookg.SetToolTip(cboStays, "Choose customer stays days from the dropdown box")
+        tootipBookg.SetToolTip(cboStays, "Choose number of guest from the dropdown box")
+        tootipBookg.SetToolTip(txtCheckinDate, "Choose customer checkin date here")
+        tootipBookg.SetToolTip(txtPrice, "Booking price will be automatic calculate")
+        tootipBookg.SetToolTip(txtCmt, "Input comment here if there are some")
+        'Button part 
+        tootipBookg.SetToolTip(btnAdd, "Click New to input new record")
+        tootipBookg.SetToolTip(btnDelete, "Input booking ID to delete record")
+        tootipBookg.SetToolTip(btnFind, "Input ID to booking ID to find record")
+        tootipBookg.SetToolTip(btnInvoince, "Click here to generate booking invoice")
+        tootipBookg.SetToolTip(btnFirst, "Navigation")
+        tootipBookg.SetToolTip(btnNext, "Navigation")
+        tootipBookg.SetToolTip(btnPrevious, "Navigation")
+        tootipBookg.SetToolTip(btnLast, "Navigation")
+
+        'Form part 
+
+
+
+
 
         Dim Moving As BookingDataController = New BookingDataController
         lsDataMov = Moving.BookingfindALl()
@@ -486,19 +515,22 @@ Public Class Booking
         Me.Close()
     End Sub
 
+    Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
+        txtID.Clear()
+        txtID.Enabled = False
+
+    End Sub
+
+
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
-        txtID.Visible = False
-
-    End Sub
-    'handles case
-    Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MyBaseToolStripMenuItem.Click
-        Dim rom1 As New Room
-        rom1.Show()
-
-    End Sub
-
-    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
         Dim customer As New Customer
         customer.Show()
+
+
+    End Sub
+
+    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click, CustomerToolStripMenuItem.Click
+        Dim bok As New Booking
+        bok.Show()
     End Sub
 End Class
