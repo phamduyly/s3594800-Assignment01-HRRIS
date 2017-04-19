@@ -429,7 +429,7 @@ Public Class Booking
     '1.generate cus report ABOUT last-booking time , days booked  
     Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
 
-        Dim GenerateCusReportByID As BookingDataController = New BookingDataController
+        Dim GenerateCusReportByID As New ReportController
 
 
 
@@ -449,7 +449,7 @@ Public Class Booking
     'SQL statement SELECT booking_date, total_price FROM booking WHERE room_id = ?; 
     Private Sub btnReport2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport2.Click
 
-        Dim Report2 As New BookingDataController
+        Dim Report2 As New ReportController
 
         'For excepttion and case that forgot to choose room ID
         Try
@@ -470,10 +470,25 @@ Public Class Booking
     'Create input for months(cbbox) and years(text), dim here 
     Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
 
-        Dim report3 As New BookingDataController
 
-        'Dim iYears =  txtYear.Text
-        'Dim iMonths = cboMonths.Text
+        Dim report3 As New ReportController
+        'For execption and case that error 
+
+        Try
+            Dim sCusID = cboCusId.SelectedIndex
+            Dim iYears = txtReportYear.Text
+            Dim iMonths = cboReportMonth.Text
+
+            report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+
+
 
     End Sub
     '4. all bookings in given months and years (??)
@@ -533,4 +548,6 @@ Public Class Booking
         Dim bok As New Booking
         bok.Show()
     End Sub
+
+
 End Class
