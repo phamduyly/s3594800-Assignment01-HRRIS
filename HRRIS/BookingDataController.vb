@@ -196,7 +196,56 @@ Public Class BookingDataController
 
         Return lsData
     End Function
-   
+    'FUCNTIO FOR finding room ID based on "type" and "availablitly"
+    Public Function RoomFind(ByVal sType As String, ByVal sAva As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            oCommand.CommandText = "SELECT room_id FROM room WHERE type = ? AND availability = ?;"
+            oCommand.Parameters.Add("type", OleDbType.VarChar, 15)
+            oCommand.Parameters("type").Value = sType
+            oCommand.Parameters.Add("availability", OleDbType.VarChar, 15)
+            oCommand.Parameters("availability").Value = sAva
+            oCommand.Prepare()
+            Debug.Print(oCommand.CommandText)
+
+
+
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("type") = CStr(oDataReader("type"))
+                'This is the part that it cannot read further
+                htTempData("availability") = CStr(oDataReader("availability"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("this find room still not work, ")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
 
 
     'Continue with CRUD fucntion 

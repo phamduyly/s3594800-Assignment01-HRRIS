@@ -41,6 +41,7 @@ Public Class Booking
         tootipBookg.SetToolTip(txtCheckinDate, "Choose customer checkin date here")
         tootipBookg.SetToolTip(txtPrice, "Booking price will be automatic calculate")
         tootipBookg.SetToolTip(txtCmt, "Input comment here if there are some")
+        tootipBookg.SetToolTip(cboRoomID, "RoomID that available and at the choose Type")
         'Button part 
         tootipBookg.SetToolTip(btnAdd, "Click New to input new record")
         tootipBookg.SetToolTip(btnDelete, "Input booking ID to delete record")
@@ -52,11 +53,6 @@ Public Class Booking
         tootipBookg.SetToolTip(btnLast, "Navigation")
 
         'Form part 
-
-
-
-
-
         Dim Moving As BookingDataController = New BookingDataController
         lsDataMov = Moving.BookingfindALl()
 
@@ -92,9 +88,6 @@ Public Class Booking
         iCurrentIndex = iIndex
         htData = lsDataMov.Item(iIndex)
         populateBookingFields(lsDataMov.Item(iIndex))
-
-
-
 
     End Sub
     'Combo box part - using txt inorder to keep track on and modify the code less 
@@ -469,8 +462,6 @@ Public Class Booking
     'SQL code is SELECT * FROM booking WHERE customer_id = ? AND booking_date = ?; 
     'Create input for months(cbbox) and years(text), dim here 
     Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
-
-
         Dim report3 As New ReportController
         'For execption and case that error 
 
@@ -480,40 +471,64 @@ Public Class Booking
             Dim iMonths = cboReportMonth.Text
 
             report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
-
-
         Catch ex As Exception
+            Debug.Print("the erros is: " & ex.Message)
+            MsgBox("The report could not generate, it could be because" & vbCrLf & " Customer ID, months or year is not selected")
+
 
         End Try
-
-
-
-
 
     End Sub
     '4. all bookings in given months and years (??)
     'SQL code is SELECT * FROM booking WHERE (bookingdate = ?); find how to do it with date and year
     Private Sub btnReport4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport4.Click
+        Dim report4 As New ReportController
 
+        Try
+            Dim iYears = txtReportYear.Text
+            Dim iMonths = cboReportMonth.Text
 
+            report4.CreateReport04(CInt(iMonths), CInt(iYears))
 
-        'Dim iYears =  txtYear.Text
-        'Dim iMonths = cboMonths.Text
+        Catch ex As Exception
+            Debug.Print("the erros is: " & ex.Message)
+            MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
+        End Try
     End Sub
     '5.show customer = ? who are due for checkin in a given month or year 
     'SQL code is SELECT * FROM booking WHERE 
     'Clue: using the visible and invisible radio box 
 
     Private Sub btnReport5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport5.Click
+        Dim report5 As New ReportController
 
+        Try
+            Dim iYears = txtReportYear.Text
+            Dim iMonths = cboReportMonth.Text
 
-        'Dim iYears =  txtYear.Text
-        'Dim iMonths = cboMonths.Text
+            report5.CreateReport05(CInt(iMonths), CInt(iYears))
+
+        Catch ex As Exception
+            Debug.Print("the erros is: " & ex.Message)
+            MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
+        End Try
     End Sub
     '6.show room_id = ? ABOUT bookings * in given months or year 
     'SQL code is SELECT * FROM bookings WHERE room_id = ? AND month = ? OR year = ?;
     Private Sub btnReport6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport6.Click
+        Dim report6 As New ReportController
 
+        Try
+            Dim sRmId = txtRmId.Text
+            Dim iYears = txtReportYear.Text
+            Dim iMonths = cboReportMonth.Text
+
+            report6.CreateReport06(CStr(sRmId), CInt(iMonths), CInt(iYears))
+
+        Catch ex As Exception
+            Debug.Print("the erros is: " & ex.Message)
+            MsgBox("The report could not generate, it could be because" & vbCrLf & " room ID, months or year is not selected")
+        End Try
     End Sub
 
     'Move to invoice form 
@@ -548,6 +563,16 @@ Public Class Booking
         Dim bok As New Booking
         bok.Show()
     End Sub
-
-
+    'Norte: click is on the right direction, however roomfind still not work 
+    Private Sub cboRoomID_Click(sender As Object, e As EventArgs) Handles cboRoomID.Click
+        Dim sType As String
+        sType = txtType.Text
+        Dim sAva As String
+        sAva = "Yes"
+        Dim oController As New BookingDataController
+        Dim lsDataRoom = oController.RoomFind(sType, sAva)
+        For Each Room In lsDataRoom
+            cboRoomID.Items.Add(CStr(Room("room_id")))
+        Next
+    End Sub
 End Class

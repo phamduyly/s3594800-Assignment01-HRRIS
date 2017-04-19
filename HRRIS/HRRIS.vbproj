@@ -115,6 +115,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HRRISdbDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SQLController.vb" />
     <Compile Include="Validation.vb" />
     <Compile Include="Room.Designer.vb">
       <DependentUpon>Room.vb</DependentUpon>

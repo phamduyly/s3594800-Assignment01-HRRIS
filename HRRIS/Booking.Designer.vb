@@ -92,7 +92,6 @@ Partial Class Booking
         Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
         Me.btnCusReport = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtType = New System.Windows.Forms.TextBox()
         Me.cboGuestNum = New System.Windows.Forms.ComboBox()
         Me.cboStays = New System.Windows.Forms.ComboBox()
         Me.btnReport2 = New System.Windows.Forms.Button()
@@ -105,6 +104,8 @@ Partial Class Booking
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cboReportMonth = New System.Windows.Forms.ComboBox()
+        Me.txtType = New System.Windows.Forms.ComboBox()
+        Me.txtRmId = New System.Windows.Forms.TextBox()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -644,13 +645,6 @@ Partial Class Booking
         Me.Label10.TabIndex = 71
         Me.Label10.Text = "Type"
         '
-        'txtType
-        '
-        Me.txtType.Location = New System.Drawing.Point(142, 105)
-        Me.txtType.Name = "txtType"
-        Me.txtType.Size = New System.Drawing.Size(183, 20)
-        Me.txtType.TabIndex = 72
-        '
         'cboGuestNum
         '
         Me.cboGuestNum.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
@@ -759,11 +753,30 @@ Partial Class Booking
         Me.cboReportMonth.Size = New System.Drawing.Size(63, 21)
         Me.cboReportMonth.TabIndex = 85
         '
+        'txtType
+        '
+        Me.txtType.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.txtType.FormattingEnabled = True
+        Me.txtType.Items.AddRange(New Object() {"Normal", "Deluxe", "Luxury"})
+        Me.txtType.Location = New System.Drawing.Point(142, 105)
+        Me.txtType.Name = "txtType"
+        Me.txtType.Size = New System.Drawing.Size(198, 21)
+        Me.txtType.TabIndex = 86
+        '
+        'txtRmId
+        '
+        Me.txtRmId.Location = New System.Drawing.Point(658, 230)
+        Me.txtRmId.Name = "txtRmId"
+        Me.txtRmId.Size = New System.Drawing.Size(63, 20)
+        Me.txtRmId.TabIndex = 87
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 544)
+        Me.Controls.Add(Me.txtRmId)
+        Me.Controls.Add(Me.txtType)
         Me.Controls.Add(Me.cboReportMonth)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
@@ -776,7 +789,6 @@ Partial Class Booking
         Me.Controls.Add(Me.btnReport2)
         Me.Controls.Add(Me.cboStays)
         Me.Controls.Add(Me.cboGuestNum)
-        Me.Controls.Add(Me.txtType)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnCusReport)
         Me.Controls.Add(Me.DataGridView1)
@@ -896,7 +908,6 @@ Partial Class Booking
     Friend WithEvents CommentsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnCusReport As Button
     Friend WithEvents Label10 As Label
-    Friend WithEvents txtType As TextBox
     Friend WithEvents cboGuestNum As ComboBox
     Friend WithEvents cboStays As ComboBox
     Friend WithEvents btnReport2 As System.Windows.Forms.Button
@@ -919,4 +930,6 @@ Partial Class Booking
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents cboReportMonth As ComboBox
+    Friend WithEvents txtType As ComboBox
+    Friend WithEvents txtRmId As TextBox
 End Class

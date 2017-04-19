@@ -1,11 +1,61 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HRRIS", "HRRIS\HRRIS.vbproj", "{7DB29178-6DA8-402D-A54C-18795F76F014}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HRRISUnitTest", "HRRISUnitTest\HRRISUnitTest.vbproj", "{754AFB05-B4AD-4FB5-969F-6B395A0D3ED9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", "{3341017F-C0F1-4F92-98D0-5439F1042846}"
+	ProjectSection(SolutionItems) = preProject
+		HRRIS\BookingDataController.vb = HRRIS\BookingDataController.vb
+		HRRIS\CustomerDataController.vb = HRRIS\CustomerDataController.vb
+		HRRIS\RoomDataController.vb = HRRIS\RoomDataController.vb
+		HRRIS\Validation.vb = HRRIS\Validation.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Form", "Form", "{12FFB262-E80F-4A51-8712-1C4C3AAF7E9F}"
+	ProjectSection(SolutionItems) = preProject
+		HRRIS\Booking.Designer.vb = HRRIS\Booking.Designer.vb
+		HRRIS\Booking.resx = HRRIS\Booking.resx
+		HRRIS\Booking.vb = HRRIS\Booking.vb
+		HRRIS\Customer.Designer.vb = HRRIS\Customer.Designer.vb
+		HRRIS\Customer.resx = HRRIS\Customer.resx
+		HRRIS\Customer.vb = HRRIS\Customer.vb
+		HRRIS\Invoice.Designer.vb = HRRIS\Invoice.Designer.vb
+		HRRIS\Invoice.resx = HRRIS\Invoice.resx
+		HRRIS\Invoice.vb = HRRIS\Invoice.vb
+		HRRIS\Room.Designer.vb = HRRIS\Room.Designer.vb
+		HRRIS\Room.resx = HRRIS\Room.resx
+		HRRIS\Room.vb = HRRIS\Room.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reporting", "Reporting", "{70DF73A5-3538-4A52-A830-FC8456777B5D}"
+	ProjectSection(SolutionItems) = preProject
+		HRRIS\ReportController.vb = HRRIS\ReportController.vb
+		HRRIS\SQLController.vb = HRRIS\SQLController.vb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etcetera", "Etcetera", "{12FE4B11-F63D-4CCF-A758-B0B40CDB1F12}"
+	ProjectSection(SolutionItems) = preProject
+		HRRIS\HRRISdbDataSet.Designer.vb = HRRIS\HRRISdbDataSet.Designer.vb
+		HRRIS\HRRISdbDataSet.xsc = HRRIS\HRRISdbDataSet.xsc
+		HRRIS\HRRISdbDataSet.xsd = HRRIS\HRRISdbDataSet.xsd
+		HRRIS\HRRISdbDataSet.xss = HRRIS\HRRISdbDataSet.xss
+		HRRIS\HRRISdbDataSet1.Designer.vb = HRRIS\HRRISdbDataSet1.Designer.vb
+		HRRIS\HRRISdbDataSet1.xsc = HRRIS\HRRISdbDataSet1.xsc
+		HRRIS\HRRISdbDataSet1.xsd = HRRIS\HRRISdbDataSet1.xsd
+		HRRIS\HRRISdbDataSet1.xss = HRRIS\HRRISdbDataSet1.xss
+		HRRIS\HRRISdbDataSet2.Designer.vb = HRRIS\HRRISdbDataSet2.Designer.vb
+		HRRIS\HRRISdbDataSet2.xsc = HRRIS\HRRISdbDataSet2.xsc
+		HRRIS\HRRISdbDataSet2.xsd = HRRIS\HRRISdbDataSet2.xsd
+		HRRIS\HRRISdbDataSet2.xss = HRRIS\HRRISdbDataSet2.xss
+		HRRIS\HRRISdbDataSet3.Designer.vb = HRRIS\HRRISdbDataSet3.Designer.vb
+		HRRIS\HRRISdbDataSet3.xsc = HRRIS\HRRISdbDataSet3.xsc
+		HRRIS\HRRISdbDataSet3.xsd = HRRIS\HRRISdbDataSet3.xsd
+		HRRIS\HRRISdbDataSet3.xss = HRRIS\HRRISdbDataSet3.xss
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
