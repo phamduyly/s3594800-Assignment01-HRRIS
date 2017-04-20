@@ -13,38 +13,31 @@ Imports System.IO
 Public Class ReportController
     Public Const CONNECTION_STRING As String =
    "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
-    'Find for content section for the things 
-    '1ST report generator function - CusID = ? ; find num_days, booking_date NOTE: cus_id, num_days still missing 
+
     Public Function CusbyId(ByVal sCusId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
 
-        'Try
-        oConnection.Open()
-        Debug.Print("Connection String: " & oConnection.ConnectionString)
+        Try
+            oConnection.Open()
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
 
-
-        Dim oCommand As OleDbCommand = New OleDbCommand
+            Dim oCommand As OleDbCommand = New OleDbCommand
         oCommand.Connection = oConnection
 
-        oCommand.CommandText = "SELECT num_days, booking_date FROM booking WHERE customer_id = ?;"
-
-        oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
+            oCommand.CommandText = "SELECT customer_id, num_days, booking_date FROM booking WHERE customer_id = ?;"
+            oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
         oCommand.Parameters("customer_id").Value = CInt(sCusId)
         oCommand.Prepare()
 
-
-        Dim oDataReader = oCommand.ExecuteReader()
+            Dim oDataReader = oCommand.ExecuteReader()
 
         Dim htTempData As Hashtable
 
         Do While oDataReader.Read() = True
             htTempData = New Hashtable
-            'since the SQL only retrive 3 value, try delete value that not in sql cmd
-            'htTempData value = 0 (Wrong)
-            'htTempData("customer_id") = CInt(CStr(oDataReader("customer_id")))
-            'This have problem - clue: bc of data type - not figure out yet. When put it a side the report run smooth as f
+            htTempData("customer_id") = CInt(oDataReader("customer_id"))
             htTempData("num_days") = CInt(oDataReader("num_days"))
             htTempData("booking_date") = CDate(oDataReader("booking_date"))
 
@@ -53,72 +46,56 @@ Public Class ReportController
 
         Debug.Print("the record was found.")
 
+        Catch ex As Exception
+        Debug.Print("ERROR: " & ex.Message)
+        MsgBox("an error occured. The record(s) could not be found")
+        Finally
+        oConnection.Close()
 
-
-        'Catch ex As Exception
-        '    Debug.Print("ERROR: " & ex.Message)
-        '    MsgBox("an error occured. The record(s) could not be found")
-        'Finally
-        '    oConnection.Close()
-
-        'End Try
+        End Try
 
         Return lsData
     End Function
 
     '2ND report generator function 
-    'Still having problem wiht cus, roomID
+
     Public Function SecondReport(ByVal sRmId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
 
-        'Try
-        oConnection.Open()
-        Debug.Print("Connection String: " & oConnection.ConnectionString)
-        'st wrong here
-
-        Dim oCommand As OleDbCommand = New OleDbCommand
-        oCommand.Connection = oConnection
-
-        oCommand.CommandText = "SELECT total_price, booking_date FROM booking WHERE room_id = ?;"
-        'SELECT booking_date, total_price FROM booking WHERE room_id = ?; 
-
-        'st wrong here
-        'SQL cmd is red in F8 
-        oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
-        oCommand.Parameters("room_id").Value = CInt(sRmId)
-        oCommand.Prepare()
+        Try
+            oConnection.Open()
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
 
 
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
 
-        Dim oDataReader = oCommand.ExecuteReader()
+            oCommand.CommandText = "SELECT room_id, total_price, booking_date FROM booking WHERE room_id = ?;"
+            oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
+            oCommand.Parameters("room_id").Value = CInt(sRmId)
+            oCommand.Prepare()
 
-        Dim htTempData As Hashtable
+            Dim oDataReader = oCommand.ExecuteReader()
+            Dim htTempData As Hashtable
 
-        Do While oDataReader.Read() = True
-            htTempData = New Hashtable
-            'since the SQL only retrive 3 value, try delete value that not in sql cmd
-            'htTempData value = 0 (Wrong)
-            'htTempData("") = CInt(CStr(oDataReader("customer_id")))
-            'This have problem - clue: bc of data type - not figure out yet. When put it a side the report run smooth as f
-            htTempData("total_price") = CInt(oDataReader("total_price"))
-            htTempData("booking_date") = CDate(oDataReader("booking_date"))
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("total_price") = CInt(oDataReader("total_price"))
+                htTempData("booking_date") = CDate(oDataReader("booking_date"))
 
-            lsData.Add(htTempData)
-        Loop
+                lsData.Add(htTempData)
+            Loop
+            Debug.Print("the record was found.")
 
-        Debug.Print("the record was found.")
-
-
-
-        'Catch ex As Exception
-        '    Debug.Print("ERROR: " & ex.Message)
-        '    MsgBox("an error occured. The record(s) could not be found")
-        'Finally
-        '    oConnection.Close()
-
-        'End Try
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+        End Try
 
         Return lsData
     End Function
@@ -318,17 +295,78 @@ Public Class ReportController
 
         Return lsData
     End Function
-    'CRUD room data 
-    'room update
+    Private Function generateReport03(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String, ByVal lsKeys As List(Of String)) As String
 
-    'Report 4th function
+        Dim sReportContent As String
+
+        '1.Generate the start of the HTML file
+
+        Dim sDoctype As String = "<!DOCTYPE html>"
+        Dim sHtmlStartTag As String = "<html lang=""eng"">"
+        Dim sHeadTitle As String = "<head>" & vbCrLf &
+            "<title>" & sReportTitle & "</title>" & vbCrLf &
+        "<meta charset=""utf-8"">" & vbCrLf &
+        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf &
+        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
+        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
+        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
+        "</head>"
+        Dim sBodyStartTag As String = "<body>"
+        Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
+        sReportContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
+
+        '2.Generate the product table and its rows 
+        Dim sTable = generateTable03(lsData, lsKeys)
+        sReportContent &= sTable & vbCrLf
+
+        '3.Generate the end of the HTML file 
+        Dim sBodyEndTag As String = "</body>"
+        Dim sHTMLEndTag As String = "</html>"
+        sReportContent &= sBodyEndTag & vbCrLf & sHTMLEndTag
 
 
-    'Report 5th function
+
+        Return sReportContent
+
+    End Function
+
+    'c.Generating table 
+    Private Function generateTable03(ByVal lsData As List(Of Hashtable), ByVal lsKeys As List(Of String)) As String
+        'Generate the start of the table
+        'vbCrLf = down a line and going to the left or feed or st
+        Dim sTable = "<table class =""table table-hover"">" & vbCrLf
+        Dim htSample As Hashtable = lsData.Item(0)
+        'Dim lsKeys = htSample.Keys
 
 
-    'Report 6th fucntion 
 
+
+        ' Generate the header row
+        Dim sHeadderRow = "<tr>" & vbCrLf
+        For Each key In lsKeys
+            sHeadderRow &= "<th>" & CStr(key) & "</th>" & vbCrLf
+        Next
+        sHeadderRow &= "</tr>" & vbCrLf
+        Debug.Print("sHeaderRow: " & sHeadderRow)
+        sTable &= sHeadderRow
+
+        'Generate the table rows 
+        For Each record In lsData
+            Dim product As Hashtable = record
+            Dim sTableRow = "<tr>" & vbCrLf
+
+            For Each key In lsKeys
+                sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
+            Next
+            sTableRow &= "</tr>" & vbCrLf
+            Debug.Print("sTableRow: " & sTableRow)
+            sTable &= sTableRow
+        Next
+        'Generate the end of the table
+        sTable &= "</table>" & vbCrLf
+
+        Return sTable
+    End Function
 
     'REPORT SECTION
     'Content generating section - HTML file 
@@ -340,10 +378,10 @@ Public Class ReportController
 
         Debug.Print("Create Report ... ")
 
-        Dim lsKeys As List(Of String) = New List(Of String)
-        lsKeys.Add("Customer_id ")
+        Dim lsKeys As New List(Of String)
+        lsKeys.Add("customer_id ")
         lsKeys.Add("booking_date")
-        lsKeys.Add("nums_days")
+        lsKeys.Add("num_days")
 
         Dim lsData = CusbyId(sCusId)
         Dim sReportTitle = "Customer booking Report by ..."
@@ -418,7 +456,7 @@ Public Class ReportController
         Debug.Print("Create Room Booking Information Report")
 
         'modify dim 
-        Dim lsKeys As List(Of String) = New List(Of String)
+        Dim lsKeys As New List(Of String)
         lsKeys.Add("room_id")
 
         Dim lsData = ThirdReport(sCusId, iMonths, iYears)
@@ -444,7 +482,7 @@ Public Class ReportController
         Debug.Print("Create Room Booking Information Report")
 
         'modify dim 
-        Dim lsKeys As List(Of String) = New List(Of String)
+        Dim lsKeys As New List(Of String)
         'Modify lskey value
         lsKeys.Add("booking_id")
         lsKeys.Add("booking_date")
@@ -480,7 +518,7 @@ Public Class ReportController
         Debug.Print("Create Room Booking Information Report")
 
         'modify dim 
-        Dim lsKeys As List(Of String) = New List(Of String)
+        Dim lsKeys As New List(Of String)
         'Modify lskey value
         lsKeys.Add("booking_id")
         lsKeys.Add("booking_date")
@@ -517,7 +555,7 @@ Public Class ReportController
         Debug.Print("report")
 
         'modify dim 
-        Dim lsKeys As List(Of String) = New List(Of String)
+        Dim lsKeys As New List(Of String)
         'Modify lskey value
         lsKeys.Add("booking_id")
         lsKeys.Add("booking_date")
@@ -549,103 +587,32 @@ Public Class ReportController
 
     End Sub
     'b.Generating report
-    Private Function generateReport03(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String, ByVal lsKeys As List(Of String)) As String
 
-        Dim sReportContent As String
-
-        '1.Generate the start of the HTML file
-
-        Dim sDoctype As String = "<!DOCTYPE html>"
-        Dim sHtmlStartTag As String = "<html lang=""eng"">"
-        Dim sHeadTitle As String = "<head>" & vbCrLf &
-            "<title>" & sReportTitle & "</title>" & vbCrLf &
-        "<meta charset=""utf-8"">" & vbCrLf &
-        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf &
-        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
-        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
-        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
-        "</head>"
-        Dim sBodyStartTag As String = "<body>"
-        Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
-        sReportContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
-
-        '2.Generate the product table and its rows 
-        Dim sTable = generateTable03(lsData, lsKeys)
-        sReportContent &= sTable & vbCrLf
-
-        '3.Generate the end of the HTML file 
-        Dim sBodyEndTag As String = "</body>"
-        Dim sHTMLEndTag As String = "</html>"
-        sReportContent &= sBodyEndTag & vbCrLf & sHTMLEndTag
-
-
-
-        Return sReportContent
-
-    End Function
-
-    'c.Generating table 
-    Private Function generateTable03(ByVal lsData As List(Of Hashtable), ByVal lsKeys As List(Of String)) As String
-        'Generate the start of the table
-        'vbCrLf = down a line and going to the left or feed or st
-        Dim sTable = "<table class =""table table-hover"">" & vbCrLf
-        Dim htSample As Hashtable = lsData.Item(0)
-        'Dim lsKeys = htSample.Keys
-
-
-
-
-        ' Generate the header row
-        Dim sHeadderRow = "<tr>" & vbCrLf
-        For Each key In lsKeys
-            sHeadderRow &= "<th>" & CStr(key) & "</th>" & vbCrLf
-        Next
-        sHeadderRow &= "</tr>" & vbCrLf
-        Debug.Print("sHeaderRow: " & sHeadderRow)
-        sTable &= sHeadderRow
-
-        'Generate the table rows 
-        For Each record In lsData
-            Dim product As Hashtable = record
-            Dim sTableRow = "<tr>" & vbCrLf
-
-            For Each key In lsKeys
-                sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
-            Next
-            sTableRow &= "</tr>" & vbCrLf
-            Debug.Print("sTableRow: " & sTableRow)
-            sTable &= sTableRow
-        Next
-        'Generate the end of the table
-        sTable &= "</table>" & vbCrLf
-
-        Return sTable
-    End Function
 
 
     'BREAK REPORT:
     'Need to summary all the funciton needed in order to run this function 
     'Not modified yet
 
-    Public Sub createBreakReport()
-        Debug.Print("CreatBreakReport...")
+    'Public Sub createBreakReport()
+    '    Debug.Print("CreatBreakReport...")
 
-        'lskey part 
+    '    'lskey part 
 
-        Dim lsData =
-        Dim sReportTitle = "Product Control Break Report "
-        Dim sReportContent = generateBreakReport(lsData, sReportTitle)
-        'lsData is ... sReporttiltle is 
-        Dim sReportFilename = "ProductBreakReport.html"
-        saveReport(sReportContent, sReportFilename)
+    '    Dim lsData =
+    '    Dim sReportTitle = "Product Control Break Report "
+    '    Dim sReportContent = generateBreakReport(lsData, sReportTitle)
+    '    'lsData is ... sReporttiltle is 
+    '    Dim sReportFilename = "ProductBreakReport.html"
+    '    saveReport(sReportContent, sReportFilename)
 
-        Dim sParam As String = """" & Application.StartupPath & "\" & sReportFilename & """"
-        ' the """"" can fix into the access to the file path
-        Debug.Print("sParam: " & sParam)
+    '    Dim sParam As String = """" & Application.StartupPath & "\" & sReportFilename & """"
+    '    ' the """"" can fix into the access to the file path
+    '    Debug.Print("sParam: " & sParam)
 
-        System.Diagnostics.Process.Start(sParam)
+    '    System.Diagnostics.Process.Start(sParam)
 
-    End Sub
+    'End Sub
 
     Private Function generateBreakReport(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String) As String
         'This part seem like the code is going to take the value from 1.the lsDATA whihc was dimed before in the clas

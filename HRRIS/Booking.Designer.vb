@@ -77,16 +77,6 @@ Partial Class Booking
         Me.HRRISdbDataSet1 = New WindowsApplication1.HRRISdbDataSet1()
         Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
         Me.cboCusId = New System.Windows.Forms.ComboBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CustomeridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumdaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumguestsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CheckindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalpriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
         Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
@@ -103,9 +93,31 @@ Partial Class Booking
         Me.txtReportYear = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.cboReportMonth = New System.Windows.Forms.ComboBox()
         Me.txtType = New System.Windows.Forms.ComboBox()
-        Me.txtRmId = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.txtRmNum = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.cboReportMonth = New System.Windows.Forms.ComboBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Yearerror = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalpriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CheckindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumguestsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumdaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CustomeridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,22 +130,26 @@ Partial Class Booking
         Me.MenuStrip1.SuspendLayout()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCmt
         '
-        Me.txtCmt.Location = New System.Drawing.Point(142, 320)
+        Me.txtCmt.Location = New System.Drawing.Point(193, 398)
         Me.txtCmt.Name = "txtCmt"
-        Me.txtCmt.Size = New System.Drawing.Size(343, 20)
+        Me.txtCmt.Size = New System.Drawing.Size(317, 20)
         Me.txtCmt.TabIndex = 36
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(32, 320)
+        Me.Label9.Location = New System.Drawing.Point(82, 398)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 13)
         Me.Label9.TabIndex = 35
@@ -141,15 +157,15 @@ Partial Class Booking
         '
         'txtPrice
         '
-        Me.txtPrice.Location = New System.Drawing.Point(142, 288)
+        Me.txtPrice.Location = New System.Drawing.Point(193, 366)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(343, 20)
+        Me.txtPrice.Size = New System.Drawing.Size(317, 20)
         Me.txtPrice.TabIndex = 34
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(32, 291)
+        Me.Label8.Location = New System.Drawing.Point(82, 369)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(61, 13)
         Me.Label8.TabIndex = 33
@@ -158,7 +174,7 @@ Partial Class Booking
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(32, 256)
+        Me.Label7.Location = New System.Drawing.Point(82, 334)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(72, 13)
         Me.Label7.TabIndex = 31
@@ -167,7 +183,7 @@ Partial Class Booking
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(32, 225)
+        Me.Label6.Location = New System.Drawing.Point(82, 303)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(87, 13)
         Me.Label6.TabIndex = 29
@@ -176,7 +192,7 @@ Partial Class Booking
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(32, 187)
+        Me.Label5.Location = New System.Drawing.Point(82, 265)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 13)
         Me.Label5.TabIndex = 27
@@ -185,7 +201,7 @@ Partial Class Booking
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(32, 146)
+        Me.Label4.Location = New System.Drawing.Point(14, 22)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(68, 13)
         Me.Label4.TabIndex = 25
@@ -194,7 +210,7 @@ Partial Class Booking
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(346, 108)
+        Me.Label3.Location = New System.Drawing.Point(334, 22)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 23
@@ -203,7 +219,7 @@ Partial Class Booking
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(32, 64)
+        Me.Label2.Location = New System.Drawing.Point(82, 101)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 21
@@ -211,15 +227,15 @@ Partial Class Booking
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(142, 23)
+        Me.txtID.Location = New System.Drawing.Point(192, 60)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(343, 20)
+        Me.txtID.Size = New System.Drawing.Size(317, 20)
         Me.txtID.TabIndex = 20
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 26)
+        Me.Label1.Location = New System.Drawing.Point(82, 63)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 19
@@ -228,9 +244,9 @@ Partial Class Booking
         'PicCmt
         '
         Me.PicCmt.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicCmt.Location = New System.Drawing.Point(501, 324)
+        Me.PicCmt.Location = New System.Drawing.Point(552, 402)
         Me.PicCmt.Name = "PicCmt"
-        Me.PicCmt.Size = New System.Drawing.Size(20, 16)
+        Me.PicCmt.Size = New System.Drawing.Size(17, 16)
         Me.PicCmt.TabIndex = 47
         Me.PicCmt.TabStop = False
         Me.PicCmt.Visible = False
@@ -238,9 +254,9 @@ Partial Class Booking
         'PicStayingDay
         '
         Me.PicStayingDay.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicStayingDay.Location = New System.Drawing.Point(501, 188)
+        Me.PicStayingDay.Location = New System.Drawing.Point(552, 266)
         Me.PicStayingDay.Name = "PicStayingDay"
-        Me.PicStayingDay.Size = New System.Drawing.Size(20, 16)
+        Me.PicStayingDay.Size = New System.Drawing.Size(17, 16)
         Me.PicStayingDay.TabIndex = 46
         Me.PicStayingDay.TabStop = False
         Me.PicStayingDay.Visible = False
@@ -248,9 +264,9 @@ Partial Class Booking
         'PicGuestNum
         '
         Me.PicGuestNum.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicGuestNum.Location = New System.Drawing.Point(501, 222)
+        Me.PicGuestNum.Location = New System.Drawing.Point(552, 300)
         Me.PicGuestNum.Name = "PicGuestNum"
-        Me.PicGuestNum.Size = New System.Drawing.Size(20, 16)
+        Me.PicGuestNum.Size = New System.Drawing.Size(17, 16)
         Me.PicGuestNum.TabIndex = 45
         Me.PicGuestNum.TabStop = False
         Me.PicGuestNum.Visible = False
@@ -258,9 +274,9 @@ Partial Class Booking
         'PicPrice
         '
         Me.PicPrice.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicPrice.Location = New System.Drawing.Point(501, 288)
+        Me.PicPrice.Location = New System.Drawing.Point(552, 366)
         Me.PicPrice.Name = "PicPrice"
-        Me.PicPrice.Size = New System.Drawing.Size(20, 16)
+        Me.PicPrice.Size = New System.Drawing.Size(17, 16)
         Me.PicPrice.TabIndex = 43
         Me.PicPrice.TabStop = False
         Me.PicPrice.Visible = False
@@ -268,9 +284,9 @@ Partial Class Booking
         'PicCusID
         '
         Me.PicCusID.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicCusID.Location = New System.Drawing.Point(501, 147)
+        Me.PicCusID.Location = New System.Drawing.Point(552, 216)
         Me.PicCusID.Name = "PicCusID"
-        Me.PicCusID.Size = New System.Drawing.Size(20, 16)
+        Me.PicCusID.Size = New System.Drawing.Size(17, 16)
         Me.PicCusID.TabIndex = 42
         Me.PicCusID.TabStop = False
         Me.PicCusID.Visible = False
@@ -278,9 +294,9 @@ Partial Class Booking
         'PicRoomID
         '
         Me.PicRoomID.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRoomID.Location = New System.Drawing.Point(501, 107)
+        Me.PicRoomID.Location = New System.Drawing.Point(552, 154)
         Me.PicRoomID.Name = "PicRoomID"
-        Me.PicRoomID.Size = New System.Drawing.Size(20, 16)
+        Me.PicRoomID.Size = New System.Drawing.Size(17, 16)
         Me.PicRoomID.TabIndex = 41
         Me.PicRoomID.TabStop = False
         Me.PicRoomID.Visible = False
@@ -288,18 +304,18 @@ Partial Class Booking
         'PicBookID
         '
         Me.PicBookID.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicBookID.Location = New System.Drawing.Point(501, 23)
+        Me.PicBookID.Location = New System.Drawing.Point(551, 60)
         Me.PicBookID.Name = "PicBookID"
-        Me.PicBookID.Size = New System.Drawing.Size(20, 16)
+        Me.PicBookID.Size = New System.Drawing.Size(17, 16)
         Me.PicBookID.TabIndex = 39
         Me.PicBookID.TabStop = False
         Me.PicBookID.Visible = False
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(544, 27)
+        Me.btnAdd.Location = New System.Drawing.Point(594, 64)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(105, 23)
+        Me.btnAdd.Size = New System.Drawing.Size(79, 23)
         Me.btnAdd.TabIndex = 37
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
@@ -308,17 +324,17 @@ Partial Class Booking
         '
         Me.cboRoomID.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboRoomID.FormattingEnabled = True
-        Me.cboRoomID.Location = New System.Drawing.Point(416, 105)
+        Me.cboRoomID.Location = New System.Drawing.Point(386, 22)
         Me.cboRoomID.Name = "cboRoomID"
-        Me.cboRoomID.Size = New System.Drawing.Size(69, 21)
+        Me.cboRoomID.Size = New System.Drawing.Size(44, 21)
         Me.cboRoomID.TabIndex = 53
         '
         'PicDate
         '
         Me.PicDate.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicDate.Location = New System.Drawing.Point(501, 64)
+        Me.PicDate.Location = New System.Drawing.Point(551, 101)
         Me.PicDate.Name = "PicDate"
-        Me.PicDate.Size = New System.Drawing.Size(20, 16)
+        Me.PicDate.Size = New System.Drawing.Size(17, 16)
         Me.PicDate.TabIndex = 54
         Me.PicDate.TabStop = False
         Me.PicDate.Visible = False
@@ -326,86 +342,86 @@ Partial Class Booking
         'PicCkinDt
         '
         Me.PicCkinDt.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicCkinDt.Location = New System.Drawing.Point(501, 256)
+        Me.PicCkinDt.Location = New System.Drawing.Point(552, 334)
         Me.PicCkinDt.Name = "PicCkinDt"
-        Me.PicCkinDt.Size = New System.Drawing.Size(20, 16)
+        Me.PicCkinDt.Size = New System.Drawing.Size(17, 16)
         Me.PicCkinDt.TabIndex = 55
         Me.PicCkinDt.TabStop = False
         Me.PicCkinDt.Visible = False
         '
         'txtDate
         '
-        Me.txtDate.Location = New System.Drawing.Point(143, 64)
+        Me.txtDate.Location = New System.Drawing.Point(193, 101)
         Me.txtDate.Name = "txtDate"
-        Me.txtDate.Size = New System.Drawing.Size(343, 20)
+        Me.txtDate.Size = New System.Drawing.Size(317, 20)
         Me.txtDate.TabIndex = 57
         '
         'txtCheckinDate
         '
-        Me.txtCheckinDate.Location = New System.Drawing.Point(142, 256)
+        Me.txtCheckinDate.Location = New System.Drawing.Point(193, 334)
         Me.txtCheckinDate.Name = "txtCheckinDate"
-        Me.txtCheckinDate.Size = New System.Drawing.Size(343, 20)
+        Me.txtCheckinDate.Size = New System.Drawing.Size(317, 20)
         Me.txtCheckinDate.TabIndex = 58
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(544, 57)
+        Me.btnDelete.Location = New System.Drawing.Point(594, 94)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(105, 23)
+        Me.btnDelete.Size = New System.Drawing.Size(79, 23)
         Me.btnDelete.TabIndex = 59
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(544, 86)
+        Me.btnFind.Location = New System.Drawing.Point(594, 123)
         Me.btnFind.Name = "btnFind"
-        Me.btnFind.Size = New System.Drawing.Size(105, 23)
+        Me.btnFind.Size = New System.Drawing.Size(79, 23)
         Me.btnFind.TabIndex = 60
         Me.btnFind.Text = "Find"
         Me.btnFind.UseVisualStyleBackColor = True
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(544, 154)
+        Me.btnUpdate.Location = New System.Drawing.Point(594, 191)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(105, 23)
+        Me.btnUpdate.Size = New System.Drawing.Size(79, 23)
         Me.btnUpdate.TabIndex = 61
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(63, 357)
+        Me.btnFirst.Location = New System.Drawing.Point(114, 435)
         Me.btnFirst.Name = "btnFirst"
-        Me.btnFirst.Size = New System.Drawing.Size(105, 23)
+        Me.btnFirst.Size = New System.Drawing.Size(79, 23)
         Me.btnFirst.TabIndex = 62
         Me.btnFirst.Text = "|<"
         Me.btnFirst.UseVisualStyleBackColor = True
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(200, 357)
+        Me.btnPrevious.Location = New System.Drawing.Point(251, 435)
         Me.btnPrevious.Name = "btnPrevious"
-        Me.btnPrevious.Size = New System.Drawing.Size(105, 23)
+        Me.btnPrevious.Size = New System.Drawing.Size(79, 23)
         Me.btnPrevious.TabIndex = 63
         Me.btnPrevious.Text = "<"
         Me.btnPrevious.UseVisualStyleBackColor = True
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(338, 357)
+        Me.btnNext.Location = New System.Drawing.Point(389, 435)
         Me.btnNext.Name = "btnNext"
-        Me.btnNext.Size = New System.Drawing.Size(105, 23)
+        Me.btnNext.Size = New System.Drawing.Size(79, 23)
         Me.btnNext.TabIndex = 64
         Me.btnNext.Text = ">"
         Me.btnNext.UseVisualStyleBackColor = True
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(470, 357)
+        Me.btnLast.Location = New System.Drawing.Point(521, 435)
         Me.btnLast.Name = "btnLast"
-        Me.btnLast.Size = New System.Drawing.Size(105, 23)
+        Me.btnLast.Size = New System.Drawing.Size(79, 23)
         Me.btnLast.TabIndex = 65
         Me.btnLast.Text = ">|"
         Me.btnLast.UseVisualStyleBackColor = True
@@ -415,7 +431,7 @@ Partial Class Booking
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(987, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(984, 24)
         Me.MenuStrip1.TabIndex = 66
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -543,75 +559,10 @@ Partial Class Booking
         '
         Me.cboCusId.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboCusId.FormattingEnabled = True
-        Me.cboCusId.Location = New System.Drawing.Point(142, 146)
+        Me.cboCusId.Location = New System.Drawing.Point(118, 19)
         Me.cboCusId.Name = "cboCusId"
-        Me.cboCusId.Size = New System.Drawing.Size(343, 21)
+        Me.cboCusId.Size = New System.Drawing.Size(100, 21)
         Me.cboCusId.TabIndex = 68
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingidDataGridViewTextBoxColumn, Me.BookingdateDataGridViewTextBoxColumn, Me.RoomidDataGridViewTextBoxColumn, Me.CustomeridDataGridViewTextBoxColumn, Me.NumdaysDataGridViewTextBoxColumn, Me.NumguestsDataGridViewTextBoxColumn, Me.CheckindateDataGridViewTextBoxColumn, Me.TotalpriceDataGridViewTextBoxColumn, Me.CommentsDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.BookingBindingSource1
-        Me.DataGridView1.Location = New System.Drawing.Point(35, 406)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(940, 150)
-        Me.DataGridView1.TabIndex = 69
-        '
-        'BookingidDataGridViewTextBoxColumn
-        '
-        Me.BookingidDataGridViewTextBoxColumn.DataPropertyName = "booking_id"
-        Me.BookingidDataGridViewTextBoxColumn.HeaderText = "booking_id"
-        Me.BookingidDataGridViewTextBoxColumn.Name = "BookingidDataGridViewTextBoxColumn"
-        '
-        'BookingdateDataGridViewTextBoxColumn
-        '
-        Me.BookingdateDataGridViewTextBoxColumn.DataPropertyName = "booking_date"
-        Me.BookingdateDataGridViewTextBoxColumn.HeaderText = "booking_date"
-        Me.BookingdateDataGridViewTextBoxColumn.Name = "BookingdateDataGridViewTextBoxColumn"
-        '
-        'RoomidDataGridViewTextBoxColumn
-        '
-        Me.RoomidDataGridViewTextBoxColumn.DataPropertyName = "room_id"
-        Me.RoomidDataGridViewTextBoxColumn.HeaderText = "room_id"
-        Me.RoomidDataGridViewTextBoxColumn.Name = "RoomidDataGridViewTextBoxColumn"
-        '
-        'CustomeridDataGridViewTextBoxColumn
-        '
-        Me.CustomeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id"
-        Me.CustomeridDataGridViewTextBoxColumn.HeaderText = "customer_id"
-        Me.CustomeridDataGridViewTextBoxColumn.Name = "CustomeridDataGridViewTextBoxColumn"
-        '
-        'NumdaysDataGridViewTextBoxColumn
-        '
-        Me.NumdaysDataGridViewTextBoxColumn.DataPropertyName = "num_days"
-        Me.NumdaysDataGridViewTextBoxColumn.HeaderText = "num_days"
-        Me.NumdaysDataGridViewTextBoxColumn.Name = "NumdaysDataGridViewTextBoxColumn"
-        '
-        'NumguestsDataGridViewTextBoxColumn
-        '
-        Me.NumguestsDataGridViewTextBoxColumn.DataPropertyName = "num_guests"
-        Me.NumguestsDataGridViewTextBoxColumn.HeaderText = "num_guests"
-        Me.NumguestsDataGridViewTextBoxColumn.Name = "NumguestsDataGridViewTextBoxColumn"
-        '
-        'CheckindateDataGridViewTextBoxColumn
-        '
-        Me.CheckindateDataGridViewTextBoxColumn.DataPropertyName = "checkin_date"
-        Me.CheckindateDataGridViewTextBoxColumn.HeaderText = "checkin_date"
-        Me.CheckindateDataGridViewTextBoxColumn.Name = "CheckindateDataGridViewTextBoxColumn"
-        '
-        'TotalpriceDataGridViewTextBoxColumn
-        '
-        Me.TotalpriceDataGridViewTextBoxColumn.DataPropertyName = "total_price"
-        Me.TotalpriceDataGridViewTextBoxColumn.HeaderText = "total_price"
-        Me.TotalpriceDataGridViewTextBoxColumn.Name = "TotalpriceDataGridViewTextBoxColumn"
-        '
-        'CommentsDataGridViewTextBoxColumn
-        '
-        Me.CommentsDataGridViewTextBoxColumn.DataPropertyName = "comments"
-        Me.CommentsDataGridViewTextBoxColumn.HeaderText = "comments"
-        Me.CommentsDataGridViewTextBoxColumn.Name = "CommentsDataGridViewTextBoxColumn"
         '
         'BookingBindingSource1
         '
@@ -629,7 +580,7 @@ Partial Class Booking
         '
         'btnCusReport
         '
-        Me.btnCusReport.Location = New System.Drawing.Point(759, 37)
+        Me.btnCusReport.Location = New System.Drawing.Point(78, 162)
         Me.btnCusReport.Name = "btnCusReport"
         Me.btnCusReport.Size = New System.Drawing.Size(105, 23)
         Me.btnCusReport.TabIndex = 70
@@ -639,7 +590,7 @@ Partial Class Booking
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(32, 108)
+        Me.Label10.Location = New System.Drawing.Point(184, 24)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(31, 13)
         Me.Label10.TabIndex = 71
@@ -650,9 +601,9 @@ Partial Class Booking
         Me.cboGuestNum.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboGuestNum.FormattingEnabled = True
         Me.cboGuestNum.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6"})
-        Me.cboGuestNum.Location = New System.Drawing.Point(142, 222)
+        Me.cboGuestNum.Location = New System.Drawing.Point(193, 300)
         Me.cboGuestNum.Name = "cboGuestNum"
-        Me.cboGuestNum.Size = New System.Drawing.Size(343, 21)
+        Me.cboGuestNum.Size = New System.Drawing.Size(317, 21)
         Me.cboGuestNum.TabIndex = 73
         '
         'cboStays
@@ -660,14 +611,14 @@ Partial Class Booking
         Me.cboStays.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboStays.FormattingEnabled = True
         Me.cboStays.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8"})
-        Me.cboStays.Location = New System.Drawing.Point(142, 188)
+        Me.cboStays.Location = New System.Drawing.Point(193, 266)
         Me.cboStays.Name = "cboStays"
-        Me.cboStays.Size = New System.Drawing.Size(343, 21)
+        Me.cboStays.Size = New System.Drawing.Size(317, 21)
         Me.cboStays.TabIndex = 74
         '
         'btnReport2
         '
-        Me.btnReport2.Location = New System.Drawing.Point(759, 82)
+        Me.btnReport2.Location = New System.Drawing.Point(78, 192)
         Me.btnReport2.Name = "btnReport2"
         Me.btnReport2.Size = New System.Drawing.Size(105, 27)
         Me.btnReport2.TabIndex = 75
@@ -676,7 +627,7 @@ Partial Class Booking
         '
         'btnReport3
         '
-        Me.btnReport3.Location = New System.Drawing.Point(759, 111)
+        Me.btnReport3.Location = New System.Drawing.Point(78, 224)
         Me.btnReport3.Name = "btnReport3"
         Me.btnReport3.Size = New System.Drawing.Size(105, 27)
         Me.btnReport3.TabIndex = 76
@@ -685,7 +636,7 @@ Partial Class Booking
         '
         'btnReport4
         '
-        Me.btnReport4.Location = New System.Drawing.Point(759, 133)
+        Me.btnReport4.Location = New System.Drawing.Point(78, 257)
         Me.btnReport4.Name = "btnReport4"
         Me.btnReport4.Size = New System.Drawing.Size(105, 27)
         Me.btnReport4.TabIndex = 77
@@ -694,7 +645,7 @@ Partial Class Booking
         '
         'btnReport5
         '
-        Me.btnReport5.Location = New System.Drawing.Point(759, 162)
+        Me.btnReport5.Location = New System.Drawing.Point(78, 288)
         Me.btnReport5.Name = "btnReport5"
         Me.btnReport5.Size = New System.Drawing.Size(105, 27)
         Me.btnReport5.TabIndex = 78
@@ -703,7 +654,7 @@ Partial Class Booking
         '
         'btnReport6
         '
-        Me.btnReport6.Location = New System.Drawing.Point(759, 180)
+        Me.btnReport6.Location = New System.Drawing.Point(78, 321)
         Me.btnReport6.Name = "btnReport6"
         Me.btnReport6.Size = New System.Drawing.Size(105, 27)
         Me.btnReport6.TabIndex = 80
@@ -712,24 +663,24 @@ Partial Class Booking
         '
         'btnInvoince
         '
-        Me.btnInvoince.Location = New System.Drawing.Point(544, 115)
+        Me.btnInvoince.Location = New System.Drawing.Point(594, 152)
         Me.btnInvoince.Name = "btnInvoince"
-        Me.btnInvoince.Size = New System.Drawing.Size(105, 23)
+        Me.btnInvoince.Size = New System.Drawing.Size(79, 23)
         Me.btnInvoince.TabIndex = 81
         Me.btnInvoince.Text = "Generate Invoice"
         Me.btnInvoince.UseVisualStyleBackColor = True
         '
         'txtReportYear
         '
-        Me.txtReportYear.Location = New System.Drawing.Point(907, 225)
+        Me.txtReportYear.Location = New System.Drawing.Point(179, 41)
         Me.txtReportYear.Name = "txtReportYear"
-        Me.txtReportYear.Size = New System.Drawing.Size(44, 20)
+        Me.txtReportYear.Size = New System.Drawing.Size(60, 20)
         Me.txtReportYear.TabIndex = 82
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(856, 228)
+        Me.Label11.Location = New System.Drawing.Point(140, 45)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(29, 13)
         Me.Label11.TabIndex = 83
@@ -738,61 +689,246 @@ Partial Class Booking
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(736, 230)
+        Me.Label12.Location = New System.Drawing.Point(8, 45)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
         Me.Label12.TabIndex = 84
         Me.Label12.Text = "Month"
-        '
-        'cboReportMonth
-        '
-        Me.cboReportMonth.FormattingEnabled = True
-        Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cboReportMonth.Location = New System.Drawing.Point(787, 225)
-        Me.cboReportMonth.Name = "cboReportMonth"
-        Me.cboReportMonth.Size = New System.Drawing.Size(63, 21)
-        Me.cboReportMonth.TabIndex = 85
         '
         'txtType
         '
         Me.txtType.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.txtType.FormattingEnabled = True
         Me.txtType.Items.AddRange(New Object() {"Normal", "Deluxe", "Luxury"})
-        Me.txtType.Location = New System.Drawing.Point(142, 105)
+        Me.txtType.Location = New System.Drawing.Point(221, 21)
         Me.txtType.Name = "txtType"
-        Me.txtType.Size = New System.Drawing.Size(198, 21)
+        Me.txtType.Size = New System.Drawing.Size(110, 21)
         Me.txtType.TabIndex = 86
         '
-        'txtRmId
+        'Label13
         '
-        Me.txtRmId.Location = New System.Drawing.Point(658, 230)
-        Me.txtRmId.Name = "txtRmId"
-        Me.txtRmId.Size = New System.Drawing.Size(63, 20)
-        Me.txtRmId.TabIndex = 87
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(8, 22)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(73, 13)
+        Me.Label13.TabIndex = 88
+        Me.Label13.Text = "Room number"
+        '
+        'txtRmNum
+        '
+        Me.txtRmNum.Location = New System.Drawing.Point(119, 22)
+        Me.txtRmNum.Name = "txtRmNum"
+        Me.txtRmNum.Size = New System.Drawing.Size(59, 20)
+        Me.txtRmNum.TabIndex = 89
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtRmNum)
+        Me.GroupBox1.Controls.Add(Me.Label13)
+        Me.GroupBox1.Controls.Add(Me.cboRoomID)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.txtType)
+        Me.GroupBox1.Location = New System.Drawing.Point(74, 130)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(442, 50)
+        Me.GroupBox1.TabIndex = 90
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Input any collum - all data will appear"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.txtFirstName)
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.cboCusId)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Location = New System.Drawing.Point(74, 194)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(442, 50)
+        Me.GroupBox2.TabIndex = 91
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Input any collum - all data will appear"
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Location = New System.Drawing.Point(300, 19)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(135, 20)
+        Me.txtFirstName.TabIndex = 92
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(225, 22)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(57, 13)
+        Me.Label14.TabIndex = 69
+        Me.Label14.Text = "First Name"
+        '
+        'cboReportMonth
+        '
+        Me.cboReportMonth.FormattingEnabled = True
+        Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cboReportMonth.Location = New System.Drawing.Point(51, 41)
+        Me.cboReportMonth.Name = "cboReportMonth"
+        Me.cboReportMonth.Size = New System.Drawing.Size(79, 21)
+        Me.cboReportMonth.TabIndex = 85
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label17)
+        Me.GroupBox3.Controls.Add(Me.Label16)
+        Me.GroupBox3.Controls.Add(Me.ComboBox1)
+        Me.GroupBox3.Controls.Add(Me.Label15)
+        Me.GroupBox3.Controls.Add(Me.btnCusReport)
+        Me.GroupBox3.Controls.Add(Me.btnReport2)
+        Me.GroupBox3.Controls.Add(Me.btnReport3)
+        Me.GroupBox3.Controls.Add(Me.btnReport4)
+        Me.GroupBox3.Controls.Add(Me.cboReportMonth)
+        Me.GroupBox3.Controls.Add(Me.btnReport5)
+        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Controls.Add(Me.btnReport6)
+        Me.GroupBox3.Controls.Add(Me.Label11)
+        Me.GroupBox3.Controls.Add(Me.txtReportYear)
+        Me.GroupBox3.Location = New System.Drawing.Point(694, 64)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(264, 391)
+        Me.GroupBox3.TabIndex = 92
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "GroupBox3"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(11, 82)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(45, 13)
+        Me.Label17.TabIndex = 89
+        Me.Label17.Text = "Label17"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(12, 102)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(245, 13)
+        Me.Label16.TabIndex = 88
+        Me.Label16.Text = "Choose Report Version That You Want To Create:"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.ComboBox1.Location = New System.Drawing.Point(51, 119)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(149, 21)
+        Me.ComboBox1.TabIndex = 87
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(11, 23)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(45, 13)
+        Me.Label15.TabIndex = 86
+        Me.Label15.Text = "Label15"
+        '
+        'Yearerror
+        '
+        Me.Yearerror.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.Yearerror.Location = New System.Drawing.Point(937, 108)
+        Me.Yearerror.Name = "Yearerror"
+        Me.Yearerror.Size = New System.Drawing.Size(17, 16)
+        Me.Yearerror.TabIndex = 93
+        Me.Yearerror.TabStop = False
+        Me.Yearerror.Visible = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Location = New System.Drawing.Point(12, 61)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(50, 293)
+        Me.Panel1.TabIndex = 94
+        '
+        'CommentsDataGridViewTextBoxColumn
+        '
+        Me.CommentsDataGridViewTextBoxColumn.DataPropertyName = "comments"
+        Me.CommentsDataGridViewTextBoxColumn.HeaderText = "comments"
+        Me.CommentsDataGridViewTextBoxColumn.Name = "CommentsDataGridViewTextBoxColumn"
+        '
+        'TotalpriceDataGridViewTextBoxColumn
+        '
+        Me.TotalpriceDataGridViewTextBoxColumn.DataPropertyName = "total_price"
+        Me.TotalpriceDataGridViewTextBoxColumn.HeaderText = "total_price"
+        Me.TotalpriceDataGridViewTextBoxColumn.Name = "TotalpriceDataGridViewTextBoxColumn"
+        '
+        'CheckindateDataGridViewTextBoxColumn
+        '
+        Me.CheckindateDataGridViewTextBoxColumn.DataPropertyName = "checkin_date"
+        Me.CheckindateDataGridViewTextBoxColumn.HeaderText = "checkin_date"
+        Me.CheckindateDataGridViewTextBoxColumn.Name = "CheckindateDataGridViewTextBoxColumn"
+        '
+        'NumguestsDataGridViewTextBoxColumn
+        '
+        Me.NumguestsDataGridViewTextBoxColumn.DataPropertyName = "num_guests"
+        Me.NumguestsDataGridViewTextBoxColumn.HeaderText = "num_guests"
+        Me.NumguestsDataGridViewTextBoxColumn.Name = "NumguestsDataGridViewTextBoxColumn"
+        '
+        'NumdaysDataGridViewTextBoxColumn
+        '
+        Me.NumdaysDataGridViewTextBoxColumn.DataPropertyName = "num_days"
+        Me.NumdaysDataGridViewTextBoxColumn.HeaderText = "num_days"
+        Me.NumdaysDataGridViewTextBoxColumn.Name = "NumdaysDataGridViewTextBoxColumn"
+        '
+        'CustomeridDataGridViewTextBoxColumn
+        '
+        Me.CustomeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id"
+        Me.CustomeridDataGridViewTextBoxColumn.HeaderText = "customer_id"
+        Me.CustomeridDataGridViewTextBoxColumn.Name = "CustomeridDataGridViewTextBoxColumn"
+        '
+        'RoomidDataGridViewTextBoxColumn
+        '
+        Me.RoomidDataGridViewTextBoxColumn.DataPropertyName = "room_id"
+        Me.RoomidDataGridViewTextBoxColumn.HeaderText = "room_id"
+        Me.RoomidDataGridViewTextBoxColumn.Name = "RoomidDataGridViewTextBoxColumn"
+        '
+        'BookingdateDataGridViewTextBoxColumn
+        '
+        Me.BookingdateDataGridViewTextBoxColumn.DataPropertyName = "booking_date"
+        Me.BookingdateDataGridViewTextBoxColumn.HeaderText = "booking_date"
+        Me.BookingdateDataGridViewTextBoxColumn.Name = "BookingdateDataGridViewTextBoxColumn"
+        '
+        'BookingidDataGridViewTextBoxColumn
+        '
+        Me.BookingidDataGridViewTextBoxColumn.DataPropertyName = "booking_id"
+        Me.BookingidDataGridViewTextBoxColumn.HeaderText = "booking_id"
+        Me.BookingidDataGridViewTextBoxColumn.Name = "BookingidDataGridViewTextBoxColumn"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingidDataGridViewTextBoxColumn, Me.BookingdateDataGridViewTextBoxColumn, Me.RoomidDataGridViewTextBoxColumn, Me.CustomeridDataGridViewTextBoxColumn, Me.NumdaysDataGridViewTextBoxColumn, Me.NumguestsDataGridViewTextBoxColumn, Me.CheckindateDataGridViewTextBoxColumn, Me.TotalpriceDataGridViewTextBoxColumn, Me.CommentsDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.BookingBindingSource1
+        Me.DataGridView1.Location = New System.Drawing.Point(35, 489)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(923, 150)
+        Me.DataGridView1.TabIndex = 69
         '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(987, 544)
-        Me.Controls.Add(Me.txtRmId)
-        Me.Controls.Add(Me.txtType)
-        Me.Controls.Add(Me.cboReportMonth)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.txtReportYear)
+        Me.ClientSize = New System.Drawing.Size(984, 662)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Yearerror)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnInvoince)
-        Me.Controls.Add(Me.btnReport6)
-        Me.Controls.Add(Me.btnReport5)
-        Me.Controls.Add(Me.btnReport4)
-        Me.Controls.Add(Me.btnReport3)
-        Me.Controls.Add(Me.btnReport2)
         Me.Controls.Add(Me.cboStays)
         Me.Controls.Add(Me.cboGuestNum)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.btnCusReport)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.cboCusId)
         Me.Controls.Add(Me.btnLast)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnPrevious)
@@ -804,7 +940,6 @@ Partial Class Booking
         Me.Controls.Add(Me.txtDate)
         Me.Controls.Add(Me.PicCkinDt)
         Me.Controls.Add(Me.PicDate)
-        Me.Controls.Add(Me.cboRoomID)
         Me.Controls.Add(Me.PicCmt)
         Me.Controls.Add(Me.PicStayingDay)
         Me.Controls.Add(Me.PicGuestNum)
@@ -820,14 +955,13 @@ Partial Class Booking
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Booking"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Booking Form"
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).EndInit()
@@ -842,9 +976,16 @@ Partial Class Booking
         Me.MenuStrip1.PerformLayout()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -893,19 +1034,9 @@ Partial Class Booking
     Friend WithEvents BookingBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents BookingTableAdapter As WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter
     Friend WithEvents cboCusId As System.Windows.Forms.ComboBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents HRRISdbDataSet3 As WindowsApplication1.HRRISdbDataSet3
     Friend WithEvents BookingBindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents BookingTableAdapter1 As WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter
-    Friend WithEvents BookingidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BookingdateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RoomidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CustomeridDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NumdaysDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NumguestsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CheckindateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TotalpriceDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CommentsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnCusReport As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents cboGuestNum As ComboBox
@@ -929,7 +1060,29 @@ Partial Class Booking
     Friend WithEvents txtReportYear As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents cboReportMonth As ComboBox
     Friend WithEvents txtType As ComboBox
-    Friend WithEvents txtRmId As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents txtRmNum As TextBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label14 As Label
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents cboReportMonth As ComboBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Yearerror As PictureBox
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents CommentsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TotalpriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CheckindateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NumguestsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NumdaysDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CustomeridDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents RoomidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BookingdateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BookingidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

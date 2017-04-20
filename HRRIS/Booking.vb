@@ -71,7 +71,7 @@ Public Class Booking
         Dim ooController As CustomerDataController = New CustomerDataController
         Dim lsData3 = ooController.CusfindALl()
         For Each Customer In lsData3
-            cboCusId.Items.Add(CStr(Customer("firstname")))
+            cboCusId.Items.Add(CStr(Customer("customer_id")))
         Next
 
         'allow to gain from ROOm id with room type
@@ -135,10 +135,7 @@ Public Class Booking
         End If
 
     End Sub
-
     'validate private function
-
-
     Private Function BookValid() As Boolean
 
         Dim oValidation As New Validation
@@ -219,11 +216,21 @@ Public Class Booking
 
         Return bAllFieldsValid
 
+    End Function
+    'Addition Validation function for further use
+    Private Function YearValidate() As Boolean
+        Dim iValid As Boolean
 
+        iValid = IsNumeric(txtReportYear.Text)
+        If iValid = True Then
+        Else
+            Yearerror.Visible = True
+        End If
+
+        Return iValid
     End Function
 
     ' CRUD fucntion 
-
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
 
         Dim htData As Hashtable
@@ -326,18 +333,13 @@ Public Class Booking
 
         txtID.Text = CStr(CInt(bookingData("booking_id")))
         txtDate.Text = CStr(CDate(bookingData("booking_date")))
-        cboRoomID.ValueMember = CStr(CStr(bookingData("room_id")))
-        cboCusId.ValueMember = CStr(CStr(bookingData("customer_id")))
+        cboRoomID.Text = CStr(CType(bookingData("room_id"), String))
+        cboCusId.Text = CStr(CType(bookingData("customer_id"), String))
         cboStays.Text = CStr(CInt(bookingData("num_days")))
         cboGuestNum.Text = CStr(CInt(bookingData("num_guests")))
         txtCheckinDate.Text = CStr(CDate(bookingData("checkin_date")))
         txtPrice.Text = CStr(CInt(bookingData("total_price")))
         txtCmt.Text = CStr(CStr(bookingData("comments")))
-
-
-
-
-
 
     End Sub
 
@@ -356,11 +358,10 @@ Public Class Booking
 
     Private Function getBookingData() As Hashtable
         Dim BookingData As Hashtable = New Hashtable
-        'This part is suppiciosus
         BookingData("booking_id") = txtID.Text
         BookingData("booking_date") = txtDate.Text
-        BookingData("type") = cboRoomID.SelectedIndex
-        BookingData("firstname") = cboCusId.SelectedIndex
+        BookingData("room_id") = cboRoomID.Text
+        BookingData("customer_id") = cboCusId.Text
         BookingData("num_days") = cboStays.Text
         BookingData("num_guests") = cboGuestNum.Text
         BookingData("checkin_date") = txtCheckinDate.Text
@@ -373,7 +374,6 @@ Public Class Booking
     End Function
 
     'Calculating done - add more elseif inorder to provide more right calculation
-
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
         If cboRoomID.SelectedIndex = 1 Then
             Dim i As Integer = 30
@@ -389,52 +389,18 @@ Public Class Booking
         End If
     End Sub
 
-
-
-
-    ' REPORT BUTTON SECTION 
-    'IDEA: 
-    ' using checked box - idead: can create another same findbyID in room DB to group and return the value for room ID by room type: 
-    ' ther are 4 room type , 4 floor, 
-
-    'Code for checked box and DIMING bien 
-    ' Dim str As String
-    '   str = " "
-    '   If CheckBox1.Checked = True Then
-    '       str &= CheckBox1.Text
-    '       str &= " "
-    '   End If
-    ' If CheckBox2.Checked = True Then
-    '       str &= CheckBox2.Text
-    '       str &= " "
-    '   End If
-    ' If CheckBox3.Checked = True Then
-    '       str &= CheckBox3.Text
-    '       str &= " "
-    '   End If
-    ' 'Interesting code :
-    ' Private Sub CheckBox4_CheckedChanged(sender As Object,
-    'e As EventArgs) Handles CheckBox4.CheckedChanged
-    '     Label1.Visible = True
-    '     TextBox1.Visible = True
     ' End Sub
 
     '1.generate cus report ABOUT last-booking time , days booked  
     Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
-
         Dim GenerateCusReportByID As New ReportController
-
-
-
         Try
-            Dim sCusId = cboCusId.SelectedIndex
+            Dim sCusId = cboCusId.Text
             GenerateCusReportByID.createReport01(CStr(sCusId))
         Catch ex As Exception
             Debug.Print("the error is " & ex.Message)
             MsgBox("Please choose a customer")
         End Try
-
-
 
     End Sub
 
@@ -446,7 +412,7 @@ Public Class Booking
 
         'For excepttion and case that forgot to choose room ID
         Try
-            Dim sRoomId = cboRoomID.SelectedIndex
+            Dim sRoomId = cboRoomID.Text
             Report2.CreateReport02(CStr(sRoomId))
 
         Catch ex As Exception
@@ -463,19 +429,15 @@ Public Class Booking
     'Create input for months(cbbox) and years(text), dim here 
     Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
         Dim report3 As New ReportController
-        'For execption and case that error 
-
         Try
-            Dim sCusID = cboCusId.SelectedIndex
+            Dim sCusID = cboCusId.Text
             Dim iYears = txtReportYear.Text
             Dim iMonths = cboReportMonth.Text
 
             report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
         Catch ex As Exception
             Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " Customer ID, months or year is not selected")
-
-
+            MsgBox("The report could not generate, it could be because" & Environment.NewLine & " Customer ID, months or year is not selected")
         End Try
 
     End Sub
@@ -487,14 +449,13 @@ Public Class Booking
         Try
             Dim iYears = txtReportYear.Text
             Dim iMonths = cboReportMonth.Text
-
             report4.CreateReport04(CInt(iMonths), CInt(iYears))
-
         Catch ex As Exception
             Debug.Print("the erros is: " & ex.Message)
             MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
         End Try
     End Sub
+
     '5.show customer = ? who are due for checkin in a given month or year 
     'SQL code is SELECT * FROM booking WHERE 
     'Clue: using the visible and invisible radio box 
@@ -519,7 +480,7 @@ Public Class Booking
         Dim report6 As New ReportController
 
         Try
-            Dim sRmId = txtRmId.Text
+            Dim sRmId = cboRoomID.Text
             Dim iYears = txtReportYear.Text
             Dim iMonths = cboReportMonth.Text
 
@@ -559,20 +520,93 @@ Public Class Booking
 
     End Sub
 
-    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click, CustomerToolStripMenuItem.Click
-        Dim bok As New Booking
+    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
+        Dim bok As New Room
         bok.Show()
     End Sub
-    'Norte: click is on the right direction, however roomfind still not work 
-    Private Sub cboRoomID_Click(sender As Object, e As EventArgs) Handles cboRoomID.Click
-        Dim sType As String
-        sType = txtType.Text
-        Dim sAva As String
-        sAva = "Yes"
-        Dim oController As New BookingDataController
-        Dim lsDataRoom = oController.RoomFind(sType, sAva)
-        For Each Room In lsDataRoom
-            cboRoomID.Items.Add(CStr(Room("room_id")))
-        Next
+
+    'Imporive Room and Customer section 
+    'input field: Room : 1.Type, 2. RmNum 3. Room ID  Customer 1.CusId 2.Firstname 
+    'ROOM
+    Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
+
     End Sub
+
+    Private Sub txtRmNum_TextChanged(sender As Object, e As EventArgs) Handles txtRmNum.TextChanged
+
+    End Sub
+    Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
+
+    End Sub
+
+    'Customer 
+    Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
+        Dim sFirstname As String
+        Dim sCusId As String
+        sFirstname = txtFirstName.Text
+        sCusId = cboCusId.Text
+        Try
+            Dim oController As New CustomerDataController
+            oController.CustomerFind(sFirstname, sCusId)
+
+
+        Catch ex As Exception
+            Debug.Print("Error is: " & ex.Message)
+            MsgBox("There was somethings wrong")
+        End Try
+    End Sub
+
+    Private Sub cboCusId_Leave(sender As Object, e As EventArgs) Handles cboCusId.Leave
+        Dim sFirstname As String
+        Dim sCusId As String
+        sFirstname = txtFirstName.Text
+        sCusId = cboCusId.Text
+        Try
+            Dim oController As New CustomerDataController
+            oController.CustomerFind(sFirstname, sCusId)
+        Catch ex As Exception
+            Debug.Print("Error is: " & ex.Message)
+            MsgBox("There was somethings wrong")
+        End Try
+    End Sub
+
+
+    'Private Sub populatecus(ByVal lsData As List(Of Hashtable))
+
+    '    txtFirstName.Text = CStr(lsData("firstname"))
+    '    cboCusId.Text = CStr(CType(lsData("customer_id"), String))
+
+    'End Sub
+
+    'Function for ROOM and CUSTOMER enhace
+
+
 End Class
+'Note part 
+
+' REPORT BUTTON SECTION 
+'IDEA: 
+' using checked box - idead: can create another same findbyID in room DB to group and return the value for room ID by room type: 
+' ther are 4 room type , 4 floor, 
+
+'Code for checked box and DIMING bien 
+' Dim str As String
+'   str = " "
+'   If CheckBox1.Checked = True Then
+'       str &= CheckBox1.Text
+'       str &= " "
+'   End If
+' If CheckBox2.Checked = True Then
+'       str &= CheckBox2.Text
+'       str &= " "
+'   End If
+' If CheckBox3.Checked = True Then
+'       str &= CheckBox3.Text
+'       str &= " "
+'   End If
+' 'Interesting code :
+' Private Sub CheckBox4_CheckedChanged(sender As Object,
+'e As EventArgs) Handles CheckBox4.CheckedChanged
+'     Label1.Visible = True
+'     TextBox1.Visible = True
+'oR could use the case 

@@ -27,38 +27,6 @@ HRRIS
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="M:WindowsApplication1.Customer.CustomerToolStripMenuItem_Click(System.Object,System.EventArgs)">
- <summary>
-  menu part - inserting data using menu
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
- <remarks></remarks>
-</member>
-<member name="M:WindowsApplication1.Customer.RoomToolStripMenuItem_Click(System.Object,System.EventArgs)">
- <summary>
- Navigation part - menu
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
- <remarks></remarks>
-</member>
-<member name="M:WindowsApplication1.Booking.CustomerToolStripMenuItem_Click(System.Object,System.EventArgs)">
- <summary>
- Menu - File - Navigation section 
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
- <remarks></remarks>
-</member>
-<member name="M:WindowsApplication1.Booking.btnFirst_Click(System.Object,System.EventArgs)">
- <summary>
- CRUD fucntion 
- </summary>
- <param name="sender"></param>
- <param name="e"></param>
- <remarks></remarks>
-</member>
 <member name="T:WindowsApplication1.HRRISdbDataSet3">
 <summary>
 Represents a strongly typed in-memory cache of data.

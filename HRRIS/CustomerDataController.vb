@@ -50,7 +50,58 @@ Public Class CustomerDataController
             MsgBox("data input fail")
         End Try
     End Sub
+    'Customer Find 
+    Public Function CustomerFind(ByVal sCusId As String, ByVal sFirstName As String) As List(Of Hashtable)
 
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            oCommand.CommandText = "SELECT customer_id, firstname FROM customer WHERE customer_id = ? OR firstname = @firstname;"
+
+            'Add customerID 
+            oCommand.Parameters.Add("customer_id", OleDbType.Integer, 15)
+            oCommand.Parameters("type").Value = sCusId
+            'Add firstname 
+            oCommand.Parameters.AddWithValue("@firstname", sFirstName)
+            oCommand.Prepare()
+            Debug.Print(oCommand.CommandText)
+
+
+
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("type") = CStr(oDataReader("type"))
+                htTempData("room_number") = CInt(oDataReader("room_numer"))
+                htTempData("availability") = CStr(oDataReader("availability"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("this find room still not work, ")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
     'Add new features
     'Find all function 
     Public Function CusfindALl() As List(Of Hashtable)
