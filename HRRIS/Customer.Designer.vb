@@ -83,6 +83,18 @@ Partial Class Customer
         Me.HRRISdbDataSet2 = New WindowsApplication1.HRRISdbDataSet2()
         Me.CustomerTableAdapter = New WindowsApplication1.HRRISdbDataSet2TableAdapters.customerTableAdapter()
         Me.txtCusTitl = New System.Windows.Forms.ComboBox()
+        Me.DeleteStatus = New System.Windows.Forms.PictureBox()
+        Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
+        Me.FindStatus = New System.Windows.Forms.PictureBox()
+        Me.AddStatus = New System.Windows.Forms.PictureBox()
+        Me.UpStart = New System.Windows.Forms.PictureBox()
+        Me.DownStart = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Updatetings = New System.Windows.Forms.PictureBox()
+        Me.Find = New System.Windows.Forms.PictureBox()
+        Me.Add = New System.Windows.Forms.PictureBox()
+        Me.Delete = New System.Windows.Forms.PictureBox()
+        Me.UpClose = New System.Windows.Forms.PictureBox()
         CType(Me.PicCusID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicDOB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicPhone, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,6 +108,18 @@ Partial Class Customer
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpStart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Add, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -364,25 +388,25 @@ Partial Class Customer
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.CustomerToolStripMenuItem.Text = "New"
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -567,11 +591,134 @@ Partial Class Customer
         Me.txtCusTitl.Size = New System.Drawing.Size(330, 21)
         Me.txtCusTitl.TabIndex = 77
         '
+        'DeleteStatus
+        '
+        Me.DeleteStatus.Location = New System.Drawing.Point(474, 253)
+        Me.DeleteStatus.Name = "DeleteStatus"
+        Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
+        Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DeleteStatus.TabIndex = 81
+        Me.DeleteStatus.TabStop = False
+        Me.DeleteStatus.Visible = False
+        '
+        'UpdatetingsStatus
+        '
+        Me.UpdatetingsStatus.Location = New System.Drawing.Point(391, 101)
+        Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
+        Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
+        Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpdatetingsStatus.TabIndex = 82
+        Me.UpdatetingsStatus.TabStop = False
+        Me.UpdatetingsStatus.Visible = False
+        '
+        'FindStatus
+        '
+        Me.FindStatus.Location = New System.Drawing.Point(326, 221)
+        Me.FindStatus.Name = "FindStatus"
+        Me.FindStatus.Size = New System.Drawing.Size(64, 64)
+        Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.FindStatus.TabIndex = 83
+        Me.FindStatus.TabStop = False
+        Me.FindStatus.Visible = False
+        '
+        'AddStatus
+        '
+        Me.AddStatus.Location = New System.Drawing.Point(292, 101)
+        Me.AddStatus.Name = "AddStatus"
+        Me.AddStatus.Size = New System.Drawing.Size(64, 64)
+        Me.AddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.AddStatus.TabIndex = 84
+        Me.AddStatus.TabStop = False
+        Me.AddStatus.Visible = False
+        '
+        'UpStart
+        '
+        Me.UpStart.Location = New System.Drawing.Point(662, 139)
+        Me.UpStart.Name = "UpStart"
+        Me.UpStart.Size = New System.Drawing.Size(64, 64)
+        Me.UpStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpStart.TabIndex = 80
+        Me.UpStart.TabStop = False
+        '
+        'DownStart
+        '
+        Me.DownStart.Location = New System.Drawing.Point(187, 85)
+        Me.DownStart.Name = "DownStart"
+        Me.DownStart.Size = New System.Drawing.Size(64, 64)
+        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DownStart.TabIndex = 78
+        Me.DownStart.TabStop = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Updatetings)
+        Me.Panel2.Controls.Add(Me.Find)
+        Me.Panel2.Controls.Add(Me.Add)
+        Me.Panel2.Controls.Add(Me.Delete)
+        Me.Panel2.Controls.Add(Me.UpClose)
+        Me.Panel2.Location = New System.Drawing.Point(159, 171)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(64, 377)
+        Me.Panel2.TabIndex = 79
+        '
+        'Updatetings
+        '
+        Me.Updatetings.Location = New System.Drawing.Point(0, 222)
+        Me.Updatetings.Name = "Updatetings"
+        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
+        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Updatetings.TabIndex = 12
+        Me.Updatetings.TabStop = False
+        '
+        'Find
+        '
+        Me.Find.Location = New System.Drawing.Point(0, 152)
+        Me.Find.Name = "Find"
+        Me.Find.Size = New System.Drawing.Size(64, 64)
+        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Find.TabIndex = 7
+        Me.Find.TabStop = False
+        '
+        'Add
+        '
+        Me.Add.Location = New System.Drawing.Point(0, 82)
+        Me.Add.Name = "Add"
+        Me.Add.Size = New System.Drawing.Size(64, 64)
+        Me.Add.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Add.TabIndex = 6
+        Me.Add.TabStop = False
+        '
+        'Delete
+        '
+        Me.Delete.Location = New System.Drawing.Point(0, 292)
+        Me.Delete.Name = "Delete"
+        Me.Delete.Size = New System.Drawing.Size(64, 64)
+        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Delete.TabIndex = 5
+        Me.Delete.TabStop = False
+        '
+        'UpClose
+        '
+        Me.UpClose.Location = New System.Drawing.Point(0, 362)
+        Me.UpClose.Name = "UpClose"
+        Me.UpClose.Size = New System.Drawing.Size(64, 64)
+        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpClose.TabIndex = 4
+        Me.UpClose.TabStop = False
+        '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(884, 632)
+        Me.Controls.Add(Me.DeleteStatus)
+        Me.Controls.Add(Me.UpdatetingsStatus)
+        Me.Controls.Add(Me.FindStatus)
+        Me.Controls.Add(Me.AddStatus)
+        Me.Controls.Add(Me.UpStart)
+        Me.Controls.Add(Me.DownStart)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtCusTitl)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnNext)
@@ -628,6 +775,19 @@ Partial Class Customer
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpStart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Add, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -692,4 +852,16 @@ Partial Class Customer
     Friend WithEvents txtCusTitl As System.Windows.Forms.ComboBox
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteStatus As PictureBox
+    Friend WithEvents UpdatetingsStatus As PictureBox
+    Friend WithEvents FindStatus As PictureBox
+    Friend WithEvents AddStatus As PictureBox
+    Friend WithEvents UpStart As PictureBox
+    Friend WithEvents DownStart As PictureBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Updatetings As PictureBox
+    Friend WithEvents Find As PictureBox
+    Friend WithEvents Add As PictureBox
+    Friend WithEvents Delete As PictureBox
+    Friend WithEvents UpClose As PictureBox
 End Class
