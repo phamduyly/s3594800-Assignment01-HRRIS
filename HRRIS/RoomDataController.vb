@@ -52,7 +52,7 @@ Public Class RoomDataController
     End Sub
 
     'FUCNTIO FOR finding room section 
-    Public Function RoomFind(ByVal sRmId As String, ByVal sType As String) As List(Of Hashtable)
+    Public Function RoomFind(ByVal sType As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
@@ -64,11 +64,13 @@ Public Class RoomDataController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  availability  = @availability AND  type = @deluxe OR room_id = ?;"
-            oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
-            oCommand.Parameters("sRmId").Value = sType
+            oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """;"
+            'This is working now 
+            Debug.Print(oCommand.CommandText)
+            'oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
+            'oCommand.Parameters("sRmId").Value = sType
 
-            oCommand.Parameters.Add("availability", OleDbType.VarChar, 15)
+            'oCommand.Parameters.Add("availability", OleDbType.VarChar, 15)
             'oCommand.Parameters("availability").Value = sAva
             oCommand.Prepare()
             Debug.Print(oCommand.CommandText)

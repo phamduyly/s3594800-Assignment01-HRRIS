@@ -96,7 +96,7 @@ Public Class Booking
         Dim selectedIndex As Integer = cboRoomID.SelectedIndex
         Dim selectedItem As Object = cboRoomID.SelectedItem
 
-        MsgBox("Room ID is: " & selectedIndex.ToString())
+        'MsgBox("Room ID is: " & selectedIndex.ToString())
 
 
 
@@ -106,8 +106,8 @@ Public Class Booking
         Dim selectedIndex1 As Integer = cboCusId.SelectedIndex
         Dim selectedItem1 As Object = cboCusId.SelectedItem
 
-        MsgBox("Customer ID is: " & selectedIndex1.ToString())
-        Debug.Print(CStr(cboCusId.SelectedIndex))
+        ' MsgBox("Customer ID is: " & selectedIndex1.ToString())
+
 
     End Sub
 
@@ -568,6 +568,15 @@ Public Class Booking
             Debug.Print("Error is: " & ex.Message)
             MsgBox("There was somethings wrong")
         End Try
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim oController As New RoomDataController
+        Dim sType = txtType.Text
+
+        oController.RoomFind(sType)
+
+
     End Sub
 
 
