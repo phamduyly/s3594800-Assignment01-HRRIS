@@ -15,6 +15,9 @@ Public Class Customer
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
 
+    Dim UIModi As New UIController
+
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet2.customer' table. You can move, or remove it, as needed.
         Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet2.customer)
@@ -318,7 +321,29 @@ Public Class Customer
 
     End Sub
 
+    'UI fucntion 
+    'Uisng piccture box and panel for UI
     Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
+        UIModi.Displayoption(DownStart,Panel2,UpClose)
+    End Sub
 
+    Private Sub Adds1_Click(sender As Object, e As EventArgs) Handles Adds1.Click
+        UIModi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+    End Sub
+
+    Private Sub Find_Click(sender As Object, e As EventArgs) Handles Find.Click
+        UIModi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+    End Sub
+
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
+        UIModi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+    End Sub
+
+    Private Sub UpClose_Click(sender As Object, e As EventArgs) Handles UpClose.Click
+        UIModi.CloseOptions(DownStart, Panel2, UpClose)
+    End Sub
+
+    Private Sub Updatetings_Click(sender As Object, e As EventArgs) Handles Updatetings.Click
+        UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
     End Sub
 End Class

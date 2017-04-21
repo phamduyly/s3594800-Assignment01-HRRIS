@@ -219,6 +219,36 @@
   <ItemGroup>
     <None Include="Button-Close-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow-Down-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow-Left-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow-Right-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow-Up-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ink-Pen-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magnifier-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

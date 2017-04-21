@@ -39,16 +39,7 @@ Partial Class Customer
         Me.txtCusEmail = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.PicCusID = New System.Windows.Forms.PictureBox()
-        Me.PicDOB = New System.Windows.Forms.PictureBox()
         Me.txtGender = New System.Windows.Forms.ComboBox()
-        Me.PicPhone = New System.Windows.Forms.PictureBox()
-        Me.PicTitle = New System.Windows.Forms.PictureBox()
-        Me.PicGender = New System.Windows.Forms.PictureBox()
-        Me.PicFName = New System.Windows.Forms.PictureBox()
-        Me.PicLName = New System.Windows.Forms.PictureBox()
-        Me.PicAddr = New System.Windows.Forms.PictureBox()
-        Me.PicEmal = New System.Windows.Forms.PictureBox()
         Me.btnHome = New System.Windows.Forms.Button()
         Me.txtCusDOB = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -83,48 +74,57 @@ Partial Class Customer
         Me.HRRISdbDataSet2 = New WindowsApplication1.HRRISdbDataSet2()
         Me.CustomerTableAdapter = New WindowsApplication1.HRRISdbDataSet2TableAdapters.customerTableAdapter()
         Me.txtCusTitl = New System.Windows.Forms.ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Updatetings = New System.Windows.Forms.PictureBox()
+        Me.Find = New System.Windows.Forms.PictureBox()
+        Me.Adds1 = New System.Windows.Forms.PictureBox()
+        Me.Delete = New System.Windows.Forms.PictureBox()
+        Me.UpClose = New System.Windows.Forms.PictureBox()
+        Me.DownStart = New System.Windows.Forms.PictureBox()
         Me.DeleteStatus = New System.Windows.Forms.PictureBox()
         Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
         Me.FindStatus = New System.Windows.Forms.PictureBox()
         Me.AddStatus = New System.Windows.Forms.PictureBox()
         Me.UpStart = New System.Windows.Forms.PictureBox()
-        Me.DownStart = New System.Windows.Forms.PictureBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Updatetings = New System.Windows.Forms.PictureBox()
-        Me.Find = New System.Windows.Forms.PictureBox()
-        Me.Add = New System.Windows.Forms.PictureBox()
-        Me.Delete = New System.Windows.Forms.PictureBox()
-        Me.UpClose = New System.Windows.Forms.PictureBox()
-        CType(Me.PicCusID, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicDOB, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicPhone, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicTitle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicGender, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicFName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PicEmal = New System.Windows.Forms.PictureBox()
+        Me.PicAddr = New System.Windows.Forms.PictureBox()
+        Me.PicLName = New System.Windows.Forms.PictureBox()
+        Me.PicFName = New System.Windows.Forms.PictureBox()
+        Me.PicGender = New System.Windows.Forms.PictureBox()
+        Me.PicTitle = New System.Windows.Forms.PictureBox()
+        Me.PicPhone = New System.Windows.Forms.PictureBox()
+        Me.PicDOB = New System.Windows.Forms.PictureBox()
+        Me.PicCusID = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UpStart, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
-        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Add, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicFName, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicGender, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicTitle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicPhone, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicDOB, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicCusID, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(601, 100)
+        Me.Button1.Location = New System.Drawing.Point(618, 103)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(93, 23)
         Me.Button1.TabIndex = 0
@@ -134,7 +134,7 @@ Partial Class Customer
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(68, 72)
+        Me.Label1.Location = New System.Drawing.Point(85, 75)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(65, 13)
         Me.Label1.TabIndex = 1
@@ -142,7 +142,7 @@ Partial Class Customer
         '
         'txtCusID
         '
-        Me.txtCusID.Location = New System.Drawing.Point(178, 69)
+        Me.txtCusID.Location = New System.Drawing.Point(195, 72)
         Me.txtCusID.Name = "txtCusID"
         Me.txtCusID.Size = New System.Drawing.Size(330, 20)
         Me.txtCusID.TabIndex = 2
@@ -150,7 +150,7 @@ Partial Class Customer
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(68, 110)
+        Me.Label2.Location = New System.Drawing.Point(85, 113)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(27, 13)
         Me.Label2.TabIndex = 3
@@ -159,7 +159,7 @@ Partial Class Customer
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(68, 152)
+        Me.Label3.Location = New System.Drawing.Point(85, 155)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(42, 13)
         Me.Label3.TabIndex = 5
@@ -167,7 +167,7 @@ Partial Class Customer
         '
         'txtCusFirName
         '
-        Me.txtCusFirName.Location = New System.Drawing.Point(178, 189)
+        Me.txtCusFirName.Location = New System.Drawing.Point(195, 192)
         Me.txtCusFirName.Name = "txtCusFirName"
         Me.txtCusFirName.Size = New System.Drawing.Size(330, 20)
         Me.txtCusFirName.TabIndex = 8
@@ -175,7 +175,7 @@ Partial Class Customer
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(68, 192)
+        Me.Label4.Location = New System.Drawing.Point(85, 195)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 13)
         Me.Label4.TabIndex = 7
@@ -183,7 +183,7 @@ Partial Class Customer
         '
         'txtCusLasName
         '
-        Me.txtCusLasName.Location = New System.Drawing.Point(178, 230)
+        Me.txtCusLasName.Location = New System.Drawing.Point(195, 233)
         Me.txtCusLasName.Name = "txtCusLasName"
         Me.txtCusLasName.Size = New System.Drawing.Size(330, 20)
         Me.txtCusLasName.TabIndex = 10
@@ -191,7 +191,7 @@ Partial Class Customer
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(68, 233)
+        Me.Label5.Location = New System.Drawing.Point(85, 236)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(61, 13)
         Me.Label5.TabIndex = 9
@@ -199,7 +199,7 @@ Partial Class Customer
         '
         'txtCusPhone
         '
-        Me.txtCusPhone.Location = New System.Drawing.Point(178, 268)
+        Me.txtCusPhone.Location = New System.Drawing.Point(195, 271)
         Me.txtCusPhone.Name = "txtCusPhone"
         Me.txtCusPhone.Size = New System.Drawing.Size(330, 20)
         Me.txtCusPhone.TabIndex = 12
@@ -207,7 +207,7 @@ Partial Class Customer
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(68, 271)
+        Me.Label6.Location = New System.Drawing.Point(85, 274)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(41, 13)
         Me.Label6.TabIndex = 11
@@ -215,7 +215,7 @@ Partial Class Customer
         '
         'txtCusAdd
         '
-        Me.txtCusAdd.Location = New System.Drawing.Point(178, 299)
+        Me.txtCusAdd.Location = New System.Drawing.Point(195, 302)
         Me.txtCusAdd.Name = "txtCusAdd"
         Me.txtCusAdd.Size = New System.Drawing.Size(330, 20)
         Me.txtCusAdd.TabIndex = 14
@@ -223,7 +223,7 @@ Partial Class Customer
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(68, 302)
+        Me.Label7.Location = New System.Drawing.Point(85, 305)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(45, 13)
         Me.Label7.TabIndex = 13
@@ -231,7 +231,7 @@ Partial Class Customer
         '
         'txtCusEmail
         '
-        Me.txtCusEmail.Location = New System.Drawing.Point(178, 334)
+        Me.txtCusEmail.Location = New System.Drawing.Point(195, 337)
         Me.txtCusEmail.Name = "txtCusEmail"
         Me.txtCusEmail.Size = New System.Drawing.Size(330, 20)
         Me.txtCusEmail.TabIndex = 16
@@ -239,7 +239,7 @@ Partial Class Customer
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(68, 337)
+        Me.Label8.Location = New System.Drawing.Point(85, 340)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(35, 13)
         Me.Label8.TabIndex = 15
@@ -248,114 +248,24 @@ Partial Class Customer
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(68, 366)
+        Me.Label9.Location = New System.Drawing.Point(85, 369)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(68, 13)
         Me.Label9.TabIndex = 17
         Me.Label9.Text = "Date Of Birth"
         '
-        'PicCusID
-        '
-        Me.PicCusID.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicCusID.Location = New System.Drawing.Point(542, 72)
-        Me.PicCusID.Name = "PicCusID"
-        Me.PicCusID.Size = New System.Drawing.Size(20, 16)
-        Me.PicCusID.TabIndex = 19
-        Me.PicCusID.TabStop = False
-        Me.PicCusID.Visible = False
-        '
-        'PicDOB
-        '
-        Me.PicDOB.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicDOB.Location = New System.Drawing.Point(542, 366)
-        Me.PicDOB.Name = "PicDOB"
-        Me.PicDOB.Size = New System.Drawing.Size(20, 24)
-        Me.PicDOB.TabIndex = 24
-        Me.PicDOB.TabStop = False
-        Me.PicDOB.Visible = False
-        '
         'txtGender
         '
         Me.txtGender.FormattingEnabled = True
         Me.txtGender.Items.AddRange(New Object() {"Male", "Female"})
-        Me.txtGender.Location = New System.Drawing.Point(178, 143)
+        Me.txtGender.Location = New System.Drawing.Point(195, 146)
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Size = New System.Drawing.Size(330, 21)
         Me.txtGender.TabIndex = 58
         '
-        'PicPhone
-        '
-        Me.PicPhone.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicPhone.Location = New System.Drawing.Point(542, 272)
-        Me.PicPhone.Name = "PicPhone"
-        Me.PicPhone.Size = New System.Drawing.Size(20, 16)
-        Me.PicPhone.TabIndex = 59
-        Me.PicPhone.TabStop = False
-        Me.PicPhone.Visible = False
-        '
-        'PicTitle
-        '
-        Me.PicTitle.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicTitle.Location = New System.Drawing.Point(542, 118)
-        Me.PicTitle.Name = "PicTitle"
-        Me.PicTitle.Size = New System.Drawing.Size(20, 16)
-        Me.PicTitle.TabIndex = 60
-        Me.PicTitle.TabStop = False
-        Me.PicTitle.Visible = False
-        '
-        'PicGender
-        '
-        Me.PicGender.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicGender.Location = New System.Drawing.Point(542, 149)
-        Me.PicGender.Name = "PicGender"
-        Me.PicGender.Size = New System.Drawing.Size(20, 16)
-        Me.PicGender.TabIndex = 61
-        Me.PicGender.TabStop = False
-        Me.PicGender.Visible = False
-        '
-        'PicFName
-        '
-        Me.PicFName.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicFName.Location = New System.Drawing.Point(542, 189)
-        Me.PicFName.Name = "PicFName"
-        Me.PicFName.Size = New System.Drawing.Size(20, 16)
-        Me.PicFName.TabIndex = 62
-        Me.PicFName.TabStop = False
-        Me.PicFName.Visible = False
-        '
-        'PicLName
-        '
-        Me.PicLName.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicLName.Location = New System.Drawing.Point(542, 230)
-        Me.PicLName.Name = "PicLName"
-        Me.PicLName.Size = New System.Drawing.Size(20, 16)
-        Me.PicLName.TabIndex = 63
-        Me.PicLName.TabStop = False
-        Me.PicLName.Visible = False
-        '
-        'PicAddr
-        '
-        Me.PicAddr.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicAddr.Location = New System.Drawing.Point(542, 302)
-        Me.PicAddr.Name = "PicAddr"
-        Me.PicAddr.Size = New System.Drawing.Size(20, 16)
-        Me.PicAddr.TabIndex = 64
-        Me.PicAddr.TabStop = False
-        Me.PicAddr.Visible = False
-        '
-        'PicEmal
-        '
-        Me.PicEmal.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicEmal.Location = New System.Drawing.Point(542, 334)
-        Me.PicEmal.Name = "PicEmal"
-        Me.PicEmal.Size = New System.Drawing.Size(20, 16)
-        Me.PicEmal.TabIndex = 65
-        Me.PicEmal.TabStop = False
-        Me.PicEmal.Visible = False
-        '
         'btnHome
         '
-        Me.btnHome.Location = New System.Drawing.Point(601, 61)
+        Me.btnHome.Location = New System.Drawing.Point(618, 64)
         Me.btnHome.Name = "btnHome"
         Me.btnHome.Size = New System.Drawing.Size(93, 23)
         Me.btnHome.TabIndex = 66
@@ -364,7 +274,7 @@ Partial Class Customer
         '
         'txtCusDOB
         '
-        Me.txtCusDOB.Location = New System.Drawing.Point(178, 366)
+        Me.txtCusDOB.Location = New System.Drawing.Point(195, 369)
         Me.txtCusDOB.Name = "txtCusDOB"
         Me.txtCusDOB.Size = New System.Drawing.Size(330, 20)
         Me.txtCusDOB.TabIndex = 67
@@ -374,7 +284,7 @@ Partial Class Customer
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(884, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(934, 24)
         Me.MenuStrip1.TabIndex = 68
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -442,7 +352,7 @@ Partial Class Customer
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(601, 141)
+        Me.btnDelete.Location = New System.Drawing.Point(618, 144)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(93, 23)
         Me.btnDelete.TabIndex = 69
@@ -451,7 +361,7 @@ Partial Class Customer
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(601, 182)
+        Me.btnFind.Location = New System.Drawing.Point(618, 185)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(93, 23)
         Me.btnFind.TabIndex = 70
@@ -460,7 +370,7 @@ Partial Class Customer
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(601, 223)
+        Me.btnUpdate.Location = New System.Drawing.Point(618, 226)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(93, 23)
         Me.btnUpdate.TabIndex = 71
@@ -469,7 +379,7 @@ Partial Class Customer
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(415, 412)
+        Me.btnLast.Location = New System.Drawing.Point(432, 415)
         Me.btnLast.Name = "btnLast"
         Me.btnLast.Size = New System.Drawing.Size(93, 23)
         Me.btnLast.TabIndex = 72
@@ -478,7 +388,7 @@ Partial Class Customer
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(93, 412)
+        Me.btnFirst.Location = New System.Drawing.Point(110, 415)
         Me.btnFirst.Name = "btnFirst"
         Me.btnFirst.Size = New System.Drawing.Size(93, 23)
         Me.btnFirst.TabIndex = 73
@@ -487,7 +397,7 @@ Partial Class Customer
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(206, 412)
+        Me.btnPrevious.Location = New System.Drawing.Point(223, 415)
         Me.btnPrevious.Name = "btnPrevious"
         Me.btnPrevious.Size = New System.Drawing.Size(93, 23)
         Me.btnPrevious.TabIndex = 74
@@ -496,7 +406,7 @@ Partial Class Customer
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(316, 412)
+        Me.btnNext.Location = New System.Drawing.Point(333, 415)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(93, 23)
         Me.btnNext.TabIndex = 75
@@ -509,7 +419,7 @@ Partial Class Customer
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustomeridDataGridViewTextBoxColumn, Me.TitleDataGridViewTextBoxColumn, Me.GenderDataGridViewTextBoxColumn, Me.FirstnameDataGridViewTextBoxColumn, Me.LastnameDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.DobDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.CustomerBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(71, 446)
+        Me.DataGridView1.Location = New System.Drawing.Point(88, 449)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(821, 150)
         Me.DataGridView1.TabIndex = 76
@@ -586,14 +496,89 @@ Partial Class Customer
         '
         Me.txtCusTitl.FormattingEnabled = True
         Me.txtCusTitl.Items.AddRange(New Object() {"Mr", "Mrs", "Miss"})
-        Me.txtCusTitl.Location = New System.Drawing.Point(178, 107)
+        Me.txtCusTitl.Location = New System.Drawing.Point(195, 110)
         Me.txtCusTitl.Name = "txtCusTitl"
         Me.txtCusTitl.Size = New System.Drawing.Size(330, 21)
         Me.txtCusTitl.TabIndex = 77
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Updatetings)
+        Me.Panel2.Controls.Add(Me.Find)
+        Me.Panel2.Controls.Add(Me.Adds1)
+        Me.Panel2.Controls.Add(Me.Delete)
+        Me.Panel2.Controls.Add(Me.UpClose)
+        Me.Panel2.Controls.Add(Me.DownStart)
+        Me.Panel2.Location = New System.Drawing.Point(12, 89)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(64, 65)
+        Me.Panel2.TabIndex = 79
+        '
+        'Updatetings
+        '
+        Me.Updatetings.Image = Global.WindowsApplication1.My.Resources.Resources.Ink_Pen_2_icon
+        Me.Updatetings.Location = New System.Drawing.Point(0, 214)
+        Me.Updatetings.Name = "Updatetings"
+        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
+        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Updatetings.TabIndex = 12
+        Me.Updatetings.TabStop = False
+        '
+        'Find
+        '
+        Me.Find.Image = Global.WindowsApplication1.My.Resources.Resources.Magnifier_icon
+        Me.Find.Location = New System.Drawing.Point(0, 144)
+        Me.Find.Name = "Find"
+        Me.Find.Size = New System.Drawing.Size(64, 64)
+        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Find.TabIndex = 7
+        Me.Find.TabStop = False
+        '
+        'Adds1
+        '
+        Me.Adds1.Image = Global.WindowsApplication1.My.Resources.Resources.Add_icon
+        Me.Adds1.Location = New System.Drawing.Point(0, 73)
+        Me.Adds1.Name = "Adds1"
+        Me.Adds1.Size = New System.Drawing.Size(64, 64)
+        Me.Adds1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Adds1.TabIndex = 6
+        Me.Adds1.TabStop = False
+        '
+        'Delete
+        '
+        Me.Delete.Image = Global.WindowsApplication1.My.Resources.Resources.delete_icon
+        Me.Delete.Location = New System.Drawing.Point(0, 284)
+        Me.Delete.Name = "Delete"
+        Me.Delete.Size = New System.Drawing.Size(64, 64)
+        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Delete.TabIndex = 5
+        Me.Delete.TabStop = False
+        '
+        'UpClose
+        '
+        Me.UpClose.Image = Global.WindowsApplication1.My.Resources.Resources.Arrow_Up_2_icon
+        Me.UpClose.Location = New System.Drawing.Point(0, 354)
+        Me.UpClose.Name = "UpClose"
+        Me.UpClose.Size = New System.Drawing.Size(64, 64)
+        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpClose.TabIndex = 4
+        Me.UpClose.TabStop = False
+        '
+        'DownStart
+        '
+        Me.DownStart.Image = Global.WindowsApplication1.My.Resources.Resources.Arrow_Down_2_icon
+        Me.DownStart.Location = New System.Drawing.Point(0, 3)
+        Me.DownStart.Name = "DownStart"
+        Me.DownStart.Size = New System.Drawing.Size(64, 64)
+        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DownStart.TabIndex = 78
+        Me.DownStart.TabStop = False
+        '
         'DeleteStatus
         '
-        Me.DeleteStatus.Location = New System.Drawing.Point(474, 253)
+        Me.DeleteStatus.Image = Global.WindowsApplication1.My.Resources.Resources.delete_icon
+        Me.DeleteStatus.Location = New System.Drawing.Point(12, 28)
         Me.DeleteStatus.Name = "DeleteStatus"
         Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
         Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -603,7 +588,8 @@ Partial Class Customer
         '
         'UpdatetingsStatus
         '
-        Me.UpdatetingsStatus.Location = New System.Drawing.Point(391, 101)
+        Me.UpdatetingsStatus.Image = Global.WindowsApplication1.My.Resources.Resources.Ink_Pen_2_icon
+        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 28)
         Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
         Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
         Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -613,7 +599,8 @@ Partial Class Customer
         '
         'FindStatus
         '
-        Me.FindStatus.Location = New System.Drawing.Point(326, 221)
+        Me.FindStatus.Image = Global.WindowsApplication1.My.Resources.Resources.Magnifier_icon
+        Me.FindStatus.Location = New System.Drawing.Point(12, 28)
         Me.FindStatus.Name = "FindStatus"
         Me.FindStatus.Size = New System.Drawing.Size(64, 64)
         Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -623,7 +610,8 @@ Partial Class Customer
         '
         'AddStatus
         '
-        Me.AddStatus.Location = New System.Drawing.Point(292, 101)
+        Me.AddStatus.Image = Global.WindowsApplication1.My.Resources.Resources.Add_icon
+        Me.AddStatus.Location = New System.Drawing.Point(12, 27)
         Me.AddStatus.Name = "AddStatus"
         Me.AddStatus.Size = New System.Drawing.Size(64, 64)
         Me.AddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -633,91 +621,115 @@ Partial Class Customer
         '
         'UpStart
         '
-        Me.UpStart.Location = New System.Drawing.Point(662, 139)
+        Me.UpStart.Image = Global.WindowsApplication1.My.Resources.Resources.Arrow_Up_2_icon
+        Me.UpStart.Location = New System.Drawing.Point(750, 144)
         Me.UpStart.Name = "UpStart"
         Me.UpStart.Size = New System.Drawing.Size(64, 64)
         Me.UpStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.UpStart.TabIndex = 80
         Me.UpStart.TabStop = False
         '
-        'DownStart
+        'PicEmal
         '
-        Me.DownStart.Location = New System.Drawing.Point(187, 85)
-        Me.DownStart.Name = "DownStart"
-        Me.DownStart.Size = New System.Drawing.Size(64, 64)
-        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.DownStart.TabIndex = 78
-        Me.DownStart.TabStop = False
+        Me.PicEmal.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicEmal.Location = New System.Drawing.Point(559, 337)
+        Me.PicEmal.Name = "PicEmal"
+        Me.PicEmal.Size = New System.Drawing.Size(20, 16)
+        Me.PicEmal.TabIndex = 65
+        Me.PicEmal.TabStop = False
+        Me.PicEmal.Visible = False
         '
-        'Panel2
+        'PicAddr
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Updatetings)
-        Me.Panel2.Controls.Add(Me.Find)
-        Me.Panel2.Controls.Add(Me.Add)
-        Me.Panel2.Controls.Add(Me.Delete)
-        Me.Panel2.Controls.Add(Me.UpClose)
-        Me.Panel2.Location = New System.Drawing.Point(159, 171)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(64, 377)
-        Me.Panel2.TabIndex = 79
+        Me.PicAddr.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicAddr.Location = New System.Drawing.Point(559, 305)
+        Me.PicAddr.Name = "PicAddr"
+        Me.PicAddr.Size = New System.Drawing.Size(20, 16)
+        Me.PicAddr.TabIndex = 64
+        Me.PicAddr.TabStop = False
+        Me.PicAddr.Visible = False
         '
-        'Updatetings
+        'PicLName
         '
-        Me.Updatetings.Location = New System.Drawing.Point(0, 222)
-        Me.Updatetings.Name = "Updatetings"
-        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
-        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Updatetings.TabIndex = 12
-        Me.Updatetings.TabStop = False
+        Me.PicLName.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicLName.Location = New System.Drawing.Point(559, 233)
+        Me.PicLName.Name = "PicLName"
+        Me.PicLName.Size = New System.Drawing.Size(20, 16)
+        Me.PicLName.TabIndex = 63
+        Me.PicLName.TabStop = False
+        Me.PicLName.Visible = False
         '
-        'Find
+        'PicFName
         '
-        Me.Find.Location = New System.Drawing.Point(0, 152)
-        Me.Find.Name = "Find"
-        Me.Find.Size = New System.Drawing.Size(64, 64)
-        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Find.TabIndex = 7
-        Me.Find.TabStop = False
+        Me.PicFName.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicFName.Location = New System.Drawing.Point(559, 192)
+        Me.PicFName.Name = "PicFName"
+        Me.PicFName.Size = New System.Drawing.Size(20, 16)
+        Me.PicFName.TabIndex = 62
+        Me.PicFName.TabStop = False
+        Me.PicFName.Visible = False
         '
-        'Add
+        'PicGender
         '
-        Me.Add.Location = New System.Drawing.Point(0, 82)
-        Me.Add.Name = "Add"
-        Me.Add.Size = New System.Drawing.Size(64, 64)
-        Me.Add.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Add.TabIndex = 6
-        Me.Add.TabStop = False
+        Me.PicGender.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicGender.Location = New System.Drawing.Point(559, 152)
+        Me.PicGender.Name = "PicGender"
+        Me.PicGender.Size = New System.Drawing.Size(20, 16)
+        Me.PicGender.TabIndex = 61
+        Me.PicGender.TabStop = False
+        Me.PicGender.Visible = False
         '
-        'Delete
+        'PicTitle
         '
-        Me.Delete.Location = New System.Drawing.Point(0, 292)
-        Me.Delete.Name = "Delete"
-        Me.Delete.Size = New System.Drawing.Size(64, 64)
-        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Delete.TabIndex = 5
-        Me.Delete.TabStop = False
+        Me.PicTitle.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicTitle.Location = New System.Drawing.Point(559, 121)
+        Me.PicTitle.Name = "PicTitle"
+        Me.PicTitle.Size = New System.Drawing.Size(20, 16)
+        Me.PicTitle.TabIndex = 60
+        Me.PicTitle.TabStop = False
+        Me.PicTitle.Visible = False
         '
-        'UpClose
+        'PicPhone
         '
-        Me.UpClose.Location = New System.Drawing.Point(0, 362)
-        Me.UpClose.Name = "UpClose"
-        Me.UpClose.Size = New System.Drawing.Size(64, 64)
-        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.UpClose.TabIndex = 4
-        Me.UpClose.TabStop = False
+        Me.PicPhone.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicPhone.Location = New System.Drawing.Point(559, 275)
+        Me.PicPhone.Name = "PicPhone"
+        Me.PicPhone.Size = New System.Drawing.Size(20, 16)
+        Me.PicPhone.TabIndex = 59
+        Me.PicPhone.TabStop = False
+        Me.PicPhone.Visible = False
+        '
+        'PicDOB
+        '
+        Me.PicDOB.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicDOB.Location = New System.Drawing.Point(559, 369)
+        Me.PicDOB.Name = "PicDOB"
+        Me.PicDOB.Size = New System.Drawing.Size(20, 24)
+        Me.PicDOB.TabIndex = 24
+        Me.PicDOB.TabStop = False
+        Me.PicDOB.Visible = False
+        '
+        'PicCusID
+        '
+        Me.PicCusID.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
+        Me.PicCusID.Location = New System.Drawing.Point(559, 75)
+        Me.PicCusID.Name = "PicCusID"
+        Me.PicCusID.Size = New System.Drawing.Size(20, 16)
+        Me.PicCusID.TabIndex = 19
+        Me.PicCusID.TabStop = False
+        Me.PicCusID.Visible = False
         '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 632)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(934, 632)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
         Me.Controls.Add(Me.FindStatus)
         Me.Controls.Add(Me.AddStatus)
         Me.Controls.Add(Me.UpStart)
-        Me.Controls.Add(Me.DownStart)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtCusTitl)
         Me.Controls.Add(Me.DataGridView1)
@@ -761,33 +773,33 @@ Partial Class Customer
         Me.Name = "Customer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Customer Input Validation"
-        CType(Me.PicCusID, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicDOB, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicPhone, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicTitle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicGender, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicFName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicLName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UpStart, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Add, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicLName, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicFName, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicGender, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicTitle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicPhone, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicDOB, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicCusID, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -861,7 +873,7 @@ Partial Class Customer
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Updatetings As PictureBox
     Friend WithEvents Find As PictureBox
-    Friend WithEvents Add As PictureBox
+    Friend WithEvents Adds1 As PictureBox
     Friend WithEvents Delete As PictureBox
     Friend WithEvents UpClose As PictureBox
 End Class
