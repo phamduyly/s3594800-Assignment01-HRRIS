@@ -13,6 +13,7 @@ Imports System.IO
 
 'Nore : modifing combo box, checkbox , radio box 
 'ACTUALLY, the report can be do by menustrip , do not need to add so much btn 
+'Test adding new code to test github add on 
 
 
 Public Class Booking
