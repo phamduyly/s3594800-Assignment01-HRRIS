@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Booking
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Booking
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.txtCmt = New System.Windows.Forms.TextBox()
@@ -130,7 +130,6 @@ Partial Class Booking
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -235,7 +234,7 @@ Partial Class Booking
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(334, 22)
+        Me.Label3.Location = New System.Drawing.Point(12, 25)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 23
@@ -349,7 +348,7 @@ Partial Class Booking
         '
         Me.cboRoomID.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboRoomID.FormattingEnabled = True
-        Me.cboRoomID.Location = New System.Drawing.Point(386, 22)
+        Me.cboRoomID.Location = New System.Drawing.Point(118, 23)
         Me.cboRoomID.Name = "cboRoomID"
         Me.cboRoomID.Size = New System.Drawing.Size(44, 21)
         Me.cboRoomID.TabIndex = 53
@@ -615,7 +614,7 @@ Partial Class Booking
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(184, 24)
+        Me.Label10.Location = New System.Drawing.Point(174, 25)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(31, 13)
         Me.Label10.TabIndex = 71
@@ -725,15 +724,15 @@ Partial Class Booking
         Me.txtType.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.txtType.FormattingEnabled = True
         Me.txtType.Items.AddRange(New Object() {"Normal", "Deluxe", "Luxury"})
-        Me.txtType.Location = New System.Drawing.Point(221, 21)
+        Me.txtType.Location = New System.Drawing.Point(211, 21)
         Me.txtType.Name = "txtType"
-        Me.txtType.Size = New System.Drawing.Size(110, 21)
+        Me.txtType.Size = New System.Drawing.Size(80, 21)
         Me.txtType.TabIndex = 86
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(8, 22)
+        Me.Label13.Location = New System.Drawing.Point(297, 25)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(73, 13)
         Me.Label13.TabIndex = 88
@@ -741,7 +740,7 @@ Partial Class Booking
         '
         'txtRmNum
         '
-        Me.txtRmNum.Location = New System.Drawing.Point(119, 22)
+        Me.txtRmNum.Location = New System.Drawing.Point(376, 21)
         Me.txtRmNum.Name = "txtRmNum"
         Me.txtRmNum.Size = New System.Drawing.Size(59, 20)
         Me.txtRmNum.TabIndex = 89
@@ -1070,21 +1069,11 @@ Partial Class Booking
         Me.PictureBox1.TabIndex = 79
         Me.PictureBox1.TabStop = False
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(594, 38)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(79, 54)
-        Me.Button2.TabIndex = 101
-        Me.Button2.Text = "Datagrid update"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 662)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
@@ -1281,5 +1270,4 @@ Partial Class Booking
     Friend WithEvents UpClose As System.Windows.Forms.PictureBox
     Friend WithEvents DownStart As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

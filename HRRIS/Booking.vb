@@ -22,13 +22,15 @@ Public Class Booking
     Dim lsDataMov As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
     Dim UIModi As New UIController
+    Dim bindingsource1 As New BindingSource
+
 
 
 
     Private Sub Booking_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet3.booking' table. You can move, or remove it, as needed.
         Me.BookingTableAdapter1.Fill(Me.HRRISdbDataSet3.booking)
-        Me.Refresh()
+        bindingsource1.ResetBindings(False)
 
         'Enable booking ID field whenever click into the form in order to perform CRUD task 
 
@@ -59,7 +61,7 @@ Public Class Booking
         Dim Moving As BookingDataController = New BookingDataController
         lsDataMov = Moving.BookingfindALl()
 
-        'Combobox room - traacking data from database and populate() to the box
+        'ComboBox Room - traacking data from database And populate() to the box
         'TODO: import ID while showing type"
         cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
         Dim oController1 As New RoomDataController
@@ -99,7 +101,7 @@ Public Class Booking
         Dim selectedIndex As Integer = cboRoomID.SelectedIndex
         Dim selectedItem As Object = cboRoomID.SelectedItem
 
-        'MsgBox("Room ID is: " & selectedIndex.ToString())
+        'MsgBox("Room ID Is:   " & selectedIndex.ToString())
 
 
 
@@ -378,6 +380,8 @@ Public Class Booking
 
     'Calculating done - add more elseif inorder to provide more right calculation
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
+
+
         If cboRoomID.SelectedIndex = 1 Then
             Dim i As Integer = 30
             txtPrice.Text = CStr(CInt(cboStays.Text) * i)
@@ -540,20 +544,29 @@ Public Class Booking
 
 
     'End Sub
-    Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
-        Dim oController As New AdditionalController
-        Dim sType As String
-        Dim sRmId As String
+    'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
 
-        sRmId = cboRoomID.Text
-        sType = txtType.Text
+    '    Dim oController As New RoomDataController
 
-        Dim lsData = oController.RoomFind(sType, sRmId)
+    '    Dim sType = txtType.Text
+    '    oController.RoomFind(sType)
 
-        If lsData.Count = 1 Then
-            populateroom(lsData.Item(0))
-        End If
-    End Sub
+    'Dim lsData = oController.RoomFind(sType)
+
+
+    'If lsData.Count = 1 Then
+    '    populateroom(lsData.Item(0))
+    'End If
+
+
+    ''Combobox room - traacking data from database and populate() to the box
+    ''TODO: import ID while showing type"
+    'cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
+
+    'For Each Room In lsData
+    '    cboRoomID.Items.Add(CStr(Room("room_id")))
+    'Next
+    'End Sub
 
     'Private Sub txtRmNum_Leave(sender As Object, e As EventArgs) Handles txtRmNum.Leave
     '    Dim oController As New AdditionalController
@@ -597,7 +610,7 @@ Public Class Booking
     'End Sub
 
     'Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
-    '    Dim oController As New AdditionalController
+    '    Dim oController As New RoomDataController
     '    Dim sRmId = cboRoomID.Text
     '    Dim lsData = oController.RoomFind(sRmId)
 
@@ -605,11 +618,13 @@ Public Class Booking
     '        populateroom(lsData.Item(0))
     '    End If
     'End Sub
+
+
     'populate 
     Private Sub populatecus(ByRef cusData As Hashtable)
 
         txtFirstName.Text = CStr(cusData("firstname"))
-        cboCusId.Text = CStr(CType(cusData("customer_id"), String))
+
 
     End Sub
 
@@ -617,41 +632,52 @@ Public Class Booking
 
         txtType.Text = CStr(roomData("type"))
         txtRmNum.Text = CStr(CInt(roomData("room_number")))
-        cboRoomID.Text = CStr(CType(roomData("room_id"), String))
+
 
     End Sub
     'Enhance feature stop 
 
     'Customer 
-    Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
-        Dim sFirstname As String
-        Dim sCusId As String
-        sFirstname = txtFirstName.Text
-        sCusId = cboCusId.Text
-        Try
-            Dim oController As New CustomerDataController
-            oController.CustomerFind(sFirstname, sCusId)
+    'This Partial Is still Not work 
+    'Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
+    '    Dim sFirstname As String
+    '    Dim sCusId As String
+    '    sFirstname = txtFirstName.Text
+    '    sCusId = cboCusId.Text
+    '    Try
+    '        Dim oController As New CustomerDataController
+    '        oController.CustomerFind(sFirstname)
 
 
-        Catch ex As Exception
-            Debug.Print("Error is: " & ex.Message)
-            MsgBox("There was somethings wrong")
-        End Try
+    '    Catch ex As Exception
+    '        Debug.Print("Error is: " & ex.Message)
+    '        MsgBox("There was somethings wrong")
+    '    End Try
+    'End Sub
+    'enhance customer feature 
+    Private Sub cboCusId_TextChanged(sender As Object, e As EventArgs) Handles cboCusId.TextChanged
+        Dim sCusId = cboCusId.Text
+
+        Dim oController As New CustomerDataController
+        Dim lsData = oController.CustomerFind(sCusId)
+
+        If lsData.Count = 1 Then
+            populatecus(lsData.Item(0))
+        End If
+
     End Sub
 
-    Private Sub cboCusId_Leave(sender As Object, e As EventArgs) Handles cboCusId.Leave
-        Dim sFirstname As String
-        Dim sCusId As String
-        sFirstname = txtFirstName.Text
-        sCusId = cboCusId.Text
-        Try
-            Dim oController As New CustomerDataController
-            oController.CustomerFind(sFirstname, sCusId)
-        Catch ex As Exception
-            Debug.Print("Error is: " & ex.Message)
-            MsgBox("There was somethings wrong")
-        End Try
+    Private Sub cboRoomID_TextChanged(sender As Object, e As EventArgs) Handles cboRoomID.TextChanged
+        Dim sRmId = cboRoomID.Text
+
+        Dim oController As New RoomDataController
+        Dim lsData = oController.DisplayByRmId(sRmId)
+
+        If lsData.Count = 1 Then
+            populateroom(lsData.Item(0))
+        End If
     End Sub
+
 
 
 
@@ -700,6 +726,11 @@ Public Class Booking
         btnFind.Visible = False
         btnUpdate.Visible = True
     End Sub
+
+
+
+
+
 
     'Private Sub populatecus(ByVal lsData As List(Of Hashtable))
 

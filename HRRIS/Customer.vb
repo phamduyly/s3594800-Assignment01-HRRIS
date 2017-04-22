@@ -16,12 +16,16 @@ Public Class Customer
     Dim iCurrentIndex As Integer
 
     Dim UIModi As New UIController
+    Dim bindingsource1 As New BindingSource
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet2.customer' table. You can move, or remove it, as needed.
         Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet2.customer)
-        Me.Refresh()
+        bindingsource1.ResetBindings(True)
+
+
+
         'moving between record section
         Dim MoveRecord As CustomerDataController = New CustomerDataController
         lsData = MoveRecord.CusfindALl()
@@ -63,6 +67,7 @@ Public Class Customer
 
         End If
 
+        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet2.customer)
 
     End Sub
 
@@ -304,6 +309,7 @@ Public Class Customer
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
         txtCusID.Visible = False
+
     End Sub
 
     Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click

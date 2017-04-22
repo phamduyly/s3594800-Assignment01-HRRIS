@@ -28,9 +28,13 @@ Public Class Invoice
     'code for nav 
     Dim lsDataMov As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
+    Dim bindingsource1 As New BindingSource
 
     Private Sub Invoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Populate booking id to the fields 
+
+
+        'bindingsource1.ResetBindings(True)
 
         ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
         Dim oController1 As New BookingDataController

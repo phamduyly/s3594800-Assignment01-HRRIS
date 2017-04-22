@@ -192,3 +192,16 @@ C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\W
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\HRRIS.vbproj.GenerateResource.Cache
 C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Invoice.resources
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Invoice.resources
+C:\Users\DELL\Desktop\test\HRRIS\bin\Debug\HRRIS.exe.config
+C:\Users\DELL\Desktop\test\HRRIS\bin\Debug\HRRIS.exe
+C:\Users\DELL\Desktop\test\HRRIS\bin\Debug\HRRIS.pdb
+C:\Users\DELL\Desktop\test\HRRIS\bin\Debug\HRRIS.xml
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\WindowsApplication1.Customer.resources
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\WindowsApplication1.Booking.resources
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\WindowsApplication1.Invoice.resources
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\WindowsApplication1.Resources.resources
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\WindowsApplication1.Room.resources
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\HRRIS.vbproj.GenerateResource.Cache
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\HRRIS.exe
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\HRRIS.xml
+C:\Users\DELL\Desktop\test\HRRIS\obj\x86\Debug\HRRIS.pdb

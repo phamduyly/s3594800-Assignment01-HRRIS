@@ -37,3 +37,17 @@ C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRISUnitTest\obj\Deb
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRISUnitTest\obj\Debug\HRRISUnitTest.dll
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRISUnitTest\obj\Debug\HRRISUnitTest.xml
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRISUnitTest\obj\Debug\HRRISUnitTest.pdb
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRISUnitTest.dll
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRISUnitTest.pdb
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRISUnitTest.xml
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRIS.exe
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRIS.pdb
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRIS.xml
+C:\Users\DELL\Desktop\test\HRRISUnitTest\bin\Debug\HRRIS.exe.config
+C:\Users\DELL\Desktop\test\HRRISUnitTest\obj\Debug\HRRISUnitTest.vbprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\test\HRRISUnitTest\obj\Debug\HRRISUnitTest.Resources.resources
+C:\Users\DELL\Desktop\test\HRRISUnitTest\obj\Debug\HRRISUnitTest.vbproj.GenerateResource.Cache
+C:\Users\DELL\Desktop\test\HRRISUnitTest\obj\Debug\HRRISUnitTest.dll
+C:\Users\DELL\Desktop\test\HRRISUnitTest\obj\Debug\HRRISUnitTest.xml
+C:\Users\DELL\Desktop\test\HRRISUnitTest\obj\Debug\HRRISUnitTest.pdb

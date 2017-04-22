@@ -51,7 +51,7 @@ Public Class CustomerDataController
         End Try
     End Sub
     'Customer Find 
-    Public Function CustomerFind(ByVal sCusId As String, ByVal sFirstName As String) As List(Of Hashtable)
+    Public Function CustomerFind(ByVal sId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
@@ -63,14 +63,15 @@ Public Class CustomerDataController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT customer_id, firstname FROM customer WHERE customer_id = ? OR firstname = @firstname;"
-
-            'Add customerID 
-            oCommand.Parameters.Add("customer_id", OleDbType.Integer, 15)
-            oCommand.Parameters("type").Value = sCusId
-            'Add firstname 
-            oCommand.Parameters.AddWithValue("@firstname", sFirstName)
+            oCommand.CommandText = "SELECT firstname FROM customer WHERE customer_id =?;"
+            oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
+            oCommand.Parameters("customer_id").Value = CInt(sId)
             oCommand.Prepare()
+
+
+            'Add firstname 
+            'oCommand.Parameters.AddWithValue("@firstname", sFirstName)
+            'oCommand.Prepare()
             Debug.Print(oCommand.CommandText)
 
 
@@ -81,10 +82,7 @@ Public Class CustomerDataController
 
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-                htTempData("room_id") = CInt(oDataReader("room_id"))
-                htTempData("type") = CStr(oDataReader("type"))
-                htTempData("room_number") = CInt(oDataReader("room_numer"))
-                htTempData("availability") = CStr(oDataReader("availability"))
+                htTempData("firstname") = CStr(oDataReader("firstname"))
                 lsData.Add(htTempData)
             Loop
 
@@ -94,7 +92,7 @@ Public Class CustomerDataController
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
-            MsgBox("this find room still not work, ")
+            MsgBox("this customer is still not work ")
         Finally
             oConnection.Close()
 
@@ -289,6 +287,51 @@ Public Class CustomerDataController
         Return iNumRows
 
     End Function
+
+    'testing shit 
+    Public Function findCus(ByVal sId As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+
+            oCommand.Connection = oConnection
+            oCommand.CommandText = "SELECT firstname FROM customer WHERE customer_id = ?;"
+            oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
+            oCommand.Parameters("customer_id").Value = CInt(sId)
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+
+                htTempData("firstname") = CStr(oDataReader("firstname"))
+
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the records were found")
+
+            'this could be made as a smaller sub
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+
 
 
 

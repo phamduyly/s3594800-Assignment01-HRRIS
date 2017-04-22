@@ -16,73 +16,70 @@ Public Class AdditionalController
     "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
 
     'FUCNTIO FOR finding room section 
-    Public Function RoomFind(ByVal sType As String, ByVal sRmId As String) As List(Of Hashtable)
+    'Public Function RoomFind(ByRef sType As String) As List(Of Hashtable)
 
-        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
-        Dim lsData As New List(Of Hashtable)
-        Dim sAva As String = "Yes"
+    '    Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+    '    Dim lsData As New List(Of Hashtable)
+    '    Dim sAva As String = "Yes"
 
-        Try
-            Debug.Print("Connection String: " & oConnection.ConnectionString)
+    '    Try
+    '        Debug.Print("Connection String: " & oConnection.ConnectionString)
 
-            oConnection.Open()
-            Dim oCommand As OleDbCommand = New OleDbCommand
-            oCommand.Connection = oConnection
+    '        oConnection.Open()
+    '        Dim oCommand As OleDbCommand = New OleDbCommand
+    '        oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  availability  = """ + sAva + """ AND  type = """ + sType + """ OR room_id = """ + sRmId + """;"
+    '        oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """ AND availability = """ + sAva + """;"
 
-            'Sample code from Ashihsh
-            '"SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """ AND ;"
-            'This is working now 
-
-
-            oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
-            oCommand.Parameters("sRmId").Value = sRmId
-
-            oCommand.Parameters.Add("sType", OleDbType.VarChar, 15)
-            oCommand.Parameters("sType").Value = sType
+    '        'Sample code from Ashihsh
+    '        '"SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """ AND ;"
+    '        '"SELECT room_id, room_number, type FROM room WHERE  availability  = """ & sAva & """ AND  type = """ & sType & """;"
+    '        'This is working now 
 
 
+    '        oCommand.Parameters.Add("sType", OleDbType.VarChar, 15)
+    '        oCommand.Parameters("sType").Value = sType
 
-            oCommand.Prepare()
-            Debug.Print(oCommand.CommandText)
+
+    '        oCommand.Prepare()
+    '        Debug.Print(oCommand.CommandText)
 
 
 
-            Dim oDataReader = oCommand.ExecuteReader()
+    '        Dim oDataReader = oCommand.ExecuteReader()
 
-            Dim htTempData As Hashtable
+    '        Dim htTempData As Hashtable
 
-            Do While oDataReader.Read() = True
-                htTempData = New Hashtable
-                htTempData("room_id") = CInt(oDataReader("room_id"))
-                htTempData("type") = CStr(oDataReader("type"))
-                htTempData("room_number") = CInt(oDataReader("room_numer"))
-                htTempData("availability") = CStr(oDataReader("availability"))
-                lsData.Add(htTempData)
-            Loop
+    '        Do While oDataReader.Read() = True
+    '            htTempData = New Hashtable
+    '            htTempData("room_id") = CInt(oDataReader("room_id"))
+    '            htTempData("type") = CStr(oDataReader("type"))
+    '            htTempData("room_number") = CInt(oDataReader("room_numer"))
+    '            htTempData("availability") = CStr(oDataReader("availability"))
+    '            lsData.Add(htTempData)
+    '        Loop
 
-            Debug.Print("the record was found.")
+    '        Debug.Print("the record was found.")
 
 
 
-        Catch ex As Exception
-            Debug.Print("ERROR: " & ex.Message)
-            MsgBox("this find room still not work, ")
-        Finally
-            oConnection.Close()
+    '    Catch ex As Exception
+    '        Debug.Print("ERROR: " & ex.Message)
+    '        MsgBox("this find room still not work, ")
+    '    Finally
+    '        oConnection.Close()
 
-        End Try
+    '    End Try
 
-        Return lsData
-    End Function
+    '    Return lsData
+    'End Function
 
     'ROOM SECTION
     'Find all function
 
-    Function RoomFind(sType As String) As Object
-        Throw New NotImplementedException
-    End Function
+    'Function RoomFind(sType As String) As Object
+    '    Throw New NotImplementedException
+    'End Function
 
 
 End Class

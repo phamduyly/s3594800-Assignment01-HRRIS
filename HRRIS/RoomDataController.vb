@@ -142,6 +142,70 @@ Public Class RoomDataController
         Return lsData
     End Function
 
+    Public Function DisplayByRmId(ByRef sRmId As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+        Dim sAva As String = "Yes"
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            'oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """;"
+
+            'Sample code from Ashihsh
+            '"SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """ AND ;"
+            '"SELECT room_id, room_number, type FROM room WHERE  availability  = """ & sAva & """ AND  type = """ & sType & """;"
+            'This is working now 
+
+
+            oCommand.CommandText = "SELECT room_number, type FROM room WHERE  room_id = ?;"
+            'This is working now  
+            'Debug.Print(oCommand.CommandText)
+            oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
+            oCommand.Parameters("sRmId").Value = CInt(sRmId)
+
+
+            'oCommand.Parameters.Add("sType", OleDbType.VarChar, 15)
+            'oCommand.Parameters("sType").Value = sType
+
+
+            oCommand.Prepare()
+            Debug.Print(oCommand.CommandText)
+
+
+
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+
+                htTempData("type") = CStr(oDataReader("type"))
+                htTempData("room_number") = CInt(oDataReader("room_number"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("this find room still not work, - room dataController ")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+
     'group room to generate the ROOM id 
     'sType -  
     Public Function RoomsFindByType(ByVal sType As String) As List(Of Hashtable)
