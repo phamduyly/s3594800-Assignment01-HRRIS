@@ -181,7 +181,6 @@ C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\bin\Debug\HRRIS
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\HRRIS.exe
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\HRRIS.xml
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\HRRIS.pdb
-C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\bin\Debug\HRRISdb.accdb
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\bin\Debug\HRRIS.exe
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\bin\Debug\HRRIS.pdb
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\bin\Debug\HRRIS.xml
@@ -192,3 +191,4 @@ C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\W
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Room.resources
 C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\HRRIS.vbproj.GenerateResource.Cache
 C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Invoice.resources
+C:\Users\s3594800\Source\Repos\s3594800-Assignment02-HRRIS\HRRIS\obj\x86\Debug\WindowsApplication1.Invoice.resources

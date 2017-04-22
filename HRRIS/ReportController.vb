@@ -24,12 +24,15 @@ Public Class ReportController
             Debug.Print("Connection String: " & oConnection.ConnectionString)
 
             Dim oCommand As OleDbCommand = New OleDbCommand
-        oCommand.Connection = oConnection
+            oCommand.Connection = oConnection
+
 
             oCommand.CommandText = "SELECT customer_id, num_days, booking_date FROM booking WHERE customer_id = ?;"
             oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
-        oCommand.Parameters("customer_id").Value = CInt(sCusId)
-        oCommand.Prepare()
+            oCommand.Parameters("customer_id").Value = CInt(sCusId)
+
+            oCommand.Prepare()
+
 
             Dim oDataReader = oCommand.ExecuteReader()
 

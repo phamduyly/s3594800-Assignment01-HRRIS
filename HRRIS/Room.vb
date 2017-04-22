@@ -13,6 +13,7 @@ Public Class Room
     'moving betweeen record section
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
+    Dim UImodi As New UIController
 
 
     Private Sub Room_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -344,6 +345,51 @@ Public Class Room
         Me.Close()
     End Sub
 
+    'UI fucntion 
+    'Uisng piccture box and panel for UI
+    Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
+        UIModi.Displayoption(DownStart, Panel2, UpClose)
+
+    End Sub
+
+    Private Sub Adds1_Click(sender As Object, e As EventArgs) Handles Adds1.Click
+        UIModi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        Button1.Visible = True
+        btnDelete.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = False
+
+    End Sub
+
+    Private Sub Find_Click(sender As Object, e As EventArgs) Handles Find.Click
+        UIModi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        btnFind.Visible = True
+        btnDelete.Visible = False
+        Button1.Visible = False
+        btnUpdate.Visible = False
+    End Sub
+
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
+        UIModi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        btnDelete.Visible = True
+        Button1.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = False
+
+    End Sub
+
+    Private Sub UpClose_Click(sender As Object, e As EventArgs) Handles UpClose.Click
+        UIModi.CloseOptions(DownStart, Panel2, UpClose)
+
+    End Sub
+
+    Private Sub Updatetings_Click(sender As Object, e As EventArgs) Handles Updatetings.Click
+        UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        Button1.Visible = False
+        btnDelete.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = True
+    End Sub
 
 End Class
 

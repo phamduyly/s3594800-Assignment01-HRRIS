@@ -21,6 +21,8 @@ Public Class Booking
 
     Dim lsDataMov As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
+    Dim UIModi As New UIController
+
 
 
     Private Sub Booking_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -60,7 +62,7 @@ Public Class Booking
         'Combobox room - traacking data from database and populate() to the box
         'TODO: import ID while showing type"
         cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
-        Dim oController1 As RoomDataController = New RoomDataController
+        Dim oController1 As New RoomDataController
         Dim lsData1 = oController1.RoomfindALl()
         For Each Room In lsData1
             cboRoomID.Items.Add(CStr(Room("room_id")))
@@ -572,7 +574,7 @@ Public Class Booking
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim oController As New RoomDataController
+        Dim oController As New AdditionalController
         Dim sType = txtType.Text
 
         oController.RoomFind(sType)
@@ -580,6 +582,51 @@ Public Class Booking
 
     End Sub
 
+    'UI fucntion 
+    'Uisng piccture box and panel for UI
+    Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
+        UIModi.Displayoption(DownStart, Panel2, UpClose)
+
+    End Sub
+
+    Private Sub Adds1_Click(sender As Object, e As EventArgs) Handles Adds1.Click
+        UIModi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        Button1.Visible = True
+        btnDelete.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = False
+
+    End Sub
+
+    Private Sub Find_Click(sender As Object, e As EventArgs) Handles Find.Click
+        UIModi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        btnFind.Visible = True
+        btnDelete.Visible = False
+        Button1.Visible = False
+        btnUpdate.Visible = False
+    End Sub
+
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
+        UIModi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        btnDelete.Visible = True
+        Button1.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = False
+
+    End Sub
+
+    Private Sub UpClose_Click(sender As Object, e As EventArgs) Handles UpClose.Click
+        UIModi.CloseOptions(DownStart, Panel2, UpClose)
+
+    End Sub
+
+    Private Sub Updatetings_Click(sender As Object, e As EventArgs) Handles Updatetings.Click
+        UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
+        Button1.Visible = False
+        btnDelete.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = True
+    End Sub
 
     'Private Sub populatecus(ByVal lsData As List(Of Hashtable))
 

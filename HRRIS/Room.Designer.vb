@@ -78,6 +78,17 @@ Partial Class Room
         Me.txtRmType = New System.Windows.Forms.ComboBox()
         Me.txtRmAva = New System.Windows.Forms.ComboBox()
         Me.txtRmFl = New System.Windows.Forms.ComboBox()
+        Me.DeleteStatus = New System.Windows.Forms.PictureBox()
+        Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
+        Me.FindStatus = New System.Windows.Forms.PictureBox()
+        Me.AddStatus = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Updatetings = New System.Windows.Forms.PictureBox()
+        Me.Find = New System.Windows.Forms.PictureBox()
+        Me.Adds1 = New System.Windows.Forms.PictureBox()
+        Me.Delete = New System.Windows.Forms.PictureBox()
+        Me.UpClose = New System.Windows.Forms.PictureBox()
+        Me.DownStart = New System.Windows.Forms.PictureBox()
         CType(Me.PicRmBedNum, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,11 +101,22 @@ Partial Class Room
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtRmDes
         '
-        Me.txtRmDes.Location = New System.Drawing.Point(134, 284)
+        Me.txtRmDes.Location = New System.Drawing.Point(192, 344)
         Me.txtRmDes.Name = "txtRmDes"
         Me.txtRmDes.Size = New System.Drawing.Size(343, 20)
         Me.txtRmDes.TabIndex = 32
@@ -102,7 +124,7 @@ Partial Class Room
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(24, 287)
+        Me.Label8.Location = New System.Drawing.Point(82, 347)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(60, 13)
         Me.Label8.TabIndex = 31
@@ -111,7 +133,7 @@ Partial Class Room
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(25, 252)
+        Me.Label7.Location = New System.Drawing.Point(82, 313)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 13)
         Me.Label7.TabIndex = 29
@@ -120,7 +142,7 @@ Partial Class Room
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(24, 221)
+        Me.Label6.Location = New System.Drawing.Point(82, 281)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(56, 13)
         Me.Label6.TabIndex = 27
@@ -129,7 +151,7 @@ Partial Class Room
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(24, 183)
+        Me.Label5.Location = New System.Drawing.Point(82, 243)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(83, 13)
         Me.Label5.TabIndex = 25
@@ -137,7 +159,7 @@ Partial Class Room
         '
         'txtRmPrice
         '
-        Me.txtRmPrice.Location = New System.Drawing.Point(134, 145)
+        Me.txtRmPrice.Location = New System.Drawing.Point(192, 205)
         Me.txtRmPrice.Name = "txtRmPrice"
         Me.txtRmPrice.Size = New System.Drawing.Size(343, 20)
         Me.txtRmPrice.TabIndex = 24
@@ -145,7 +167,7 @@ Partial Class Room
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 145)
+        Me.Label4.Location = New System.Drawing.Point(82, 203)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(31, 13)
         Me.Label4.TabIndex = 23
@@ -154,7 +176,7 @@ Partial Class Room
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 105)
+        Me.Label3.Location = New System.Drawing.Point(82, 164)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 21
@@ -162,7 +184,7 @@ Partial Class Room
         '
         'txtRmNum
         '
-        Me.txtRmNum.Location = New System.Drawing.Point(134, 68)
+        Me.txtRmNum.Location = New System.Drawing.Point(192, 128)
         Me.txtRmNum.Name = "txtRmNum"
         Me.txtRmNum.Size = New System.Drawing.Size(343, 20)
         Me.txtRmNum.TabIndex = 20
@@ -170,7 +192,7 @@ Partial Class Room
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 71)
+        Me.Label2.Location = New System.Drawing.Point(82, 131)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 13)
         Me.Label2.TabIndex = 19
@@ -179,7 +201,7 @@ Partial Class Room
         'txtRmID
         '
         Me.txtRmID.AllowDrop = True
-        Me.txtRmID.Location = New System.Drawing.Point(134, 30)
+        Me.txtRmID.Location = New System.Drawing.Point(192, 90)
         Me.txtRmID.Name = "txtRmID"
         Me.txtRmID.Size = New System.Drawing.Size(343, 20)
         Me.txtRmID.TabIndex = 18
@@ -187,7 +209,7 @@ Partial Class Room
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 33)
+        Me.Label1.Location = New System.Drawing.Point(82, 93)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 17
@@ -195,7 +217,7 @@ Partial Class Room
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(565, 67)
+        Me.Button1.Location = New System.Drawing.Point(623, 348)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(91, 23)
         Me.Button1.TabIndex = 33
@@ -205,7 +227,7 @@ Partial Class Room
         'PicRmBedNum
         '
         Me.PicRmBedNum.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmBedNum.Location = New System.Drawing.Point(515, 187)
+        Me.PicRmBedNum.Location = New System.Drawing.Point(573, 247)
         Me.PicRmBedNum.Name = "PicRmBedNum"
         Me.PicRmBedNum.Size = New System.Drawing.Size(20, 16)
         Me.PicRmBedNum.TabIndex = 42
@@ -215,7 +237,7 @@ Partial Class Room
         'PicRmPrice
         '
         Me.PicRmPrice.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmPrice.Location = New System.Drawing.Point(515, 149)
+        Me.PicRmPrice.Location = New System.Drawing.Point(573, 209)
         Me.PicRmPrice.Name = "PicRmPrice"
         Me.PicRmPrice.Size = New System.Drawing.Size(20, 16)
         Me.PicRmPrice.TabIndex = 38
@@ -225,7 +247,7 @@ Partial Class Room
         'PicRmNum
         '
         Me.PicRmNum.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmNum.Location = New System.Drawing.Point(515, 72)
+        Me.PicRmNum.Location = New System.Drawing.Point(573, 132)
         Me.PicRmNum.Name = "PicRmNum"
         Me.PicRmNum.Size = New System.Drawing.Size(20, 16)
         Me.PicRmNum.TabIndex = 36
@@ -235,7 +257,7 @@ Partial Class Room
         'PicRmID
         '
         Me.PicRmID.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmID.Location = New System.Drawing.Point(515, 34)
+        Me.PicRmID.Location = New System.Drawing.Point(573, 94)
         Me.PicRmID.Name = "PicRmID"
         Me.PicRmID.Size = New System.Drawing.Size(20, 16)
         Me.PicRmID.TabIndex = 35
@@ -244,7 +266,7 @@ Partial Class Room
         '
         'txtRmBedNum
         '
-        Me.txtRmBedNum.Location = New System.Drawing.Point(134, 183)
+        Me.txtRmBedNum.Location = New System.Drawing.Point(192, 243)
         Me.txtRmBedNum.Name = "txtRmBedNum"
         Me.txtRmBedNum.Size = New System.Drawing.Size(343, 20)
         Me.txtRmBedNum.TabIndex = 55
@@ -252,7 +274,7 @@ Partial Class Room
         'PicRmFl
         '
         Me.PicRmFl.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmFl.Location = New System.Drawing.Point(515, 253)
+        Me.PicRmFl.Location = New System.Drawing.Point(573, 313)
         Me.PicRmFl.Name = "PicRmFl"
         Me.PicRmFl.Size = New System.Drawing.Size(20, 16)
         Me.PicRmFl.TabIndex = 58
@@ -262,7 +284,7 @@ Partial Class Room
         'PicRmType
         '
         Me.PicRmType.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmType.Location = New System.Drawing.Point(515, 109)
+        Me.PicRmType.Location = New System.Drawing.Point(573, 169)
         Me.PicRmType.Name = "PicRmType"
         Me.PicRmType.Size = New System.Drawing.Size(20, 16)
         Me.PicRmType.TabIndex = 59
@@ -272,7 +294,7 @@ Partial Class Room
         'PicRmAva
         '
         Me.PicRmAva.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmAva.Location = New System.Drawing.Point(515, 222)
+        Me.PicRmAva.Location = New System.Drawing.Point(573, 282)
         Me.PicRmAva.Name = "PicRmAva"
         Me.PicRmAva.Size = New System.Drawing.Size(20, 16)
         Me.PicRmAva.TabIndex = 60
@@ -282,7 +304,7 @@ Partial Class Room
         'PicRmDes
         '
         Me.PicRmDes.Image = Global.WindowsApplication1.My.Resources.Resources.Button_Close_icon
-        Me.PicRmDes.Location = New System.Drawing.Point(515, 288)
+        Me.PicRmDes.Location = New System.Drawing.Point(573, 348)
         Me.PicRmDes.Name = "PicRmDes"
         Me.PicRmDes.Size = New System.Drawing.Size(20, 16)
         Me.PicRmDes.TabIndex = 61
@@ -291,7 +313,7 @@ Partial Class Room
         '
         'btnNav
         '
-        Me.btnNav.Location = New System.Drawing.Point(565, 28)
+        Me.btnNav.Location = New System.Drawing.Point(623, 88)
         Me.btnNav.Name = "btnNav"
         Me.btnNav.Size = New System.Drawing.Size(91, 23)
         Me.btnNav.TabIndex = 62
@@ -300,7 +322,7 @@ Partial Class Room
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(28, 330)
+        Me.btnFirst.Location = New System.Drawing.Point(86, 390)
         Me.btnFirst.Name = "btnFirst"
         Me.btnFirst.Size = New System.Drawing.Size(91, 23)
         Me.btnFirst.TabIndex = 63
@@ -309,7 +331,7 @@ Partial Class Room
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(271, 330)
+        Me.btnNext.Location = New System.Drawing.Point(329, 390)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(91, 23)
         Me.btnNext.TabIndex = 64
@@ -318,7 +340,7 @@ Partial Class Room
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(145, 330)
+        Me.btnPrevious.Location = New System.Drawing.Point(203, 390)
         Me.btnPrevious.Name = "btnPrevious"
         Me.btnPrevious.Size = New System.Drawing.Size(91, 23)
         Me.btnPrevious.TabIndex = 65
@@ -327,7 +349,7 @@ Partial Class Room
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(386, 330)
+        Me.btnLast.Location = New System.Drawing.Point(444, 390)
         Me.btnLast.Name = "btnLast"
         Me.btnLast.Size = New System.Drawing.Size(91, 23)
         Me.btnLast.TabIndex = 66
@@ -336,7 +358,7 @@ Partial Class Room
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(565, 104)
+        Me.btnDelete.Location = New System.Drawing.Point(623, 348)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(91, 23)
         Me.btnDelete.TabIndex = 67
@@ -345,7 +367,7 @@ Partial Class Room
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(565, 133)
+        Me.btnFind.Location = New System.Drawing.Point(623, 348)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(91, 23)
         Me.btnFind.TabIndex = 68
@@ -354,7 +376,7 @@ Partial Class Room
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(565, 162)
+        Me.btnUpdate.Location = New System.Drawing.Point(623, 348)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(91, 23)
         Me.btnUpdate.TabIndex = 69
@@ -366,7 +388,7 @@ Partial Class Room
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(884, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(934, 24)
         Me.MenuStrip1.TabIndex = 70
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -431,9 +453,9 @@ Partial Class Room
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RoomidDataGridViewTextBoxColumn, Me.RoomnumberDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.NumbedsDataGridViewTextBoxColumn, Me.AvailabilityDataGridViewTextBoxColumn, Me.FloorDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.RoomBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(27, 379)
+        Me.DataGridView1.Location = New System.Drawing.Point(85, 439)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(845, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(830, 181)
         Me.DataGridView1.TabIndex = 71
         '
         'RoomidDataGridViewTextBoxColumn
@@ -502,7 +524,7 @@ Partial Class Room
         '
         Me.txtRmType.FormattingEnabled = True
         Me.txtRmType.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
-        Me.txtRmType.Location = New System.Drawing.Point(134, 105)
+        Me.txtRmType.Location = New System.Drawing.Point(192, 165)
         Me.txtRmType.Name = "txtRmType"
         Me.txtRmType.Size = New System.Drawing.Size(343, 21)
         Me.txtRmType.TabIndex = 72
@@ -511,7 +533,7 @@ Partial Class Room
         '
         Me.txtRmAva.FormattingEnabled = True
         Me.txtRmAva.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
-        Me.txtRmAva.Location = New System.Drawing.Point(134, 217)
+        Me.txtRmAva.Location = New System.Drawing.Point(192, 277)
         Me.txtRmAva.Name = "txtRmAva"
         Me.txtRmAva.Size = New System.Drawing.Size(343, 21)
         Me.txtRmAva.TabIndex = 73
@@ -520,16 +542,139 @@ Partial Class Room
         '
         Me.txtRmFl.FormattingEnabled = True
         Me.txtRmFl.Items.AddRange(New Object() {"1", "2", "3", "4"})
-        Me.txtRmFl.Location = New System.Drawing.Point(134, 253)
+        Me.txtRmFl.Location = New System.Drawing.Point(192, 313)
         Me.txtRmFl.Name = "txtRmFl"
         Me.txtRmFl.Size = New System.Drawing.Size(343, 21)
         Me.txtRmFl.TabIndex = 74
+        '
+        'DeleteStatus
+        '
+        Me.DeleteStatus.Image = Global.WindowsApplication1.My.Resources.Resources.delete_icon
+        Me.DeleteStatus.Location = New System.Drawing.Point(12, 27)
+        Me.DeleteStatus.Name = "DeleteStatus"
+        Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
+        Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DeleteStatus.TabIndex = 86
+        Me.DeleteStatus.TabStop = False
+        Me.DeleteStatus.Visible = False
+        '
+        'UpdatetingsStatus
+        '
+        Me.UpdatetingsStatus.Image = Global.WindowsApplication1.My.Resources.Resources.Ink_Pen_2_icon
+        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 27)
+        Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
+        Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
+        Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpdatetingsStatus.TabIndex = 87
+        Me.UpdatetingsStatus.TabStop = False
+        Me.UpdatetingsStatus.Visible = False
+        '
+        'FindStatus
+        '
+        Me.FindStatus.Image = Global.WindowsApplication1.My.Resources.Resources.Magnifier_icon
+        Me.FindStatus.Location = New System.Drawing.Point(12, 27)
+        Me.FindStatus.Name = "FindStatus"
+        Me.FindStatus.Size = New System.Drawing.Size(64, 64)
+        Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.FindStatus.TabIndex = 88
+        Me.FindStatus.TabStop = False
+        Me.FindStatus.Visible = False
+        '
+        'AddStatus
+        '
+        Me.AddStatus.Image = Global.WindowsApplication1.My.Resources.Resources.Add_icon
+        Me.AddStatus.Location = New System.Drawing.Point(12, 26)
+        Me.AddStatus.Name = "AddStatus"
+        Me.AddStatus.Size = New System.Drawing.Size(64, 64)
+        Me.AddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.AddStatus.TabIndex = 89
+        Me.AddStatus.TabStop = False
+        Me.AddStatus.Visible = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Updatetings)
+        Me.Panel2.Controls.Add(Me.Find)
+        Me.Panel2.Controls.Add(Me.Adds1)
+        Me.Panel2.Controls.Add(Me.Delete)
+        Me.Panel2.Controls.Add(Me.UpClose)
+        Me.Panel2.Controls.Add(Me.DownStart)
+        Me.Panel2.Location = New System.Drawing.Point(12, 88)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(64, 65)
+        Me.Panel2.TabIndex = 85
+        '
+        'Updatetings
+        '
+        Me.Updatetings.Image = Global.WindowsApplication1.My.Resources.Resources.Ink_Pen_2_icon
+        Me.Updatetings.Location = New System.Drawing.Point(0, 214)
+        Me.Updatetings.Name = "Updatetings"
+        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
+        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Updatetings.TabIndex = 12
+        Me.Updatetings.TabStop = False
+        '
+        'Find
+        '
+        Me.Find.Image = Global.WindowsApplication1.My.Resources.Resources.Magnifier_icon
+        Me.Find.Location = New System.Drawing.Point(0, 144)
+        Me.Find.Name = "Find"
+        Me.Find.Size = New System.Drawing.Size(64, 64)
+        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Find.TabIndex = 7
+        Me.Find.TabStop = False
+        '
+        'Adds1
+        '
+        Me.Adds1.Image = Global.WindowsApplication1.My.Resources.Resources.Add_icon
+        Me.Adds1.Location = New System.Drawing.Point(0, 73)
+        Me.Adds1.Name = "Adds1"
+        Me.Adds1.Size = New System.Drawing.Size(64, 64)
+        Me.Adds1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Adds1.TabIndex = 6
+        Me.Adds1.TabStop = False
+        '
+        'Delete
+        '
+        Me.Delete.Image = Global.WindowsApplication1.My.Resources.Resources.delete_icon
+        Me.Delete.Location = New System.Drawing.Point(0, 284)
+        Me.Delete.Name = "Delete"
+        Me.Delete.Size = New System.Drawing.Size(64, 64)
+        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Delete.TabIndex = 5
+        Me.Delete.TabStop = False
+        '
+        'UpClose
+        '
+        Me.UpClose.Image = Global.WindowsApplication1.My.Resources.Resources.Arrow_Up_2_icon
+        Me.UpClose.Location = New System.Drawing.Point(0, 354)
+        Me.UpClose.Name = "UpClose"
+        Me.UpClose.Size = New System.Drawing.Size(64, 64)
+        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpClose.TabIndex = 4
+        Me.UpClose.TabStop = False
+        '
+        'DownStart
+        '
+        Me.DownStart.Image = Global.WindowsApplication1.My.Resources.Resources.Arrow_Down_2_icon
+        Me.DownStart.Location = New System.Drawing.Point(0, 3)
+        Me.DownStart.Name = "DownStart"
+        Me.DownStart.Size = New System.Drawing.Size(64, 64)
+        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DownStart.TabIndex = 78
+        Me.DownStart.TabStop = False
         '
         'Room
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 632)
+        Me.ClientSize = New System.Drawing.Size(934, 632)
+        Me.Controls.Add(Me.DeleteStatus)
+        Me.Controls.Add(Me.UpdatetingsStatus)
+        Me.Controls.Add(Me.FindStatus)
+        Me.Controls.Add(Me.AddStatus)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtRmFl)
         Me.Controls.Add(Me.txtRmAva)
         Me.Controls.Add(Me.txtRmType)
@@ -582,6 +727,18 @@ Partial Class Room
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -641,4 +798,15 @@ Partial Class Room
     Friend WithEvents txtRmAva As System.Windows.Forms.ComboBox
     Friend WithEvents txtRmFl As System.Windows.Forms.ComboBox
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteStatus As System.Windows.Forms.PictureBox
+    Friend WithEvents UpdatetingsStatus As System.Windows.Forms.PictureBox
+    Friend WithEvents FindStatus As System.Windows.Forms.PictureBox
+    Friend WithEvents AddStatus As System.Windows.Forms.PictureBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Updatetings As System.Windows.Forms.PictureBox
+    Friend WithEvents Find As System.Windows.Forms.PictureBox
+    Friend WithEvents Adds1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Delete As System.Windows.Forms.PictureBox
+    Friend WithEvents UpClose As System.Windows.Forms.PictureBox
+    Friend WithEvents DownStart As System.Windows.Forms.PictureBox
 End Class

@@ -44,13 +44,18 @@ Partial Class Invoice
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.btnInvoince = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnFind = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(59, 48)
+        Me.Label1.Location = New System.Drawing.Point(68, 77)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 0
@@ -59,7 +64,7 @@ Partial Class Invoice
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(123, 40)
+        Me.ComboBox1.Location = New System.Drawing.Point(132, 69)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(200, 21)
         Me.ComboBox1.TabIndex = 1
@@ -83,19 +88,19 @@ Partial Class Invoice
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -125,7 +130,7 @@ Partial Class Invoice
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(59, 80)
+        Me.Label2.Location = New System.Drawing.Point(68, 109)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 4
@@ -134,7 +139,7 @@ Partial Class Invoice
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(59, 114)
+        Me.Label3.Location = New System.Drawing.Point(68, 143)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 5
@@ -142,14 +147,14 @@ Partial Class Invoice
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(123, 111)
+        Me.TextBox2.Location = New System.Drawing.Point(132, 140)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(200, 20)
         Me.TextBox2.TabIndex = 6
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(36, 157)
+        Me.btnFirst.Location = New System.Drawing.Point(71, 182)
         Me.btnFirst.Name = "btnFirst"
         Me.btnFirst.Size = New System.Drawing.Size(75, 23)
         Me.btnFirst.TabIndex = 7
@@ -158,7 +163,7 @@ Partial Class Invoice
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(280, 157)
+        Me.btnLast.Location = New System.Drawing.Point(315, 182)
         Me.btnLast.Name = "btnLast"
         Me.btnLast.Size = New System.Drawing.Size(75, 23)
         Me.btnLast.TabIndex = 8
@@ -167,7 +172,7 @@ Partial Class Invoice
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(199, 157)
+        Me.btnNext.Location = New System.Drawing.Point(234, 182)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(75, 23)
         Me.btnNext.TabIndex = 9
@@ -176,7 +181,7 @@ Partial Class Invoice
         '
         'btnPrev
         '
-        Me.btnPrev.Location = New System.Drawing.Point(117, 157)
+        Me.btnPrev.Location = New System.Drawing.Point(152, 182)
         Me.btnPrev.Name = "btnPrev"
         Me.btnPrev.Size = New System.Drawing.Size(75, 23)
         Me.btnPrev.TabIndex = 10
@@ -185,7 +190,7 @@ Partial Class Invoice
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(374, 48)
+        Me.btnSave.Location = New System.Drawing.Point(383, 77)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 11
@@ -194,7 +199,7 @@ Partial Class Invoice
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(374, 82)
+        Me.btnUpdate.Location = New System.Drawing.Point(383, 111)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
         Me.btnUpdate.TabIndex = 12
@@ -203,7 +208,7 @@ Partial Class Invoice
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(374, 111)
+        Me.btnDelete.Location = New System.Drawing.Point(383, 140)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 13
@@ -212,16 +217,66 @@ Partial Class Invoice
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(123, 77)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(132, 106)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
         Me.DateTimePicker1.TabIndex = 15
+        '
+        'btnInvoince
+        '
+        Me.btnInvoince.Location = New System.Drawing.Point(499, 160)
+        Me.btnInvoince.Name = "btnInvoince"
+        Me.btnInvoince.Size = New System.Drawing.Size(79, 23)
+        Me.btnInvoince.TabIndex = 86
+        Me.btnInvoince.Text = "Generate Invoice"
+        Me.btnInvoince.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(499, 199)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(79, 23)
+        Me.Button1.TabIndex = 85
+        Me.Button1.Text = "Update"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'btnFind
+        '
+        Me.btnFind.Location = New System.Drawing.Point(499, 131)
+        Me.btnFind.Name = "btnFind"
+        Me.btnFind.Size = New System.Drawing.Size(79, 23)
+        Me.btnFind.TabIndex = 84
+        Me.btnFind.Text = "Find"
+        Me.btnFind.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(499, 102)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(79, 23)
+        Me.Button2.TabIndex = 83
+        Me.Button2.Text = "Delete"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Location = New System.Drawing.Point(499, 72)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(79, 23)
+        Me.btnAdd.TabIndex = 82
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'Invoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(635, 321)
+        Me.Controls.Add(Me.btnInvoince)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnFind)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnUpdate)
@@ -268,4 +323,9 @@ Partial Class Invoice
     Friend WithEvents RoomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents btnInvoince As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnFind As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnAdd As System.Windows.Forms.Button
 End Class
