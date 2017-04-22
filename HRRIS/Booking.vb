@@ -542,8 +542,12 @@ Public Class Booking
     'End Sub
     Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
         Dim oController As New AdditionalController
-        Dim sType = txtType.Text
-        Dim sRmId = cboRoomID.Text
+        Dim sType As String
+        Dim sRmId As String
+
+        sRmId = cboRoomID.Text
+        sType = txtType.Text
+
         Dim lsData = oController.RoomFind(sType, sRmId)
 
         If lsData.Count = 1 Then
@@ -561,16 +565,16 @@ Public Class Booking
     '    End If
     'End Sub
 
-    Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
-        Dim oController As New AdditionalController
-        Dim sType = txtType.Text
-        Dim sRmId = cboRoomID.Text
-        Dim lsData = oController.RoomFind(sType, sRmId)
+    'Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
+    '    Dim oController As New AdditionalController
+    '    Dim sType = txtType.Text
+    '    Dim sRmId = cboRoomID.Text
+    '    Dim lsData = oController.RoomFind(sType)
 
-        If lsData.Count = 1 Then
-            populateroom(lsData.Item(0))
-        End If
-    End Sub
+    '    If lsData.Count = 1 Then
+    '        populateroom(lsData.Item(0))
+    '    End If
+    'End Sub
     'Cus section 
     'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
     '    Dim oController As New AdditionalController
