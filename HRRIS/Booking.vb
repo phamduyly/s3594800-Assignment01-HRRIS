@@ -531,16 +531,92 @@ Public Class Booking
     'Imporive Room and Customer section 
     'input field: Room : 1.Type, 2. RmNum 3. Room ID  Customer 1.CusId 2.Firstname 
     'ROOM
+    'Reference code 
+    'Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    '    Dim oController As New AdditionalController
+    '    Dim sType = txtType.Text
+
+    '    oController.RoomFind(sType)
+
+
+    'End Sub
     Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
+        Dim oController As New AdditionalController
+        Dim sType = txtType.Text
+        Dim sRmId = cboRoomID.Text
+        Dim lsData = oController.RoomFind(sType, sRmId)
 
+        If lsData.Count = 1 Then
+            populateroom(lsData.Item(0))
+        End If
     End Sub
 
-    Private Sub txtRmNum_TextChanged(sender As Object, e As EventArgs) Handles txtRmNum.TextChanged
+    'Private Sub txtRmNum_Leave(sender As Object, e As EventArgs) Handles txtRmNum.Leave
+    '    Dim oController As New AdditionalController
+    '    Dim sRmNum = txtRmNum.Text
+    '    Dim lsData = oController.RoomFind(sRmNum)
 
-    End Sub
+    '    If lsData.Count = 1 Then
+    '        populateroom(lsData.Item(0))
+    '    End If
+    'End Sub
+
     Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
+        Dim oController As New AdditionalController
+        Dim sType = txtType.Text
+        Dim sRmId = cboRoomID.Text
+        Dim lsData = oController.RoomFind(sType, sRmId)
+
+        If lsData.Count = 1 Then
+            populateroom(lsData.Item(0))
+        End If
+    End Sub
+    'Cus section 
+    'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
+    '    Dim oController As New AdditionalController
+    '    Dim sType = txtType.Text
+    '    Dim lsData = oController.RoomFind(sType)
+
+    '    If lsData.Count = 1 Then
+    '        populateroom(lsData.Item(0))
+    '    End If
+    'End Sub
+
+    'Private Sub txtRmNum_Leave(sender As Object, e As EventArgs) Handles txtRmNum.Leave
+    '    Dim oController As New AdditionalController
+    '    Dim sRmNum = txtRmNum.Text
+    '    Dim lsData = oController.RoomFind(sRmNum)
+
+    '    If lsData.Count = 1 Then
+    '        populateroom(lsData.Item(0))
+    '    End If
+    'End Sub
+
+    'Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
+    '    Dim oController As New AdditionalController
+    '    Dim sRmId = cboRoomID.Text
+    '    Dim lsData = oController.RoomFind(sRmId)
+
+    '    If lsData.Count = 1 Then
+    '        populateroom(lsData.Item(0))
+    '    End If
+    'End Sub
+    'populate 
+    Private Sub populatecus(ByRef cusData As Hashtable)
+
+        txtFirstName.Text = CStr(cusData("firstname"))
+        cboCusId.Text = CStr(CType(cusData("customer_id"), String))
 
     End Sub
+
+    Private Sub populateroom(ByRef roomData As Hashtable)
+
+        txtType.Text = CStr(roomData("type"))
+        txtRmNum.Text = CStr(CInt(roomData("room_number")))
+        cboRoomID.Text = CStr(CType(roomData("room_id"), String))
+
+    End Sub
+    'Enhance feature stop 
 
     'Customer 
     Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
@@ -573,14 +649,7 @@ Public Class Booking
         End Try
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim oController As New AdditionalController
-        Dim sType = txtType.Text
 
-        oController.RoomFind(sType)
-
-
-    End Sub
 
     'UI fucntion 
     'Uisng piccture box and panel for UI

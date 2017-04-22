@@ -408,7 +408,7 @@ Partial Class Booking
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(594, 426)
+        Me.btnUpdate.Location = New System.Drawing.Point(609, 359)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(79, 23)
         Me.btnUpdate.TabIndex = 61
@@ -688,7 +688,7 @@ Partial Class Booking
         '
         'btnInvoince
         '
-        Me.btnInvoince.Location = New System.Drawing.Point(594, 426)
+        Me.btnInvoince.Location = New System.Drawing.Point(594, 397)
         Me.btnInvoince.Name = "btnInvoince"
         Me.btnInvoince.Size = New System.Drawing.Size(79, 23)
         Me.btnInvoince.TabIndex = 81

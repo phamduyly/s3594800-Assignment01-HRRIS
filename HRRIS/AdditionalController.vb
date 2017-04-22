@@ -2,6 +2,7 @@
 Option Explicit On
 
 'Name: controller for additional features for booking form 1.Customer section 2.Room section 3. For calculating money
+'Note: class contain string inside SQL command 
 'Date: 22/4/2017
 'Author: Pham Duy Ly 
 
@@ -15,10 +16,11 @@ Public Class AdditionalController
     "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
 
     'FUCNTIO FOR finding room section 
-    Public Function RoomFind(ByVal sType As String) As List(Of Hashtable)
+    Public Function RoomFind(ByVal sType As String, ByVal sRmId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
+        Dim sAva As String = "Yes"
 
         Try
             Debug.Print("Connection String: " & oConnection.ConnectionString)
@@ -27,14 +29,21 @@ Public Class AdditionalController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """;"
-            'This is working now 
-            Debug.Print(oCommand.CommandText)
-            'oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
-            'oCommand.Parameters("sRmId").Value = sType
+            oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  availability  = """ + sAva + """ AND  type = """ + sType + """ OR room_id = """ + sRmId + """;"
 
-            'oCommand.Parameters.Add("availability", OleDbType.VarChar, 15)
-            'oCommand.Parameters("availability").Value = sAva
+            'Sample code from Ashihsh
+            '"SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """ AND ;"
+            'This is working now 
+
+
+            oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
+            oCommand.Parameters("sRmId").Value = sRmId
+
+            oCommand.Parameters.Add("sType", OleDbType.VarChar, 15)
+            oCommand.Parameters("sType").Value = sType
+
+
+
             oCommand.Prepare()
             Debug.Print(oCommand.CommandText)
 
@@ -70,5 +79,10 @@ Public Class AdditionalController
 
     'ROOM SECTION
     'Find all function
-    
+
+    Function RoomFind(sType As String) As Object
+        Throw New NotImplementedException
+    End Function
+
+
 End Class

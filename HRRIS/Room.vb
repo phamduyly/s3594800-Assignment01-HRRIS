@@ -146,20 +146,6 @@ Public Class Room
         htData = lsData.Item(iIndex)
         populateRoomsFields(lsData.Item(iIndex))
 
-
-        ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
-        Dim sRoomsDetails As String
-        sRoomsDetails = CStr(htData("room_id"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
-        Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
-
-
     End Sub
 
     Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
@@ -171,17 +157,6 @@ Public Class Room
             htData = lsData.Item(iIndex)
             populateRoomsFields(lsData.Item(iIndex))
 
-            ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
-            Dim sRoomsDetails As String
-            sRoomsDetails = CStr(htData("room_id"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
-            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
-            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
-            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
-            Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
         Catch ex As Exception
             MsgBox("End of Record")
         End Try
@@ -197,17 +172,6 @@ Public Class Room
             htData = lsData.Item(iIndex)
             populateRoomsFields(lsData.Item(iIndex))
 
-            ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
-            Dim sRoomsDetails As String
-            sRoomsDetails = CStr(htData("room_id"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
-            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
-            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
-            sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
-            sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
-            Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
         Catch ex As Exception
             MsgBox("Very first record")
         End Try
@@ -222,17 +186,6 @@ Public Class Room
         htData = lsData.Item(iIndex)
         populateRoomsFields(lsData.Item(iIndex))
 
-        ' This part can be put aside becasue it only generate data into the debug print which is not needed. 
-        Dim sRoomsDetails As String
-        sRoomsDetails = CStr(htData("room_id"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("room_number"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("type"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("price"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("num_beds"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("availability"))
-        sRoomsDetails = sRoomsDetails & " | " & CInt(htData("floor"))
-        sRoomsDetails = sRoomsDetails & " | " & CStr(htData("description"))
-        Debug.Print("RoomsDetails: " & vbCrLf & sRoomsDetails)
     End Sub
 
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
