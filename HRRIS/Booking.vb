@@ -382,18 +382,11 @@ Public Class Booking
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
 
 
-        If cboRoomID.SelectedIndex = 1 Then
-            Dim i As Integer = 30
-            txtPrice.Text = CStr(CInt(cboStays.Text) * i)
-        ElseIf cboRoomID.SelectedIndex = 2 Then
-            Dim i As Integer = 40
-            txtPrice.Text = CStr(CInt(cboStays.Text) * i)
-        ElseIf cboRoomID.SelectedIndex = 4 Then
-            Dim i As Integer = 50
-            txtPrice.Text = CStr(CInt(cboStays.Text) * i)
 
-            MsgBox("There are no room type, please reinput")
-        End If
+        txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmNum.Text))
+
+        MsgBox("There are no room type, please reinput")
+
     End Sub
 
     ' End Sub
@@ -498,6 +491,28 @@ Public Class Booking
             MsgBox("The report could not generate, it could be because" & vbCrLf & " room ID, months or year is not selected")
         End Try
     End Sub
+    'Controll break report 1 and 2 ssection 
+    'This is the part of control break report 
+    Private Sub btnBreakReport1_Click(sender As Object, e As EventArgs) Handles btnBreakReport1.Click
+        Dim breakReport1 As New ReportController
+
+        Try
+            Dim iMonths = cboReportMonth.Text
+            Dim iYears = txtReportYear.Text
+
+            breakReport1.createBreakReport(CInt(iMonths), CInt(iYears))
+
+
+        Catch ex As Exception
+            Debug.Print("the error is :" & ex.Message)
+            MsgBox("The report could not generate, please recheck the code mtfk")
+
+        End Try
+    End Sub
+
+    Private Sub btnBreakReport2_Click(sender As Object, e As EventArgs) Handles btnBreakReport2.Click
+
+    End Sub
 
     'Move to invoice form 
     Private Sub btnInvoince_Click(sender As Object, e As EventArgs) Handles btnInvoince.Click
@@ -535,108 +550,19 @@ Public Class Booking
     'Imporive Room and Customer section 
     'input field: Room : 1.Type, 2. RmNum 3. Room ID  Customer 1.CusId 2.Firstname 
     'ROOM
-    'Reference code 
-    'Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-    '    Dim oController As New AdditionalController
-    '    Dim sType = txtType.Text
-
-    '    oController.RoomFind(sType)
-
-
-    'End Sub
-    'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
-
-    '    Dim oController As New RoomDataController
-
-    '    Dim sType = txtType.Text
-    '    oController.RoomFind(sType)
-
-    'Dim lsData = oController.RoomFind(sType)
-
-
-    'If lsData.Count = 1 Then
-    '    populateroom(lsData.Item(0))
-    'End If
-
-
-    ''Combobox room - traacking data from database and populate() to the box
-    ''TODO: import ID while showing type"
-    'cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
-
-    'For Each Room In lsData
-    '    cboRoomID.Items.Add(CStr(Room("room_id")))
-    'Next
-    'End Sub
-
-    'Private Sub txtRmNum_Leave(sender As Object, e As EventArgs) Handles txtRmNum.Leave
-    '    Dim oController As New AdditionalController
-    '    Dim sRmNum = txtRmNum.Text
-    '    Dim lsData = oController.RoomFind(sRmNum)
-
-    '    If lsData.Count = 1 Then
-    '        populateroom(lsData.Item(0))
-    '    End If
-    'End Sub
-
-    'Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
-    '    Dim oController As New AdditionalController
-    '    Dim sType = txtType.Text
-    '    Dim sRmId = cboRoomID.Text
-    '    Dim lsData = oController.RoomFind(sType)
-
-    '    If lsData.Count = 1 Then
-    '        populateroom(lsData.Item(0))
-    '    End If
-    'End Sub
-    'Cus section 
-    'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
-    '    Dim oController As New AdditionalController
-    '    Dim sType = txtType.Text
-    '    Dim lsData = oController.RoomFind(sType)
-
-    '    If lsData.Count = 1 Then
-    '        populateroom(lsData.Item(0))
-    '    End If
-    'End Sub
-
-    'Private Sub txtRmNum_Leave(sender As Object, e As EventArgs) Handles txtRmNum.Leave
-    '    Dim oController As New AdditionalController
-    '    Dim sRmNum = txtRmNum.Text
-    '    Dim lsData = oController.RoomFind(sRmNum)
-
-    '    If lsData.Count = 1 Then
-    '        populateroom(lsData.Item(0))
-    '    End If
-    'End Sub
-
-    'Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
-    '    Dim oController As New RoomDataController
-    '    Dim sRmId = cboRoomID.Text
-    '    Dim lsData = oController.RoomFind(sRmId)
-
-    '    If lsData.Count = 1 Then
-    '        populateroom(lsData.Item(0))
-    '    End If
-    'End Sub
-
-
     'populate 
     Private Sub populatecus(ByRef cusData As Hashtable)
 
         txtFirstName.Text = CStr(cusData("firstname"))
-
-
     End Sub
 
     Private Sub populateroom(ByRef roomData As Hashtable)
 
         txtType.Text = CStr(roomData("type"))
-        txtRmNum.Text = CStr(CInt(roomData("room_number")))
-
+        txtRmNum.Text = CStr(CInt(roomData("price")))
 
     End Sub
     'Enhance feature stop 
-
     'Customer 
     'This Partial Is still Not work 
     'Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
@@ -678,8 +604,23 @@ Public Class Booking
         End If
     End Sub
 
+    'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
+    '    Dim sType = txtType.Text
 
+    '    Dim oController As New RoomDataController
+    '    Dim lsData = oController.DisplayByType(sType)
 
+    '    If lsData.Count = 1 Then
+    '        populateroom1(lsData.Item(0))
+    '    End If
+    'End Sub
+
+    'Private Sub populateroom1(ByRef roomData As Hashtable)
+
+    '    txtRmNum.Text = CStr(CInt(roomData("price")))
+    '    cboRoomID.Text = CStr(CType(roomData("room_id"), String))
+
+    'End Sub
 
     'UI fucntion 
     'Uisng piccture box and panel for UI
@@ -727,19 +668,16 @@ Public Class Booking
         btnUpdate.Visible = True
     End Sub
 
+    Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
+        Dim sRmId = cboRoomID.Text
 
+        Dim oController As New RoomDataController
+        Dim lsData = oController.DisplayByRmId(sRmId)
 
-
-
-
-    'Private Sub populatecus(ByVal lsData As List(Of Hashtable))
-
-    '    txtFirstName.Text = CStr(lsData("firstname"))
-    '    cboCusId.Text = CStr(CType(lsData("customer_id"), String))
-
-    'End Sub
-
-    'Function for ROOM and CUSTOMER enhace
+        If lsData.Count = 1 Then
+            populateroom(lsData.Item(0))
+        End If
+    End Sub
 
 
 End Class

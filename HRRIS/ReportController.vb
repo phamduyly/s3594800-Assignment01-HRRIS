@@ -298,6 +298,58 @@ Public Class ReportController
 
         Return lsData
     End Function
+
+    'Break report 
+    'Break report 1
+    'Find from booking bookingID and MOnth AND yEAR
+    Public Function BreakReport1(ByVal iMonths As Integer, ByVal iYears As Integer) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            oConnection.Open()
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            oCommand.CommandText = "SELECT * FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
+
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("booking_id") = CInt(oDataReader("booking_id"))
+                htTempData("booking_date") = CDate(oDataReader("booking_date"))
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("customer_id") = CInt(oDataReader("customer_id"))
+                htTempData("num_days") = CInt(oDataReader("num_days"))
+                htTempData("num_guests") = CInt(oDataReader("num_guests"))
+                htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
+                htTempData("total_price") = CInt(oDataReader("total_price"))
+                htTempData("comments") = CStr(oDataReader("comments"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+
+    'GENERATE REPORT SECTION FOR THE REPORT ONLY - BREAK REPORT IS BELLOW THis
+
     Private Function generateReport03(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String, ByVal lsKeys As List(Of String)) As String
 
         Dim sReportContent As String
@@ -340,9 +392,6 @@ Public Class ReportController
         Dim sTable = "<table class =""table table-hover"">" & vbCrLf
         Dim htSample As Hashtable = lsData.Item(0)
         'Dim lsKeys = htSample.Keys
-
-
-
 
         ' Generate the header row
         Dim sHeadderRow = "<tr>" & vbCrLf
@@ -597,25 +646,25 @@ Public Class ReportController
     'Need to summary all the funciton needed in order to run this function 
     'Not modified yet
 
-    'Public Sub createBreakReport()
-    '    Debug.Print("CreatBreakReport...")
+    Public Sub createBreakReport(ByVal iMonths As Integer, ByVal iYears As Integer)
+        Debug.Print("CreatBreakReport...")
 
-    '    'lskey part 
+        'lskey part 
 
-    '    Dim lsData =
-    '    Dim sReportTitle = "Product Control Break Report "
-    '    Dim sReportContent = generateBreakReport(lsData, sReportTitle)
-    '    'lsData is ... sReporttiltle is 
-    '    Dim sReportFilename = "ProductBreakReport.html"
-    '    saveReport(sReportContent, sReportFilename)
+        Dim lsData = BreakReport1(iMonths, iYears)
+        Dim sReportTitle = "First controll break report "
+        Dim sReportContent = generateBreakReport(lsData, sReportTitle)
+        'lsData is ... sReporttiltle is 
+        Dim sReportFilename = "HRRIS First Control Break Report.html"
+        saveReport(sReportContent, sReportFilename)
 
-    '    Dim sParam As String = """" & Application.StartupPath & "\" & sReportFilename & """"
-    '    ' the """"" can fix into the access to the file path
-    '    Debug.Print("sParam: " & sParam)
+        Dim sParam As String = """" & Application.StartupPath & "\" & sReportFilename & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
 
-    '    System.Diagnostics.Process.Start(sParam)
+        System.Diagnostics.Process.Start(sParam)
 
-    'End Sub
+    End Sub
 
     Private Function generateBreakReport(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String) As String
         'This part seem like the code is going to take the value from 1.the lsDATA whihc was dimed before in the clas
@@ -651,24 +700,19 @@ Public Class ReportController
     End Function
 
     Private Function generateControlBreakeTale(ByVal lsData As List(Of Hashtable)) As String
-        'byVal do not needed to be dimed again in the code 
-
-        'Generate the start of the table
-        'vbCrLf = down a line and going to the left or feed or st
         Dim sTable = "<table border""1"">" & vbCrLf
         Dim htSample As Hashtable = lsData.Item(0)
         'Dim lsKeys = htSample.Keys
         Dim lsKeys As List(Of String) = New List(Of String)
-        lsKeys.Add("SKU")
-        lsKeys.Add("ProductName")
-        lsKeys.Add("ProductDescription")
-        lsKeys.Add("Category")
-        lsKeys.Add("ReorderLevel")
-        lsKeys.Add("LeadTime")
-        lsKeys.Add("Discontinued")
-        lsKeys.Add("UnitPrice")
-
-
+        lsKeys.Add("booking_id")
+        lsKeys.Add("booking_date")
+        lsKeys.Add("room_id")
+        lsKeys.Add("customer_id")
+        lsKeys.Add("num_days")
+        lsKeys.Add("num_guests")
+        lsKeys.Add("checkin_date")
+        lsKeys.Add("total_price")
+        lsKeys.Add("comments")
 
         ' Generate the header row
         Dim sHeadderRow = "<tr>" & vbCrLf
@@ -684,23 +728,6 @@ Public Class ReportController
 
         'Generate the end of the table 
         sTable &= "</table>" & vbCrLf
-
-        'What is the difference between the 2 code 
-        'For Each record In lsData
-        '    Dim product As Hashtable = record
-        '    Dim sTableRow = "<tr>" & vbCrLf
-
-        '    For Each key In lsKeys
-        '        sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
-        '    Next
-        '    sTableRow &= "</tr>" & vbCrLf
-        '    Debug.Print("sTableRow: " & sTableRow)
-        '    sTable &= sTableRow
-        'Next
-        ''Generate the end of the table
-        'sTable &= "</table>" & vbCrLf
-
-
 
         Return sTable
     End Function
@@ -720,30 +747,30 @@ Public Class ReportController
         For Each record In lsData
 
             '2a. Get a product and set the current key
-            Dim product As Hashtable = record
-            sCurrentControlField = CStr(product("Category"))
+            Dim booking As Hashtable = record
+            sCurrentControlField = CStr(booking("booking_id"))
 
             '2b. Do not check for control break on the first iteration of the loop
-            If bFirstTime Then
-                bFirstTime = False
-            Else
-                'Output total row if change in control field
-                'And reset the total
-                If sCurrentControlField <> sPreviousControlField Then
-                    sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total products in " & sPreviousControlField _
-                        & " category: " & iCountRecordsPerCategory _
-                        & "</td></tr>" _
-                        & vbCrLf
-                    sRows &= sTableRow
-                    iCountRecordsPerCategory = 0
-                End If
-            End If
+            'If bFirstTime Then
+            '    bFirstTime = False
+            'Else
+            '    'Output total row if change in control field
+            '    'And reset the total
+            '    If sCurrentControlField <> sPreviousControlField Then
+            '        sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
+            '            & " Total booking in " & sPreviousControlField _
+            '            & " booking form: " & iCountRecordsPerCategory _
+            '            & "</td></tr>" _
+            '            & vbCrLf
+            '        sRows &= sTableRow
+            '        iCountRecordsPerCategory = 0
+            '    End If
+            'End If
 
             ' 2c. Output a normal row for every pass thru' the list
             sTableRow = "<tr>" & vbCrLf
             For Each key In lsKeys
-                sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
+                sTableRow &= "<td>" & CStr(booking(key)) & "</td>" & vbCrLf
             Next
             sTableRow &= "</tr>" & vbCrLf
             Debug.Print("sTableRow: " & sTableRow)
@@ -756,10 +783,12 @@ Public Class ReportController
 
         '3. After the loop, need to output the last total row
         sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total products in " & sCurrentControlField _
-                        & " category: " & iCountRecordsPerCategory _
+                        & " Total Booking in " & iCountRecordsPerCategory _
+                        & " booking in the given year is : " & sCurrentControlField _
                         & "</td></tr>" _
                         & vbCrLf
+
+
         sRows &= sTableRow
 
         Return sRows

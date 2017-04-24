@@ -155,7 +155,7 @@ Public Class RoomDataController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            'oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """;"
+            'oCommand.CommandText = "SELECT room_id, room_number, type FROM room WHERE  type = """ + sType & """;"
 
             'Sample code from Ashihsh
             '"SELECT room_id, room_number, type FROM room WHERE  type = """ + sType + """ AND ;"
@@ -163,7 +163,7 @@ Public Class RoomDataController
             'This is working now 
 
 
-            oCommand.CommandText = "SELECT room_number, type FROM room WHERE  room_id = ?;"
+            oCommand.CommandText = "SELECT price, type FROM room WHERE  room_id = ?;"
             'This is working now  
             'Debug.Print(oCommand.CommandText)
             oCommand.Parameters.Add("sRmId", OleDbType.Integer, 15)
@@ -187,7 +187,7 @@ Public Class RoomDataController
                 htTempData = New Hashtable
 
                 htTempData("type") = CStr(oDataReader("type"))
-                htTempData("room_number") = CInt(oDataReader("room_number"))
+                htTempData("price") = CInt(oDataReader("price"))
                 lsData.Add(htTempData)
             Loop
 
@@ -205,6 +205,8 @@ Public Class RoomDataController
 
         Return lsData
     End Function
+    ' extra fucntion 
+    'Find room price and roomID by type 
 
     'group room to generate the ROOM id 
     'sType -  
@@ -260,7 +262,51 @@ Public Class RoomDataController
     'Room finds by type 
     'variable : sType - finds tools
 
+    Public Function DisplayByType(ByRef sType As String) As List(Of Hashtable)
 
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+        Dim sAva As String = "Yes"
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            oCommand.CommandText = "SELECT room_id, price FROM room WHERE  type = """ + sType & """;"
+            oCommand.Parameters.Add("sType", OleDbType.VarChar, 15)
+            oCommand.Parameters("sType").Value = sType
+
+            oCommand.Prepare()
+            Debug.Print(oCommand.CommandText)
+
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("price") = CInt(oDataReader("price"))
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
 
     'CRUD room data 
     'room update

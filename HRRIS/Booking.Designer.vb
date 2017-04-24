@@ -130,6 +130,8 @@ Partial Class Booking
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnBreakReport1 = New System.Windows.Forms.Button()
+        Me.btnBreakReport2 = New System.Windows.Forms.Button()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -604,7 +606,7 @@ Partial Class Booking
         '
         'btnCusReport
         '
-        Me.btnCusReport.Location = New System.Drawing.Point(78, 162)
+        Me.btnCusReport.Location = New System.Drawing.Point(78, 145)
         Me.btnCusReport.Name = "btnCusReport"
         Me.btnCusReport.Size = New System.Drawing.Size(105, 23)
         Me.btnCusReport.TabIndex = 70
@@ -642,7 +644,7 @@ Partial Class Booking
         '
         'btnReport2
         '
-        Me.btnReport2.Location = New System.Drawing.Point(78, 192)
+        Me.btnReport2.Location = New System.Drawing.Point(78, 175)
         Me.btnReport2.Name = "btnReport2"
         Me.btnReport2.Size = New System.Drawing.Size(105, 27)
         Me.btnReport2.TabIndex = 75
@@ -651,7 +653,7 @@ Partial Class Booking
         '
         'btnReport3
         '
-        Me.btnReport3.Location = New System.Drawing.Point(78, 224)
+        Me.btnReport3.Location = New System.Drawing.Point(78, 207)
         Me.btnReport3.Name = "btnReport3"
         Me.btnReport3.Size = New System.Drawing.Size(105, 27)
         Me.btnReport3.TabIndex = 76
@@ -660,7 +662,7 @@ Partial Class Booking
         '
         'btnReport4
         '
-        Me.btnReport4.Location = New System.Drawing.Point(78, 257)
+        Me.btnReport4.Location = New System.Drawing.Point(78, 240)
         Me.btnReport4.Name = "btnReport4"
         Me.btnReport4.Size = New System.Drawing.Size(105, 27)
         Me.btnReport4.TabIndex = 77
@@ -669,7 +671,7 @@ Partial Class Booking
         '
         'btnReport5
         '
-        Me.btnReport5.Location = New System.Drawing.Point(78, 288)
+        Me.btnReport5.Location = New System.Drawing.Point(78, 271)
         Me.btnReport5.Name = "btnReport5"
         Me.btnReport5.Size = New System.Drawing.Size(105, 27)
         Me.btnReport5.TabIndex = 78
@@ -678,7 +680,7 @@ Partial Class Booking
         '
         'btnReport6
         '
-        Me.btnReport6.Location = New System.Drawing.Point(78, 321)
+        Me.btnReport6.Location = New System.Drawing.Point(78, 304)
         Me.btnReport6.Name = "btnReport6"
         Me.btnReport6.Size = New System.Drawing.Size(105, 27)
         Me.btnReport6.TabIndex = 80
@@ -800,6 +802,8 @@ Partial Class Booking
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.btnBreakReport2)
+        Me.GroupBox3.Controls.Add(Me.btnBreakReport1)
         Me.GroupBox3.Controls.Add(Me.Label17)
         Me.GroupBox3.Controls.Add(Me.Label16)
         Me.GroupBox3.Controls.Add(Me.ComboBox1)
@@ -1069,6 +1073,24 @@ Partial Class Booking
         Me.PictureBox1.TabIndex = 79
         Me.PictureBox1.TabStop = False
         '
+        'btnBreakReport1
+        '
+        Me.btnBreakReport1.Location = New System.Drawing.Point(78, 332)
+        Me.btnBreakReport1.Name = "btnBreakReport1"
+        Me.btnBreakReport1.Size = New System.Drawing.Size(105, 27)
+        Me.btnBreakReport1.TabIndex = 90
+        Me.btnBreakReport1.Text = "BreakReport1"
+        Me.btnBreakReport1.UseVisualStyleBackColor = True
+        '
+        'btnBreakReport2
+        '
+        Me.btnBreakReport2.Location = New System.Drawing.Point(78, 364)
+        Me.btnBreakReport2.Name = "btnBreakReport2"
+        Me.btnBreakReport2.Size = New System.Drawing.Size(105, 27)
+        Me.btnBreakReport2.TabIndex = 91
+        Me.btnBreakReport2.Text = "BreakReport2"
+        Me.btnBreakReport2.UseVisualStyleBackColor = True
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1270,4 +1292,6 @@ Partial Class Booking
     Friend WithEvents UpClose As System.Windows.Forms.PictureBox
     Friend WithEvents DownStart As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents btnBreakReport2 As Button
+    Friend WithEvents btnBreakReport1 As Button
 End Class
