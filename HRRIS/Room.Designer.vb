@@ -22,7 +22,6 @@ Partial Class Room
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.txtRmDes = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -63,18 +62,6 @@ Partial Class Room
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoomnumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumbedsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AvailabilityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FloorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoomBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HRRISdbDataSet = New WindowsApplication1.HRRISdbDataSet()
-        Me.RoomTableAdapter = New WindowsApplication1.HRRISdbDataSetTableAdapters.roomTableAdapter()
         Me.txtRmType = New System.Windows.Forms.ComboBox()
         Me.txtRmAva = New System.Windows.Forms.ComboBox()
         Me.txtRmFl = New System.Windows.Forms.ComboBox()
@@ -98,9 +85,6 @@ Partial Class Room
         CType(Me.PicRmAva, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicRmDes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -447,79 +431,6 @@ Partial Class Room
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RoomidDataGridViewTextBoxColumn, Me.RoomnumberDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.NumbedsDataGridViewTextBoxColumn, Me.AvailabilityDataGridViewTextBoxColumn, Me.FloorDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.RoomBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(85, 439)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(830, 181)
-        Me.DataGridView1.TabIndex = 71
-        '
-        'RoomidDataGridViewTextBoxColumn
-        '
-        Me.RoomidDataGridViewTextBoxColumn.DataPropertyName = "room_id"
-        Me.RoomidDataGridViewTextBoxColumn.HeaderText = "room_id"
-        Me.RoomidDataGridViewTextBoxColumn.Name = "RoomidDataGridViewTextBoxColumn"
-        '
-        'RoomnumberDataGridViewTextBoxColumn
-        '
-        Me.RoomnumberDataGridViewTextBoxColumn.DataPropertyName = "room_number"
-        Me.RoomnumberDataGridViewTextBoxColumn.HeaderText = "room_number"
-        Me.RoomnumberDataGridViewTextBoxColumn.Name = "RoomnumberDataGridViewTextBoxColumn"
-        '
-        'TypeDataGridViewTextBoxColumn
-        '
-        Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "type"
-        Me.TypeDataGridViewTextBoxColumn.HeaderText = "type"
-        Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
-        '
-        'PriceDataGridViewTextBoxColumn
-        '
-        Me.PriceDataGridViewTextBoxColumn.DataPropertyName = "price"
-        Me.PriceDataGridViewTextBoxColumn.HeaderText = "price"
-        Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
-        '
-        'NumbedsDataGridViewTextBoxColumn
-        '
-        Me.NumbedsDataGridViewTextBoxColumn.DataPropertyName = "num_beds"
-        Me.NumbedsDataGridViewTextBoxColumn.HeaderText = "num_beds"
-        Me.NumbedsDataGridViewTextBoxColumn.Name = "NumbedsDataGridViewTextBoxColumn"
-        '
-        'AvailabilityDataGridViewTextBoxColumn
-        '
-        Me.AvailabilityDataGridViewTextBoxColumn.DataPropertyName = "availability"
-        Me.AvailabilityDataGridViewTextBoxColumn.HeaderText = "availability"
-        Me.AvailabilityDataGridViewTextBoxColumn.Name = "AvailabilityDataGridViewTextBoxColumn"
-        '
-        'FloorDataGridViewTextBoxColumn
-        '
-        Me.FloorDataGridViewTextBoxColumn.DataPropertyName = "floor"
-        Me.FloorDataGridViewTextBoxColumn.HeaderText = "floor"
-        Me.FloorDataGridViewTextBoxColumn.Name = "FloorDataGridViewTextBoxColumn"
-        '
-        'DescriptionDataGridViewTextBoxColumn
-        '
-        Me.DescriptionDataGridViewTextBoxColumn.DataPropertyName = "description"
-        Me.DescriptionDataGridViewTextBoxColumn.HeaderText = "description"
-        Me.DescriptionDataGridViewTextBoxColumn.Name = "DescriptionDataGridViewTextBoxColumn"
-        '
-        'RoomBindingSource
-        '
-        Me.RoomBindingSource.DataMember = "room"
-        Me.RoomBindingSource.DataSource = Me.HRRISdbDataSet
-        '
-        'HRRISdbDataSet
-        '
-        Me.HRRISdbDataSet.DataSetName = "HRRISdbDataSet"
-        Me.HRRISdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'RoomTableAdapter
-        '
-        Me.RoomTableAdapter.ClearBeforeFill = True
-        '
         'txtRmType
         '
         Me.txtRmType.FormattingEnabled = True
@@ -678,7 +589,6 @@ Partial Class Room
         Me.Controls.Add(Me.txtRmFl)
         Me.Controls.Add(Me.txtRmAva)
         Me.Controls.Add(Me.txtRmType)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.btnFind)
         Me.Controls.Add(Me.btnDelete)
@@ -724,9 +634,6 @@ Partial Class Room
         CType(Me.PicRmDes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
@@ -782,18 +689,6 @@ Partial Class Room
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents HRRISdbDataSet As WindowsApplication1.HRRISdbDataSet
-    Friend WithEvents RoomBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents RoomTableAdapter As WindowsApplication1.HRRISdbDataSetTableAdapters.roomTableAdapter
-    Friend WithEvents RoomidDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents RoomnumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TypeDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PriceDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents NumbedsDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents AvailabilityDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FloorDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txtRmType As System.Windows.Forms.ComboBox
     Friend WithEvents txtRmAva As System.Windows.Forms.ComboBox
     Friend WithEvents txtRmFl As System.Windows.Forms.ComboBox

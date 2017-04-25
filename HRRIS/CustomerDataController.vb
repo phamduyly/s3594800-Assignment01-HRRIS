@@ -240,6 +240,7 @@ Public Class CustomerDataController
 
 
         Catch ex As Exception
+
             Debug.Print("ERROR: " & ex.Message)
             MsgBox(" an error occured. The record was not updated")
 

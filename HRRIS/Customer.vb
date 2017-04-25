@@ -21,8 +21,7 @@ Public Class Customer
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet2.customer' table. You can move, or remove it, as needed.
-        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet2.customer)
-        bindingsource1.ResetBindings(True)
+
 
 
 
@@ -67,7 +66,7 @@ Public Class Customer
 
         End If
 
-        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet2.customer)
+
 
     End Sub
 

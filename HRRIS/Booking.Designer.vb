@@ -22,7 +22,6 @@ Partial Class Booking
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.txtCmt = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtPrice = New System.Windows.Forms.TextBox()
@@ -73,13 +72,7 @@ Partial Class Booking
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HRRISdbDataSet1 = New WindowsApplication1.HRRISdbDataSet1()
-        Me.BookingTableAdapter = New WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter()
         Me.cboCusId = New System.Windows.Forms.ComboBox()
-        Me.BookingBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HRRISdbDataSet3 = New WindowsApplication1.HRRISdbDataSet3()
-        Me.BookingTableAdapter1 = New WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter()
         Me.btnCusReport = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cboGuestNum = New System.Windows.Forms.ComboBox()
@@ -102,21 +95,13 @@ Partial Class Booking
         Me.Label14 = New System.Windows.Forms.Label()
         Me.cboReportMonth = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnBreakReport2 = New System.Windows.Forms.Button()
+        Me.btnBreakReport1 = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Yearerror = New System.Windows.Forms.PictureBox()
-        Me.CommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalpriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CheckindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumguestsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumdaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CustomeridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DeleteStatus = New System.Windows.Forms.PictureBox()
         Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
@@ -130,8 +115,6 @@ Partial Class Booking
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnBreakReport1 = New System.Windows.Forms.Button()
-        Me.btnBreakReport2 = New System.Windows.Forms.Button()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicStayingDay, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicGuestNum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,15 +125,10 @@ Partial Class Booking
         CType(Me.PicDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -567,20 +545,6 @@ Partial Class Booking
         Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
-        'BookingBindingSource
-        '
-        Me.BookingBindingSource.DataMember = "booking"
-        Me.BookingBindingSource.DataSource = Me.HRRISdbDataSet1
-        '
-        'HRRISdbDataSet1
-        '
-        Me.HRRISdbDataSet1.DataSetName = "HRRISdbDataSet1"
-        Me.HRRISdbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BookingTableAdapter
-        '
-        Me.BookingTableAdapter.ClearBeforeFill = True
-        '
         'cboCusId
         '
         Me.cboCusId.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
@@ -589,20 +553,6 @@ Partial Class Booking
         Me.cboCusId.Name = "cboCusId"
         Me.cboCusId.Size = New System.Drawing.Size(100, 21)
         Me.cboCusId.TabIndex = 68
-        '
-        'BookingBindingSource1
-        '
-        Me.BookingBindingSource1.DataMember = "booking"
-        Me.BookingBindingSource1.DataSource = Me.HRRISdbDataSet3
-        '
-        'HRRISdbDataSet3
-        '
-        Me.HRRISdbDataSet3.DataSetName = "HRRISdbDataSet3"
-        Me.HRRISdbDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BookingTableAdapter1
-        '
-        Me.BookingTableAdapter1.ClearBeforeFill = True
         '
         'btnCusReport
         '
@@ -825,6 +775,24 @@ Partial Class Booking
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "GroupBox3"
         '
+        'btnBreakReport2
+        '
+        Me.btnBreakReport2.Location = New System.Drawing.Point(78, 364)
+        Me.btnBreakReport2.Name = "btnBreakReport2"
+        Me.btnBreakReport2.Size = New System.Drawing.Size(105, 27)
+        Me.btnBreakReport2.TabIndex = 91
+        Me.btnBreakReport2.Text = "BreakReport2"
+        Me.btnBreakReport2.UseVisualStyleBackColor = True
+        '
+        'btnBreakReport1
+        '
+        Me.btnBreakReport1.Location = New System.Drawing.Point(78, 332)
+        Me.btnBreakReport1.Name = "btnBreakReport1"
+        Me.btnBreakReport1.Size = New System.Drawing.Size(105, 27)
+        Me.btnBreakReport1.TabIndex = 90
+        Me.btnBreakReport1.Text = "BreakReport1"
+        Me.btnBreakReport1.UseVisualStyleBackColor = True
+        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -870,71 +838,6 @@ Partial Class Booking
         Me.Yearerror.TabIndex = 93
         Me.Yearerror.TabStop = False
         Me.Yearerror.Visible = False
-        '
-        'CommentsDataGridViewTextBoxColumn
-        '
-        Me.CommentsDataGridViewTextBoxColumn.DataPropertyName = "comments"
-        Me.CommentsDataGridViewTextBoxColumn.HeaderText = "comments"
-        Me.CommentsDataGridViewTextBoxColumn.Name = "CommentsDataGridViewTextBoxColumn"
-        '
-        'TotalpriceDataGridViewTextBoxColumn
-        '
-        Me.TotalpriceDataGridViewTextBoxColumn.DataPropertyName = "total_price"
-        Me.TotalpriceDataGridViewTextBoxColumn.HeaderText = "total_price"
-        Me.TotalpriceDataGridViewTextBoxColumn.Name = "TotalpriceDataGridViewTextBoxColumn"
-        '
-        'CheckindateDataGridViewTextBoxColumn
-        '
-        Me.CheckindateDataGridViewTextBoxColumn.DataPropertyName = "checkin_date"
-        Me.CheckindateDataGridViewTextBoxColumn.HeaderText = "checkin_date"
-        Me.CheckindateDataGridViewTextBoxColumn.Name = "CheckindateDataGridViewTextBoxColumn"
-        '
-        'NumguestsDataGridViewTextBoxColumn
-        '
-        Me.NumguestsDataGridViewTextBoxColumn.DataPropertyName = "num_guests"
-        Me.NumguestsDataGridViewTextBoxColumn.HeaderText = "num_guests"
-        Me.NumguestsDataGridViewTextBoxColumn.Name = "NumguestsDataGridViewTextBoxColumn"
-        '
-        'NumdaysDataGridViewTextBoxColumn
-        '
-        Me.NumdaysDataGridViewTextBoxColumn.DataPropertyName = "num_days"
-        Me.NumdaysDataGridViewTextBoxColumn.HeaderText = "num_days"
-        Me.NumdaysDataGridViewTextBoxColumn.Name = "NumdaysDataGridViewTextBoxColumn"
-        '
-        'CustomeridDataGridViewTextBoxColumn
-        '
-        Me.CustomeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id"
-        Me.CustomeridDataGridViewTextBoxColumn.HeaderText = "customer_id"
-        Me.CustomeridDataGridViewTextBoxColumn.Name = "CustomeridDataGridViewTextBoxColumn"
-        '
-        'RoomidDataGridViewTextBoxColumn
-        '
-        Me.RoomidDataGridViewTextBoxColumn.DataPropertyName = "room_id"
-        Me.RoomidDataGridViewTextBoxColumn.HeaderText = "room_id"
-        Me.RoomidDataGridViewTextBoxColumn.Name = "RoomidDataGridViewTextBoxColumn"
-        '
-        'BookingdateDataGridViewTextBoxColumn
-        '
-        Me.BookingdateDataGridViewTextBoxColumn.DataPropertyName = "booking_date"
-        Me.BookingdateDataGridViewTextBoxColumn.HeaderText = "booking_date"
-        Me.BookingdateDataGridViewTextBoxColumn.Name = "BookingdateDataGridViewTextBoxColumn"
-        '
-        'BookingidDataGridViewTextBoxColumn
-        '
-        Me.BookingidDataGridViewTextBoxColumn.DataPropertyName = "booking_id"
-        Me.BookingidDataGridViewTextBoxColumn.HeaderText = "booking_id"
-        Me.BookingidDataGridViewTextBoxColumn.Name = "BookingidDataGridViewTextBoxColumn"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingidDataGridViewTextBoxColumn, Me.BookingdateDataGridViewTextBoxColumn, Me.RoomidDataGridViewTextBoxColumn, Me.CustomeridDataGridViewTextBoxColumn, Me.NumdaysDataGridViewTextBoxColumn, Me.NumguestsDataGridViewTextBoxColumn, Me.CheckindateDataGridViewTextBoxColumn, Me.TotalpriceDataGridViewTextBoxColumn, Me.CommentsDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.BookingBindingSource1
-        Me.DataGridView1.Location = New System.Drawing.Point(35, 519)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(923, 150)
-        Me.DataGridView1.TabIndex = 69
         '
         'Button1
         '
@@ -1073,24 +976,6 @@ Partial Class Booking
         Me.PictureBox1.TabIndex = 79
         Me.PictureBox1.TabStop = False
         '
-        'btnBreakReport1
-        '
-        Me.btnBreakReport1.Location = New System.Drawing.Point(78, 332)
-        Me.btnBreakReport1.Name = "btnBreakReport1"
-        Me.btnBreakReport1.Size = New System.Drawing.Size(105, 27)
-        Me.btnBreakReport1.TabIndex = 90
-        Me.btnBreakReport1.Text = "BreakReport1"
-        Me.btnBreakReport1.UseVisualStyleBackColor = True
-        '
-        'btnBreakReport2
-        '
-        Me.btnBreakReport2.Location = New System.Drawing.Point(78, 364)
-        Me.btnBreakReport2.Name = "btnBreakReport2"
-        Me.btnBreakReport2.Size = New System.Drawing.Size(105, 27)
-        Me.btnBreakReport2.TabIndex = 91
-        Me.btnBreakReport2.Text = "BreakReport2"
-        Me.btnBreakReport2.UseVisualStyleBackColor = True
-        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1110,7 +995,6 @@ Partial Class Booking
         Me.Controls.Add(Me.btnInvoince)
         Me.Controls.Add(Me.cboStays)
         Me.Controls.Add(Me.cboGuestNum)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnLast)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnPrevious)
@@ -1156,10 +1040,6 @@ Partial Class Booking
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BookingBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -1167,7 +1047,6 @@ Partial Class Booking
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1225,13 +1104,7 @@ Partial Class Booking
     Friend WithEvents NewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CustomerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RoomToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents HRRISdbDataSet1 As WindowsApplication1.HRRISdbDataSet1
-    Friend WithEvents BookingBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents BookingTableAdapter As WindowsApplication1.HRRISdbDataSet1TableAdapters.bookingTableAdapter
     Friend WithEvents cboCusId As System.Windows.Forms.ComboBox
-    Friend WithEvents HRRISdbDataSet3 As WindowsApplication1.HRRISdbDataSet3
-    Friend WithEvents BookingBindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents BookingTableAdapter1 As WindowsApplication1.HRRISdbDataSet3TableAdapters.bookingTableAdapter
     Friend WithEvents btnCusReport As Button
     Friend WithEvents Label10 As Label
     Friend WithEvents cboGuestNum As ComboBox
@@ -1269,16 +1142,6 @@ Partial Class Booking
     Friend WithEvents Label17 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents CommentsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TotalpriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CheckindateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NumguestsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NumdaysDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CustomeridDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents RoomidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents BookingdateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents BookingidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents DeleteStatus As System.Windows.Forms.PictureBox
     Friend WithEvents UpdatetingsStatus As System.Windows.Forms.PictureBox

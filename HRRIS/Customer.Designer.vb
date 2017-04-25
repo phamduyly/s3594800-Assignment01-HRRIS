@@ -22,7 +22,6 @@ Partial Class Customer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCusID = New System.Windows.Forms.TextBox()
@@ -60,19 +59,6 @@ Partial Class Customer
         Me.btnFirst = New System.Windows.Forms.Button()
         Me.btnPrevious = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.CustomeridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TitleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GenderDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FirstnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DobDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HRRISdbDataSet2 = New WindowsApplication1.HRRISdbDataSet2()
-        Me.CustomerTableAdapter = New WindowsApplication1.HRRISdbDataSet2TableAdapters.customerTableAdapter()
         Me.txtCusTitl = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Updatetings = New System.Windows.Forms.PictureBox()
@@ -95,9 +81,6 @@ Partial Class Customer
         Me.PicDOB = New System.Windows.Forms.PictureBox()
         Me.PicCusID = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -415,85 +398,6 @@ Partial Class Customer
         Me.btnNext.Text = ">"
         Me.btnNext.UseVisualStyleBackColor = True
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustomeridDataGridViewTextBoxColumn, Me.TitleDataGridViewTextBoxColumn, Me.GenderDataGridViewTextBoxColumn, Me.FirstnameDataGridViewTextBoxColumn, Me.LastnameDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.DobDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.CustomerBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(85, 466)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(824, 150)
-        Me.DataGridView1.TabIndex = 76
-        '
-        'CustomeridDataGridViewTextBoxColumn
-        '
-        Me.CustomeridDataGridViewTextBoxColumn.DataPropertyName = "customer_id"
-        Me.CustomeridDataGridViewTextBoxColumn.HeaderText = "customer_id"
-        Me.CustomeridDataGridViewTextBoxColumn.Name = "CustomeridDataGridViewTextBoxColumn"
-        '
-        'TitleDataGridViewTextBoxColumn
-        '
-        Me.TitleDataGridViewTextBoxColumn.DataPropertyName = "title"
-        Me.TitleDataGridViewTextBoxColumn.HeaderText = "title"
-        Me.TitleDataGridViewTextBoxColumn.Name = "TitleDataGridViewTextBoxColumn"
-        '
-        'GenderDataGridViewTextBoxColumn
-        '
-        Me.GenderDataGridViewTextBoxColumn.DataPropertyName = "gender"
-        Me.GenderDataGridViewTextBoxColumn.HeaderText = "gender"
-        Me.GenderDataGridViewTextBoxColumn.Name = "GenderDataGridViewTextBoxColumn"
-        '
-        'FirstnameDataGridViewTextBoxColumn
-        '
-        Me.FirstnameDataGridViewTextBoxColumn.DataPropertyName = "firstname"
-        Me.FirstnameDataGridViewTextBoxColumn.HeaderText = "firstname"
-        Me.FirstnameDataGridViewTextBoxColumn.Name = "FirstnameDataGridViewTextBoxColumn"
-        '
-        'LastnameDataGridViewTextBoxColumn
-        '
-        Me.LastnameDataGridViewTextBoxColumn.DataPropertyName = "lastname"
-        Me.LastnameDataGridViewTextBoxColumn.HeaderText = "lastname"
-        Me.LastnameDataGridViewTextBoxColumn.Name = "LastnameDataGridViewTextBoxColumn"
-        '
-        'PhoneDataGridViewTextBoxColumn
-        '
-        Me.PhoneDataGridViewTextBoxColumn.DataPropertyName = "phone"
-        Me.PhoneDataGridViewTextBoxColumn.HeaderText = "phone"
-        Me.PhoneDataGridViewTextBoxColumn.Name = "PhoneDataGridViewTextBoxColumn"
-        '
-        'AddressDataGridViewTextBoxColumn
-        '
-        Me.AddressDataGridViewTextBoxColumn.DataPropertyName = "address"
-        Me.AddressDataGridViewTextBoxColumn.HeaderText = "address"
-        Me.AddressDataGridViewTextBoxColumn.Name = "AddressDataGridViewTextBoxColumn"
-        '
-        'EmailDataGridViewTextBoxColumn
-        '
-        Me.EmailDataGridViewTextBoxColumn.DataPropertyName = "email"
-        Me.EmailDataGridViewTextBoxColumn.HeaderText = "email"
-        Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
-        '
-        'DobDataGridViewTextBoxColumn
-        '
-        Me.DobDataGridViewTextBoxColumn.DataPropertyName = "dob"
-        Me.DobDataGridViewTextBoxColumn.HeaderText = "dob"
-        Me.DobDataGridViewTextBoxColumn.Name = "DobDataGridViewTextBoxColumn"
-        '
-        'CustomerBindingSource
-        '
-        Me.CustomerBindingSource.DataMember = "customer"
-        Me.CustomerBindingSource.DataSource = Me.HRRISdbDataSet2
-        '
-        'HRRISdbDataSet2
-        '
-        Me.HRRISdbDataSet2.DataSetName = "HRRISdbDataSet2"
-        Me.HRRISdbDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CustomerTableAdapter
-        '
-        Me.CustomerTableAdapter.ClearBeforeFill = True
-        '
         'txtCusTitl
         '
         Me.txtCusTitl.FormattingEnabled = True
@@ -723,7 +627,6 @@ Partial Class Customer
         Me.Controls.Add(Me.AddStatus)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.txtCusTitl)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnPrevious)
         Me.Controls.Add(Me.btnFirst)
@@ -766,9 +669,6 @@ Partial Class Customer
         Me.Text = "Customer Input Validation"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
@@ -838,19 +738,6 @@ Partial Class Customer
     Friend WithEvents btnFirst As System.Windows.Forms.Button
     Friend WithEvents btnPrevious As System.Windows.Forms.Button
     Friend WithEvents btnNext As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents HRRISdbDataSet2 As WindowsApplication1.HRRISdbDataSet2
-    Friend WithEvents CustomerBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents CustomerTableAdapter As WindowsApplication1.HRRISdbDataSet2TableAdapters.customerTableAdapter
-    Friend WithEvents CustomeridDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents TitleDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents GenderDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents FirstnameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents LastnameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents PhoneDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents AddressDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents EmailDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DobDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents txtCusTitl As System.Windows.Forms.ComboBox
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem

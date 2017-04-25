@@ -14,14 +14,12 @@ Public Class Room
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
     Dim UImodi As New UIController
-    Dim bindingsource1 As New BindingSource
+
     'Binding for datagrid refresh
 
 
     Private Sub Room_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'HRRISdbDataSet.room' table. You can move, or remove it, as needed.
-        Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
-        bindingsource1.ResetBindings(False)
+
 
         ' moving betweeen record section
         Dim MoveRecord As RoomDataController = New RoomDataController
