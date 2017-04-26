@@ -979,7 +979,7 @@ Public Class ReportController
 'The part for each break record 
             sTableRow = "<tr>" & vbCrLf
             For Each key In lsKeys
-                sTableRow &= "<td>" & CStr(booking(key)) & "</td>" & vbCrLf
+sTableRow &= "<td>" & ""'month(name(month(cdate(invoice)))) '"" & "</td>" & vbCrLf
 'Cstr(invoice(date))
             Next
             sTableRow &= "</tr>" & vbCrLf
