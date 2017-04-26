@@ -333,6 +333,7 @@ Public Class RoomDataController
             oCommand.Parameters.Add("availability", OleDbType.VarChar, 255)
             oCommand.Parameters.Add("floor", OleDbType.Integer, 255)
             oCommand.Parameters.Add("description", OleDbType.VarChar, 255)
+            oCommand.Parameters.Add("room_id", OleDbType.Integer, 10)
 
             oCommand.Parameters("room_number").Value = CInt(roomData("room_number"))
             oCommand.Parameters("type").Value = CStr(roomData("type"))
@@ -341,14 +342,13 @@ Public Class RoomDataController
             oCommand.Parameters("availability").Value = CStr(roomData("availability"))
             oCommand.Parameters("floor").Value = CInt(roomData("floor"))
             oCommand.Parameters("description").Value = CStr(roomData("description"))
+            oCommand.Parameters("room_id").Value = CInt(roomData("room_id"))
 
             oCommand.Prepare()
             iNumRows = oCommand.ExecuteNonQuery()
 
             Debug.Print(CStr(iNumRows))
             Debug.Print("the record was updated.")
-
-
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)

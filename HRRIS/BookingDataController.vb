@@ -222,6 +222,7 @@ Public Class BookingDataController
             oCommand.Parameters.Add("checkin_date", OleDbType.Date, 255)
             oCommand.Parameters.Add("total_price", OleDbType.Integer, 255)
             oCommand.Parameters.Add("comments", OleDbType.VarChar, 255)
+            oCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
 
             oCommand.Parameters("booking_date").Value = CDate(bookingData("booking_date"))
             oCommand.Parameters("room_id").Value = CInt(bookingData("room_id"))
@@ -231,7 +232,7 @@ Public Class BookingDataController
             oCommand.Parameters("checkin_date").Value = CDate(bookingData("checkin_date"))
             oCommand.Parameters("total_price").Value = CInt(bookingData("total_price"))
             oCommand.Parameters("comments").Value = CStr(bookingData("comments"))
-
+            oCommand.Parameters("booking_id").Value = CInt(bookingData("booking_id"))
             oCommand.Prepare()
             iNumRows = oCommand.ExecuteNonQuery()
 
