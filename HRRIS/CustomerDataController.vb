@@ -68,13 +68,7 @@ Public Class CustomerDataController
             oCommand.Parameters("customer_id").Value = CInt(sId)
             oCommand.Prepare()
 
-
-            'Add firstname 
-            'oCommand.Parameters.AddWithValue("@firstname", sFirstName)
-            'oCommand.Prepare()
             Debug.Print(oCommand.CommandText)
-
-
 
             Dim oDataReader = oCommand.ExecuteReader()
 
@@ -88,11 +82,9 @@ Public Class CustomerDataController
 
             Debug.Print("the record was found.")
 
-
-
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
-            MsgBox("this customer is still not work ")
+
         Finally
             oConnection.Close()
 

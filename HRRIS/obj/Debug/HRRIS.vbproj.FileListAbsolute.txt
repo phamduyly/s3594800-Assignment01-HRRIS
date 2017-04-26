@@ -1,0 +1,15 @@
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.vbprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.Customer.resources
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.invoice.resources
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.Resources.resources
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.room.resources
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.vbproj.GenerateResource.Cache
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.exe
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.xml
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.pdb
+C:\Users\DELL\Desktop\HRRIS\HRRIS\HRRIS.exe.config
+C:\Users\DELL\Desktop\HRRIS\HRRIS\HRRIS.exe
+C:\Users\DELL\Desktop\HRRIS\HRRIS\HRRIS.pdb
+C:\Users\DELL\Desktop\HRRIS\HRRIS\HRRIS.xml
+C:\Users\DELL\Desktop\HRRIS\HRRIS\HRRISdb.accdb
+C:\Users\DELL\Desktop\HRRIS\HRRIS\obj\Debug\HRRIS.Booking.resources

@@ -197,7 +197,7 @@ Public Class RoomDataController
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
-            MsgBox("this find room still not work, - room dataController ")
+
         Finally
             oConnection.Close()
 

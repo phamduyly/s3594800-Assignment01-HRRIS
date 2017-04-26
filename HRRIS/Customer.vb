@@ -1,4 +1,4 @@
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 
 Imports System.Data.OleDb
@@ -14,16 +14,11 @@ Public Class Customer
     'moving between record section
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
-
     Dim UIModi As New UIController
-    Dim bindingsource1 As New BindingSource
-
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'HRRISdbDataSet2.customer' table. You can move, or remove it, as needed.
-
-
-
+        'TODO: This line of code loads data into the 'HRRISdbDataSet1.customer' table. You can move, or remove it, as needed.
+        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
 
         'moving between record section
         Dim MoveRecord As CustomerDataController = New CustomerDataController
@@ -39,9 +34,6 @@ Public Class Customer
         'Implemeting tooltip for the Customer form 
         Dim tooltip1 As New ToolTip
         tooltip1.SetToolTip(txtCusID, "Customer ID")
-
-
-
 
     End Sub
     'btnInsert and validate data: Valiate data stage - trying using menu 
@@ -65,8 +57,6 @@ Public Class Customer
             Cusimport.CusInsert(CusData)
 
         End If
-
-
 
     End Sub
 
@@ -153,7 +143,7 @@ Public Class Customer
 
 
     End Function
-
+#Region "CRUD"
 
     'CRUD
     'Moving between records
@@ -300,7 +290,10 @@ Public Class Customer
         Return CusData
 
     End Function
+#End Region
 
+
+#Region "menu"
     'menu section
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
@@ -325,7 +318,9 @@ Public Class Customer
         booking1.ShowDialog()
 
     End Sub
+#End Region
 
+#Region "UIThings"
     'UI fucntion 
     'Uisng piccture box and panel for UI
     Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
@@ -371,4 +366,6 @@ Public Class Customer
         btnFind.Visible = False
         btnUpdate.Visible = True
     End Sub
+#End Region
+
 End Class

@@ -13,7 +13,7 @@ Imports System.IO
 Public Class ReportController
     Public Const CONNECTION_STRING As String =
    "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
-
+#Region "SQL section"
     Public Function CusbyId(ByVal sCusId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
@@ -36,24 +36,24 @@ Public Class ReportController
 
             Dim oDataReader = oCommand.ExecuteReader()
 
-        Dim htTempData As Hashtable
+            Dim htTempData As Hashtable
 
-        Do While oDataReader.Read() = True
-            htTempData = New Hashtable
-            htTempData("customer_id") = CInt(oDataReader("customer_id"))
-            htTempData("num_days") = CInt(oDataReader("num_days"))
-            htTempData("booking_date") = CDate(oDataReader("booking_date"))
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("customer_id") = CInt(oDataReader("customer_id"))
+                htTempData("num_days") = CInt(oDataReader("num_days"))
+                htTempData("booking_date") = CDate(oDataReader("booking_date"))
 
-            lsData.Add(htTempData)
-        Loop
+                lsData.Add(htTempData)
+            Loop
 
-        Debug.Print("the record was found.")
+            Debug.Print("the record was found.")
 
         Catch ex As Exception
-        Debug.Print("ERROR: " & ex.Message)
-        MsgBox("an error occured. The record(s) could not be found")
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
         Finally
-        oConnection.Close()
+            oConnection.Close()
 
         End Try
 
@@ -347,78 +347,9 @@ Public Class ReportController
 
         Return lsData
     End Function
+#End Region
 
-    'GENERATE REPORT SECTION FOR THE REPORT ONLY - BREAK REPORT IS BELLOW THis
-
-    Private Function generateReport03(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String, ByVal lsKeys As List(Of String)) As String
-
-        Dim sReportContent As String
-
-        '1.Generate the start of the HTML file
-
-        Dim sDoctype As String = "<!DOCTYPE html>"
-        Dim sHtmlStartTag As String = "<html lang=""eng"">"
-        Dim sHeadTitle As String = "<head>" & vbCrLf &
-            "<title>" & sReportTitle & "</title>" & vbCrLf &
-        "<meta charset=""utf-8"">" & vbCrLf &
-        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf &
-        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
-        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
-        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
-        "</head>"
-        Dim sBodyStartTag As String = "<body>"
-        Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
-        sReportContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
-
-        '2.Generate the product table and its rows 
-        Dim sTable = generateTable03(lsData, lsKeys)
-        sReportContent &= sTable & vbCrLf
-
-        '3.Generate the end of the HTML file 
-        Dim sBodyEndTag As String = "</body>"
-        Dim sHTMLEndTag As String = "</html>"
-        sReportContent &= sBodyEndTag & vbCrLf & sHTMLEndTag
-
-
-
-        Return sReportContent
-
-    End Function
-
-    'c.Generating table 
-    Private Function generateTable03(ByVal lsData As List(Of Hashtable), ByVal lsKeys As List(Of String)) As String
-        'Generate the start of the table
-        'vbCrLf = down a line and going to the left or feed or st
-        Dim sTable = "<table class =""table table-hover"">" & vbCrLf
-        Dim htSample As Hashtable = lsData.Item(0)
-        'Dim lsKeys = htSample.Keys
-
-        ' Generate the header row
-        Dim sHeadderRow = "<tr>" & vbCrLf
-        For Each key In lsKeys
-            sHeadderRow &= "<th>" & CStr(key) & "</th>" & vbCrLf
-        Next
-        sHeadderRow &= "</tr>" & vbCrLf
-        Debug.Print("sHeaderRow: " & sHeadderRow)
-        sTable &= sHeadderRow
-
-        'Generate the table rows 
-        For Each record In lsData
-            Dim product As Hashtable = record
-            Dim sTableRow = "<tr>" & vbCrLf
-
-            For Each key In lsKeys
-                sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
-            Next
-            sTableRow &= "</tr>" & vbCrLf
-            Debug.Print("sTableRow: " & sTableRow)
-            sTable &= sTableRow
-        Next
-        'Generate the end of the table
-        sTable &= "</table>" & vbCrLf
-
-        Return sTable
-    End Function
+#Region "HTML section"
 
     'REPORT SECTION
     'Content generating section - HTML file 
@@ -638,9 +569,78 @@ Public Class ReportController
         System.Diagnostics.Process.Start(sParam)
 
     End Sub
-    'b.Generating report
+
+    'GENERATE REPORT SECTION FOR THE REPORT ONLY - BREAK REPORT IS BELLOW THis
+
+    Private Function generateReport03(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String, ByVal lsKeys As List(Of String)) As String
+
+        Dim sReportContent As String
+
+        '1.Generate the start of the HTML file
+
+        Dim sDoctype As String = "<!DOCTYPE html>"
+        Dim sHtmlStartTag As String = "<html lang=""eng"">"
+        Dim sHeadTitle As String = "<head>" & vbCrLf &
+            "<title>" & sReportTitle & "</title>" & vbCrLf &
+        "<meta charset=""utf-8"">" & vbCrLf &
+        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf &
+        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
+        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
+        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
+        "</head>"
+        Dim sBodyStartTag As String = "<body>"
+        Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
+        sReportContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
+
+        '2.Generate the product table and its rows 
+        Dim sTable = generateTable03(lsData, lsKeys)
+        sReportContent &= sTable & vbCrLf
+
+        '3.Generate the end of the HTML file 
+        Dim sBodyEndTag As String = "</body>"
+        Dim sHTMLEndTag As String = "</html>"
+        sReportContent &= sBodyEndTag & vbCrLf & sHTMLEndTag
 
 
+
+        Return sReportContent
+
+    End Function
+
+    'c.Generating table 
+    Private Function generateTable03(ByVal lsData As List(Of Hashtable), ByVal lsKeys As List(Of String)) As String
+        'Generate the start of the table
+        'vbCrLf = down a line and going to the left or feed or st
+        Dim sTable = "<table class =""table table-hover"">" & vbCrLf
+        Dim htSample As Hashtable = lsData.Item(0)
+        'Dim lsKeys = htSample.Keys
+
+        ' Generate the header row
+        Dim sHeadderRow = "<tr>" & vbCrLf
+        For Each key In lsKeys
+            sHeadderRow &= "<th>" & CStr(key) & "</th>" & vbCrLf
+        Next
+        sHeadderRow &= "</tr>" & vbCrLf
+        Debug.Print("sHeaderRow: " & sHeadderRow)
+        sTable &= sHeadderRow
+
+        'Generate the table rows 
+        For Each record In lsData
+            Dim product As Hashtable = record
+            Dim sTableRow = "<tr>" & vbCrLf
+
+            For Each key In lsKeys
+                sTableRow &= "<td>" & CStr(product(key)) & "</td>" & vbCrLf
+            Next
+            sTableRow &= "</tr>" & vbCrLf
+            Debug.Print("sTableRow: " & sTableRow)
+            sTable &= sTableRow
+        Next
+        'Generate the end of the table
+        sTable &= "</table>" & vbCrLf
+
+        Return sTable
+    End Function
 
     'BREAK REPORT:
     'Need to summary all the funciton needed in order to run this function 
@@ -678,7 +678,14 @@ Public Class ReportController
 
         Dim sDoctype As String = "<!DOCTYPE html>"
         Dim sHtmlStartTag As String = "<html lang=""eng"">"
-        Dim sHeadTitle As String = "<head><title>" & sReportTitle & "</title></head>"
+        Dim sHeadTitle As String = "<head>" & vbCrLf &
+            "<title>" & sReportTitle & "</title>" & vbCrLf &
+        "<meta charset=""utf-8"">" & vbCrLf &
+        "<meta name=""viewport"" content=""width=device-width, initial-scale=1"">" & vbCrLf &
+        "<link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"">" & vbCrLf &
+        "<script src=""https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js""></script>" & vbCrLf &
+        "<script src=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js""></script>" & vbCrLf &
+        "</head>"
         Dim sBodyStartTag As String = "<body>"
         Dim sReportHeading As String = "<h1>" & sReportTitle & "</h1>"
         sReportContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
@@ -700,7 +707,7 @@ Public Class ReportController
     End Function
 
     Private Function generateControlBreakeTale(ByVal lsData As List(Of Hashtable)) As String
-        Dim sTable = "<table border""1"">" & vbCrLf
+        Dim sTable = "<table class =""table table-hover"">" & vbCrLf
         Dim htSample As Hashtable = lsData.Item(0)
         'Dim lsKeys = htSample.Keys
         Dim lsKeys As List(Of String) = New List(Of String)
@@ -751,21 +758,21 @@ Public Class ReportController
             sCurrentControlField = CStr(booking("booking_id"))
 
             '2b. Do not check for control break on the first iteration of the loop
-            'If bFirstTime Then
-            '    bFirstTime = False
-            'Else
-            '    'Output total row if change in control field
-            '    'And reset the total
-            '    If sCurrentControlField <> sPreviousControlField Then
-            '        sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-            '            & " Total booking in " & sPreviousControlField _
-            '            & " booking form: " & iCountRecordsPerCategory _
-            '            & "</td></tr>" _
-            '            & vbCrLf
-            '        sRows &= sTableRow
-            '        iCountRecordsPerCategory = 0
-            '    End If
-            'End If
+            If bFirstTime Then
+                bFirstTime = False
+            Else
+                'Output total row if change in control field
+                'And reset the total
+                If sCurrentControlField <> sPreviousControlField Then
+                    sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
+                        & " Total booking in " & sPreviousControlField _
+                        & " booking form: " & iCountRecordsPerCategory _
+                        & "</td></tr>" _
+                        & vbCrLf
+                    sRows &= sTableRow
+                    iCountRecordsPerCategory = 0
+                End If
+            End If
 
             ' 2c. Output a normal row for every pass thru' the list
             sTableRow = "<tr>" & vbCrLf
@@ -793,5 +800,6 @@ Public Class ReportController
 
         Return sRows
     End Function
+#End Region
 
 End Class
