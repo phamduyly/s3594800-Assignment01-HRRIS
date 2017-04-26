@@ -61,6 +61,7 @@ Public Class Room
 
         End If
 
+        Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
     End Sub
 
     Private Function valid() As Boolean
@@ -206,6 +207,8 @@ Public Class Room
                 MsgBox("The record was not delete")
         End Select
 
+        Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
+
     End Sub
 
     Private Sub clearForm()
@@ -222,17 +225,23 @@ Public Class Room
     End Sub
 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
-        Dim oControler As RoomDataController = New RoomDataController
-        Dim sId = txtRmID.Text
-        Dim lsData = oControler.RoomsFindById(sId)
+        Dim bIsValid As Boolean
+        bIsValid = IsNumeric(txtRmID.Text)
 
-        If lsData.Count = 1 Then
-            populateRoomsFields(lsData.Item(0))
+        If bIsValid Then
+            Dim oControler As RoomDataController = New RoomDataController
+            Dim sId = txtRmID.Text
+            Dim lsData = oControler.RoomsFindById(sId)
 
-        Else
-            Debug.Print("no record were found")
+            If lsData.Count = 1 Then
+                populateRoomsFields(lsData.Item(0))
 
+            Else
+                Debug.Print("no record were found")
+
+            End If
         End If
+
     End Sub
 
     Private Sub populateRoomsFields(ByRef roomData As Hashtable)
@@ -258,6 +267,8 @@ Public Class Room
             Debug.Print("The record was not update")
 
         End If
+
+        Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
 
     End Sub
 

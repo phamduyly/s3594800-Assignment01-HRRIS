@@ -58,6 +58,8 @@ Public Class Customer
 
         End If
 
+        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+
     End Sub
 
     'VAlidation
@@ -156,9 +158,6 @@ Public Class Customer
         htData = lsData.Item(iIndex)
         populateCusFields(lsData.Item(iIndex))
 
-
-
-
     End Sub
 
     Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
@@ -221,6 +220,9 @@ Public Class Customer
             Case MsgBoxResult.No
                 MsgBox("The record was not delete")
         End Select
+
+        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+
     End Sub
 
     Private Sub clearForm()
@@ -236,17 +238,23 @@ Public Class Customer
     End Sub
 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
-        Dim oControler As CustomerDataController = New CustomerDataController
-        Dim sId = txtCusID.Text
-        Dim lsData = oControler.CusFindById(sId)
+        Dim bIsValid As Boolean
+        bIsValid = IsNumeric(txtCusID.Text)
 
-        If lsData.Count = 1 Then
-            populateCusFields(lsData.Item(0))
+        If bIsValid Then
+            Dim oControler As CustomerDataController = New CustomerDataController
+            Dim sId = txtCusID.Text
+            Dim lsData = oControler.CusFindById(sId)
+            If lsData.Count = 1 Then
+                populateCusFields(lsData.Item(0))
 
-        Else
-            Debug.Print("no record were found")
+            Else
+                Debug.Print("no record were found")
 
+            End If
         End If
+
+
     End Sub
 
     Private Sub populateCusFields(ByRef CusData As Hashtable)
@@ -263,15 +271,22 @@ Public Class Customer
     End Sub
 
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
-        Dim oController As CustomerDataController = New CustomerDataController
-        Dim iNumRows = oController.CustsUpdate(getCusData)
+        Dim bIsValid = CusValid()
 
-        If iNumRows = 1 Then
-            Debug.Print("The record was updated. check")
-        Else
-            Debug.Print("The record was not update")
+        If bIsValid Then
+            Dim oController As CustomerDataController = New CustomerDataController
+            Dim iNumRows = oController.CustsUpdate(getCusData)
+
+            If iNumRows = 1 Then
+                Debug.Print("The record was updated. check")
+            Else
+                Debug.Print("The record was not update")
+
+            End If
 
         End If
+
+        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
 
     End Sub
 
@@ -323,12 +338,12 @@ Public Class Customer
 #Region "UIThings"
     'UI fucntion 
     'Uisng piccture box and panel for UI
-    Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
+    Private Sub DownStart_Click(sender As Object, e As EventArgs) 
         UIModi.Displayoption(DownStart, Panel2, UpClose)
 
     End Sub
 
-    Private Sub Adds1_Click(sender As Object, e As EventArgs) Handles Adds1.Click
+    Private Sub Adds1_Click(sender As Object, e As EventArgs) 
         UIModi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
         Button1.Visible = True
         btnDelete.Visible = False
@@ -337,7 +352,7 @@ Public Class Customer
 
     End Sub
 
-    Private Sub Find_Click(sender As Object, e As EventArgs) Handles Find.Click
+    Private Sub Find_Click(sender As Object, e As EventArgs) 
         UIModi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
         btnFind.Visible = True
         btnDelete.Visible = False
@@ -345,7 +360,7 @@ Public Class Customer
         btnUpdate.Visible = False
     End Sub
 
-    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
+    Private Sub Delete_Click(sender As Object, e As EventArgs) 
         UIModi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
         btnDelete.Visible = True
         Button1.Visible = False
@@ -354,12 +369,12 @@ Public Class Customer
 
     End Sub
 
-    Private Sub UpClose_Click(sender As Object, e As EventArgs) Handles UpClose.Click
+    Private Sub UpClose_Click(sender As Object, e As EventArgs) 
         UIModi.CloseOptions(DownStart, Panel2, UpClose)
 
     End Sub
 
-    Private Sub Updatetings_Click(sender As Object, e As EventArgs) Handles Updatetings.Click
+    Private Sub Updatetings_Click(sender As Object, e As EventArgs) 
         UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
         Button1.Visible = False
         btnDelete.Visible = False

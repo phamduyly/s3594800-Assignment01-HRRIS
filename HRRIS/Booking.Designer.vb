@@ -24,35 +24,6 @@ Partial Class Booking
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.DeleteStatus = New System.Windows.Forms.PictureBox()
-        Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
-        Me.FindStatus = New System.Windows.Forms.PictureBox()
-        Me.AddStatus = New System.Windows.Forms.PictureBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Updatetings = New System.Windows.Forms.PictureBox()
-        Me.Find = New System.Windows.Forms.PictureBox()
-        Me.Adds1 = New System.Windows.Forms.PictureBox()
-        Me.Delete = New System.Windows.Forms.PictureBox()
-        Me.UpClose = New System.Windows.Forms.PictureBox()
-        Me.DownStart = New System.Windows.Forms.PictureBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Yearerror = New System.Windows.Forms.PictureBox()
-        Me.btnBreakReport2 = New System.Windows.Forms.Button()
-        Me.btnBreakReport1 = New System.Windows.Forms.Button()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.btnCusReport = New System.Windows.Forms.Button()
-        Me.btnReport2 = New System.Windows.Forms.Button()
-        Me.btnReport3 = New System.Windows.Forms.Button()
-        Me.btnReport4 = New System.Windows.Forms.Button()
-        Me.cboReportMonth = New System.Windows.Forms.ComboBox()
-        Me.btnReport5 = New System.Windows.Forms.Button()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.btnReport6 = New System.Windows.Forms.Button()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtReportYear = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -100,25 +71,22 @@ Partial Class Booking
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReport1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReport2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.HRRISdbDataSet2 = New HRRIS.HRRISdbDataSet2()
-        Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BookingTableAdapter = New HRRIS.HRRISdbDataSet2TableAdapters.bookingTableAdapter()
         Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoomidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -128,20 +96,21 @@ Partial Class Booking
         Me.CheckindateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalpriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CommentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HRRISdbDataSet2 = New HRRIS.HRRISdbDataSet2()
+        Me.BookingTableAdapter = New HRRIS.HRRISdbDataSet2TableAdapters.bookingTableAdapter()
+        Me.DeleteStatus = New System.Windows.Forms.PictureBox()
+        Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
+        Me.FindStatus = New System.Windows.Forms.PictureBox()
+        Me.AddStatus = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Updatetings = New System.Windows.Forms.PictureBox()
+        Me.Find = New System.Windows.Forms.PictureBox()
+        Me.Adds1 = New System.Windows.Forms.PictureBox()
+        Me.Delete = New System.Windows.Forms.PictureBox()
+        Me.UpClose = New System.Windows.Forms.PictureBox()
+        Me.DownStart = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
-        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
-        CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -155,8 +124,19 @@ Partial Class Booking
         CType(Me.PicBookID, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -167,291 +147,6 @@ Partial Class Booking
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 133
         Me.PictureBox1.TabStop = False
-        '
-        'DeleteStatus
-        '
-        Me.DeleteStatus.Location = New System.Drawing.Point(12, 41)
-        Me.DeleteStatus.Name = "DeleteStatus"
-        Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
-        Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.DeleteStatus.TabIndex = 139
-        Me.DeleteStatus.TabStop = False
-        Me.DeleteStatus.Visible = False
-        '
-        'UpdatetingsStatus
-        '
-        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 42)
-        Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
-        Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
-        Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.UpdatetingsStatus.TabIndex = 140
-        Me.UpdatetingsStatus.TabStop = False
-        Me.UpdatetingsStatus.Visible = False
-        '
-        'FindStatus
-        '
-        Me.FindStatus.Location = New System.Drawing.Point(12, 42)
-        Me.FindStatus.Name = "FindStatus"
-        Me.FindStatus.Size = New System.Drawing.Size(64, 64)
-        Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.FindStatus.TabIndex = 141
-        Me.FindStatus.TabStop = False
-        Me.FindStatus.Visible = False
-        '
-        'AddStatus
-        '
-        Me.AddStatus.Location = New System.Drawing.Point(12, 41)
-        Me.AddStatus.Name = "AddStatus"
-        Me.AddStatus.Size = New System.Drawing.Size(64, 64)
-        Me.AddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.AddStatus.TabIndex = 142
-        Me.AddStatus.TabStop = False
-        Me.AddStatus.Visible = False
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Updatetings)
-        Me.Panel2.Controls.Add(Me.Find)
-        Me.Panel2.Controls.Add(Me.Adds1)
-        Me.Panel2.Controls.Add(Me.Delete)
-        Me.Panel2.Controls.Add(Me.UpClose)
-        Me.Panel2.Controls.Add(Me.DownStart)
-        Me.Panel2.Location = New System.Drawing.Point(12, 103)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(64, 65)
-        Me.Panel2.TabIndex = 138
-        '
-        'Updatetings
-        '
-        Me.Updatetings.Location = New System.Drawing.Point(0, 214)
-        Me.Updatetings.Name = "Updatetings"
-        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
-        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Updatetings.TabIndex = 12
-        Me.Updatetings.TabStop = False
-        '
-        'Find
-        '
-        Me.Find.Location = New System.Drawing.Point(0, 144)
-        Me.Find.Name = "Find"
-        Me.Find.Size = New System.Drawing.Size(64, 64)
-        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Find.TabIndex = 7
-        Me.Find.TabStop = False
-        '
-        'Adds1
-        '
-        Me.Adds1.Location = New System.Drawing.Point(0, 73)
-        Me.Adds1.Name = "Adds1"
-        Me.Adds1.Size = New System.Drawing.Size(64, 64)
-        Me.Adds1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Adds1.TabIndex = 6
-        Me.Adds1.TabStop = False
-        '
-        'Delete
-        '
-        Me.Delete.Location = New System.Drawing.Point(0, 284)
-        Me.Delete.Name = "Delete"
-        Me.Delete.Size = New System.Drawing.Size(64, 64)
-        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Delete.TabIndex = 5
-        Me.Delete.TabStop = False
-        '
-        'UpClose
-        '
-        Me.UpClose.Location = New System.Drawing.Point(0, 354)
-        Me.UpClose.Name = "UpClose"
-        Me.UpClose.Size = New System.Drawing.Size(64, 64)
-        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.UpClose.TabIndex = 4
-        Me.UpClose.TabStop = False
-        '
-        'DownStart
-        '
-        Me.DownStart.Location = New System.Drawing.Point(0, 3)
-        Me.DownStart.Name = "DownStart"
-        Me.DownStart.Size = New System.Drawing.Size(64, 64)
-        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.DownStart.TabIndex = 78
-        Me.DownStart.TabStop = False
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Yearerror)
-        Me.GroupBox3.Controls.Add(Me.btnBreakReport2)
-        Me.GroupBox3.Controls.Add(Me.btnBreakReport1)
-        Me.GroupBox3.Controls.Add(Me.Label17)
-        Me.GroupBox3.Controls.Add(Me.Label16)
-        Me.GroupBox3.Controls.Add(Me.ComboBox1)
-        Me.GroupBox3.Controls.Add(Me.Label15)
-        Me.GroupBox3.Controls.Add(Me.btnCusReport)
-        Me.GroupBox3.Controls.Add(Me.btnReport2)
-        Me.GroupBox3.Controls.Add(Me.btnReport3)
-        Me.GroupBox3.Controls.Add(Me.btnReport4)
-        Me.GroupBox3.Controls.Add(Me.cboReportMonth)
-        Me.GroupBox3.Controls.Add(Me.btnReport5)
-        Me.GroupBox3.Controls.Add(Me.Label12)
-        Me.GroupBox3.Controls.Add(Me.btnReport6)
-        Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Controls.Add(Me.txtReportYear)
-        Me.GroupBox3.Location = New System.Drawing.Point(694, 108)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(264, 391)
-        Me.GroupBox3.TabIndex = 137
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "GroupBox3"
-        '
-        'Yearerror
-        '
-        Me.Yearerror.Location = New System.Drawing.Point(241, 45)
-        Me.Yearerror.Name = "Yearerror"
-        Me.Yearerror.Size = New System.Drawing.Size(17, 16)
-        Me.Yearerror.TabIndex = 143
-        Me.Yearerror.TabStop = False
-        Me.Yearerror.Visible = False
-        '
-        'btnBreakReport2
-        '
-        Me.btnBreakReport2.Location = New System.Drawing.Point(78, 364)
-        Me.btnBreakReport2.Name = "btnBreakReport2"
-        Me.btnBreakReport2.Size = New System.Drawing.Size(105, 27)
-        Me.btnBreakReport2.TabIndex = 91
-        Me.btnBreakReport2.Text = "BreakReport2"
-        Me.btnBreakReport2.UseVisualStyleBackColor = True
-        '
-        'btnBreakReport1
-        '
-        Me.btnBreakReport1.Location = New System.Drawing.Point(78, 332)
-        Me.btnBreakReport1.Name = "btnBreakReport1"
-        Me.btnBreakReport1.Size = New System.Drawing.Size(105, 27)
-        Me.btnBreakReport1.TabIndex = 90
-        Me.btnBreakReport1.Text = "BreakReport1"
-        Me.btnBreakReport1.UseVisualStyleBackColor = True
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(11, 82)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(116, 13)
-        Me.Label17.TabIndex = 89
-        Me.Label17.Text = "Report Selection Fields"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(12, 102)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(245, 13)
-        Me.Label16.TabIndex = 88
-        Me.Label16.Text = "Choose Report Version That You Want To Create:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.ComboBox1.Location = New System.Drawing.Point(51, 119)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(149, 21)
-        Me.ComboBox1.TabIndex = 87
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(11, 23)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(96, 13)
-        Me.Label15.TabIndex = 86
-        Me.Label15.Text = "Report Input Fields"
-        '
-        'btnCusReport
-        '
-        Me.btnCusReport.Location = New System.Drawing.Point(78, 145)
-        Me.btnCusReport.Name = "btnCusReport"
-        Me.btnCusReport.Size = New System.Drawing.Size(105, 23)
-        Me.btnCusReport.TabIndex = 70
-        Me.btnCusReport.Text = "Customer Report"
-        Me.btnCusReport.UseVisualStyleBackColor = True
-        '
-        'btnReport2
-        '
-        Me.btnReport2.Location = New System.Drawing.Point(78, 175)
-        Me.btnReport2.Name = "btnReport2"
-        Me.btnReport2.Size = New System.Drawing.Size(105, 27)
-        Me.btnReport2.TabIndex = 75
-        Me.btnReport2.Text = "2nd Report"
-        Me.btnReport2.UseVisualStyleBackColor = True
-        '
-        'btnReport3
-        '
-        Me.btnReport3.Location = New System.Drawing.Point(78, 207)
-        Me.btnReport3.Name = "btnReport3"
-        Me.btnReport3.Size = New System.Drawing.Size(105, 27)
-        Me.btnReport3.TabIndex = 76
-        Me.btnReport3.Text = "3rd Report"
-        Me.btnReport3.UseVisualStyleBackColor = True
-        '
-        'btnReport4
-        '
-        Me.btnReport4.Location = New System.Drawing.Point(78, 240)
-        Me.btnReport4.Name = "btnReport4"
-        Me.btnReport4.Size = New System.Drawing.Size(105, 27)
-        Me.btnReport4.TabIndex = 77
-        Me.btnReport4.Text = "4th Report"
-        Me.btnReport4.UseVisualStyleBackColor = True
-        '
-        'cboReportMonth
-        '
-        Me.cboReportMonth.FormattingEnabled = True
-        Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cboReportMonth.Location = New System.Drawing.Point(51, 41)
-        Me.cboReportMonth.Name = "cboReportMonth"
-        Me.cboReportMonth.Size = New System.Drawing.Size(79, 21)
-        Me.cboReportMonth.TabIndex = 85
-        '
-        'btnReport5
-        '
-        Me.btnReport5.Location = New System.Drawing.Point(78, 271)
-        Me.btnReport5.Name = "btnReport5"
-        Me.btnReport5.Size = New System.Drawing.Size(105, 27)
-        Me.btnReport5.TabIndex = 78
-        Me.btnReport5.Text = "5th Report"
-        Me.btnReport5.UseVisualStyleBackColor = True
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(8, 45)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(37, 13)
-        Me.Label12.TabIndex = 84
-        Me.Label12.Text = "Month"
-        '
-        'btnReport6
-        '
-        Me.btnReport6.Location = New System.Drawing.Point(78, 304)
-        Me.btnReport6.Name = "btnReport6"
-        Me.btnReport6.Size = New System.Drawing.Size(105, 27)
-        Me.btnReport6.TabIndex = 80
-        Me.btnReport6.Text = "6th Report"
-        Me.btnReport6.UseVisualStyleBackColor = True
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(140, 45)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(29, 13)
-        Me.Label11.TabIndex = 83
-        Me.Label11.Text = "Year"
-        '
-        'txtReportYear
-        '
-        Me.txtReportYear.Location = New System.Drawing.Point(179, 41)
-        Me.txtReportYear.Name = "txtReportYear"
-        Me.txtReportYear.Size = New System.Drawing.Size(60, 20)
-        Me.txtReportYear.TabIndex = 82
         '
         'GroupBox2
         '
@@ -676,6 +371,7 @@ Partial Class Booking
         '
         'PicCkinDt
         '
+        Me.PicCkinDt.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicCkinDt.Location = New System.Drawing.Point(552, 378)
         Me.PicCkinDt.Name = "PicCkinDt"
         Me.PicCkinDt.Size = New System.Drawing.Size(17, 16)
@@ -685,6 +381,7 @@ Partial Class Booking
         '
         'PicDate
         '
+        Me.PicDate.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicDate.Location = New System.Drawing.Point(551, 145)
         Me.PicDate.Name = "PicDate"
         Me.PicDate.Size = New System.Drawing.Size(17, 16)
@@ -694,6 +391,7 @@ Partial Class Booking
         '
         'PicCmt
         '
+        Me.PicCmt.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicCmt.Location = New System.Drawing.Point(552, 446)
         Me.PicCmt.Name = "PicCmt"
         Me.PicCmt.Size = New System.Drawing.Size(17, 16)
@@ -703,6 +401,7 @@ Partial Class Booking
         '
         'PicStayingDay
         '
+        Me.PicStayingDay.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicStayingDay.Location = New System.Drawing.Point(552, 310)
         Me.PicStayingDay.Name = "PicStayingDay"
         Me.PicStayingDay.Size = New System.Drawing.Size(17, 16)
@@ -712,6 +411,7 @@ Partial Class Booking
         '
         'PicGuestNum
         '
+        Me.PicGuestNum.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicGuestNum.Location = New System.Drawing.Point(552, 344)
         Me.PicGuestNum.Name = "PicGuestNum"
         Me.PicGuestNum.Size = New System.Drawing.Size(17, 16)
@@ -721,6 +421,7 @@ Partial Class Booking
         '
         'PicPrice
         '
+        Me.PicPrice.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicPrice.Location = New System.Drawing.Point(552, 410)
         Me.PicPrice.Name = "PicPrice"
         Me.PicPrice.Size = New System.Drawing.Size(17, 16)
@@ -730,6 +431,7 @@ Partial Class Booking
         '
         'PicCusID
         '
+        Me.PicCusID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicCusID.Location = New System.Drawing.Point(552, 260)
         Me.PicCusID.Name = "PicCusID"
         Me.PicCusID.Size = New System.Drawing.Size(17, 16)
@@ -739,6 +441,7 @@ Partial Class Booking
         '
         'PicRoomID
         '
+        Me.PicRoomID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicRoomID.Location = New System.Drawing.Point(552, 198)
         Me.PicRoomID.Name = "PicRoomID"
         Me.PicRoomID.Size = New System.Drawing.Size(17, 16)
@@ -748,6 +451,7 @@ Partial Class Booking
         '
         'PicBookID
         '
+        Me.PicBookID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicBookID.Location = New System.Drawing.Point(551, 104)
         Me.PicBookID.Name = "PicBookID"
         Me.PicBookID.Size = New System.Drawing.Size(17, 16)
@@ -859,7 +563,7 @@ Partial Class Booking
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.RoomToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.ToolStripMenuItem1, Me.RoomToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -869,6 +573,11 @@ Partial Class Booking
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
         Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.NewToolStripMenuItem.Text = "New"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
         '
         'RoomToolStripMenuItem
         '
@@ -881,6 +590,11 @@ Partial Class Booking
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
         Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(123, 6)
         '
         'ExitToolStripMenuItem
         '
@@ -909,46 +623,35 @@ Partial Class Booking
         '
         'ReportToolStripMenuItem
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6, Me.ToolStripMenuItem7})
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportToolStripMenuItem1, Me.BreakReportToolStripMenuItem})
         Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.ReportToolStripMenuItem.Text = "Report"
         '
-        'ToolStripMenuItem2
+        'ReportToolStripMenuItem1
         '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripMenuItem2.Text = "1."
+        Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ReportToolStripMenuItem1.Text = "Report"
         '
-        'ToolStripMenuItem3
+        'BreakReportToolStripMenuItem
         '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripMenuItem3.Text = "2."
+        Me.BreakReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BreakReport1ToolStripMenuItem, Me.BreakReport2ToolStripMenuItem})
+        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.BreakReportToolStripMenuItem.Text = "Break Report"
         '
-        'ToolStripMenuItem4
+        'BreakReport1ToolStripMenuItem
         '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripMenuItem4.Text = "3."
+        Me.BreakReport1ToolStripMenuItem.Name = "BreakReport1ToolStripMenuItem"
+        Me.BreakReport1ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.BreakReport1ToolStripMenuItem.Text = "Break Report 1"
         '
-        'ToolStripMenuItem5
+        'BreakReport2ToolStripMenuItem
         '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripMenuItem5.Text = "4."
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripMenuItem6.Text = "5."
-        '
-        'ToolStripMenuItem7
-        '
-        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(83, 22)
-        Me.ToolStripMenuItem7.Text = "6."
+        Me.BreakReport2ToolStripMenuItem.Name = "BreakReport2ToolStripMenuItem"
+        Me.BreakReport2ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.BreakReport2ToolStripMenuItem.Text = "Break Report 2"
         '
         'HelpToolStripMenuItem
         '
@@ -973,20 +676,6 @@ Partial Class Booking
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(876, 150)
         Me.DataGridView1.TabIndex = 143
-        '
-        'HRRISdbDataSet2
-        '
-        Me.HRRISdbDataSet2.DataSetName = "HRRISdbDataSet2"
-        Me.HRRISdbDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'BookingBindingSource
-        '
-        Me.BookingBindingSource.DataMember = "booking"
-        Me.BookingBindingSource.DataSource = Me.HRRISdbDataSet2
-        '
-        'BookingTableAdapter
-        '
-        Me.BookingTableAdapter.ClearBeforeFill = True
         '
         'BookingidDataGridViewTextBoxColumn
         '
@@ -1042,19 +731,147 @@ Partial Class Booking
         Me.CommentsDataGridViewTextBoxColumn.HeaderText = "comments"
         Me.CommentsDataGridViewTextBoxColumn.Name = "CommentsDataGridViewTextBoxColumn"
         '
+        'BookingBindingSource
+        '
+        Me.BookingBindingSource.DataMember = "booking"
+        Me.BookingBindingSource.DataSource = Me.HRRISdbDataSet2
+        '
+        'HRRISdbDataSet2
+        '
+        Me.HRRISdbDataSet2.DataSetName = "HRRISdbDataSet2"
+        Me.HRRISdbDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BookingTableAdapter
+        '
+        Me.BookingTableAdapter.ClearBeforeFill = True
+        '
+        'DeleteStatus
+        '
+        Me.DeleteStatus.Image = Global.HRRIS.My.Resources.Resources._641
+        Me.DeleteStatus.Location = New System.Drawing.Point(12, 40)
+        Me.DeleteStatus.Name = "DeleteStatus"
+        Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
+        Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DeleteStatus.TabIndex = 145
+        Me.DeleteStatus.TabStop = False
+        Me.DeleteStatus.Visible = False
+        '
+        'UpdatetingsStatus
+        '
+        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 41)
+        Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
+        Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
+        Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpdatetingsStatus.TabIndex = 146
+        Me.UpdatetingsStatus.TabStop = False
+        Me.UpdatetingsStatus.Visible = False
+        '
+        'FindStatus
+        '
+        Me.FindStatus.Location = New System.Drawing.Point(12, 41)
+        Me.FindStatus.Name = "FindStatus"
+        Me.FindStatus.Size = New System.Drawing.Size(64, 64)
+        Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.FindStatus.TabIndex = 147
+        Me.FindStatus.TabStop = False
+        Me.FindStatus.Visible = False
+        '
+        'AddStatus
+        '
+        Me.AddStatus.Location = New System.Drawing.Point(12, 40)
+        Me.AddStatus.Name = "AddStatus"
+        Me.AddStatus.Size = New System.Drawing.Size(64, 64)
+        Me.AddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.AddStatus.TabIndex = 148
+        Me.AddStatus.TabStop = False
+        Me.AddStatus.Visible = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Updatetings)
+        Me.Panel2.Controls.Add(Me.Find)
+        Me.Panel2.Controls.Add(Me.Adds1)
+        Me.Panel2.Controls.Add(Me.Delete)
+        Me.Panel2.Controls.Add(Me.UpClose)
+        Me.Panel2.Controls.Add(Me.DownStart)
+        Me.Panel2.Location = New System.Drawing.Point(12, 102)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(64, 73)
+        Me.Panel2.TabIndex = 144
+        '
+        'Updatetings
+        '
+        Me.Updatetings.Image = Global.HRRIS.My.Resources.Resources.Ink_Pen_2_icon
+        Me.Updatetings.Location = New System.Drawing.Point(0, 214)
+        Me.Updatetings.Name = "Updatetings"
+        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
+        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Updatetings.TabIndex = 12
+        Me.Updatetings.TabStop = False
+        '
+        'Find
+        '
+        Me.Find.Image = Global.HRRIS.My.Resources.Resources.Magnifier_icon
+        Me.Find.Location = New System.Drawing.Point(0, 144)
+        Me.Find.Name = "Find"
+        Me.Find.Size = New System.Drawing.Size(64, 64)
+        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Find.TabIndex = 7
+        Me.Find.TabStop = False
+        '
+        'Adds1
+        '
+        Me.Adds1.Image = Global.HRRIS.My.Resources.Resources.Add_icon
+        Me.Adds1.Location = New System.Drawing.Point(0, 73)
+        Me.Adds1.Name = "Adds1"
+        Me.Adds1.Size = New System.Drawing.Size(64, 64)
+        Me.Adds1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Adds1.TabIndex = 6
+        Me.Adds1.TabStop = False
+        '
+        'Delete
+        '
+        Me.Delete.Image = Global.HRRIS.My.Resources.Resources.delete_icon
+        Me.Delete.Location = New System.Drawing.Point(0, 284)
+        Me.Delete.Name = "Delete"
+        Me.Delete.Size = New System.Drawing.Size(64, 64)
+        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.Delete.TabIndex = 5
+        Me.Delete.TabStop = False
+        '
+        'UpClose
+        '
+        Me.UpClose.Image = Global.HRRIS.My.Resources.Resources.Arrow_Right_2_icon
+        Me.UpClose.Location = New System.Drawing.Point(0, 354)
+        Me.UpClose.Name = "UpClose"
+        Me.UpClose.Size = New System.Drawing.Size(64, 64)
+        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.UpClose.TabIndex = 4
+        Me.UpClose.TabStop = False
+        '
+        'DownStart
+        '
+        Me.DownStart.Image = Global.HRRIS.My.Resources.Resources.Arrow_Down_2_icon
+        Me.DownStart.Location = New System.Drawing.Point(0, 5)
+        Me.DownStart.Name = "DownStart"
+        Me.DownStart.Size = New System.Drawing.Size(64, 64)
+        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.DownStart.TabIndex = 78
+        Me.DownStart.TabStop = False
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1002, 663)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
         Me.Controls.Add(Me.FindStatus)
         Me.Controls.Add(Me.AddStatus)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnInvoince)
@@ -1091,23 +908,9 @@ Partial Class Booking
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Booking"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Booking"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -1124,42 +927,26 @@ Partial Class Booking
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents DeleteStatus As PictureBox
-    Friend WithEvents UpdatetingsStatus As PictureBox
-    Friend WithEvents FindStatus As PictureBox
-    Friend WithEvents AddStatus As PictureBox
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Updatetings As PictureBox
-    Friend WithEvents Find As PictureBox
-    Friend WithEvents Adds1 As PictureBox
-    Friend WithEvents Delete As PictureBox
-    Friend WithEvents UpClose As PictureBox
-    Friend WithEvents DownStart As PictureBox
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents btnBreakReport2 As Button
-    Friend WithEvents btnBreakReport1 As Button
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents btnCusReport As Button
-    Friend WithEvents btnReport2 As Button
-    Friend WithEvents btnReport3 As Button
-    Friend WithEvents btnReport4 As Button
-    Friend WithEvents cboReportMonth As ComboBox
-    Friend WithEvents btnReport5 As Button
-    Friend WithEvents Label12 As Label
-    Friend WithEvents btnReport6 As Button
-    Friend WithEvents Label11 As Label
-    Friend WithEvents txtReportYear As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label14 As Label
@@ -1214,15 +1001,8 @@ Partial Class Booking
     Friend WithEvents UpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UpdateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents Yearerror As PictureBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents HRRISdbDataSet2 As HRRISdbDataSet2
     Friend WithEvents BookingBindingSource As BindingSource
@@ -1236,4 +1016,21 @@ Partial Class Booking
     Friend WithEvents CheckindateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalpriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CommentsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem8 As ToolStripSeparator
+    Friend WithEvents ReportToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents BreakReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BreakReport1ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BreakReport2ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteStatus As PictureBox
+    Friend WithEvents UpdatetingsStatus As PictureBox
+    Friend WithEvents FindStatus As PictureBox
+    Friend WithEvents AddStatus As PictureBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Updatetings As PictureBox
+    Friend WithEvents Find As PictureBox
+    Friend WithEvents Adds1 As PictureBox
+    Friend WithEvents Delete As PictureBox
+    Friend WithEvents UpClose As PictureBox
+    Friend WithEvents DownStart As PictureBox
 End Class

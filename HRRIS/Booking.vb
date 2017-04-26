@@ -22,9 +22,6 @@ Public Class Booking
     Dim UIModi As New UIController
     Dim bindingsource1 As New BindingSource
 
-
-
-
     Private Sub Booking_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet2.booking' table. You can move, or remove it, as needed.
         Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
@@ -100,18 +97,11 @@ Public Class Booking
         Dim selectedIndex As Integer = cboRoomID.SelectedIndex
         Dim selectedItem As Object = cboRoomID.SelectedItem
 
-        'MsgBox("Room ID Is:   " & selectedIndex.ToString())
-
-
-
     End Sub
 
     Private Sub cboCusId_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCusId.SelectedIndexChanged
         Dim selectedIndex1 As Integer = cboCusId.SelectedIndex
         Dim selectedItem1 As Object = cboCusId.SelectedItem
-
-        ' MsgBox("Customer ID is: " & selectedIndex1.ToString())
-
 
     End Sub
 
@@ -135,8 +125,9 @@ Public Class Booking
             Dim bookingimport As BookingDataController = New BookingDataController
             bookingimport.BookingInsert(bookingData)
 
-
         End If
+
+        Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
 
     End Sub
     'validate private function
@@ -221,19 +212,7 @@ Public Class Booking
         Return bAllFieldsValid
 
     End Function
-    'Addition Validation function for further use
-    Private Function YearValidate() As Boolean
-        Dim iValid As Boolean
 
-        iValid = IsNumeric(txtReportYear.Text)
-        If iValid = True Then
-        Else
-            Yearerror.Visible = True
-
-        End If
-
-        Return iValid
-    End Function
 
     ' CRUD fucntion 
     Private Sub btnFirst_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFirst.Click
@@ -302,6 +281,8 @@ Public Class Booking
                 MsgBox("The record was not delete")
         End Select
 
+        Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
+
     End Sub
 
     Private Sub clearForm()
@@ -318,17 +299,23 @@ Public Class Booking
 
 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
-        Dim oControler As BookingDataController = New BookingDataController
-        Dim sId = txtID.Text
-        Dim lsData = oControler.BookingsFindById(sId)
+        Dim bIsValid As Boolean
+        bIsValid = IsNumeric(txtID.Text)
 
-        If lsData.Count = 1 Then
-            populateBookingFields(lsData.Item(0))
+        If bIsValid Then
+            Dim oControler As BookingDataController = New BookingDataController
+            Dim sId = txtID.Text
+            Dim lsData = oControler.BookingsFindById(sId)
 
-        Else
-            Debug.Print("no record were found")
+            If lsData.Count = 1 Then
+                populateBookingFields(lsData.Item(0))
 
+            Else
+                Debug.Print("no record were found")
+
+            End If
         End If
+
     End Sub
 
     'Initial function room (checked box) - generate ID to the next 
@@ -349,15 +336,22 @@ Public Class Booking
     End Sub
 
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
-        Dim oController As BookingDataController = New BookingDataController
-        Dim iNumRows = oController.BookingsUpdate(getBookingData)
+        Dim bIsValid = BookValid()
 
-        If iNumRows = 1 Then
-            Debug.Print("The record was updated. check")
-        Else
-            Debug.Print("The record was not update")
 
+        If bIsValid Then
+            Dim oController As BookingDataController = New BookingDataController
+            Dim iNumRows = oController.BookingsUpdate(getBookingData)
+
+            If iNumRows = 1 Then
+                Debug.Print("The record was updated. check")
+            Else
+                Debug.Print("The record was not update")
+
+            End If
         End If
+
+        Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
 
     End Sub
 
@@ -380,145 +374,19 @@ Public Class Booking
 
     'Calculating done - add more elseif inorder to provide more right calculation
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
-
-
-
         txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmNum.Text))
 
         MsgBox("There are no room type, please reinput")
 
     End Sub
 
-    ' End Sub
-
-    '1.generate cus report ABOUT last-booking time , days booked  
-    Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
-        Dim GenerateCusReportByID As New ReportController
-        Try
-            Dim sCusId = cboCusId.Text
-            GenerateCusReportByID.createReport01(CStr(sCusId))
-        Catch ex As Exception
-            Debug.Print("the error is " & ex.Message)
-            MsgBox("Please choose a customer")
-        End Try
-
-    End Sub
-
-    '2.Generate room_id report ABOUT booking_date, total_price 
-    'SQL statement SELECT booking_date, total_price FROM booking WHERE room_id = ?; 
-    Private Sub btnReport2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport2.Click
-
-        Dim Report2 As New ReportController
-
-        'For excepttion and case that forgot to choose room ID
-        Try
-            Dim sRoomId = cboRoomID.Text
-            Report2.CreateReport02(CStr(sRoomId))
-
-        Catch ex As Exception
-            Debug.Print("error is : " & ex.Message)
-            MsgBox("Please choose room ID ")
-
-        End Try
-
-
-
-    End Sub
-    '3.Report customer_id report ABOUT given period = " year and month = 
-    'SQL code is SELECT * FROM booking WHERE customer_id = ? AND booking_date = ?; 
-    'Create input for months(cbbox) and years(text), dim here 
-    Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
-        Dim report3 As New ReportController
-        Try
-            Dim sCusID = cboCusId.Text
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
-
-            report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & Environment.NewLine & " Customer ID, months or year is not selected")
-        End Try
-
-    End Sub
-    '4. all bookings in given months and years (??)
-    'SQL code is SELECT * FROM booking WHERE (bookingdate = ?); find how to do it with date and year
-    Private Sub btnReport4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport4.Click
-        Dim report4 As New ReportController
-
-        Try
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
-            report4.CreateReport04(CInt(iMonths), CInt(iYears))
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
-        End Try
-    End Sub
-
-    '5.show customer = ? who are due for checkin in a given month or year 
-    'SQL code is SELECT * FROM booking WHERE 
-    'Clue: using the visible and invisible radio box 
-
-    Private Sub btnReport5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport5.Click
-        Dim report5 As New ReportController
-
-        Try
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
-
-            report5.CreateReport05(CInt(iMonths), CInt(iYears))
-
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
-        End Try
-    End Sub
-    '6.show room_id = ? ABOUT bookings * in given months or year 
-    'SQL code is SELECT * FROM bookings WHERE room_id = ? AND month = ? OR year = ?;
-    Private Sub btnReport6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport6.Click
-        Dim report6 As New ReportController
-
-        Try
-            Dim sRmId = cboRoomID.Text
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
-
-            report6.CreateReport06(CStr(sRmId), CInt(iMonths), CInt(iYears))
-
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " room ID, months or year is not selected")
-        End Try
-    End Sub
-    'Controll break report 1 and 2 ssection 
-    'This is the part of control break report 
-    Private Sub btnBreakReport1_Click(sender As Object, e As EventArgs) Handles btnBreakReport1.Click
-        Dim breakReport1 As New ReportController
-
-        Try
-            Dim iMonths = cboReportMonth.Text
-            Dim iYears = txtReportYear.Text
-
-            breakReport1.createBreakReport(CInt(iMonths), CInt(iYears))
-
-
-        Catch ex As Exception
-            Debug.Print("the error is :" & ex.Message)
-            MsgBox("The report could not generate, please recheck the code mtfk")
-
-        End Try
-    End Sub
-
-    Private Sub btnBreakReport2_Click(sender As Object, e As EventArgs) Handles btnBreakReport2.Click
-
-    End Sub
-
     'Move to invoice form 
     Private Sub btnInvoince_Click(sender As Object, e As EventArgs) Handles btnInvoince.Click
 
-        Dim invoiceNav As New invoice
-        invoiceNav.ShowDialog()
+        Dim invoiceform As New Invoice
+        invoiceform.bookingIdPass = txtID.Text
+        invoiceform.Show()
+        Me.Hide()
 
 
     End Sub
@@ -547,40 +415,21 @@ Public Class Booking
         bok.Show()
     End Sub
 
-    'Imporive Room and Customer section 
-    'input field: Room : 1.Type, 2. RmNum 3. Room ID  Customer 1.CusId 2.Firstname 
-    'ROOM
-    'populate 
-    Private Sub populatecus(ByRef cusData As Hashtable)
-
-        txtFirstName.Text = CStr(cusData("firstname"))
-    End Sub
-
-    Private Sub populateroom(ByRef roomData As Hashtable)
-
-        txtType.Text = CStr(roomData("type"))
-        txtRmNum.Text = CStr(CInt(roomData("price")))
+    Private Sub ReportToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem1.Click
+        Dim repor1 As New Report
+        repor1.Show()
+        Me.Hide()
 
     End Sub
-    'Enhance feature stop 
-    'Customer 
-    'This Partial Is still Not work 
-    'Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
-    '    Dim sFirstname As String
-    '    Dim sCusId As String
-    '    sFirstname = txtFirstName.Text
-    '    sCusId = cboCusId.Text
-    '    Try
-    '        Dim oController As New CustomerDataController
-    '        oController.CustomerFind(sFirstname)
+
+    Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
+        Dim brkreport1 As New BreakReport
+        brkreport1.Show()
+        Me.Hide()
+    End Sub
 
 
-    '    Catch ex As Exception
-    '        Debug.Print("Error is: " & ex.Message)
-    '        MsgBox("There was somethings wrong")
-    '    End Try
-    'End Sub
-    'enhance customer feature 
+#Region "enhance"
     Private Sub cboCusId_TextChanged(sender As Object, e As EventArgs) Handles cboCusId.TextChanged
         Dim sCusId = cboCusId.Text
 
@@ -604,23 +453,21 @@ Public Class Booking
         End If
     End Sub
 
-    'Private Sub txtType_Leave(sender As Object, e As EventArgs) Handles txtType.Leave
-    '    Dim sType = txtType.Text
+    Private Sub populatecus(ByRef cusData As Hashtable)
 
-    '    Dim oController As New RoomDataController
-    '    Dim lsData = oController.DisplayByType(sType)
+        txtFirstName.Text = CStr(cusData("firstname"))
+    End Sub
 
-    '    If lsData.Count = 1 Then
-    '        populateroom1(lsData.Item(0))
-    '    End If
-    'End Sub
+    Private Sub populateroom(ByRef roomData As Hashtable)
 
-    'Private Sub populateroom1(ByRef roomData As Hashtable)
+        txtType.Text = CStr(roomData("type"))
+        txtRmNum.Text = CStr(CInt(roomData("price")))
 
-    '    txtRmNum.Text = CStr(CInt(roomData("price")))
-    '    cboRoomID.Text = CStr(CType(roomData("room_id"), String))
+    End Sub
 
-    'End Sub
+#End Region
+
+#Region "UI PART"
 
     'UI fucntion 
     'Uisng piccture box and panel for UI
@@ -678,34 +525,6 @@ Public Class Booking
     '            populateroom(lsData.Item(0))
     '        End If
     '    End Sub
-
+#End Region
 
 End Class
-'Note part 
-
-' REPORT BUTTON SECTION 
-'IDEA: 
-' using checked box - idead: can create another same findbyID in room DB to group and return the value for room ID by room type: 
-' ther are 4 room type , 4 floor, 
-
-'Code for checked box and DIMING bien 
-' Dim str As String
-'   str = " "
-'   If CheckBox1.Checked = True Then
-'       str &= CheckBox1.Text
-'       str &= " "
-'   End If
-' If CheckBox2.Checked = True Then
-'       str &= CheckBox2.Text
-'       str &= " "
-'   End If
-' If CheckBox3.Checked = True Then
-'       str &= CheckBox3.Text
-'       str &= " "
-'   End If
-' 'Interesting code :
-' Private Sub CheckBox4_CheckedChanged(sender As Object,
-'e As EventArgs) Handles CheckBox4.CheckedChanged
-'     Label1.Visible = True
-'     TextBox1.Visible = True
-'oR could use the case 

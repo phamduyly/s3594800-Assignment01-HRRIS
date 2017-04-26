@@ -298,7 +298,6 @@ Public Class ReportController
 
         Return lsData
     End Function
-
     'Break report 
     'Break report 1
     'Find from booking bookingID and MOnth AND yEAR
@@ -315,7 +314,7 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT * FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
+            oCommand.CommandText = "SELECT booking.booking_id, booking.booking_date, room.room_id, room.room_number, room.type, room.price, room.num_beds, room.availability, room.floor, room.description FROM booking room WHERE DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
@@ -323,16 +322,19 @@ Public Class ReportController
             Dim htTempData As Hashtable
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-                htTempData("booking_id") = CInt(oDataReader("booking_id"))
-                htTempData("booking_date") = CDate(oDataReader("booking_date"))
-                htTempData("room_id") = CInt(oDataReader("room_id"))
-                htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("num_days") = CInt(oDataReader("num_days"))
-                htTempData("num_guests") = CInt(oDataReader("num_guests"))
-                htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
-                htTempData("total_price") = CInt(oDataReader("total_price"))
-                htTempData("comments") = CStr(oDataReader("comments"))
+                htTempData("booking_id") = CInt(oDataReader("booking.booking_id"))
+                htTempData("booking_date") = CDate(oDataReader("booking.booking_date"))
+                htTempData("room_id") = CInt(oDataReader("room.room_id"))
+                htTempData("room_number") = CInt(oDataReader("room.room_number"))
+                htTempData("type") = CStr(oDataReader("room.type"))
+                htTempData("price") = CInt(oDataReader("room.price"))
+                htTempData("num_beds") = CInt(oDataReader("room.num_beds"))
+                htTempData("availability") = CStr(oDataReader("room.availability"))
+                htTempData("floor") = CInt(oDataReader("room.floor"))
+                htTempData("descripion") = CStr(oDataReader("room.description"))
+
                 lsData.Add(htTempData)
+
             Loop
 
             Debug.Print("the record was found.")
@@ -347,9 +349,8 @@ Public Class ReportController
 
         Return lsData
     End Function
-    
-    'Break reprot 2 
-      Public Function BreakReport1(ByVal iMonths As Integer, ByVal iYears As Integer) As List(Of Hashtable)
+
+    Public Function BreakReport2(ByVal iYears As Integer) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
@@ -361,9 +362,8 @@ Public Class ReportController
 
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
-            'date from invoice table 
-            '" AND DatePart(""m"", date) = " & iMonths & 
-            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart (""yyyy"", date) = " & iYears & ";"
+
+            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart (""yyyy"", booking_date) = " & iYears & ";"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
@@ -372,14 +372,8 @@ Public Class ReportController
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
                 htTempData("booking_id") = CInt(oDataReader("booking_id"))
-                htTempData("booking_date") = CDate(oDataReader("booking_date"))
-                htTempData("room_id") = CInt(oDataReader("room_id"))
-                htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("num_days") = CInt(oDataReader("num_days"))
-                htTempData("num_guests") = CInt(oDataReader("num_guests"))
-                htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
-                htTempData("total_price") = CInt(oDataReader("total_price"))
-                htTempData("comments") = CStr(oDataReader("comments"))
+                htTempData("invoice_date") = CDate(oDataReader("invoice_date"))
+                htTempData("amount") = CInt(oDataReader("amount"))
                 lsData.Add(htTempData)
             Loop
 
@@ -395,6 +389,7 @@ Public Class ReportController
 
         Return lsData
     End Function
+
 #End Region
 
 #Region "HTML section"
@@ -617,6 +612,9 @@ Public Class ReportController
         System.Diagnostics.Process.Start(sParam)
 
     End Sub
+#End Region
+
+#Region "Generate Report"
 
     'GENERATE REPORT SECTION FOR THE REPORT ONLY - BREAK REPORT IS BELLOW THis
 
@@ -689,6 +687,10 @@ Public Class ReportController
 
         Return sTable
     End Function
+#End Region
+
+#Region "BreakReport1 HTML"
+
 
     'BREAK REPORT:
     'Need to summary all the funciton needed in order to run this function 
@@ -748,8 +750,6 @@ Public Class ReportController
         Dim sHTMLEndTag As String = "</html>"
         sReportContent &= sBodyEndTag & vbCrLf & sHTMLEndTag
 
-
-
         Return sReportContent
 
     End Function
@@ -762,12 +762,13 @@ Public Class ReportController
         lsKeys.Add("booking_id")
         lsKeys.Add("booking_date")
         lsKeys.Add("room_id")
-        lsKeys.Add("customer_id")
-        lsKeys.Add("num_days")
-        lsKeys.Add("num_guests")
-        lsKeys.Add("checkin_date")
-        lsKeys.Add("total_price")
-        lsKeys.Add("comments")
+        lsKeys.Add("room_number")
+        lsKeys.Add("type")
+        lsKeys.Add("price")
+        lsKeys.Add("num_beds")
+        lsKeys.Add("availability")
+        lsKeys.Add("floor")
+        lsKeys.Add("description")
 
         ' Generate the header row
         Dim sHeadderRow = "<tr>" & vbCrLf
@@ -850,18 +851,18 @@ Public Class ReportController
     End Function
 #End Region
 
-#Region "2"
+#Region "Break2"
 
-    Public Sub createBreakReport(ByVal iMonths As Integer, ByVal iYears As Integer)
+    Public Sub createBreakReport2(ByRef iYears As Integer)
         Debug.Print("CreatBreakReport...")
 
         'lskey part 
 
-        Dim lsData = BreakReport1(iMonths, iYears)
-        Dim sReportTitle = "First controll break report "
+        Dim lsData = BreakReport2(iYears)
+        Dim sReportTitle = "Second controll break report "
         Dim sReportContent = generateBreakReport(lsData, sReportTitle)
         'lsData is ... sReporttiltle is 
-        Dim sReportFilename = "HRRIS First Control Break Report.html"
+        Dim sReportFilename = "HRRIS second Control Break Report.html"
         saveReport(sReportContent, sReportFilename)
 
         Dim sParam As String = """" & Application.StartupPath & "\" & sReportFilename & """"
@@ -872,7 +873,7 @@ Public Class ReportController
 
     End Sub
 
-    Private Function generateBreakReport(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String) As String
+    Private Function generateBreakReport2(ByVal lsData As List(Of Hashtable), ByVal sReportTitle As String) As String
         'This part seem like the code is going to take the value from 1.the lsDATA whihc was dimed before in the clas
         'and the sReportitle whihc is going to be printed in the things ]
 
@@ -897,7 +898,7 @@ Public Class ReportController
         sReportContent = sDoctype & vbCrLf & sHtmlStartTag & vbCrLf & sHeadTitle & vbCrLf & sBodyStartTag & vbCrLf & sReportHeading & vbCrLf
 
         '2.Generate the product table and its rows 
-        Dim sTable = generateControlBreakeTale(lsData)
+        Dim sTable = generateControlBreakeTale2(lsData)
         sReportContent &= sTable & vbCrLf
 
 
@@ -912,7 +913,7 @@ Public Class ReportController
 
     End Function
 
-    Private Function generateControlBreakeTale(ByVal lsData As List(Of Hashtable)) As String
+    Private Function generateControlBreakeTale2(ByVal lsData As List(Of Hashtable)) As String
         Dim sTable = "<table class =""table table-hover"">" & vbCrLf
         Dim htSample As Hashtable = lsData.Item(0)
         'Dim lsKeys = htSample.Keys
@@ -932,7 +933,7 @@ Public Class ReportController
         sTable &= sHeadderRow
 
         'Generate the table rows 
-        sTable &= generateTableRows(lsData, lsKeys)
+        sTable &= generateTableRows2(lsData, lsKeys)
 
         'Generate the end of the table 
         sTable &= "</table>" & vbCrLf
@@ -941,7 +942,7 @@ Public Class ReportController
     End Function
 
 
-    Private Function generateTableRows(ByVal lsData As List(Of Hashtable), ByVal lsKeys As List(Of String)) As String
+    Private Function generateTableRows2(ByVal lsData As List(Of Hashtable), ByVal lsKeys As List(Of String)) As String
 
         '1.Instalisation 
         Dim sRows As String = ""
@@ -957,6 +958,7 @@ Public Class ReportController
             '2a. Get a product and set the current key
             Dim booking As Hashtable = record
             sCurrentControlField = CStr(booking("booking_id"))
+            'This part should be turn into "looking for date in "amount_date"""
 
             '2b. Do not check for control break on the first iteration of the loop
             If bFirstTime Then
@@ -976,11 +978,11 @@ Public Class ReportController
             End If
 
             ' 2c. Output a normal row for every pass thru' the list
-'The part for each break record 
+            'The part for each break record 
             sTableRow = "<tr>" & vbCrLf
             For Each key In lsKeys
-sTableRow &= "<td>" & ""'month(name(month(cdate(invoice)))) '"" & "</td>" & vbCrLf
-'Cstr(invoice(date))
+                sTableRow &= "<td>" & "" 'month(name(month(cdate(invoice)))) '"" & "</td>" & vbCrLf
+                'Cstr(invoice(date))
             Next
             sTableRow &= "</tr>" & vbCrLf
             Debug.Print("sTableRow: " & sTableRow)
@@ -1004,6 +1006,6 @@ sTableRow &= "<td>" & ""'month(name(month(cdate(invoice)))) '"" & "</td>" & vbCr
         Return sRows
     End Function
 
-#End Region 
+#End Region
 
 End Class

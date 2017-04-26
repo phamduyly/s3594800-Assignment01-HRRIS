@@ -80,6 +80,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookingDataController.vb" />
+    <Compile Include="BreakReport.Designer.vb">
+      <DependentUpon>BreakReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BreakReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Customer.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HRRISdbDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HRRISdbDataSet3.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HRRISdbDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="invoice.Designer.vb">
       <DependentUpon>invoice.vb</DependentUpon>
     </Compile>
@@ -125,6 +136,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Report.Designer.vb">
+      <DependentUpon>Report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ReportController.vb" />
     <Compile Include="room.Designer.vb">
       <DependentUpon>room.vb</DependentUpon>
@@ -141,6 +158,9 @@
     <EmbeddedResource Include="Booking.resx">
       <DependentUpon>Booking.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BreakReport.resx">
+      <DependentUpon>BreakReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.vb</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +172,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="room.resx">
       <DependentUpon>room.vb</DependentUpon>
@@ -191,6 +214,17 @@
     <None Include="HRRISdbDataSet2.xss">
       <DependentUpon>HRRISdbDataSet2.xsd</DependentUpon>
     </None>
+    <None Include="HRRISdbDataSet3.xsc">
+      <DependentUpon>HRRISdbDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="HRRISdbDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HRRISdbDataSet3.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HRRISdbDataSet3.xss">
+      <DependentUpon>HRRISdbDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -203,6 +237,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Magnifier-icon.png" />
+    <None Include="Resources\Ink-Pen-2-icon.png" />
+    <None Include="Resources\Home.png" />
+    <None Include="Resources\delete-icon.png" />
+    <None Include="Resources\Arrow-Up-2-icon.png" />
+    <None Include="Resources\Arrow-Right-2-icon.png" />
+    <None Include="Resources\Arrow-Left-2-icon.png" />
+    <None Include="Resources\Arrow-Down-2-icon.png" />
+    <None Include="Resources\Add-icon.png" />
+    <None Include="Resources\641.png" />
+    <None Include="Button-Close-icon.png" />
     <Content Include="HRRISdb.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

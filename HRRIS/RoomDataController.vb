@@ -326,13 +326,13 @@ Public Class RoomDataController
 
             oCommand.CommandText = "UPDATE room SET room_number = ?, type = ?, price = ?, num_beds = ?, availability = ?, floor = ?, description = ? WHERE room_id = ?;"
 
-            oCommand.Parameters.Add("room_number", OleDbType.Integer, 255)
-            oCommand.Parameters.Add("type", OleDbType.VarChar, 255)
-            oCommand.Parameters.Add("price", OleDbType.Integer, 255)
-            oCommand.Parameters.Add("num_beds", OleDbType.Integer, 255)
-            oCommand.Parameters.Add("availability", OleDbType.VarChar, 255)
-            oCommand.Parameters.Add("floor", OleDbType.Integer, 255)
-            oCommand.Parameters.Add("description", OleDbType.VarChar, 255)
+            oCommand.Parameters.Add("room_number", OleDbType.Integer, 10)
+            oCommand.Parameters.Add("type", OleDbType.VarChar, 50)
+            oCommand.Parameters.Add("price", OleDbType.Integer, 50)
+            oCommand.Parameters.Add("num_beds", OleDbType.Integer, 10)
+            oCommand.Parameters.Add("availability", OleDbType.VarChar, 100)
+            oCommand.Parameters.Add("floor", OleDbType.Integer, 10)
+            oCommand.Parameters.Add("description", OleDbType.VarChar, 100)
             oCommand.Parameters.Add("room_id", OleDbType.Integer, 10)
 
             oCommand.Parameters("room_number").Value = CInt(roomData("room_number"))
