@@ -125,6 +125,14 @@ Public Class Report
     End Function
 
     Private Sub Report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim reporttip As New ToolTip
+        reporttip.SetToolTip(btnCusReport, "Choose customer ID")
+        reporttip.SetToolTip(btnReport2, "Choose customer ID and time period")
+        reporttip.SetToolTip(btnReport3, "Choose customer ID and time period")
+        reporttip.SetToolTip(btnReport4, "Choose time period")
+        reporttip.SetToolTip(btnReport5, "Choose time period")
+        reporttip.SetToolTip(btnReport6, "Choose room ID and time period")
+
         cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
         Dim oController1 As New RoomDataController
         Dim lsData1 = oController1.RoomfindALl()
@@ -147,5 +155,59 @@ Public Class Report
         For Each book In lsData4
             cboBookId.Items.Add(CStr(book("booking_id")))
         Next
+    End Sub
+#Region "menu"
+    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
+        Dim rm As New Room
+        rm.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub InvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InvoiceToolStripMenuItem.Click
+        Dim ivnoe As New Invoice
+        ivnoe.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingToolStripMenuItem.Click
+        Dim book As New Booking
+        book.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
+        Dim csu As New Customer
+        csu.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sAbout As String
+        sAbout = "About.html "
+        Dim sParam As String = """" & Application.StartupPath & "\" & sAbout & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
+    End Sub
+
+    Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sHelp As String
+        sHelp = "Help.html"
+        Dim sParam As String = """" & Application.StartupPath & "\" & sHelp & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
     End Sub
 End Class

@@ -46,6 +46,7 @@ Partial Class BreakReport
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -70,52 +71,52 @@ Partial Class BreakReport
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'InvoiceToolStripMenuItem
         '
         Me.InvoiceToolStripMenuItem.Name = "InvoiceToolStripMenuItem"
-        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.InvoiceToolStripMenuItem.Text = "Invoice"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(123, 6)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(149, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.HelpPageToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
@@ -123,7 +124,7 @@ Partial Class BreakReport
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'Yearerror
@@ -241,6 +242,12 @@ Partial Class BreakReport
         Me.Label2.TabIndex = 153
         Me.Label2.Text = "All invoices in the current year, broken down by month"
         '
+        'HelpPageToolStripMenuItem
+        '
+        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HelpPageToolStripMenuItem.Text = "Help Page"
+        '
         'BreakReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,4 +295,5 @@ Partial Class BreakReport
     Friend WithEvents Label2 As Label
     Friend WithEvents cboRoomID As ComboBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
 End Class

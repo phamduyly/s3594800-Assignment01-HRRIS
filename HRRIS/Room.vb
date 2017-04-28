@@ -22,6 +22,27 @@ Public Class Room
         'TODO: This line of code loads data into the 'HRRISdbDataSet.room' table. You can move, or remove it, as needed.
         Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
 
+        Dim tootipBookg As New ToolTip
+        'Input fields part 
+        tootipBookg.SetToolTip(txtRmID, "Choose room ID")
+        tootipBookg.SetToolTip(txtRmNum, "Choose room number")
+        tootipBookg.SetToolTip(txtRmType, "Choose room type")
+        tootipBookg.SetToolTip(txtRmPrice, "choose room price")
+        tootipBookg.SetToolTip(txtRmBedNum, "choose room bed number")
+        tootipBookg.SetToolTip(txtRmAva, "Choose room avalibility")
+        tootipBookg.SetToolTip(txtRmFl, "Choose room floor from the drop down list")
+        tootipBookg.SetToolTip(txtRmDes, "Input room description")
+
+
+        'Button part 
+        tootipBookg.SetToolTip(btnFirst, "Click New to input new record")
+        tootipBookg.SetToolTip(btnDelete, "Input room ID to delete record")
+        tootipBookg.SetToolTip(btnFind, "Input room ID to find record")
+
+        tootipBookg.SetToolTip(btnFirst, "Navigation")
+        tootipBookg.SetToolTip(btnNext, "Navigation")
+        tootipBookg.SetToolTip(btnPrevious, "Navigation")
+        tootipBookg.SetToolTip(btnLast, "Navigation")
 
         ' moving betweeen record section
         Dim MoveRecord As RoomDataController = New RoomDataController

@@ -20,6 +20,27 @@ Public Class Customer
         'TODO: This line of code loads data into the 'HRRISdbDataSet1.customer' table. You can move, or remove it, as needed.
         Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
 
+        Dim tootipBookg As New ToolTip
+        'Input fields part 
+        tootipBookg.SetToolTip(txtCusID, "Input ID to perform program function")
+        tootipBookg.SetToolTip(txtCusTitl, "Choose title here")
+        tootipBookg.SetToolTip(txtGender, "Choose customer gender here")
+        tootipBookg.SetToolTip(txtCusFirName, "Input customer first name")
+        tootipBookg.SetToolTip(txtCusLasName, "Input customer last name")
+        tootipBookg.SetToolTip(txtCusPhone, "Input customer phone number")
+        tootipBookg.SetToolTip(txtCusAdd, "Input customer address")
+        tootipBookg.SetToolTip(txtCusEmail, "Input customer email")
+        tootipBookg.SetToolTip(txtCusDOB, "Input customer date of birth")
+
+        'Button part 
+        tootipBookg.SetToolTip(btnFirst, "Click New to input new record")
+        tootipBookg.SetToolTip(btnDelete, "Input booking ID to delete record")
+        tootipBookg.SetToolTip(btnFind, "Input ID to booking ID to find record")
+
+        tootipBookg.SetToolTip(btnFirst, "Navigation")
+        tootipBookg.SetToolTip(btnNext, "Navigation")
+        tootipBookg.SetToolTip(btnPrevious, "Navigation")
+        tootipBookg.SetToolTip(btnLast, "Navigation")
         'moving between record section
         Dim MoveRecord As CustomerDataController = New CustomerDataController
         lsData = MoveRecord.CusfindALl()
@@ -86,9 +107,9 @@ Public Class Customer
 
         bIsValid = oValidation.IsNameRight(txtCusFirName.Text)
         If bIsValid Then
-            PicFName.Visible = False
+            PicFName2.Visible = False
         Else
-            PicFName.Visible = True
+            PicFName2.Visible = True
             bAllFieldsValid = False
         End If
 
@@ -292,6 +313,7 @@ Public Class Customer
 
     Private Function getCusData() As Hashtable
         Dim CusData As Hashtable = New Hashtable
+        CusData("customer_id") = txtCusID.Text
         CusData("title") = txtCusTitl.Text
         CusData("gender") = txtGender.Text
         CusData("firstname") = txtCusFirName.Text

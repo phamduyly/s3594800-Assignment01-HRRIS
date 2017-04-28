@@ -82,10 +82,9 @@ Partial Class Booking
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BreakReport1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BreakReport2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingdateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -110,7 +109,7 @@ Partial Class Booking
         Me.Delete = New System.Windows.Forms.PictureBox()
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
-        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -564,7 +563,7 @@ Partial Class Booking
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.ToolStripMenuItem1, Me.RoomToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.ToolStripMenuItem1, Me.RoomToolStripMenuItem, Me.InvoiceToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
@@ -572,35 +571,35 @@ Partial Class Booking
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(123, 6)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(149, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -632,27 +631,14 @@ Partial Class Booking
         'ReportToolStripMenuItem1
         '
         Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
-        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(141, 22)
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ReportToolStripMenuItem1.Text = "Report"
         '
         'BreakReportToolStripMenuItem
         '
-        Me.BreakReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BreakReport1ToolStripMenuItem, Me.BreakReport2ToolStripMenuItem})
         Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
-        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BreakReportToolStripMenuItem.Text = "Break Report"
-        '
-        'BreakReport1ToolStripMenuItem
-        '
-        Me.BreakReport1ToolStripMenuItem.Name = "BreakReport1ToolStripMenuItem"
-        Me.BreakReport1ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.BreakReport1ToolStripMenuItem.Text = "Break Report 1"
-        '
-        'BreakReport2ToolStripMenuItem
-        '
-        Me.BreakReport2ToolStripMenuItem.Name = "BreakReport2ToolStripMenuItem"
-        Me.BreakReport2ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.BreakReport2ToolStripMenuItem.Text = "Break Report 2"
         '
         'HelpToolStripMenuItem
         '
@@ -666,6 +652,12 @@ Partial Class Booking
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
         Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'HelpPageToolStripMenuItem
+        '
+        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HelpPageToolStripMenuItem.Text = "Help Page"
         '
         'DataGridView1
         '
@@ -861,11 +853,11 @@ Partial Class Booking
         Me.DownStart.TabIndex = 78
         Me.DownStart.TabStop = False
         '
-        'HelpPageToolStripMenuItem
+        'InvoiceToolStripMenuItem
         '
-        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HelpPageToolStripMenuItem.Text = "Help Page"
+        Me.InvoiceToolStripMenuItem.Name = "InvoiceToolStripMenuItem"
+        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InvoiceToolStripMenuItem.Text = "Invoice"
         '
         'Booking
         '
@@ -1027,8 +1019,6 @@ Partial Class Booking
     Friend WithEvents ToolStripMenuItem8 As ToolStripSeparator
     Friend WithEvents ReportToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents BreakReportToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BreakReport1ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents BreakReport2ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteStatus As PictureBox
     Friend WithEvents UpdatetingsStatus As PictureBox
     Friend WithEvents FindStatus As PictureBox
@@ -1041,4 +1031,5 @@ Partial Class Booking
     Friend WithEvents UpClose As PictureBox
     Friend WithEvents DownStart As PictureBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InvoiceToolStripMenuItem As ToolStripMenuItem
 End Class

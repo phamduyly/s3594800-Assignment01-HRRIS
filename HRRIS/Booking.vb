@@ -376,8 +376,6 @@ Public Class Booking
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
         txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmNum.Text))
 
-        MsgBox("There are no room type, please reinput")
-
     End Sub
 
     'Move to invoice form 
@@ -449,6 +447,11 @@ Public Class Booking
 
         System.Diagnostics.Process.Start(sParam)
     End Sub
+    Private Sub InvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InvoiceToolStripMenuItem.Click
+        Dim invoicenav As New Invoice
+        invoicenav.Show()
+        Me.Hide()
+    End Sub
 
 
 #Region "enhance"
@@ -486,6 +489,8 @@ Public Class Booking
         txtRmNum.Text = CStr(CInt(roomData("price")))
 
     End Sub
+
+
 
 
 #End Region

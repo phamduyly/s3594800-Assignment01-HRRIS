@@ -14,34 +14,36 @@ Public Class InvoiceDataController
     Public Const CONNECTION_STRING As String =
     "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=HRRISdb.accdb"
     'Invoice function 
-
-    Public Sub InvoiceInsert(ByRef InvoiceData As Hashtable)
-        Dim oConection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
-        oConection.Open()
+    Public Sub InvoiceInsert(ByVal InvoiceData As Hashtable)
+        Dim oConnection As New OleDbConnection(CONNECTION_STRING)
+        oConnection.Open()
 
         Try
-            Dim ooCommand As OleDbCommand = New OleDbCommand
-            ooCommand.Connection = oConection
+            Dim oCommand As New OleDbCommand
+            oCommand.Connection = oConnection
 
-            ooCommand.CommandText = "INSERT INTO invoice(booking_id, invoice_date, amount) VALUES (?,?,?);"
+            oCommand.CommandText = "INSERT INTO invoice (booking_id, invoice_date, amount) VALUES (?,?,?);"
 
-            ooCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
-            ooCommand.Parameters.Add("amount", OleDbType.Integer, 20)
-            ooCommand.Parameters.Add("invoice_date", OleDbType.Date, 20)
+            oCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
+            oCommand.Parameters.Add("invoice_date", OleDbType.Date, 10)
+            oCommand.Parameters.Add("amount", OleDbType.Integer, 10)
 
+            oCommand.Parameters("booking_id").Value = CInt(InvoiceData("booking_id"))
+            oCommand.Parameters("invoice_date").Value = CDate(InvoiceData("invoice_date"))
+            oCommand.Parameters("amount").Value = CInt(InvoiceData("amount"))
 
-            ooCommand.Parameters("booking_id").Value = CInt(InvoiceData("booking_id"))
-            ooCommand.Parameters("amount").Value = CInt(InvoiceData("amount"))
-            ooCommand.Parameters("invoice_date").Value = CDate(InvoiceData("invoice_date"))
+            oCommand.Prepare()
+            oCommand.ExecuteNonQuery()
 
-            ooCommand.Prepare()
-            Debug.Print("SQL:" & ooCommand.CommandText)
-            ooCommand.ExecuteNonQuery()
-            MsgBox("Data is imported")
+            MsgBox("the data is imported")
 
         Catch ex As Exception
             MsgBox("data input fail")
+        Finally
+            oConnection.Close()
+
         End Try
+
     End Sub
 
     'Findall
@@ -188,7 +190,7 @@ Public Class InvoiceDataController
         End Try
     End Sub
     'Show al
-    Public Function BookingsFindById(ByVal sId As String) As List(Of Hashtable)
+    Public Function InvoicePop(ByVal sId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)

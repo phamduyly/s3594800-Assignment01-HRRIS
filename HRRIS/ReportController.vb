@@ -293,7 +293,7 @@ Public Class ReportController
             MsgBox("an error occured. The record(s) could not be found")
         Finally
             oConnection.Close()
-
+            bra
         End Try
 
         Return lsData
@@ -363,7 +363,7 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart (""yyyy"", booking_date) = " & iYears & ";"
+            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart(""yyyy"", booking_date) = " & iYears & ";"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
@@ -380,7 +380,8 @@ Public Class ReportController
             Debug.Print("the record was found.")
 
         Catch ex As Exception
-            Debug.Print("ERROR: " & ex.Message)
+
+            Debug.Print("Error: " & ex.Message)
             MsgBox("an error occured. The record(s) could not be found")
         Finally
             oConnection.Close()

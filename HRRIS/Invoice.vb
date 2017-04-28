@@ -10,21 +10,17 @@ Imports System.IO
 
 Public Class Invoice
     Public Property bookingIdPass As String
-    Dim lsDataMov As New List(Of Hashtable)
+    Dim lsDataMov1 As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
 
     Private Sub Invoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet3.invoice' table. You can move, or remove it, as needed.
         Me.InvoiceTableAdapter.Fill(Me.HRRISdbDataSet3.invoice)
 
-        Dim Moving As New BookingDataController
-        lsDataMov = Moving.InvoiceFindALl()
-        'This little things is having problem beccause record inside of database is still having prblem
-
-
+        Dim InvoiceMov As InvoiceDataController = New InvoiceDataController
+        lsDataMov1 = InvoiceMov.InvoiceFindALl()
+        'This little things Is having problem beccause record inside of database Is still having prblem
         txtId.Text = bookingIdPass
-
-
 
     End Sub
 
@@ -32,10 +28,12 @@ Public Class Invoice
         Dim sBookingId = txtId.Text
 
         Dim oController As New InvoiceDataController
-        Dim lsData = oController.BookingsFindById(sBookingId)
+        Dim lsData = oController.InvoicePop(sBookingId)
         If lsData.Count = 1 Then
             PopulateAtOpen(lsData.Item(0))
+
         End If
+
     End Sub
     Private Sub PopulateAtOpen(ByRef bookingData As Hashtable)
 
@@ -50,11 +48,10 @@ Public Class Invoice
 
         If bIsValid1 = True Then
 
-            Dim InvoiceData As Hashtable = New Hashtable
+            Dim InvoiceData As New Hashtable
             InvoiceData("booking_id") = txtId.Text
             InvoiceData("invoice_date") = txtInvoiceDate.Text
             InvoiceData("amount") = txtAmount.Text
-
 
             Dim InvoiceImport As New InvoiceDataController
             InvoiceImport.InvoiceInsert(InvoiceData)
@@ -88,6 +85,13 @@ Public Class Invoice
 
     End Function
 
+    Private Sub PopulateInvoice(ByRef InvoiceData As Hashtable)
+
+        txtId.Text = CStr(CInt(InvoiceData("booking_id")))
+        txtAmount.Text = CStr(CInt(InvoiceData("amount")))
+
+
+    End Sub
     'btn add - after populate the record into the form by performing
     'Bookingfindall() - then the record can now be add into the database 
     ' 
@@ -97,8 +101,8 @@ Public Class Invoice
         Dim iIndex As Integer
         iIndex = 0
         iCurrentIndex = iIndex
-        htData = lsDataMov.Item(iIndex)
-        populateInvoice(lsDataMov.Item(iIndex))
+        htData = lsDataMov1.Item(iIndex)
+        PopulateInvoice(htData)
 
     End Sub
 
@@ -108,8 +112,8 @@ Public Class Invoice
             Dim iIndex As Integer
             iIndex = iCurrentIndex + 1
             iCurrentIndex = iIndex
-            htData = lsDataMov.Item(iIndex)
-            populateInvoice(lsDataMov.Item(iIndex))
+            htData = lsDataMov1.Item(iIndex)
+            PopulateInvoice(lsDataMov1.Item(iIndex))
         Catch ex As Exception
             MsgBox("end of record")
         End Try
@@ -122,8 +126,8 @@ Public Class Invoice
             Dim iIndex As Integer
             iIndex = iCurrentIndex - 1
             iCurrentIndex = iIndex
-            htData = lsDataMov.Item(iIndex)
-            populateInvoice(lsDataMov.Item(iIndex))
+            htData = lsDataMov1.Item(iIndex)
+            PopulateInvoice(lsDataMov1.Item(iIndex))
         Catch ex As Exception
             MsgBox("Very first record")
         End Try
@@ -134,15 +138,15 @@ Public Class Invoice
     Private Sub btnLast_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLast.Click
         Dim htData As Hashtable
         Dim iIndex As Integer
-        iIndex = lsDataMov.Count - 1
+        iIndex = lsDataMov1.Count - 1
         iCurrentIndex = iIndex
-        htData = lsDataMov.Item(iIndex)
-        populateInvoice(lsDataMov.Item(iIndex))
+        htData = lsDataMov1.Item(iIndex)
+        PopulateInvoice(lsDataMov1.Item(iIndex))
 
     End Sub
     'This function is to delete the record
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
-        Dim oController As BookingDataController = New BookingDataController
+        Dim oController As New InvoiceDataController
         Dim sId = cboBookingID.Text
 
         Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
@@ -156,6 +160,9 @@ Public Class Invoice
             Case MsgBoxResult.No
                 MsgBox("The record was not delete")
         End Select
+
+        clearForm()
+
 
         Me.InvoiceTableAdapter.Fill(Me.HRRISdbDataSet3.invoice)
 
@@ -209,11 +216,7 @@ Public Class Invoice
     'only popuate the price into form 
     'Date is now - the day that perform the purchasing 
 
-    Private Sub populateInvoice(ByRef invoiceData As Hashtable)
 
-        txtAmount.Text = CStr(CInt(invoiceData("total_price")))
-
-    End Sub
     'I dont even know what is this for 
     Private Sub comboBokId()
 
@@ -227,6 +230,7 @@ Public Class Invoice
     End Sub
 #Region "Menuthings"
     Private Sub UpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem.Click
+
 
     End Sub
 

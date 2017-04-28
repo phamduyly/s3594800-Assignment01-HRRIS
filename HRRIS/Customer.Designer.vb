@@ -72,6 +72,7 @@ Partial Class Customer
         Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.CustomeridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TitleDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -96,7 +97,7 @@ Partial Class Customer
         Me.Delete = New System.Windows.Forms.PictureBox()
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
-        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PicFName2 = New System.Windows.Forms.PictureBox()
         CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +122,7 @@ Partial Class Customer
         CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicFName2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCusTitl
@@ -521,8 +523,14 @@ Partial Class Customer
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'HelpPageToolStripMenuItem
+        '
+        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.HelpPageToolStripMenuItem.Text = "Help page"
         '
         'DataGridView1
         '
@@ -718,17 +726,21 @@ Partial Class Customer
         Me.DownStart.TabIndex = 78
         Me.DownStart.TabStop = False
         '
-        'HelpPageToolStripMenuItem
+        'PicFName2
         '
-        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HelpPageToolStripMenuItem.Text = "Help page"
+        Me.PicFName2.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.PicFName2.Location = New System.Drawing.Point(600, 120)
+        Me.PicFName2.Name = "PicFName2"
+        Me.PicFName2.Size = New System.Drawing.Size(14, 17)
+        Me.PicFName2.TabIndex = 134
+        Me.PicFName2.TabStop = False
         '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(916, 662)
+        Me.Controls.Add(Me.PicFName2)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
         Me.Controls.Add(Me.FindStatus)
@@ -774,7 +786,7 @@ Partial Class Customer
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Customer"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form1"
+        Me.Text = "Customer "
         CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicLName, System.ComponentModel.ISupportInitialize).EndInit()
@@ -801,6 +813,7 @@ Partial Class Customer
         CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicFName2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -879,4 +892,5 @@ Partial Class Customer
     Friend WithEvents UpClose As PictureBox
     Friend WithEvents DownStart As PictureBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PicFName2 As PictureBox
 End Class
