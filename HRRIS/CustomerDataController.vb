@@ -229,8 +229,6 @@ Public Class CustomerDataController
             Debug.Print(CStr(iNumRows))
             Debug.Print("the record was updated.")
 
-
-
         Catch ex As Exception
 
             Debug.Print("ERROR: " & ex.Message)
@@ -280,9 +278,9 @@ Public Class CustomerDataController
         Return iNumRows
 
     End Function
+    'Further for things
 
-    'testing shit 
-    Public Function findCus(ByVal sId As String) As List(Of Hashtable)
+    Public Function findCusByFirstName(ByVal sFName As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
@@ -294,25 +292,27 @@ Public Class CustomerDataController
             Dim oCommand As OleDbCommand = New OleDbCommand
 
             oCommand.Connection = oConnection
-            oCommand.CommandText = "SELECT firstname FROM customer WHERE customer_id = ?;"
-            oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
-            oCommand.Parameters("customer_id").Value = CInt(sId)
+            oCommand.CommandText = "SELECT * FROM customer WHERE firstname = """ + sFName + """; "
+
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
 
             Dim htTempData As Hashtable
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-
+                htTempData("customer_id") = CInt(oDataReader("customer_id"))
+                htTempData("title") = CStr(oDataReader("title"))
+                htTempData("gender") = CStr(oDataReader("gender"))
                 htTempData("firstname") = CStr(oDataReader("firstname"))
-
+                htTempData("lastname") = CStr(oDataReader("lastname"))
+                htTempData("phone") = CInt(oDataReader("phone"))
+                htTempData("address") = CStr(oDataReader("address"))
+                htTempData("email") = CStr(oDataReader("email"))
+                htTempData("dob") = CDate(oDataReader("dob"))
                 lsData.Add(htTempData)
             Loop
 
             Debug.Print("the records were found")
-
-            'this could be made as a smaller sub
-
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
@@ -325,10 +325,145 @@ Public Class CustomerDataController
         Return lsData
     End Function
 
-    'Find cus by first name 
-
     'Find cus by Last name
+    Public Function findCusByLastName(ByVal sLName As String) As List(Of Hashtable)
 
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+
+            oCommand.Connection = oConnection
+            oCommand.CommandText = "SELECT * FROM customer WHERE lastname = """ + sLName + """; "
+
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("customer_id") = CInt(oDataReader("customer_id"))
+                htTempData("title") = CStr(oDataReader("title"))
+                htTempData("gender") = CStr(oDataReader("gender"))
+                htTempData("firstname") = CStr(oDataReader("firstname"))
+                htTempData("lastname") = CStr(oDataReader("lastname"))
+                htTempData("phone") = CInt(oDataReader("phone"))
+                htTempData("address") = CStr(oDataReader("address"))
+                htTempData("email") = CStr(oDataReader("email"))
+                htTempData("dob") = CDate(oDataReader("dob"))
+                lsData.Add(htTempData)
+
+            Loop
+
+            Debug.Print("the records were found")
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+
+    'Find cus by phone 
+    Public Function findCusByPhone(ByVal sPhone As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+
+            oCommand.Connection = oConnection
+            oCommand.CommandText = "SELECT * FROM customer WHERE phone = """ + sPhone + """; "
+
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("customer_id") = CInt(oDataReader("customer_id"))
+                htTempData("title") = CStr(oDataReader("title"))
+                htTempData("gender") = CStr(oDataReader("gender"))
+                htTempData("firstname") = CStr(oDataReader("firstname"))
+                htTempData("lastname") = CStr(oDataReader("lastname"))
+                htTempData("phone") = CInt(oDataReader("phone"))
+                htTempData("address") = CStr(oDataReader("address"))
+                htTempData("email") = CStr(oDataReader("email"))
+                htTempData("dob") = CDate(oDataReader("dob"))
+                lsData.Add(htTempData)
+
+            Loop
+
+            Debug.Print("the records were found")
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
+    'By Email
+    Public Function findCusByEmail(ByVal sEmail As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+
+            oCommand.Connection = oConnection
+            oCommand.CommandText = "SELECT * FROM customer WHERE phone = """ + sEmail + """; "
+
+            oCommand.Prepare()
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+                htTempData("customer_id") = CInt(oDataReader("customer_id"))
+                htTempData("title") = CStr(oDataReader("title"))
+                htTempData("gender") = CStr(oDataReader("gender"))
+                htTempData("firstname") = CStr(oDataReader("firstname"))
+                htTempData("lastname") = CStr(oDataReader("lastname"))
+                htTempData("phone") = CInt(oDataReader("phone"))
+                htTempData("address") = CStr(oDataReader("address"))
+                htTempData("email") = CStr(oDataReader("email"))
+                htTempData("dob") = CDate(oDataReader("dob"))
+                lsData.Add(htTempData)
+
+            Loop
+
+            Debug.Print("the records were found")
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
 
 
 End Class

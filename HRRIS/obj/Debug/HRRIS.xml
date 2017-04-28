@@ -337,21 +337,5 @@ Update Order Option
 Used to sort self-referenced table's rows
 </summary>
 </member>
-<member name="M:HRRIS.Validation.isAddressRight(System.String)">
- <summary>
- is number right 
- </summary>
- <param name="strVal"></param>
- <returns></returns>
- <remarks></remarks>
-</member>
-<member name="M:HRRIS.Validation.isPhoneVal(System.String)">
- <summary>
- is phone right
- </summary>
- <param name="strVal"></param>
- <returns></returns>
- <remarks></remarks>
-</member>
 </members>
 </doc>

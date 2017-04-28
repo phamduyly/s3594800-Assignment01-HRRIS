@@ -109,7 +109,7 @@ Partial Class Invoice
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'BookingToolStripMenuItem
@@ -336,7 +336,8 @@ Partial Class Invoice
         Me.PictxtId.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PictxtId.Location = New System.Drawing.Point(396, 72)
         Me.PictxtId.Name = "PictxtId"
-        Me.PictxtId.Size = New System.Drawing.Size(19, 19)
+        Me.PictxtId.Size = New System.Drawing.Size(16, 16)
+        Me.PictxtId.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictxtId.TabIndex = 17
         Me.PictxtId.TabStop = False
         '

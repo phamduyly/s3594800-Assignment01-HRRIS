@@ -272,6 +272,13 @@ Public Class Invoice
         Me.Hide()
     End Sub
 
+    Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
+        Dim cus As New Customer
+        cus.Show()
+        Me.Hide()
+
+    End Sub
+
 
 
 

@@ -34,6 +34,7 @@ Partial Class Report
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Yearerror = New System.Windows.Forms.PictureBox()
         Me.btnCusReport = New System.Windows.Forms.Button()
         Me.btnReport2 = New System.Windows.Forms.Button()
@@ -58,7 +59,6 @@ Partial Class Report
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -83,47 +83,47 @@ Partial Class Report
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'InvoiceToolStripMenuItem
         '
         Me.InvoiceToolStripMenuItem.Name = "InvoiceToolStripMenuItem"
-        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.InvoiceToolStripMenuItem.Text = "Invoice"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(123, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -136,8 +136,14 @@ Partial Class Report
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(128, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'HelpPageToolStripMenuItem
+        '
+        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.HelpPageToolStripMenuItem.Text = "Help Page"
         '
         'Yearerror
         '
@@ -355,12 +361,6 @@ Partial Class Report
         Me.Label9.TabIndex = 151
         Me.Label9.Text = "Purpose: Show all bookings for particular room in given period"
         '
-        'HelpPageToolStripMenuItem
-        '
-        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HelpPageToolStripMenuItem.Text = "Help Page"
-        '
         'Report
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -391,7 +391,6 @@ Partial Class Report
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Report"
-        Me.Text = "Report"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()

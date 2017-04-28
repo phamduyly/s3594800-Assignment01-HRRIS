@@ -40,7 +40,6 @@ Partial Class Room
         Me.btnPrevious = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnFirst = New System.Windows.Forms.Button()
-        Me.btnNav = New System.Windows.Forms.Button()
         Me.txtRmBedNum = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtRmDes = New System.Windows.Forms.TextBox()
@@ -69,6 +68,7 @@ Partial Class Room
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HRRISdbDataSet = New HRRIS.HRRISdbDataSet()
         Me.RoomBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RoomTableAdapter = New HRRIS.HRRISdbDataSetTableAdapters.roomTableAdapter()
@@ -93,7 +93,6 @@ Partial Class Room
         Me.PicRmPrice = New System.Windows.Forms.PictureBox()
         Me.PicRmNum = New System.Windows.Forms.PictureBox()
         Me.PicRmID = New System.Windows.Forms.PictureBox()
-        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel2.SuspendLayout()
         CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -282,15 +281,6 @@ Partial Class Room
         Me.btnFirst.TabIndex = 113
         Me.btnFirst.Text = "|<"
         Me.btnFirst.UseVisualStyleBackColor = True
-        '
-        'btnNav
-        '
-        Me.btnNav.Location = New System.Drawing.Point(611, 88)
-        Me.btnNav.Name = "btnNav"
-        Me.btnNav.Size = New System.Drawing.Size(91, 23)
-        Me.btnNav.TabIndex = 112
-        Me.btnNav.Text = "Home"
-        Me.btnNav.UseVisualStyleBackColor = True
         '
         'txtRmBedNum
         '
@@ -494,8 +484,14 @@ Partial Class Room
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(128, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'HelpPageToolStripMenuItem
+        '
+        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.HelpPageToolStripMenuItem.Text = "Help page"
         '
         'HRRISdbDataSet
         '
@@ -691,12 +687,6 @@ Partial Class Room
         Me.PicRmID.TabStop = False
         Me.PicRmID.Visible = False
         '
-        'HelpPageToolStripMenuItem
-        '
-        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HelpPageToolStripMenuItem.Text = "Help page"
-        '
         'Room
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -718,7 +708,6 @@ Partial Class Room
         Me.Controls.Add(Me.btnPrevious)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnFirst)
-        Me.Controls.Add(Me.btnNav)
         Me.Controls.Add(Me.PicRmDes)
         Me.Controls.Add(Me.PicRmAva)
         Me.Controls.Add(Me.PicRmType)
@@ -796,7 +785,6 @@ Partial Class Room
     Friend WithEvents btnPrevious As Button
     Friend WithEvents btnNext As Button
     Friend WithEvents btnFirst As Button
-    Friend WithEvents btnNav As Button
     Friend WithEvents PicRmDes As PictureBox
     Friend WithEvents PicRmAva As PictureBox
     Friend WithEvents PicRmType As PictureBox

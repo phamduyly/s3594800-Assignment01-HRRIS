@@ -34,6 +34,7 @@ Partial Class BreakReport
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Yearerror = New System.Windows.Forms.PictureBox()
         Me.cboReportMonth = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -46,7 +47,6 @@ Partial Class BreakReport
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -71,47 +71,47 @@ Partial Class BreakReport
         'NewToolStripMenuItem
         '
         Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.NewToolStripMenuItem.Text = "New"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'InvoiceToolStripMenuItem
         '
         Me.InvoiceToolStripMenuItem.Name = "InvoiceToolStripMenuItem"
-        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InvoiceToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.InvoiceToolStripMenuItem.Text = "Invoice"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(123, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'HelpToolStripMenuItem
@@ -124,13 +124,19 @@ Partial Class BreakReport
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(128, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'HelpPageToolStripMenuItem
+        '
+        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
+        Me.HelpPageToolStripMenuItem.Text = "Help Page"
         '
         'Yearerror
         '
         Me.Yearerror.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.Yearerror.Location = New System.Drawing.Point(239, 38)
+        Me.Yearerror.Location = New System.Drawing.Point(532, 40)
         Me.Yearerror.Name = "Yearerror"
         Me.Yearerror.Size = New System.Drawing.Size(17, 16)
         Me.Yearerror.TabIndex = 148
@@ -141,7 +147,7 @@ Partial Class BreakReport
         '
         Me.cboReportMonth.FormattingEnabled = True
         Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cboReportMonth.Location = New System.Drawing.Point(49, 34)
+        Me.cboReportMonth.Location = New System.Drawing.Point(290, 37)
         Me.cboReportMonth.Name = "cboReportMonth"
         Me.cboReportMonth.Size = New System.Drawing.Size(79, 21)
         Me.cboReportMonth.TabIndex = 147
@@ -149,7 +155,7 @@ Partial Class BreakReport
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 38)
+        Me.Label12.Location = New System.Drawing.Point(224, 40)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
         Me.Label12.TabIndex = 146
@@ -158,7 +164,7 @@ Partial Class BreakReport
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(138, 38)
+        Me.Label11.Location = New System.Drawing.Point(397, 40)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(29, 13)
         Me.Label11.TabIndex = 145
@@ -166,14 +172,14 @@ Partial Class BreakReport
         '
         'txtReportYear
         '
-        Me.txtReportYear.Location = New System.Drawing.Point(177, 34)
+        Me.txtReportYear.Location = New System.Drawing.Point(449, 38)
         Me.txtReportYear.Name = "txtReportYear"
         Me.txtReportYear.Size = New System.Drawing.Size(60, 20)
         Me.txtReportYear.TabIndex = 144
         '
         'btnBreakReport2
         '
-        Me.btnBreakReport2.Location = New System.Drawing.Point(37, 286)
+        Me.btnBreakReport2.Location = New System.Drawing.Point(37, 288)
         Me.btnBreakReport2.Name = "btnBreakReport2"
         Me.btnBreakReport2.Size = New System.Drawing.Size(105, 27)
         Me.btnBreakReport2.TabIndex = 150
@@ -182,7 +188,7 @@ Partial Class BreakReport
         '
         'btnBreakReport1
         '
-        Me.btnBreakReport1.Location = New System.Drawing.Point(37, 216)
+        Me.btnBreakReport1.Location = New System.Drawing.Point(37, 209)
         Me.btnBreakReport1.Name = "btnBreakReport1"
         Me.btnBreakReport1.Size = New System.Drawing.Size(105, 27)
         Me.btnBreakReport1.TabIndex = 149
@@ -200,7 +206,7 @@ Partial Class BreakReport
         Me.GroupBox1.Controls.Add(Me.cboReportMonth)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 40)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(270, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(584, 100)
         Me.GroupBox1.TabIndex = 151
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
@@ -209,7 +215,7 @@ Partial Class BreakReport
         '
         Me.cboRoomID.FormattingEnabled = True
         Me.cboRoomID.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cboRoomID.Location = New System.Drawing.Point(61, 68)
+        Me.cboRoomID.Location = New System.Drawing.Point(88, 36)
         Me.cboRoomID.Name = "cboRoomID"
         Me.cboRoomID.Size = New System.Drawing.Size(79, 21)
         Me.cboRoomID.TabIndex = 150
@@ -217,7 +223,7 @@ Partial Class BreakReport
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 76)
+        Me.Label3.Location = New System.Drawing.Point(20, 36)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 13)
         Me.Label3.TabIndex = 149
@@ -238,15 +244,9 @@ Partial Class BreakReport
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(34, 259)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(262, 13)
+        Me.Label2.Size = New System.Drawing.Size(307, 13)
         Me.Label2.TabIndex = 153
-        Me.Label2.Text = "All invoices in the current year, broken down by month"
-        '
-        'HelpPageToolStripMenuItem
-        '
-        Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.HelpPageToolStripMenuItem.Text = "Help Page"
+        Me.Label2.Text = "Purpose: All invoices in the current year, broken down by month"
         '
         'BreakReport
         '

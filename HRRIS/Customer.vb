@@ -74,12 +74,18 @@ Public Class Customer
             CusData("email") = txtCusEmail.Text
             CusData("dob") = txtCusDOB.Text
 
-            Dim Cusimport As CustomerDataController = New CustomerDataController
-            Cusimport.CusInsert(CusData)
-
+            Select Case MsgBox("Record will be add to the database", MsgBoxStyle.YesNo, "Insert")
+                Case MsgBoxResult.Yes
+                    Dim Cusimport As CustomerDataController = New CustomerDataController
+                    Cusimport.CusInsert(CusData)
+                    MsgBox("The record was Inserted")
+                    Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+                Case MsgBoxResult.No
+                    MsgBox("The record was not inserted")
+            End Select
         End If
 
-        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+
 
     End Sub
 
@@ -89,27 +95,11 @@ Public Class Customer
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        'bIsValid = oValidation.isAlphaNumericVal(txtCusTitl.Text)
-        'If bIsValid Then
-        '    PicTitle.Visible = False
-        'Else
-        '    PicTitle.Visible = True
-        '    bAllFieldsValid = False
-        'End If
-
-        'bIsValid = oValidation.isAlphaNumericVal(txtGender.Text)
-        'If bIsValid Then
-        '    PicGender.Visible = False
-        'Else
-        '    PicGender.Visible = True
-        '    bAllFieldsValid = False
-        'End If
-
         bIsValid = oValidation.IsNameRight(txtCusFirName.Text)
         If bIsValid Then
-            PicFName2.Visible = False
+            PicFName.Visible = False
         Else
-            PicFName2.Visible = True
+            PicFName.Visible = True
             bAllFieldsValid = False
         End If
 
@@ -156,7 +146,7 @@ Public Class Customer
         End If
 
         If bAllFieldsValid Then
-            MsgBox("Click OK to import Data")
+
         Else
             MsgBox("Please recheck input at where error pop up appear")
         End If
@@ -238,11 +228,13 @@ Public Class Customer
                     clearForm()
                     MsgBox("The record was delete")
                 End If
+                Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+
             Case MsgBoxResult.No
                 MsgBox("The record was not delete")
         End Select
 
-        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+
 
     End Sub
 
@@ -294,26 +286,28 @@ Public Class Customer
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Dim bIsValid = CusValid()
 
-        If bIsValid Then
-            Dim oController As CustomerDataController = New CustomerDataController
-            Dim iNumRows = oController.CustsUpdate(getCusData)
+        Select Case MsgBox("Are you sure to Update this record", MsgBoxStyle.YesNo, "Update")
+            Case MsgBoxResult.Yes
 
-            If iNumRows = 1 Then
-                Debug.Print("The record was updated. check")
-            Else
-                Debug.Print("The record was not update")
+                If bIsValid Then
+                    Dim oController As CustomerDataController = New CustomerDataController
+                    Dim iNumRows = oController.CustsUpdate(getCusData)
 
-            End If
+                    If iNumRows = 1 Then
+                        Debug.Print("The record was updated")
+                    End If
+                    Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
 
-        End If
-
-        Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
+                End If
+            Case MsgBoxResult.No
+                MsgBox("The record was not Updated")
+        End Select
 
     End Sub
 
     Private Function getCusData() As Hashtable
         Dim CusData As Hashtable = New Hashtable
-        CusData("customer_id") = txtCusID.Text
+
         CusData("title") = txtCusTitl.Text
         CusData("gender") = txtGender.Text
         CusData("firstname") = txtCusFirName.Text
@@ -322,7 +316,7 @@ Public Class Customer
         CusData("address") = txtCusAdd.Text
         CusData("email") = txtCusEmail.Text
         CusData("dob") = txtCusDOB.Text
-
+        CusData("customer_id") = txtCusID.Text
 
         Return CusData
 
@@ -417,12 +411,76 @@ Public Class Customer
 
     End Sub
 
-    Private Sub Updatetings_Click(sender As Object, e As EventArgs) 
+    Private Sub Updatetings_Click(sender As Object, e As EventArgs)
         UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
         Button1.Visible = False
         btnDelete.Visible = False
         btnFind.Visible = False
         btnUpdate.Visible = True
+    End Sub
+
+#End Region
+
+#Region "More about find"
+
+    Private Sub txtCusFirName_Leave(sender As Object, e As EventArgs) Handles txtCusFirName.Leave
+        Dim sFNAme As String = txtCusFirName.Text
+        Dim lsDataFCus As List(Of Hashtable)
+        Dim oController As New CustomerDataController
+        lsDataFCus = oController.findCusByFirstName(sFNAme)
+
+        If lsDataFCus.Count = 1 Then
+            populateCusFields(lsDataFCus.Item(0))
+        Else
+            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+        End If
+    End Sub
+
+    Private Sub txtCusLasName_Leave(sender As Object, e As EventArgs) Handles txtCusLasName.Leave
+        Dim sLNAme As String = txtCusLasName.Text
+        Dim lsDataLCus As List(Of Hashtable)
+        Dim oController As New CustomerDataController
+        lsDataLCus = oController.findCusByLastName(sLNAme)
+
+        If lsDataLCus.Count = 1 Then
+            populateCusFields(lsDataLCus.Item(0))
+            'ElseIf .
+            'Show all 
+
+        Else
+
+            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+        End If
+    End Sub
+
+    Private Sub txtCusPhone_Leave(sender As Object, e As EventArgs) Handles txtCusPhone.Leave
+        Dim sPhone As String = txtCusPhone.Text
+        Dim lsDataPhone As List(Of Hashtable)
+        Dim oController As New CustomerDataController
+        lsDataPhone = oController.findCusByPhone(sPhone)
+
+        If lsDataPhone.Count = 1 Then
+            populateCusFields(lsDataPhone.Item(0))
+        ElseIf lsDataPhone.Count > 1 Then
+            'Show all fucntion to textbox
+        Else
+            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+        End If
+    End Sub
+
+    Private Sub txtCusEmail_Leave(sender As Object, e As EventArgs) Handles txtCusEmail.Leave
+        Dim sEmail As String = txtCusEmail.Text
+        Dim lsDataCusE As List(Of Hashtable)
+        Dim oController As New CustomerDataController
+        lsDataCusE = oController.findCusByEmail(sEmail)
+
+        If lsDataCusE.Count = 1 Then
+            populateCusFields(lsDataCusE.Item(0))
+        ElseIf lsDataCusE.Count > 1 Then
+            'Show all fucntion to the text box
+
+            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+        End If
     End Sub
 
 

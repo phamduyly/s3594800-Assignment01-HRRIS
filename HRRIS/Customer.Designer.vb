@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Customer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Customer
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.txtCusTitl = New System.Windows.Forms.ComboBox()
@@ -97,7 +97,7 @@ Partial Class Customer
         Me.Delete = New System.Windows.Forms.PictureBox()
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
-        Me.PicFName2 = New System.Windows.Forms.PictureBox()
+        Me.Field = New System.Windows.Forms.TextBox()
         CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,7 +122,6 @@ Partial Class Customer
         CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicFName2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtCusTitl
@@ -726,21 +725,20 @@ Partial Class Customer
         Me.DownStart.TabIndex = 78
         Me.DownStart.TabStop = False
         '
-        'PicFName2
+        'Field
         '
-        Me.PicFName2.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicFName2.Location = New System.Drawing.Point(600, 120)
-        Me.PicFName2.Name = "PicFName2"
-        Me.PicFName2.Size = New System.Drawing.Size(14, 17)
-        Me.PicFName2.TabIndex = 134
-        Me.PicFName2.TabStop = False
+        Me.Field.Location = New System.Drawing.Point(628, 112)
+        Me.Field.Multiline = True
+        Me.Field.Name = "Field"
+        Me.Field.Size = New System.Drawing.Size(276, 141)
+        Me.Field.TabIndex = 134
         '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(916, 662)
-        Me.Controls.Add(Me.PicFName2)
+        Me.Controls.Add(Me.Field)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
         Me.Controls.Add(Me.FindStatus)
@@ -813,7 +811,6 @@ Partial Class Customer
         CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicFName2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -892,5 +889,5 @@ Partial Class Customer
     Friend WithEvents UpClose As PictureBox
     Friend WithEvents DownStart As PictureBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PicFName2 As PictureBox
+    Friend WithEvents Field As TextBox
 End Class
