@@ -77,7 +77,7 @@ Public Class InvoiceDataController
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
-            MsgBox("An Error occurred. The records could not be found!")
+            MsgBox("No record yet to display Invoice data, Please input a booking ID!")
         Finally
             oConnection.Close()
         End Try
@@ -168,7 +168,7 @@ Public Class InvoiceDataController
             Dim ooCommand As OleDbCommand = New OleDbCommand
             ooCommand.Connection = oConection
 
-            ooCommand.CommandText = "UPDATE amount = ?,  invoice_date = ? WHERE booking_id = ?;"
+            ooCommand.CommandText = "UPDATE invoice SET amount = ?,  invoice_date = ? WHERE booking_id = ?;"
 
 
             ooCommand.Parameters.Add("amount", OleDbType.Integer, 100)

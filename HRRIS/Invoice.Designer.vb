@@ -109,7 +109,7 @@ Partial Class Invoice
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'BookingToolStripMenuItem
@@ -340,6 +340,7 @@ Partial Class Invoice
         Me.PictxtId.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictxtId.TabIndex = 17
         Me.PictxtId.TabStop = False
+        Me.PictxtId.Visible = False
         '
         'PicAmountEr
         '
@@ -349,6 +350,7 @@ Partial Class Invoice
         Me.PicAmountEr.Size = New System.Drawing.Size(19, 19)
         Me.PicAmountEr.TabIndex = 18
         Me.PicAmountEr.TabStop = False
+        Me.PicAmountEr.Visible = False
         '
         'InvoiceTableAdapter
         '

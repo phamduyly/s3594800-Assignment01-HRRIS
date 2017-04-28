@@ -147,12 +147,11 @@ Public Class Invoice
     'This function is to delete the record
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As New InvoiceDataController
-        Dim sId = cboBookingID.Text
+        Dim sId As String = cboBookingID.Text
 
         Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
             Case MsgBoxResult.Yes
                 Dim iNumRows = oController.InvoiceDelete(sId)
-                'The fucntio have not been written
                 If iNumRows = 1 Then
                     clearForm()
                     MsgBox("The record was delete")
@@ -278,6 +277,8 @@ Public Class Invoice
         Me.Hide()
 
     End Sub
+
+
 
 
 
