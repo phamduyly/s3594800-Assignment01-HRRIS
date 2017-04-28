@@ -271,7 +271,7 @@ Public Class CustomerDataController
 
         Catch ex As Exception
             Debug.Print(CStr(iNumRows))
-            Debug.Print("an error occured. the record was not deleted")
+            Debug.Print("Please Delete booking record which have this Customer ID first")
 
         Finally
             oConnection.Close()
@@ -325,6 +325,9 @@ Public Class CustomerDataController
         Return lsData
     End Function
 
+    'Find cus by first name 
+
+    'Find cus by Last name
 
 
 

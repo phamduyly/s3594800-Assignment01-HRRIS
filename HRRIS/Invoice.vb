@@ -31,7 +31,7 @@ Public Class Invoice
     Private Sub txtId_TextChanged(sender As Object, e As EventArgs) Handles txtId.TextChanged
         Dim sBookingId = txtId.Text
 
-        Dim oController As New BookingDataController
+        Dim oController As New InvoiceDataController
         Dim lsData = oController.BookingsFindById(sBookingId)
         If lsData.Count = 1 Then
             PopulateAtOpen(lsData.Item(0))

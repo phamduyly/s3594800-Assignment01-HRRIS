@@ -26,7 +26,7 @@ Public Class InvoiceDataController
             ooCommand.CommandText = "INSERT INTO invoice(booking_id, invoice_date, amount) VALUES (?,?,?);"
 
             ooCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
-            ooCommand.Parameters.Add("amount", OleDbType.Integer, 100)
+            ooCommand.Parameters.Add("amount", OleDbType.Integer, 20)
             ooCommand.Parameters.Add("invoice_date", OleDbType.Date, 20)
 
 
@@ -187,4 +187,50 @@ Public Class InvoiceDataController
             MsgBox("Update input fail")
         End Try
     End Sub
+    'Show al
+    Public Function BookingsFindById(ByVal sId As String) As List(Of Hashtable)
+
+        Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        Dim lsData As New List(Of Hashtable)
+
+        Try
+            Debug.Print("Connection String: " & oConnection.ConnectionString)
+
+            oConnection.Open()
+            Dim oCommand As OleDbCommand = New OleDbCommand
+            oCommand.Connection = oConnection
+
+            oCommand.CommandText = "SELECT total_price FROM booking WHERE booking_id = ?;"
+            oCommand.Parameters.Add("booking_id", OleDbType.Integer, 8)
+            oCommand.Parameters("booking_id").Value = CInt(sId)
+            oCommand.Prepare()
+
+
+
+            Dim oDataReader = oCommand.ExecuteReader()
+
+            Dim htTempData As Hashtable
+
+            Do While oDataReader.Read() = True
+                htTempData = New Hashtable
+
+                htTempData("total_price") = CInt(oDataReader("total_price"))
+
+                lsData.Add(htTempData)
+            Loop
+
+            Debug.Print("the record was found.")
+
+
+
+        Catch ex As Exception
+            Debug.Print("ERROR: " & ex.Message)
+            MsgBox("an error occured. The record(s) could not be found")
+        Finally
+            oConnection.Close()
+
+        End Try
+
+        Return lsData
+    End Function
 End Class

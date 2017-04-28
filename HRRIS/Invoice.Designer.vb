@@ -333,6 +333,7 @@ Partial Class Invoice
         '
         'PictxtId
         '
+        Me.PictxtId.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PictxtId.Location = New System.Drawing.Point(396, 72)
         Me.PictxtId.Name = "PictxtId"
         Me.PictxtId.Size = New System.Drawing.Size(19, 19)
@@ -341,6 +342,7 @@ Partial Class Invoice
         '
         'PicAmountEr
         '
+        Me.PicAmountEr.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
         Me.PicAmountEr.Location = New System.Drawing.Point(396, 179)
         Me.PicAmountEr.Name = "PicAmountEr"
         Me.PicAmountEr.Size = New System.Drawing.Size(19, 19)
