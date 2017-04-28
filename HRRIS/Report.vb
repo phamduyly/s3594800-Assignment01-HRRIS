@@ -8,7 +8,10 @@ Option Explicit On
 Public Class Report
 
     '1.generate cus report ABOUT last-booking time , days booked  
-    Private Sub btnCusReport_Click(sender As Object, e As EventArgs)
+    Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
+
+
+
         Dim GenerateCusReportByID As New ReportController
         Try
             Dim sCusId = cboCusId.Text
@@ -22,7 +25,7 @@ Public Class Report
 
     '2.Generate room_id report ABOUT booking_date, total_price 
     'SQL statement SELECT booking_date, total_price FROM booking WHERE room_id = ?; 
-    Private Sub btnReport2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnReport2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport2.Click
 
         Dim Report2 As New ReportController
 
@@ -43,7 +46,7 @@ Public Class Report
     '3.Report customer_id report ABOUT given period = " year and month = 
     'SQL code is SELECT * FROM booking WHERE customer_id = ? AND booking_date = ?; 
     'Create input for months(cbbox) and years(text), dim here 
-    Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
         Dim report3 As New ReportController
         Try
             Dim sCusID = cboCusId.Text
@@ -59,7 +62,7 @@ Public Class Report
     End Sub
     '4. all bookings in given months and years (??)
     'SQL code is SELECT * FROM booking WHERE (bookingdate = ?); find how to do it with date and year
-    Private Sub btnReport4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnReport4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport4.Click
         Dim report4 As New ReportController
 
         Try
@@ -76,7 +79,7 @@ Public Class Report
     'SQL code is SELECT * FROM booking WHERE 
     'Clue: using the visible and invisible radio box 
 
-    Private Sub btnReport5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnReport5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport5.Click
         Dim report5 As New ReportController
 
         Try
@@ -92,7 +95,7 @@ Public Class Report
     End Sub
     '6.show room_id = ? ABOUT bookings * in given months or year 
     'SQL code is SELECT * FROM bookings WHERE room_id = ? AND month = ? OR year = ?;
-    Private Sub btnReport6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub btnReport6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport6.Click
         Dim report6 As New ReportController
 
         Try
@@ -120,4 +123,29 @@ Public Class Report
 
         Return iValid
     End Function
+
+    Private Sub Report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim oController1 As New RoomDataController
+        Dim lsData1 = oController1.RoomfindALl()
+        For Each Room In lsData1
+            cboRoomID.Items.Add(CStr(Room("room_id")))
+        Next
+
+        'Comboxbox cusID - traacking data from database and populate() to the box
+        'main point: show name , import id
+        cboCusId.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim ooController As CustomerDataController = New CustomerDataController
+        Dim lsData3 = ooController.CusfindALl()
+        For Each Customer In lsData3
+            cboCusId.Items.Add(CStr(Customer("customer_id")))
+        Next
+
+        cboBookId.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim vController As New BookingDataController
+        Dim lsData4 = vController.BookingfindALl()
+        For Each book In lsData4
+            cboBookId.Items.Add(CStr(book("booking_id")))
+        Next
+    End Sub
 End Class

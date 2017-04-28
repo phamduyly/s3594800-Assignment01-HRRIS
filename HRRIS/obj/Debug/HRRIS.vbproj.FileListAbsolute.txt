@@ -28,3 +28,5 @@ C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\obj\Debug\HRRIS.pdb
 C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\HRRIS.exe
 C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\HRRIS.pdb
 C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\HRRIS.xml
+C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\obj\Debug\HRRIS.BreakReport.resources
+C:\Users\DELL\Desktop\s3594800-Assignment02-HRRIS\HRRIS\obj\Debug\HRRIS.Report.resources

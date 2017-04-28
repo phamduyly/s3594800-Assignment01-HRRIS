@@ -51,8 +51,9 @@ Public Class Invoice
 
             Dim InvoiceData As Hashtable = New Hashtable
             InvoiceData("booking_id") = txtId.Text
-                InvoiceData("invoice_date") = txtInvoiceDate.Value.ToShortDateString
+            InvoiceData("invoice_date") = txtInvoiceDate.Text
             InvoiceData("amount") = txtAmount.Text
+
 
             Dim InvoiceImport As New InvoiceDataController
             InvoiceImport.InvoiceInsert(InvoiceData)

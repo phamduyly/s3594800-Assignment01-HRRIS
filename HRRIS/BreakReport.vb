@@ -10,7 +10,7 @@ Public Class BreakReport
 
     'Controll break report 1 and 2 ssection 
     'This is the part of control break report 
-    Private Sub btnBreakReport1_Click(sender As Object, e As EventArgs)
+    Private Sub btnBreakReport1_Click(sender As Object, e As EventArgs) Handles btnBreakReport1.Click
         Dim breakReport1 As New ReportController
 
         Try
@@ -27,7 +27,7 @@ Public Class BreakReport
         End Try
     End Sub
 
-    Private Sub btnBreakReport2_Click(sender As Object, e As EventArgs)
+    Private Sub btnBreakReport2_Click(sender As Object, e As EventArgs) Handles btnBreakReport2.Click
         Dim breakreport2 As New ReportController
 
         Try
@@ -55,6 +55,5 @@ Public Class BreakReport
 
         Return iValid
     End Function
-
 
 End Class

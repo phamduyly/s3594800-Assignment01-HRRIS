@@ -45,13 +45,13 @@ Partial Class Report
         Me.txtReportYear = New System.Windows.Forms.TextBox()
         Me.cboRoomID = New System.Windows.Forms.ComboBox()
         Me.cboCusId = New System.Windows.Forms.ComboBox()
-        Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cboReportMonth = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cboBookId = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -60,6 +60,7 @@ Partial Class Report
         Me.Label9 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -235,13 +236,6 @@ Partial Class Report
         Me.cboCusId.Size = New System.Drawing.Size(317, 21)
         Me.cboCusId.TabIndex = 142
         '
-        'txtID
-        '
-        Me.txtID.Location = New System.Drawing.Point(180, 50)
-        Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(317, 20)
-        Me.txtID.TabIndex = 144
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -289,12 +283,21 @@ Partial Class Report
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cboBookId)
         Me.GroupBox1.Location = New System.Drawing.Point(35, 38)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(513, 202)
         Me.GroupBox1.TabIndex = 145
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
+        '
+        'cboBookId
+        '
+        Me.cboBookId.FormattingEnabled = True
+        Me.cboBookId.Location = New System.Drawing.Point(145, 12)
+        Me.cboBookId.Name = "cboBookId"
+        Me.cboBookId.Size = New System.Drawing.Size(317, 21)
+        Me.cboBookId.TabIndex = 152
         '
         'Label2
         '
@@ -375,7 +378,6 @@ Partial Class Report
         Me.Controls.Add(Me.btnReport3)
         Me.Controls.Add(Me.btnReport2)
         Me.Controls.Add(Me.btnCusReport)
-        Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label4)
@@ -386,6 +388,7 @@ Partial Class Report
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -414,7 +417,6 @@ Partial Class Report
     Friend WithEvents txtReportYear As TextBox
     Friend WithEvents cboRoomID As ComboBox
     Friend WithEvents cboCusId As ComboBox
-    Friend WithEvents txtID As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
@@ -427,4 +429,5 @@ Partial Class Report
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents cboBookId As ComboBox
 End Class
