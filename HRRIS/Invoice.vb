@@ -19,10 +19,12 @@ Public Class Invoice
 
         Dim Moving As New BookingDataController
         lsDataMov = Moving.InvoiceFindALl()
+        'This little things is having problem beccause record inside of database is still having prblem
+
 
         txtId.Text = bookingIdPass
 
-        txtInvoiceDate.Text = CStr(Now())
+
 
     End Sub
 
@@ -31,7 +33,6 @@ Public Class Invoice
 
         Dim oController As New BookingDataController
         Dim lsData = oController.BookingsFindById(sBookingId)
-
         If lsData.Count = 1 Then
             PopulateAtOpen(lsData.Item(0))
         End If
@@ -60,6 +61,7 @@ Public Class Invoice
 
         End If
 
+        Me.InvoiceTableAdapter.Fill(Me.HRRISdbDataSet3.invoice)
     End Sub
 
     Private Function validInvoice() As Boolean
@@ -155,6 +157,27 @@ Public Class Invoice
                 MsgBox("The record was not delete")
         End Select
 
+        Me.InvoiceTableAdapter.Fill(Me.HRRISdbDataSet3.invoice)
+
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim bIsValid1 = validInvoice()
+
+        If bIsValid1 = True Then
+
+            Dim InvoiceData As Hashtable = New Hashtable
+
+            InvoiceData("invoice_date") = txtInvoiceDate.Text
+            InvoiceData("amount") = txtAmount.Text
+            InvoiceData("booking_id") = txtId.Text
+
+            Dim InvoiceImport As New InvoiceDataController
+            InvoiceImport.InvoiceUpdate(InvoiceData)
+
+        End If
+
+        Me.InvoiceTableAdapter.Fill(Me.HRRISdbDataSet3.invoice)
     End Sub
     'This function is to clear the form 
     Private Sub clearForm()
@@ -191,9 +214,7 @@ Public Class Invoice
         txtAmount.Text = CStr(CInt(invoiceData("total_price")))
 
     End Sub
-
-
-
+    'I dont even know what is this for 
     Private Sub comboBokId()
 
         cboBookingID.DropDownStyle = ComboBoxStyle.DropDownList
@@ -240,6 +261,15 @@ Public Class Invoice
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
+
+    Private Sub btnBookingNav_Click(sender As Object, e As EventArgs) Handles btnBookingNav.Click
+        Dim bk1 As New Booking
+        bk1.Show()
+        Me.Hide()
+    End Sub
+
+
+
 
 
 

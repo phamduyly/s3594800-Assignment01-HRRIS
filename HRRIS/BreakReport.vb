@@ -56,4 +56,12 @@ Public Class BreakReport
         Return iValid
     End Function
 
+    Private Sub BreakReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim oController1 As New RoomDataController
+        Dim lsData1 = oController1.RoomfindALl()
+        For Each Room In lsData1
+            cboRoomID.Items.Add(CStr(Room("room_id")))
+        Next
+    End Sub
 End Class

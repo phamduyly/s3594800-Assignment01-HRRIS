@@ -113,9 +113,9 @@ Public Class Booking
 
             Dim bookingData As Hashtable = New Hashtable
 
-            bookingData("customer_id") = cboCusId.SelectedIndex
+            bookingData("customer_id") = cboCusId.Text
             bookingData("booking_date") = txtDate.Text
-            bookingData("room_id") = cboRoomID.SelectedIndex
+            bookingData("room_id") = cboRoomID.Text
             bookingData("num_days") = cboStays.Text
             bookingData("num_guests") = cboGuestNum.Text
             bookingData("checkin_date") = txtCheckinDate.Text
@@ -137,7 +137,7 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        bIsValid = oValidation.IsNameRight(cboCusId.Text)
+        bIsValid = IsNumeric(cboCusId.Text)
         If bIsValid Then
             PicCusID.Visible = False
         Else
@@ -145,7 +145,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isAlphaNumericVal(cboRoomID.Text)
+        bIsValid = IsNumeric(cboRoomID.Text)
         If bIsValid Then
             PicRoomID.Visible = False
         Else
@@ -428,6 +428,28 @@ Public Class Booking
         Me.Hide()
     End Sub
 
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sAbout As String
+        sAbout = "About.html "
+        Dim sParam As String = """" & Application.StartupPath & "\" & sAbout & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
+    End Sub
+
+    Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sHelp As String
+        sHelp = "Help.html"
+        Dim sParam As String = """" & Application.StartupPath & "\" & sHelp & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
+    End Sub
+
 
 #Region "enhance"
     Private Sub cboCusId_TextChanged(sender As Object, e As EventArgs) Handles cboCusId.TextChanged
@@ -464,6 +486,7 @@ Public Class Booking
         txtRmNum.Text = CStr(CInt(roomData("price")))
 
     End Sub
+
 
 #End Region
 

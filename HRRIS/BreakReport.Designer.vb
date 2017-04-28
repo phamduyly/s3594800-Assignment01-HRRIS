@@ -42,6 +42,8 @@ Partial Class BreakReport
         Me.btnBreakReport2 = New System.Windows.Forms.Button()
         Me.btnBreakReport1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cboRoomID = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
@@ -188,6 +190,8 @@ Partial Class BreakReport
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cboRoomID)
+        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.txtReportYear)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -199,6 +203,24 @@ Partial Class BreakReport
         Me.GroupBox1.TabIndex = 151
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
+        '
+        'cboRoomID
+        '
+        Me.cboRoomID.FormattingEnabled = True
+        Me.cboRoomID.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cboRoomID.Location = New System.Drawing.Point(61, 68)
+        Me.cboRoomID.Name = "cboRoomID"
+        Me.cboRoomID.Size = New System.Drawing.Size(79, 21)
+        Me.cboRoomID.TabIndex = 150
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 76)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(49, 13)
+        Me.Label3.TabIndex = 149
+        Me.Label3.Text = "Room ID"
         '
         'Label1
         '
@@ -264,4 +286,6 @@ Partial Class BreakReport
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents cboRoomID As ComboBox
+    Friend WithEvents Label3 As Label
 End Class

@@ -333,6 +333,27 @@ Public Class Customer
         booking1.ShowDialog()
 
     End Sub
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sAbout As String
+        sAbout = "About.html "
+        Dim sParam As String = """" & Application.StartupPath & "\" & sAbout & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
+    End Sub
+
+    Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sHelp As String
+        sHelp = "Help.html"
+        Dim sParam As String = """" & Application.StartupPath & "\" & sHelp & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
+
+        System.Diagnostics.Process.Start(sParam)
+    End Sub
 #End Region
 
 #Region "UIThings"
@@ -381,6 +402,8 @@ Public Class Customer
         btnFind.Visible = False
         btnUpdate.Visible = True
     End Sub
+
+
 #End Region
 
 End Class

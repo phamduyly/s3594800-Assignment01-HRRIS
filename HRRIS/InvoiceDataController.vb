@@ -27,12 +27,12 @@ Public Class InvoiceDataController
 
             ooCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
             ooCommand.Parameters.Add("amount", OleDbType.Integer, 100)
-            ooCommand.Parameters.Add("invoice_date", OleDbType.VarChar, 20)
+            ooCommand.Parameters.Add("invoice_date", OleDbType.Date, 20)
 
 
             ooCommand.Parameters("booking_id").Value = CInt(InvoiceData("booking_id"))
             ooCommand.Parameters("amount").Value = CInt(InvoiceData("amount"))
-            ooCommand.Parameters("invoice_date").Value = CStr(InvoiceData("invoice_date"))
+            ooCommand.Parameters("invoice_date").Value = CDate(InvoiceData("invoice_date"))
 
             ooCommand.Prepare()
             Debug.Print("SQL:" & ooCommand.CommandText)
@@ -157,4 +157,34 @@ Public Class InvoiceDataController
         Return iNumRows
 
     End Function
+
+    Public Sub InvoiceUpdate(ByRef InvoiceData As Hashtable)
+        Dim oConection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
+        oConection.Open()
+
+        Try
+            Dim ooCommand As OleDbCommand = New OleDbCommand
+            ooCommand.Connection = oConection
+
+            ooCommand.CommandText = "UPDATE amount = ?,  invoice_date = ? WHERE booking_id = ?;"
+
+
+            ooCommand.Parameters.Add("amount", OleDbType.Integer, 100)
+            ooCommand.Parameters.Add("invoice_date", OleDbType.Date, 20)
+            ooCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
+
+
+            ooCommand.Parameters("amount").Value = CInt(InvoiceData("amount"))
+            ooCommand.Parameters("invoice_date").Value = CDate(InvoiceData("invoice_date"))
+            ooCommand.Parameters("booking_id").Value = CInt(InvoiceData("booking_id"))
+
+            ooCommand.Prepare()
+            Debug.Print("SQL:" & ooCommand.CommandText)
+            ooCommand.ExecuteNonQuery()
+            MsgBox("Data is Updated")
+
+        Catch ex As Exception
+            MsgBox("Update input fail")
+        End Try
+    End Sub
 End Class

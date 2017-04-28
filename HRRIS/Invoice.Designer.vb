@@ -45,6 +45,11 @@ Partial Class Invoice
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InvoicedateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InvoiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HRRISdbDataSet3 = New HRRIS.HRRISdbDataSet3()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnFirst = New System.Windows.Forms.Button()
         Me.btnPrevious = New System.Windows.Forms.Button()
@@ -56,19 +61,16 @@ Partial Class Invoice
         Me.cboBookingID = New System.Windows.Forms.ComboBox()
         Me.PictxtId = New System.Windows.Forms.PictureBox()
         Me.PicAmountEr = New System.Windows.Forms.PictureBox()
-        Me.txtInvoiceDate = New System.Windows.Forms.TextBox()
-        Me.HRRISdbDataSet3 = New HRRIS.HRRISdbDataSet3()
-        Me.InvoiceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InvoiceTableAdapter = New HRRIS.HRRISdbDataSet3TableAdapters.invoiceTableAdapter()
-        Me.BookingidDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.InvoicedateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnUpdate = New System.Windows.Forms.Button()
+        Me.btnBookingNav = New System.Windows.Forms.Button()
+        Me.txtInvoiceDate = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InvoiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictxtId, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicAmountEr, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.InvoiceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -222,9 +224,37 @@ Partial Class Invoice
         Me.DataGridView1.Size = New System.Drawing.Size(360, 150)
         Me.DataGridView1.TabIndex = 7
         '
+        'BookingidDataGridViewTextBoxColumn
+        '
+        Me.BookingidDataGridViewTextBoxColumn.DataPropertyName = "booking_id"
+        Me.BookingidDataGridViewTextBoxColumn.HeaderText = "booking_id"
+        Me.BookingidDataGridViewTextBoxColumn.Name = "BookingidDataGridViewTextBoxColumn"
+        '
+        'InvoicedateDataGridViewTextBoxColumn
+        '
+        Me.InvoicedateDataGridViewTextBoxColumn.DataPropertyName = "invoice_date"
+        Me.InvoicedateDataGridViewTextBoxColumn.HeaderText = "invoice_date"
+        Me.InvoicedateDataGridViewTextBoxColumn.Name = "InvoicedateDataGridViewTextBoxColumn"
+        '
+        'AmountDataGridViewTextBoxColumn
+        '
+        Me.AmountDataGridViewTextBoxColumn.DataPropertyName = "amount"
+        Me.AmountDataGridViewTextBoxColumn.HeaderText = "amount"
+        Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
+        '
+        'InvoiceBindingSource
+        '
+        Me.InvoiceBindingSource.DataMember = "invoice"
+        Me.InvoiceBindingSource.DataSource = Me.HRRISdbDataSet3
+        '
+        'HRRISdbDataSet3
+        '
+        Me.HRRISdbDataSet3.DataSetName = "HRRISdbDataSet3"
+        Me.HRRISdbDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(477, 106)
+        Me.btnDelete.Location = New System.Drawing.Point(477, 96)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 8
@@ -278,7 +308,7 @@ Partial Class Invoice
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(477, 159)
+        Me.btnFind.Location = New System.Drawing.Point(477, 169)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(75, 23)
         Me.btnFind.TabIndex = 14
@@ -317,44 +347,34 @@ Partial Class Invoice
         Me.PicAmountEr.TabIndex = 18
         Me.PicAmountEr.TabStop = False
         '
+        'InvoiceTableAdapter
+        '
+        Me.InvoiceTableAdapter.ClearBeforeFill = True
+        '
+        'btnUpdate
+        '
+        Me.btnUpdate.Location = New System.Drawing.Point(477, 135)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.btnUpdate.TabIndex = 20
+        Me.btnUpdate.Text = "Update"
+        Me.btnUpdate.UseVisualStyleBackColor = True
+        '
+        'btnBookingNav
+        '
+        Me.btnBookingNav.Location = New System.Drawing.Point(477, 38)
+        Me.btnBookingNav.Name = "btnBookingNav"
+        Me.btnBookingNav.Size = New System.Drawing.Size(75, 23)
+        Me.btnBookingNav.TabIndex = 21
+        Me.btnBookingNav.Text = "Back"
+        Me.btnBookingNav.UseVisualStyleBackColor = True
+        '
         'txtInvoiceDate
         '
         Me.txtInvoiceDate.Location = New System.Drawing.Point(175, 116)
         Me.txtInvoiceDate.Name = "txtInvoiceDate"
         Me.txtInvoiceDate.Size = New System.Drawing.Size(200, 20)
-        Me.txtInvoiceDate.TabIndex = 19
-        '
-        'HRRISdbDataSet3
-        '
-        Me.HRRISdbDataSet3.DataSetName = "HRRISdbDataSet3"
-        Me.HRRISdbDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'InvoiceBindingSource
-        '
-        Me.InvoiceBindingSource.DataMember = "invoice"
-        Me.InvoiceBindingSource.DataSource = Me.HRRISdbDataSet3
-        '
-        'InvoiceTableAdapter
-        '
-        Me.InvoiceTableAdapter.ClearBeforeFill = True
-        '
-        'BookingidDataGridViewTextBoxColumn
-        '
-        Me.BookingidDataGridViewTextBoxColumn.DataPropertyName = "booking_id"
-        Me.BookingidDataGridViewTextBoxColumn.HeaderText = "booking_id"
-        Me.BookingidDataGridViewTextBoxColumn.Name = "BookingidDataGridViewTextBoxColumn"
-        '
-        'InvoicedateDataGridViewTextBoxColumn
-        '
-        Me.InvoicedateDataGridViewTextBoxColumn.DataPropertyName = "invoice_date"
-        Me.InvoicedateDataGridViewTextBoxColumn.HeaderText = "invoice_date"
-        Me.InvoicedateDataGridViewTextBoxColumn.Name = "InvoicedateDataGridViewTextBoxColumn"
-        '
-        'AmountDataGridViewTextBoxColumn
-        '
-        Me.AmountDataGridViewTextBoxColumn.DataPropertyName = "amount"
-        Me.AmountDataGridViewTextBoxColumn.HeaderText = "amount"
-        Me.AmountDataGridViewTextBoxColumn.Name = "AmountDataGridViewTextBoxColumn"
+        Me.txtInvoiceDate.TabIndex = 122
         '
         'Invoice
         '
@@ -362,6 +382,8 @@ Partial Class Invoice
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(575, 446)
         Me.Controls.Add(Me.txtInvoiceDate)
+        Me.Controls.Add(Me.btnBookingNav)
+        Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.PicAmountEr)
         Me.Controls.Add(Me.PictxtId)
         Me.Controls.Add(Me.cboBookingID)
@@ -386,10 +408,10 @@ Partial Class Invoice
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InvoiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictxtId, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicAmountEr, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HRRISdbDataSet3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.InvoiceBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -428,11 +450,13 @@ Partial Class Invoice
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictxtId As PictureBox
     Friend WithEvents PicAmountEr As PictureBox
-    Friend WithEvents txtInvoiceDate As TextBox
     Friend WithEvents HRRISdbDataSet3 As HRRISdbDataSet3
     Friend WithEvents InvoiceBindingSource As BindingSource
     Friend WithEvents InvoiceTableAdapter As HRRISdbDataSet3TableAdapters.invoiceTableAdapter
     Friend WithEvents BookingidDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents InvoicedateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AmountDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents btnUpdate As Button
+    Friend WithEvents btnBookingNav As Button
+    Friend WithEvents txtInvoiceDate As DateTimePicker
 End Class
