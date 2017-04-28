@@ -293,7 +293,7 @@ Public Class ReportController
             MsgBox("an error occured. The record(s) could not be found")
         Finally
             oConnection.Close()
-            bra
+
         End Try
 
         Return lsData
@@ -314,7 +314,7 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT booking.booking_id, booking.booking_date, room.room_id, room.room_number, room.type, room.price, room.num_beds, room.availability, room.floor, room.description FROM booking, room WHERE booking.room_id = room.room_id AND DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
+            oCommand.CommandText = "SELECT booking.booking_date, room.room_id, room.room_number, room.type, room.price, room.num_beds, room.availability, room.floor, room.description FROM booking, room WHERE booking.room_id = room.room_id AND DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()

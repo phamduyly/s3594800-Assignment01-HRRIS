@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-<title>Customer booking Report by ...</title>
+<title>Room booked frequency2 in months3 and year 2017</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,17 +9,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Customer booking Report by ...</h1>
+<h1>Room booked frequency2 in months3 and year 2017</h1>
 <table class ="table table-hover">
 <tr>
-<th>customer_id </th>
+<th>booking_id</th>
 <th>booking_date</th>
+<th>room_id</th>
+<th>customer_id</th>
 <th>num_days</th>
+<th>num_guests</th>
+<th>checkin_date</th>
+<th>total_price</th>
+<th>comments</th>
 </tr>
 <tr>
-<td></td>
+<td>2</td>
 <td>3/31/2017</td>
-<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>3/31/2017</td>
+<td>1</td>
+<td>No</td>
 </tr>
 </table>
 

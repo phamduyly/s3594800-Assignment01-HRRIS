@@ -115,7 +115,7 @@ Public Class BreakReport
         ' the """"" can fix into the access to the file path
         Debug.Print("sParam: " & sParam)
 
-        System.Diagnostics.Process.Start(sParam)r
+        System.Diagnostics.Process.Start(sParam)
     End Sub
 
     Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
