@@ -423,66 +423,141 @@ Public Class Customer
 
 #Region "More about find"
 
-    Private Sub txtCusFirName_Leave(sender As Object, e As EventArgs) Handles txtCusFirName.Leave
-        Dim sFNAme As String = txtCusFirName.Text
-        Dim lsDataFCus As List(Of Hashtable)
-        Dim oController As New CustomerDataController
-        lsDataFCus = oController.findCusByFirstName(sFNAme)
 
-        If lsDataFCus.Count = 1 Then
-            populateCusFields(lsDataFCus.Item(0))
+    Private Sub txtCusFirName_Leave(sender As Object, e As EventArgs) Handles txtCusFirName.Leave
+        If txtCusID.Text = Nothing Then
+
         Else
-            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            Dim sFNAme As String = txtCusFirName.Text
+            Dim lsDataFCus As List(Of Hashtable)
+            Dim oController As New CustomerDataController
+            lsDataFCus = oController.findCusByFirstName(sFNAme)
+
+            If lsDataFCus.Count = 1 Then
+                populateCusFields(lsDataFCus.Item(0))
+            ElseIf lsDataFCus.Count > 1 Then
+                lstBox.Items.Clear()
+                Dim sFDetails As String
+                For Each customer In lsDataFCus
+                    sFDetails = CStr(customer("customer_id"))
+                    sFDetails = sFDetails & " | " & CStr(customer("title"))
+                    sFDetails = sFDetails & " | " & CStr(customer("gender"))
+                    sFDetails = sFDetails & " | " & CStr(customer("firstname"))
+                    sFDetails = sFDetails & " | " & CStr(customer("lastname"))
+                    sFDetails = sFDetails & " | " & CStr(customer("phone"))
+                    sFDetails = sFDetails & " | " & CStr(customer("address"))
+                    sFDetails = sFDetails & " | " & CStr(customer("email"))
+                    sFDetails = sFDetails & " | " & CDate(customer("dob"))
+
+                    lstBox.Items.Add(sFDetails)
+                Next
+            Else
+                MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            End If
         End If
+
     End Sub
 
     Private Sub txtCusLasName_Leave(sender As Object, e As EventArgs) Handles txtCusLasName.Leave
-        Dim sLNAme As String = txtCusLasName.Text
-        Dim lsDataLCus As List(Of Hashtable)
-        Dim oController As New CustomerDataController
-        lsDataLCus = oController.findCusByLastName(sLNAme)
-
-        If lsDataLCus.Count = 1 Then
-            populateCusFields(lsDataLCus.Item(0))
-            'ElseIf .
-            'Show all 
-
+        If txtCusID.Text = Nothing Then
         Else
+            Dim sLNAme As String = txtCusLasName.Text
+            Dim lsDataLCus As List(Of Hashtable)
+            Dim oController As New CustomerDataController
+            lsDataLCus = oController.findCusByLastName(sLNAme)
 
-            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            If lsDataLCus.Count = 1 Then
+                populateCusFields(lsDataLCus.Item(0))
+            ElseIf lsDataLCus.Count > 1 Then
+                lstBox.Items.Clear()
+                Dim sLDetails As String
+                For Each customer In lsDataLCus
+                    sLDetails = CStr(customer("customer_id"))
+                    sLDetails = sLDetails & " | " & CStr(customer("title"))
+                    sLDetails = sLDetails & " | " & CStr(customer("gender"))
+                    sLDetails = sLDetails & " | " & CStr(customer("firstname"))
+                    sLDetails = sLDetails & " | " & CStr(customer("lastname"))
+                    sLDetails = sLDetails & " | " & CStr(customer("phone"))
+                    sLDetails = sLDetails & " | " & CStr(customer("address"))
+                    sLDetails = sLDetails & " | " & CStr(customer("email"))
+                    sLDetails = sLDetails & " | " & CDate(customer("dob"))
+
+                    lstBox.Items.Add(sLDetails)
+                Next
+            Else
+                MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            End If
         End If
+
     End Sub
 
     Private Sub txtCusPhone_Leave(sender As Object, e As EventArgs) Handles txtCusPhone.Leave
-        Dim sPhone As String = txtCusPhone.Text
-        Dim lsDataPhone As List(Of Hashtable)
-        Dim oController As New CustomerDataController
-        lsDataPhone = oController.findCusByPhone(sPhone)
 
-        If lsDataPhone.Count = 1 Then
-            populateCusFields(lsDataPhone.Item(0))
-        ElseIf lsDataPhone.Count > 1 Then
-            'Show all fucntion to textbox
+        If txtCusID.Text = Nothing Then
         Else
-            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            Dim sPhone As String = txtCusPhone.Text
+            Dim lsDataPhone As List(Of Hashtable)
+            Dim oController As New CustomerDataController
+            lsDataPhone = oController.findCusByPhone(sPhone)
+
+            If lsDataPhone.Count = 1 Then
+                populateCusFields(lsDataPhone.Item(0))
+            ElseIf lsDataPhone.Count > 1 Then
+                lstBox.Items.Clear()
+                Dim sPhoneDetails As String
+                For Each customer In lsDataPhone
+                    sPhoneDetails = CStr(customer("customer_id"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("title"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("gender"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("firstname"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("lastname"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("phone"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("address"))
+                    sPhoneDetails = sPhoneDetails & " | " & CStr(customer("email"))
+                    sPhoneDetails = sPhoneDetails & " | " & CDate(customer("dob"))
+
+                    lstBox.Items.Add(sPhoneDetails)
+                Next
+            Else
+                MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            End If
         End If
+
     End Sub
 
     Private Sub txtCusEmail_Leave(sender As Object, e As EventArgs) Handles txtCusEmail.Leave
-        Dim sEmail As String = txtCusEmail.Text
-        Dim lsDataCusE As List(Of Hashtable)
-        Dim oController As New CustomerDataController
-        lsDataCusE = oController.findCusByEmail(sEmail)
+        If txtCusID.Text = Nothing Then
+        Else
+            Dim sEmail As String = txtCusEmail.Text
+            Dim lsDataCusE As List(Of Hashtable)
+            Dim oController As New CustomerDataController
+            lsDataCusE = oController.findCusByEmail(sEmail)
 
-        If lsDataCusE.Count = 1 Then
-            populateCusFields(lsDataCusE.Item(0))
-        ElseIf lsDataCusE.Count > 1 Then
-            'Show all fucntion to the text box
+            If lsDataCusE.Count = 1 Then
+                populateCusFields(lsDataCusE.Item(0))
 
-            MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            ElseIf lsDataCusE.Count > 1 Then
+                lstBox.Items.Clear()
+                Dim sEDetails As String
+                For Each customer In lsDataCusE
+                    sEDetails = CStr(customer("customer_id"))
+                    sEDetails = sEDetails & " | " & CStr(customer("title"))
+                    sEDetails = sEDetails & " | " & CStr(customer("gender"))
+                    sEDetails = sEDetails & " | " & CStr(customer("firstname"))
+                    sEDetails = sEDetails & " | " & CStr(customer("lastname"))
+                    sEDetails = sEDetails & " | " & CStr(customer("phone"))
+                    sEDetails = sEDetails & " | " & CStr(customer("address"))
+                    sEDetails = sEDetails & " | " & CStr(customer("email"))
+                    sEDetails = sEDetails & " | " & CDate(customer("dob"))
+
+                    lstBox.Items.Add(sEDetails)
+                Next
+            Else
+                MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            End If
         End If
-    End Sub
 
+    End Sub
 
 #End Region
 

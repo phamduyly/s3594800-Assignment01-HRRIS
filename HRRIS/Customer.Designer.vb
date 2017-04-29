@@ -32,7 +32,6 @@ Partial Class Customer
         Me.btnFind = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.txtCusDOB = New System.Windows.Forms.DateTimePicker()
-        Me.btnHome = New System.Windows.Forms.Button()
         Me.PicEmal = New System.Windows.Forms.PictureBox()
         Me.PicAddr = New System.Windows.Forms.PictureBox()
         Me.PicLName = New System.Windows.Forms.PictureBox()
@@ -97,7 +96,7 @@ Partial Class Customer
         Me.Delete = New System.Windows.Forms.PictureBox()
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
-        Me.Field = New System.Windows.Forms.TextBox()
+        Me.lstBox = New System.Windows.Forms.ListBox()
         CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -202,15 +201,6 @@ Partial Class Customer
         Me.txtCusDOB.Name = "txtCusDOB"
         Me.txtCusDOB.Size = New System.Drawing.Size(330, 20)
         Me.txtCusDOB.TabIndex = 113
-        '
-        'btnHome
-        '
-        Me.btnHome.Location = New System.Drawing.Point(628, 261)
-        Me.btnHome.Name = "btnHome"
-        Me.btnHome.Size = New System.Drawing.Size(93, 23)
-        Me.btnHome.TabIndex = 112
-        Me.btnHome.Text = "Home"
-        Me.btnHome.UseVisualStyleBackColor = True
         '
         'PicEmal
         '
@@ -613,7 +603,7 @@ Partial Class Customer
         'DeleteStatus
         '
         Me.DeleteStatus.Image = Global.HRRIS.My.Resources.Resources._641
-        Me.DeleteStatus.Location = New System.Drawing.Point(12, 39)
+        Me.DeleteStatus.Location = New System.Drawing.Point(192, 27)
         Me.DeleteStatus.Name = "DeleteStatus"
         Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
         Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -623,7 +613,7 @@ Partial Class Customer
         '
         'UpdatetingsStatus
         '
-        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 40)
+        Me.UpdatetingsStatus.Location = New System.Drawing.Point(107, 27)
         Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
         Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
         Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -633,7 +623,7 @@ Partial Class Customer
         '
         'FindStatus
         '
-        Me.FindStatus.Location = New System.Drawing.Point(12, 40)
+        Me.FindStatus.Location = New System.Drawing.Point(53, 31)
         Me.FindStatus.Name = "FindStatus"
         Me.FindStatus.Size = New System.Drawing.Size(64, 64)
         Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -725,20 +715,21 @@ Partial Class Customer
         Me.DownStart.TabIndex = 78
         Me.DownStart.TabStop = False
         '
-        'Field
+        'lstBox
         '
-        Me.Field.Location = New System.Drawing.Point(628, 112)
-        Me.Field.Multiline = True
-        Me.Field.Name = "Field"
-        Me.Field.Size = New System.Drawing.Size(276, 141)
-        Me.Field.TabIndex = 134
+        Me.lstBox.FormattingEnabled = True
+        Me.lstBox.Location = New System.Drawing.Point(613, 118)
+        Me.lstBox.Name = "lstBox"
+        Me.lstBox.Size = New System.Drawing.Size(291, 199)
+        Me.lstBox.TabIndex = 134
+        Me.lstBox.Visible = False
         '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(916, 662)
-        Me.Controls.Add(Me.Field)
+        Me.Controls.Add(Me.lstBox)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
         Me.Controls.Add(Me.FindStatus)
@@ -754,7 +745,6 @@ Partial Class Customer
         Me.Controls.Add(Me.btnFind)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.txtCusDOB)
-        Me.Controls.Add(Me.btnHome)
         Me.Controls.Add(Me.PicEmal)
         Me.Controls.Add(Me.PicAddr)
         Me.Controls.Add(Me.PicLName)
@@ -824,7 +814,6 @@ Partial Class Customer
     Friend WithEvents btnFind As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents txtCusDOB As DateTimePicker
-    Friend WithEvents btnHome As Button
     Friend WithEvents PicEmal As PictureBox
     Friend WithEvents PicAddr As PictureBox
     Friend WithEvents PicLName As PictureBox
@@ -889,5 +878,5 @@ Partial Class Customer
     Friend WithEvents UpClose As PictureBox
     Friend WithEvents DownStart As PictureBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Field As TextBox
+    Friend WithEvents lstBox As ListBox
 End Class

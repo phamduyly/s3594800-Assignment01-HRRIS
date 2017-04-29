@@ -431,7 +431,7 @@ Public Class CustomerDataController
             Dim oCommand As OleDbCommand = New OleDbCommand
 
             oCommand.Connection = oConnection
-            oCommand.CommandText = "SELECT * FROM customer WHERE phone = """ + sEmail + """; "
+            oCommand.CommandText = "SELECT * FROM customer WHERE email = """ + sEmail + """; "
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
