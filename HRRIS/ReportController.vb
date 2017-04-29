@@ -322,7 +322,7 @@ Public Class ReportController
             Dim htTempData As Hashtable
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-                htTempData("booking_id") = CInt(oDataReader("booking.booking_id"))
+                htTempData("room_id") = CInt(oDataReader("booking.room_id"))
                 htTempData("booking_date") = CDate(oDataReader("booking.booking_date"))
                 htTempData("room_id") = CInt(oDataReader("room.room_id"))
                 htTempData("room_number") = CInt(oDataReader("room.room_number"))
@@ -363,7 +363,7 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart(""yyyy"", booking_date) = " & iYears & ";"
+            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart(""yyyy"", invoice_date) = " & iYears & ";"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
