@@ -331,7 +331,8 @@ Public Class Customer
     End Sub
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
-        txtCusID.Visible = False
+        txtCusID.Clear()
+        txtCusID.Enabled = False
 
     End Sub
 
@@ -435,7 +436,11 @@ Public Class Customer
 
             If lsDataFCus.Count = 1 Then
                 populateCusFields(lsDataFCus.Item(0))
+                'this is for populate the data in to the fields if only the record found = 1 
+
             ElseIf lsDataFCus.Count > 1 Then
+                'This is for showing the records to list bos only the list box if the record > 1
+
                 lstBox.Items.Clear()
                 Dim sFDetails As String
                 For Each customer In lsDataFCus
@@ -452,6 +457,7 @@ Public Class Customer
                     lstBox.Items.Add(sFDetails)
                 Next
             Else
+                'If there are no record found
                 MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
             End If
         End If
@@ -468,7 +474,11 @@ Public Class Customer
 
             If lsDataLCus.Count = 1 Then
                 populateCusFields(lsDataLCus.Item(0))
+                'this is for populate the data in to the fields if only the record found = 1 
+
             ElseIf lsDataLCus.Count > 1 Then
+                'This is for showing the records to list bos only the list box if the record > 1
+
                 lstBox.Items.Clear()
                 Dim sLDetails As String
                 For Each customer In lsDataLCus
@@ -485,6 +495,7 @@ Public Class Customer
                     lstBox.Items.Add(sLDetails)
                 Next
             Else
+                'If there are no record found
                 MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
             End If
         End If
@@ -502,7 +513,9 @@ Public Class Customer
 
             If lsDataPhone.Count = 1 Then
                 populateCusFields(lsDataPhone.Item(0))
+                'this is for populate the data in to the fields if only the record found = 1 
             ElseIf lsDataPhone.Count > 1 Then
+                'This is for showing the records to list bos only the list box if the record > 1
                 lstBox.Items.Clear()
                 Dim sPhoneDetails As String
                 For Each customer In lsDataPhone
@@ -519,6 +532,7 @@ Public Class Customer
                     lstBox.Items.Add(sPhoneDetails)
                 Next
             Else
+                'If there are no record found
                 MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
             End If
         End If
@@ -535,8 +549,10 @@ Public Class Customer
 
             If lsDataCusE.Count = 1 Then
                 populateCusFields(lsDataCusE.Item(0))
+                'this is for populate the data in to the fields if only the record found = 1 
 
             ElseIf lsDataCusE.Count > 1 Then
+                'This is for showing the records to list bos only the list box if the record > 1
                 lstBox.Items.Clear()
                 Dim sEDetails As String
                 For Each customer In lsDataCusE
@@ -553,6 +569,7 @@ Public Class Customer
                     lstBox.Items.Add(sEDetails)
                 Next
             Else
+                'If there are no record found
                 MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
             End If
         End If

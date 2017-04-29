@@ -27,15 +27,12 @@ Public Class Booking
         Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
         'TODO: This line of code loads data into the 'HRRISdbDataSet3.booking' table. You can move, or remove it, as needed.
 
-
-        'Enable booking ID field whenever click into the form in order to perform CRUD task 
-
         'Tooltip part for
         Dim tootipBookg As New ToolTip
         'Input fields part 
         tootipBookg.SetToolTip(txtID, "Input ID to perform program function")
         tootipBookg.SetToolTip(txtDate, "Choose booking date here")
-        tootipBookg.SetToolTip(txtType, "Choose room type for the customer")
+        tootipBookg.SetToolTip(txtType, "Choose room type to show all room that available for that type")
         tootipBookg.SetToolTip(cboCusId, "Choose customer ID from the dropdown box")
         tootipBookg.SetToolTip(cboStays, "Choose customer stays days from the dropdown box")
         tootipBookg.SetToolTip(cboStays, "Choose number of guest from the dropdown box")
@@ -124,10 +121,10 @@ Public Class Booking
 
             Dim bookingimport As BookingDataController = New BookingDataController
             bookingimport.BookingInsert(bookingData)
-
+            Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
         End If
 
-        Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
+
 
     End Sub
     'validate private function
@@ -393,13 +390,13 @@ Public Class Booking
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
-
+    'For new record
     Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
         txtID.Clear()
         txtID.Enabled = False
 
     End Sub
-
+    'To open custoemr form 
 
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
         Dim customer As New Customer
@@ -407,25 +404,25 @@ Public Class Booking
 
 
     End Sub
-
+    'To open room form 
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
         Dim bok As New Room
         bok.Show()
     End Sub
-
+    'To open report fomr
     Private Sub ReportToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem1.Click
         Dim repor1 As New Report
         repor1.Show()
         Me.Hide()
 
     End Sub
-
+    'To open break report form
     Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
         Dim brkreport1 As New BreakReport
         brkreport1.Show()
         Me.Hide()
     End Sub
-
+    'These code is to open the HTML help and about page
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
         'This part can be reuse cause it is unchangeable 
         Dim sAbout As String
@@ -436,7 +433,7 @@ Public Class Booking
 
         System.Diagnostics.Process.Start(sParam)
     End Sub
-
+    'These code is to open the HTML help and about page
     Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
         'This part can be reuse cause it is unchangeable 
         Dim sHelp As String
@@ -455,27 +452,43 @@ Public Class Booking
 
 
 #Region "enhance"
+
+    'for the room secttion here. 
+    'Due to the reason that this is for record insert. Therefore, only room that have status that "available" = yes 
+    'That the room detail can be appear to populate to other fields OR list on to list box on the left hand side 
     Private Sub cboCusId_TextChanged(sender As Object, e As EventArgs) Handles cboCusId.TextChanged
+
         Dim sCusId = cboCusId.Text
 
-        Dim oController As New CustomerDataController
-        Dim lsData = oController.CustomerFind(sCusId)
+            Dim oController As New CustomerDataController
+            Dim lsData = oController.CustomerFind(sCusId)
 
-        If lsData.Count = 1 Then
-            populatecus(lsData.Item(0))
-        End If
+            If lsData.Count = 1 Then
+                populatecus(lsData.Item(0))
+            End If
+
+        'Else nothing becasue the software can only work if their is no record in ID fields
+        'Reason: for importing new record to database 
+
+
 
     End Sub
 
     Private Sub cboRoomID_TextChanged(sender As Object, e As EventArgs) Handles cboRoomID.TextChanged
+
         Dim sRmId = cboRoomID.Text
 
-        Dim oController As New RoomDataController
-        Dim lsData = oController.DisplayByRmId(sRmId)
+            Dim oController As New RoomDataController
+            Dim lsData = oController.DisplayByRmId(sRmId)
 
-        If lsData.Count = 1 Then
-            populateroom(lsData.Item(0))
-        End If
+            If lsData.Count = 1 Then
+                populateroom(lsData.Item(0))
+            End If
+
+        'Else nothing becasue the software can only work if their is no record in ID fields
+        'Reason: for importing new record to database 
+
+
     End Sub
 
     Private Sub populatecus(ByRef cusData As Hashtable)
@@ -491,7 +504,45 @@ Public Class Booking
     End Sub
 
 
+    'Because the type have multiple thinsg
+    'Therefore, room record will then be display to the left hand side
+    'FOR adding purpose, therefore, txtID have to be nothing.
+    Private Sub txtType_TextChanged(sender As Object, e As EventArgs) Handles txtType.TextChanged
+        If txtID.Text = Nothing Then
 
+            Dim sType As String = txtType.Text
+            Dim lsDataType As List(Of Hashtable)
+            Dim oController As New RoomDataController
+            lsDataType = oController.DisplayByType(sType)
+
+            LstBox.Items.Clear()
+
+            Dim sTDetails As String
+            For Each room In lsDataType
+                sTDetails = CStr(room("room_id"))
+                sTDetails = sTDetails & " | " & CInt(room("room_number"))
+                sTDetails = sTDetails & " | " & CStr(room("type"))
+                sTDetails = sTDetails & " | " & CInt(room("price"))
+                sTDetails = sTDetails & " | " & CInt(room("num_beds"))
+                sTDetails = sTDetails & " | " & CStr(room("availability"))
+                sTDetails = sTDetails & " | " & CInt(room("floor"))
+                sTDetails = sTDetails & " | " & CStr(room("description"))
+                LstBox.Items.Add(sTDetails)
+            Next
+
+
+
+        Else
+
+        End If
+    End Sub
+
+    Private Sub populateRoom2(ByRef roomData As Hashtable)
+
+        cboRoomID.Text = CStr(CType(roomData("room_id"), String))
+        txtRmNum.Text = CStr(CInt(roomData("price")))
+
+    End Sub
 
 #End Region
 

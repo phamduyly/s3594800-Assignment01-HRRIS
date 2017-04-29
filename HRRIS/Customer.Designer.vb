@@ -603,7 +603,7 @@ Partial Class Customer
         'DeleteStatus
         '
         Me.DeleteStatus.Image = Global.HRRIS.My.Resources.Resources._641
-        Me.DeleteStatus.Location = New System.Drawing.Point(192, 27)
+        Me.DeleteStatus.Location = New System.Drawing.Point(12, 39)
         Me.DeleteStatus.Name = "DeleteStatus"
         Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
         Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -613,7 +613,7 @@ Partial Class Customer
         '
         'UpdatetingsStatus
         '
-        Me.UpdatetingsStatus.Location = New System.Drawing.Point(107, 27)
+        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 39)
         Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
         Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
         Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -623,7 +623,7 @@ Partial Class Customer
         '
         'FindStatus
         '
-        Me.FindStatus.Location = New System.Drawing.Point(53, 31)
+        Me.FindStatus.Location = New System.Drawing.Point(12, 39)
         Me.FindStatus.Name = "FindStatus"
         Me.FindStatus.Size = New System.Drawing.Size(64, 64)
         Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize

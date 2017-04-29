@@ -110,6 +110,8 @@ Partial Class Booking
         Me.Delete = New System.Windows.Forms.PictureBox()
         Me.UpClose = New System.Windows.Forms.PictureBox()
         Me.DownStart = New System.Windows.Forms.PictureBox()
+        Me.LstBox = New System.Windows.Forms.ListBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -859,11 +861,30 @@ Partial Class Booking
         Me.DownStart.TabIndex = 78
         Me.DownStart.TabStop = False
         '
+        'LstBox
+        '
+        Me.LstBox.FormattingEnabled = True
+        Me.LstBox.Location = New System.Drawing.Point(697, 130)
+        Me.LstBox.Name = "LstBox"
+        Me.LstBox.Size = New System.Drawing.Size(293, 342)
+        Me.LstBox.TabIndex = 149
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(697, 104)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(90, 13)
+        Me.Label11.TabIndex = 150
+        Me.Label11.Text = "Room Information"
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1002, 663)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.LstBox)
         Me.Controls.Add(Me.DeleteStatus)
         Me.Controls.Add(Me.UpdatetingsStatus)
         Me.Controls.Add(Me.FindStatus)
@@ -1032,4 +1053,6 @@ Partial Class Booking
     Friend WithEvents DownStart As PictureBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InvoiceToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LstBox As ListBox
+    Friend WithEvents Label11 As Label
 End Class

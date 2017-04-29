@@ -307,7 +307,13 @@ Public Class Room
         Return roomData
 
     End Function
-    'Menu section
+    'This region is for menu
+#Region "menu"
+    Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
+        txtRmID.Clear()
+        txtRmID.Enabled = False
+
+    End Sub
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
         Try
@@ -354,6 +360,9 @@ Public Class Room
 
         System.Diagnostics.Process.Start(sParam)
     End Sub
+#End Region
+
+#Region "UI"
 
     'UI fucntion 
     'Uisng piccture box and panel for UI
@@ -400,6 +409,12 @@ Public Class Room
         btnFind.Visible = False
         btnUpdate.Visible = True
     End Sub
+
+
+
+
+
+#End Region
 
 
 End Class
