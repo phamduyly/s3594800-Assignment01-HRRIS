@@ -311,8 +311,8 @@ Public Class Booking
                 populateBookingFields(lsData.Item(0))
 
             Else
-                Debug.Print("no record were found")
-
+                MsgBox("booking ID is not valid")
+                PicBookID.Visible = True
             End If
         End If
 

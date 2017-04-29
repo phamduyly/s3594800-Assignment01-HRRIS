@@ -58,7 +58,6 @@ Partial Class Invoice
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnFind = New System.Windows.Forms.Button()
         Me.txtId = New System.Windows.Forms.TextBox()
-        Me.cboBookingID = New System.Windows.Forms.ComboBox()
         Me.PictxtId = New System.Windows.Forms.PictureBox()
         Me.PicAmountEr = New System.Windows.Forms.PictureBox()
         Me.InvoiceTableAdapter = New HRRIS.HRRISdbDataSet3TableAdapters.invoiceTableAdapter()
@@ -322,15 +321,6 @@ Partial Class Invoice
         Me.txtId.Size = New System.Drawing.Size(200, 20)
         Me.txtId.TabIndex = 15
         '
-        'cboBookingID
-        '
-        Me.cboBookingID.FormattingEnabled = True
-        Me.cboBookingID.Location = New System.Drawing.Point(175, 45)
-        Me.cboBookingID.Name = "cboBookingID"
-        Me.cboBookingID.Size = New System.Drawing.Size(200, 21)
-        Me.cboBookingID.TabIndex = 16
-        Me.cboBookingID.Visible = False
-        '
         'PictxtId
         '
         Me.PictxtId.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
@@ -391,7 +381,6 @@ Partial Class Invoice
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.PicAmountEr)
         Me.Controls.Add(Me.PictxtId)
-        Me.Controls.Add(Me.cboBookingID)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.btnFind)
         Me.Controls.Add(Me.btnAdd)
@@ -451,7 +440,6 @@ Partial Class Invoice
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnFind As Button
     Friend WithEvents txtId As TextBox
-    Friend WithEvents cboBookingID As ComboBox
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictxtId As PictureBox
     Friend WithEvents PicAmountEr As PictureBox

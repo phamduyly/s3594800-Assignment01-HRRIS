@@ -69,7 +69,7 @@ Public Class InvoiceDataController
                 htTempData = New Hashtable
                 htTempData("booking_id") = CInt(oDataReader("booking_id"))
                 htTempData("invoice_date") = CDate(oDataReader("invoice_date"))
-                htTempData("total_price") = CInt(oDataReader("total_price"))
+                htTempData("amount") = CInt(oDataReader("amount"))
                 lsData.Add(htTempData)
             Loop
 
@@ -86,7 +86,8 @@ Public Class InvoiceDataController
 
     End Function
 
-    Public Function InvoiceFindByID(ByRef sId As String) As List(Of Hashtable)
+    Public Function InvoiceFindByID(ByVal sId As String) As List(Of Hashtable)
+
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
 
@@ -97,10 +98,11 @@ Public Class InvoiceDataController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT * FROM invoice WHERE booking_id = ?;"
+            oCommand.CommandText = "SELECT booking_id, invoice_date, amount FROM invoice WHERE booking_id = ?;"
             oCommand.Parameters.Add("booking_id", OleDbType.Integer, 10)
-            oCommand.Parameters("bookind_id").Value = CStr(sId)
+            oCommand.Parameters("booking_id").Value = CInt(sId)
             oCommand.Prepare()
+
             Dim oDataReader = oCommand.ExecuteReader()
 
             Dim htTempData As Hashtable
@@ -109,7 +111,7 @@ Public Class InvoiceDataController
                 htTempData = New Hashtable
                 htTempData("booking_id") = CInt(oDataReader("booking_id"))
                 htTempData("invoice_date") = CDate(oDataReader("invoice_date"))
-                htTempData("total_price") = CInt(oDataReader("total_price"))
+                htTempData("amount") = CInt(oDataReader("amount"))
                 lsData.Add(htTempData)
             Loop
 

@@ -22,6 +22,17 @@ Public Class Invoice
         'This little things Is having problem beccause record inside of database Is still having prblem
         txtId.Text = bookingIdPass
 
+        Dim tl As New ToolTip
+        'Button part 
+        tl.SetToolTip(btnAdd, "click this to save record to Invoice database")
+        tl.SetToolTip(btnDelete, "click this to delete Invoice record from database")
+        tl.SetToolTip(btnUpdate, "click this to Update record in Invocie Database")
+        tl.SetToolTip(btnFind, "click this to find the record in Invoice Database")
+        tl.SetToolTip(btnBookingNav, "click this to back to booking form")
+
+        'text part
+        tl.SetToolTip(txtId, "Input ID to find for Invoice Record")
+        tl.SetToolTip(txtAmount, "Invoice Money")
     End Sub
 
     Private Sub txtId_TextChanged(sender As Object, e As EventArgs) Handles txtId.TextChanged
@@ -147,7 +158,7 @@ Public Class Invoice
     'This function is to delete the record
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As New InvoiceDataController
-        Dim sId As String = cboBookingID.Text
+        Dim sId As String = txtId.Text
 
         Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
             Case MsgBoxResult.Yes
@@ -195,9 +206,11 @@ Public Class Invoice
     'This fucntio is to populate the price acording to the BOOKING id VALUE to the form
 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
+        Dim bIsvalid As Boolean
+        bIsvalid = IsNumeric(txtId.Text)
 
         Dim oControler As New InvoiceDataController
-        Dim sId = cboBookingID.Text
+        Dim sId = txtId.Text
         Dim lsData = oControler.InvoiceFindByID(sId)
 
         If lsData.Count = 1 Then
@@ -209,24 +222,6 @@ Public Class Invoice
         End If
     End Sub
 
-    'Initial function room (checked box) - generate ID to the next 
-
-    'Populate is still missing two combobox - try to figure out how to populate data into a cbo that relating to database dropdown list
-    'only popuate the price into form 
-    'Date is now - the day that perform the purchasing 
-
-
-    'I dont even know what is this for 
-    Private Sub comboBokId()
-
-        cboBookingID.DropDownStyle = ComboBoxStyle.DropDownList
-        Dim oController1 As New BookingDataController
-        Dim lsData = oController1.BookingfindALl()
-        For Each booking In lsData
-            cboBookingID.Items.Add(CStr(booking("booking_id")))
-
-        Next
-    End Sub
 #Region "Menuthings"
     Private Sub UpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem.Click
 
