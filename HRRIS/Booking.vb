@@ -394,6 +394,11 @@ Public Class Booking
     Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
         txtID.Clear()
         txtID.Enabled = False
+        btnAdd.Visible = True
+        btnDelete.Visible = False
+        btnUpdate.Visible = False
+        btnFind.Visible = False
+        clearForm()
 
     End Sub
     'To open custoemr form 
@@ -416,6 +421,18 @@ Public Class Booking
         Me.Hide()
 
     End Sub
+    'Edit menu 
+
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
+        txtID.Enabled = True
+        btnAdd.Visible = False
+        btnDelete.Visible = True
+        btnUpdate.Visible = True
+        btnFind.Visible = True
+
+
+    End Sub
+
     'To open break report form
     Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
         Dim brkreport1 As New BreakReport
@@ -515,6 +532,9 @@ Public Class Booking
             Dim oController As New RoomDataController
             lsDataType = oController.DisplayByType(sType)
 
+            LstBox.Visible = True
+            Label11.Visible = True
+
             LstBox.Items.Clear()
 
             Dim sTDetails As String
@@ -544,66 +564,9 @@ Public Class Booking
 
     End Sub
 
+
+
 #End Region
 
-#Region "UI PART"
-
-    'UI fucntion 
-    'Uisng piccture box and panel for UI
-    '    Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
-    '        UIModi.Displayoption(DownStart, Panel2, UpClose)
-
-    '    End Sub
-
-    '    Private Sub Adds1_Click(sender As Object, e As EventArgs) Handles Adds1.Click
-    '        UIModi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-    '        Button1.Visible = True
-    '        btnDelete.Visible = False
-    '        btnFind.Visible = False
-    '        btnUpdate.Visible = False
-
-    '    End Sub
-
-    '    Private Sub Find_Click(sender As Object, e As EventArgs) Handles Find.Click
-    '        UIModi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-    '        btnFind.Visible = True
-    '        btnDelete.Visible = False
-    '        Button1.Visible = False
-    '        btnUpdate.Visible = False
-    '    End Sub
-
-    '    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
-    '        UIModi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-    '        btnDelete.Visible = True
-    '        Button1.Visible = False
-    '        btnFind.Visible = False
-    '        btnUpdate.Visible = False
-
-    '    End Sub
-
-    '    Private Sub UpClose_Click(sender As Object, e As EventArgs) Handles UpClose.Click
-    '        UIModi.CloseOptions(DownStart, Panel2, UpClose)
-
-    '    End Sub
-
-    '    Private Sub Updatetings_Click(sender As Object, e As EventArgs) Handles Updatetings.Click
-    '        UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-    '        Button1.Visible = False
-    '        btnDelete.Visible = False
-    '        btnFind.Visible = False
-    '        btnUpdate.Visible = True
-    '    End Sub
-
-    '    Private Sub cboRoomID_Leave(sender As Object, e As EventArgs) Handles cboRoomID.Leave
-    '        Dim sRmId = cboRoomID.Text
-
-    '        Dim oController As New RoomDataController
-    '        Dim lsData = oController.DisplayByRmId(sRmId)
-
-    '        If lsData.Count = 1 Then
-    '            populateroom(lsData.Item(0))
-    '        End If
-    '    End Sub
-#End Region
 
 End Class

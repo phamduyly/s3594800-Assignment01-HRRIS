@@ -23,7 +23,6 @@ Partial Class Booking
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -78,8 +77,6 @@ Partial Class Booking
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -99,20 +96,8 @@ Partial Class Booking
         Me.BookingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HRRISdbDataSet2 = New HRRIS.HRRISdbDataSet2()
         Me.BookingTableAdapter = New HRRIS.HRRISdbDataSet2TableAdapters.bookingTableAdapter()
-        Me.DeleteStatus = New System.Windows.Forms.PictureBox()
-        Me.UpdatetingsStatus = New System.Windows.Forms.PictureBox()
-        Me.FindStatus = New System.Windows.Forms.PictureBox()
-        Me.AddStatus = New System.Windows.Forms.PictureBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Updatetings = New System.Windows.Forms.PictureBox()
-        Me.Find = New System.Windows.Forms.PictureBox()
-        Me.Adds1 = New System.Windows.Forms.PictureBox()
-        Me.Delete = New System.Windows.Forms.PictureBox()
-        Me.UpClose = New System.Windows.Forms.PictureBox()
-        Me.DownStart = New System.Windows.Forms.PictureBox()
         Me.LstBox = New System.Windows.Forms.ListBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,27 +113,7 @@ Partial Class Booking
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel2.SuspendLayout()
-        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Find, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Delete, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(82, 40)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(64, 64)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 133
-        Me.PictureBox1.TabStop = False
         '
         'GroupBox2
         '
@@ -267,7 +232,7 @@ Partial Class Booking
         '
         'btnInvoince
         '
-        Me.btnInvoince.Location = New System.Drawing.Point(594, 387)
+        Me.btnInvoince.Location = New System.Drawing.Point(594, 104)
         Me.btnInvoince.Name = "btnInvoince"
         Me.btnInvoince.Size = New System.Drawing.Size(79, 52)
         Me.btnInvoince.TabIndex = 134
@@ -332,30 +297,33 @@ Partial Class Booking
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(594, 200)
+        Me.btnUpdate.Location = New System.Drawing.Point(594, 373)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(79, 23)
         Me.btnUpdate.TabIndex = 125
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.Visible = False
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(594, 265)
+        Me.btnFind.Location = New System.Drawing.Point(594, 438)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(79, 23)
         Me.btnFind.TabIndex = 124
         Me.btnFind.Text = "Find"
         Me.btnFind.UseVisualStyleBackColor = True
+        Me.btnFind.Visible = False
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(594, 236)
+        Me.btnDelete.Location = New System.Drawing.Point(594, 409)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(79, 23)
         Me.btnDelete.TabIndex = 123
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
+        Me.btnDelete.Visible = False
         '
         'txtCheckinDate
         '
@@ -463,12 +431,13 @@ Partial Class Booking
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(594, 153)
+        Me.btnAdd.Location = New System.Drawing.Point(594, 437)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(79, 23)
         Me.btnAdd.TabIndex = 111
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
+        Me.btnAdd.Visible = False
         '
         'txtCmt
         '
@@ -612,22 +581,9 @@ Partial Class Booking
         '
         'EditToolStripMenuItem
         '
-        Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UpToolStripMenuItem, Me.UpdateToolStripMenuItem})
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
         Me.EditToolStripMenuItem.Text = "Edit"
-        '
-        'UpToolStripMenuItem
-        '
-        Me.UpToolStripMenuItem.Name = "UpToolStripMenuItem"
-        Me.UpToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
-        Me.UpToolStripMenuItem.Text = "Delete"
-        '
-        'UpdateToolStripMenuItem
-        '
-        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
-        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
-        Me.UpdateToolStripMenuItem.Text = "Update"
         '
         'ReportToolStripMenuItem
         '
@@ -746,121 +702,6 @@ Partial Class Booking
         '
         Me.BookingTableAdapter.ClearBeforeFill = True
         '
-        'DeleteStatus
-        '
-        Me.DeleteStatus.Image = Global.HRRIS.My.Resources.Resources._641
-        Me.DeleteStatus.Location = New System.Drawing.Point(12, 40)
-        Me.DeleteStatus.Name = "DeleteStatus"
-        Me.DeleteStatus.Size = New System.Drawing.Size(64, 64)
-        Me.DeleteStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.DeleteStatus.TabIndex = 145
-        Me.DeleteStatus.TabStop = False
-        Me.DeleteStatus.Visible = False
-        '
-        'UpdatetingsStatus
-        '
-        Me.UpdatetingsStatus.Location = New System.Drawing.Point(12, 41)
-        Me.UpdatetingsStatus.Name = "UpdatetingsStatus"
-        Me.UpdatetingsStatus.Size = New System.Drawing.Size(64, 64)
-        Me.UpdatetingsStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.UpdatetingsStatus.TabIndex = 146
-        Me.UpdatetingsStatus.TabStop = False
-        Me.UpdatetingsStatus.Visible = False
-        '
-        'FindStatus
-        '
-        Me.FindStatus.Location = New System.Drawing.Point(12, 41)
-        Me.FindStatus.Name = "FindStatus"
-        Me.FindStatus.Size = New System.Drawing.Size(64, 64)
-        Me.FindStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.FindStatus.TabIndex = 147
-        Me.FindStatus.TabStop = False
-        Me.FindStatus.Visible = False
-        '
-        'AddStatus
-        '
-        Me.AddStatus.Location = New System.Drawing.Point(12, 40)
-        Me.AddStatus.Name = "AddStatus"
-        Me.AddStatus.Size = New System.Drawing.Size(64, 64)
-        Me.AddStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.AddStatus.TabIndex = 148
-        Me.AddStatus.TabStop = False
-        Me.AddStatus.Visible = False
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Updatetings)
-        Me.Panel2.Controls.Add(Me.Find)
-        Me.Panel2.Controls.Add(Me.Adds1)
-        Me.Panel2.Controls.Add(Me.Delete)
-        Me.Panel2.Controls.Add(Me.UpClose)
-        Me.Panel2.Controls.Add(Me.DownStart)
-        Me.Panel2.Location = New System.Drawing.Point(12, 102)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(64, 73)
-        Me.Panel2.TabIndex = 144
-        '
-        'Updatetings
-        '
-        Me.Updatetings.Image = Global.HRRIS.My.Resources.Resources.Ink_Pen_2_icon
-        Me.Updatetings.Location = New System.Drawing.Point(0, 214)
-        Me.Updatetings.Name = "Updatetings"
-        Me.Updatetings.Size = New System.Drawing.Size(64, 64)
-        Me.Updatetings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Updatetings.TabIndex = 12
-        Me.Updatetings.TabStop = False
-        '
-        'Find
-        '
-        Me.Find.Image = Global.HRRIS.My.Resources.Resources.Magnifier_icon
-        Me.Find.Location = New System.Drawing.Point(0, 144)
-        Me.Find.Name = "Find"
-        Me.Find.Size = New System.Drawing.Size(64, 64)
-        Me.Find.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Find.TabIndex = 7
-        Me.Find.TabStop = False
-        '
-        'Adds1
-        '
-        Me.Adds1.Image = Global.HRRIS.My.Resources.Resources.Add_icon
-        Me.Adds1.Location = New System.Drawing.Point(0, 73)
-        Me.Adds1.Name = "Adds1"
-        Me.Adds1.Size = New System.Drawing.Size(64, 64)
-        Me.Adds1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Adds1.TabIndex = 6
-        Me.Adds1.TabStop = False
-        '
-        'Delete
-        '
-        Me.Delete.Image = Global.HRRIS.My.Resources.Resources.delete_icon
-        Me.Delete.Location = New System.Drawing.Point(0, 284)
-        Me.Delete.Name = "Delete"
-        Me.Delete.Size = New System.Drawing.Size(64, 64)
-        Me.Delete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.Delete.TabIndex = 5
-        Me.Delete.TabStop = False
-        '
-        'UpClose
-        '
-        Me.UpClose.Image = Global.HRRIS.My.Resources.Resources.Arrow_Right_2_icon
-        Me.UpClose.Location = New System.Drawing.Point(0, 354)
-        Me.UpClose.Name = "UpClose"
-        Me.UpClose.Size = New System.Drawing.Size(64, 64)
-        Me.UpClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.UpClose.TabIndex = 4
-        Me.UpClose.TabStop = False
-        '
-        'DownStart
-        '
-        Me.DownStart.Image = Global.HRRIS.My.Resources.Resources.Arrow_Down_2_icon
-        Me.DownStart.Location = New System.Drawing.Point(0, 5)
-        Me.DownStart.Name = "DownStart"
-        Me.DownStart.Size = New System.Drawing.Size(64, 64)
-        Me.DownStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.DownStart.TabIndex = 78
-        Me.DownStart.TabStop = False
-        '
         'LstBox
         '
         Me.LstBox.FormattingEnabled = True
@@ -868,6 +709,7 @@ Partial Class Booking
         Me.LstBox.Name = "LstBox"
         Me.LstBox.Size = New System.Drawing.Size(293, 342)
         Me.LstBox.TabIndex = 149
+        Me.LstBox.Visible = False
         '
         'Label11
         '
@@ -877,6 +719,7 @@ Partial Class Booking
         Me.Label11.Size = New System.Drawing.Size(90, 13)
         Me.Label11.TabIndex = 150
         Me.Label11.Text = "Room Information"
+        Me.Label11.Visible = False
         '
         'Booking
         '
@@ -885,13 +728,7 @@ Partial Class Booking
         Me.ClientSize = New System.Drawing.Size(1002, 663)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.LstBox)
-        Me.Controls.Add(Me.DeleteStatus)
-        Me.Controls.Add(Me.UpdatetingsStatus)
-        Me.Controls.Add(Me.FindStatus)
-        Me.Controls.Add(Me.AddStatus)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnInvoince)
@@ -930,7 +767,6 @@ Partial Class Booking
         Me.Name = "Booking"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Booking"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -949,24 +785,10 @@ Partial Class Booking
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DeleteStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UpdatetingsStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FindStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AddStatus, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        CType(Me.Updatetings, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Find, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Adds1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Delete, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UpClose, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DownStart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label14 As Label
@@ -1018,8 +840,6 @@ Partial Class Booking
     Friend WithEvents CustomerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UpdateToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
@@ -1040,17 +860,6 @@ Partial Class Booking
     Friend WithEvents ToolStripMenuItem8 As ToolStripSeparator
     Friend WithEvents ReportToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents BreakReportToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DeleteStatus As PictureBox
-    Friend WithEvents UpdatetingsStatus As PictureBox
-    Friend WithEvents FindStatus As PictureBox
-    Friend WithEvents AddStatus As PictureBox
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Updatetings As PictureBox
-    Friend WithEvents Find As PictureBox
-    Friend WithEvents Adds1 As PictureBox
-    Friend WithEvents Delete As PictureBox
-    Friend WithEvents UpClose As PictureBox
-    Friend WithEvents DownStart As PictureBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InvoiceToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LstBox As ListBox

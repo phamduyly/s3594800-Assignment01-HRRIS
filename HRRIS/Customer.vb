@@ -41,7 +41,9 @@ Public Class Customer
         tootipBookg.SetToolTip(btnNext, "Navigation")
         tootipBookg.SetToolTip(btnPrevious, "Navigation")
         tootipBookg.SetToolTip(btnLast, "Navigation")
+
         'moving between record section
+        'Displaying the first record 
         Dim MoveRecord As CustomerDataController = New CustomerDataController
         lsData = MoveRecord.CusfindALl()
 
@@ -62,6 +64,8 @@ Public Class Customer
         Dim bIsValid = CusValid()
 
         If bIsValid Then
+            'After the validation function return that all of the input fieds are valid to input, theen the code precive to this part which 
+            'Add all the data into the hashtable inorder to import the data into the database 
 
             Dim CusData As Hashtable = New Hashtable
 
@@ -74,13 +78,19 @@ Public Class Customer
             CusData("email") = txtCusEmail.Text
             CusData("dob") = txtCusDOB.Text
 
+            'Select case allow to choose whether you want to import the data into the database by choosing yes or no 
             Select Case MsgBox("Record will be add to the database", MsgBoxStyle.YesNo, "Insert")
                 Case MsgBoxResult.Yes
+                    'If the user choose YES, the customer data controller then is dimed under the name of cusimport. 
+                    'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
                     Dim Cusimport As CustomerDataController = New CustomerDataController
                     Cusimport.CusInsert(CusData)
                     MsgBox("The record was Inserted")
+                    'then the msgbox appear 
+                    'Bellow code allow the Datagrid view to refresh
                     Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
                 Case MsgBoxResult.No
+                    'The choose no, the result is the data is not inserted and the msgbox is appear. 
                     MsgBox("The record was not inserted")
             End Select
         End If
@@ -221,7 +231,9 @@ Public Class Customer
         Dim oController As CustomerDataController = New CustomerDataController
         Dim sId = txtCusID.Text
 
+        'User choose yes no the the delete record 
         Select Case MsgBox("Are you sure to delete this record", MsgBoxStyle.YesNo, "delete")
+            'if choose yes, the outcome will be bellow 
             Case MsgBoxResult.Yes
                 Dim iNumRows = oController.CustsDelete(sId)
                 If iNumRows = 1 Then
@@ -229,7 +241,7 @@ Public Class Customer
                     MsgBox("The record was delete")
                 End If
                 Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
-
+                ' if choose no, the outcome will be below 
             Case MsgBoxResult.No
                 MsgBox("The record was not delete")
         End Select
@@ -325,7 +337,8 @@ Public Class Customer
 
 
 #Region "menu"
-    'menu section
+    'menu section : File part - New, Navigation between form, Exit
+
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
@@ -333,6 +346,14 @@ Public Class Customer
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
         txtCusID.Clear()
         txtCusID.Enabled = False
+        Button1.Visible = True
+        btnDelete.Visible = False
+        btnUpdate.Visible = False
+        btnFind.Visible = False
+        lstBox.Visible = False
+        clearForm()
+
+
 
     End Sub
 
@@ -350,6 +371,32 @@ Public Class Customer
         booking1.ShowDialog()
 
     End Sub
+    'Menu: EDIT part
+    'This allow the user to access all EDIT function of the program. Morever, turn on the ehance feature of lstBox which alow to 
+    'Show all the customer with the finding need on to the listbox. 
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
+        txtCusID.Enabled = True
+        btnDelete.Visible = True
+        btnUpdate.Visible = True
+        btnFind.Visible = True
+        lstBox.Visible = True
+        Button1.Visible = False
+
+        'Display the very first record in the database 
+        Dim MoveRecord As CustomerDataController = New CustomerDataController
+        lsData = MoveRecord.CusfindALl()
+
+        Dim htData As Hashtable
+        Dim iIndex As Integer
+        iIndex = 0
+        iCurrentIndex = iIndex
+        htData = lsData.Item(iIndex)
+        populateCusFields(lsData.Item(iIndex))
+
+    End Sub
+
+
+    'Help and about page part: - this part allow to open help and about HTML 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         'This part can be reuse cause it is unchangeable 
         Dim sAbout As String
@@ -373,58 +420,8 @@ Public Class Customer
     End Sub
 #End Region
 
-#Region "UIThings"
-    'UI fucntion 
-    'Uisng piccture box and panel for UI
-    Private Sub DownStart_Click(sender As Object, e As EventArgs) 
-        UIModi.Displayoption(DownStart, Panel2, UpClose)
-
-    End Sub
-
-    Private Sub Adds1_Click(sender As Object, e As EventArgs) 
-        UIModi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        Button1.Visible = True
-        btnDelete.Visible = False
-        btnFind.Visible = False
-        btnUpdate.Visible = False
-
-    End Sub
-
-    Private Sub Find_Click(sender As Object, e As EventArgs) 
-        UIModi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        btnFind.Visible = True
-        btnDelete.Visible = False
-        Button1.Visible = False
-        btnUpdate.Visible = False
-    End Sub
-
-    Private Sub Delete_Click(sender As Object, e As EventArgs) 
-        UIModi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        btnDelete.Visible = True
-        Button1.Visible = False
-        btnFind.Visible = False
-        btnUpdate.Visible = False
-
-    End Sub
-
-    Private Sub UpClose_Click(sender As Object, e As EventArgs) 
-        UIModi.CloseOptions(DownStart, Panel2, UpClose)
-
-    End Sub
-
-    Private Sub Updatetings_Click(sender As Object, e As EventArgs)
-        UIModi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        Button1.Visible = False
-        btnDelete.Visible = False
-        btnFind.Visible = False
-        btnUpdate.Visible = True
-    End Sub
-
-#End Region
 
 #Region "More about find"
-
-
     Private Sub txtCusFirName_Leave(sender As Object, e As EventArgs) Handles txtCusFirName.Leave
         If txtCusID.Text = Nothing Then
 
@@ -575,6 +572,7 @@ Public Class Customer
         End If
 
     End Sub
+
 
 #End Region
 

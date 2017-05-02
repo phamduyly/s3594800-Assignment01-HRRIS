@@ -45,6 +45,8 @@ Public Class Room
         tootipBookg.SetToolTip(btnLast, "Navigation")
 
         ' moving betweeen record section
+        'Display the very first record of room from database 
+
         Dim MoveRecord As RoomDataController = New RoomDataController
         lsData = MoveRecord.RoomfindALl()
 
@@ -312,6 +314,13 @@ Public Class Room
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
         txtRmID.Clear()
         txtRmID.Enabled = False
+        Button1.Visible = True
+        btnDelete.Visible = False
+        btnFind.Visible = False
+        btnUpdate.Visible = False
+        clearForm()
+
+
 
     End Sub
 
@@ -333,6 +342,26 @@ Public Class Room
         Catch ex As Exception
             MsgBox("You have already opened Booking Form")
         End Try
+    End Sub
+    'Purpose: enable all fucntion for RUD relating to database 
+    'Displaying the first record 
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
+        txtRmID.Enabled = True
+        Button1.Visible = False
+        btnDelete.Visible = True
+        btnFind.Visible = True
+        btnUpdate.Visible = True
+
+        Dim MoveRecord As RoomDataController = New RoomDataController
+        lsData = MoveRecord.RoomfindALl()
+
+        Dim htData As Hashtable
+        Dim iIndex As Integer
+        iIndex = 0
+        iCurrentIndex = iIndex
+        htData = lsData.Item(iIndex)
+        populateRoomsFields(lsData.Item(iIndex))
+
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -362,59 +391,7 @@ Public Class Room
     End Sub
 #End Region
 
-#Region "UI"
 
-    'UI fucntion 
-    'Uisng piccture box and panel for UI
-    Private Sub DownStart_Click(sender As Object, e As EventArgs) Handles DownStart.Click
-        UImodi.Displayoption(DownStart, Panel2, UpClose)
-
-    End Sub
-
-    Private Sub Adds1_Click(sender As Object, e As EventArgs) Handles Adds1.Click
-        UImodi.AddOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        Button1.Visible = True
-        btnDelete.Visible = False
-        btnFind.Visible = False
-        btnUpdate.Visible = False
-
-    End Sub
-
-    Private Sub Find_Click(sender As Object, e As EventArgs) Handles Find.Click
-        UImodi.FindOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        btnFind.Visible = True
-        btnDelete.Visible = False
-        Button1.Visible = False
-        btnUpdate.Visible = False
-    End Sub
-
-    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
-        UImodi.DeleteOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        btnDelete.Visible = True
-        Button1.Visible = False
-        btnFind.Visible = False
-        btnUpdate.Visible = False
-
-    End Sub
-
-    Private Sub UpClose_Click(sender As Object, e As EventArgs) Handles UpClose.Click
-        UImodi.CloseOptions(DownStart, Panel2, UpClose)
-
-    End Sub
-
-    Private Sub Updatetings_Click(sender As Object, e As EventArgs) Handles Updatetings.Click
-        UImodi.UpdateOptions(DownStart, Panel2, UpClose, AddStatus, FindStatus, UpdatetingsStatus, DeleteStatus)
-        Button1.Visible = False
-        btnDelete.Visible = False
-        btnFind.Visible = False
-        btnUpdate.Visible = True
-    End Sub
-
-
-
-
-
-#End Region
 
 
 End Class
