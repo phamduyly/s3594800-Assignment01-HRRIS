@@ -14,6 +14,7 @@ Public Class Customer
     'moving between record section
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
+    Dim tootipBookg As New ToolTip
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -105,27 +106,30 @@ Public Class Customer
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        bIsValid = oValidation.IsNameRight(txtCusFirName.Text)
+        bIsValid = oValidation.IsNameRight(txtCusFirName.Text) And txtCusFirName.TextLength < 20
         If bIsValid Then
             PicFName.Visible = False
         Else
+            tootipBookg.SetToolTip(txtCusFirName, "First Letter have to be capital")
             PicFName.Visible = True
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.IsNameRight(txtCusLasName.Text)
+        bIsValid = oValidation.IsNameRight(txtCusLasName.Text) And txtCusLasName.TextLength < 20
         If bIsValid Then
             PicLName.Visible = False
         Else
+            tootipBookg.SetToolTip(txtCusLasName, "First Letter have to be capital")
             PicLName.Visible = True
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isPhoneVal(txtCusPhone.Text)
+        bIsValid = oValidation.isPhoneVal(txtCusPhone.Text) And txtCusPhone.TextLength < 11
         If bIsValid Then
             PicPhone.Visible = False
 
         Else
+            tootipBookg.SetToolTip(txtCusPhone, "Missing Zero at the begining")
             PicPhone.Visible = True
             bAllFieldsValid = False
         End If
@@ -134,6 +138,7 @@ Public Class Customer
         If bIsValid Then
             PicAddr.Visible = False
         Else
+            tootipBookg.SetToolTip(txtCusAdd, "Address format wrong")
             PicAddr.Visible = True
             bAllFieldsValid = False
         End If
@@ -142,10 +147,10 @@ Public Class Customer
         If bIsValid Then
             PicEmal.Visible = False
         Else
+            tootipBookg.SetToolTip(txtCusEmail, "Email Format wrong")
             PicEmal.Visible = True
             bAllFieldsValid = False
         End If
-
 
         bIsValid = IsDate(txtCusDOB.Text)
         If bIsValid Then
@@ -158,11 +163,12 @@ Public Class Customer
         If bAllFieldsValid Then
 
         Else
-            MsgBox("Please recheck input at where error pop up appear")
+            MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
 
-        Return bAllFieldsValid = True
 
+        Return bAllFieldsValid = True
+        'this allow the fucntion to not add the inputed data into the database 
 
 
     End Function
@@ -342,6 +348,7 @@ Public Class Customer
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
+    'in order to set a new and fresh to import new data . TxtID will be clear and disable and the form will also be clear as well.
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
         txtCusID.Clear()
@@ -356,7 +363,7 @@ Public Class Customer
 
 
     End Sub
-
+    '.hide and showdailog is for the able to close purpose 
     Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
 
         Dim room1 As New Room
@@ -426,6 +433,7 @@ Public Class Customer
 
 #Region "More about find"
     Private Sub txtCusFirName_Leave(sender As Object, e As EventArgs) Handles txtCusFirName.Leave
+
         If txtCusID.Text = Nothing Then
 
         Else
@@ -576,6 +584,9 @@ Public Class Customer
 
     End Sub
 
+    Private Sub txtCusFirName_TextChanged(sender As Object, e As EventArgs) Handles txtCusFirName.TextChanged
+
+    End Sub
 
 #End Region
 

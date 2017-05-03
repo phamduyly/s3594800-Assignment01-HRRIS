@@ -56,7 +56,6 @@ Partial Class Customer
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtCusID = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,6 +66,9 @@ Partial Class Customer
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -84,9 +86,8 @@ Partial Class Customer
         Me.HRRISdbDataSet1 = New HRRIS.HRRISdbDataSet1()
         Me.CustomerTableAdapter = New HRRIS.HRRISdbDataSet1TableAdapters.customerTableAdapter()
         Me.lstBox = New System.Windows.Forms.ListBox()
-        Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,14 +107,14 @@ Partial Class Customer
         '
         Me.txtCusTitl.FormattingEnabled = True
         Me.txtCusTitl.Items.AddRange(New Object() {"Mr", "Mrs", "Miss"})
-        Me.txtCusTitl.Location = New System.Drawing.Point(192, 155)
+        Me.txtCusTitl.Location = New System.Drawing.Point(157, 99)
         Me.txtCusTitl.Name = "txtCusTitl"
         Me.txtCusTitl.Size = New System.Drawing.Size(330, 21)
         Me.txtCusTitl.TabIndex = 122
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(330, 460)
+        Me.btnNext.Location = New System.Drawing.Point(295, 404)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(93, 23)
         Me.btnNext.TabIndex = 121
@@ -122,7 +123,7 @@ Partial Class Customer
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(220, 460)
+        Me.btnPrevious.Location = New System.Drawing.Point(185, 404)
         Me.btnPrevious.Name = "btnPrevious"
         Me.btnPrevious.Size = New System.Drawing.Size(93, 23)
         Me.btnPrevious.TabIndex = 120
@@ -131,7 +132,7 @@ Partial Class Customer
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(107, 460)
+        Me.btnFirst.Location = New System.Drawing.Point(72, 404)
         Me.btnFirst.Name = "btnFirst"
         Me.btnFirst.Size = New System.Drawing.Size(93, 23)
         Me.btnFirst.TabIndex = 119
@@ -140,7 +141,7 @@ Partial Class Customer
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(429, 460)
+        Me.btnLast.Location = New System.Drawing.Point(394, 404)
         Me.btnLast.Name = "btnLast"
         Me.btnLast.Size = New System.Drawing.Size(93, 23)
         Me.btnLast.TabIndex = 118
@@ -149,7 +150,7 @@ Partial Class Customer
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(628, 386)
+        Me.btnUpdate.Location = New System.Drawing.Point(593, 330)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(93, 23)
         Me.btnUpdate.TabIndex = 117
@@ -159,7 +160,7 @@ Partial Class Customer
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(628, 357)
+        Me.btnFind.Location = New System.Drawing.Point(593, 301)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(93, 23)
         Me.btnFind.TabIndex = 116
@@ -169,7 +170,7 @@ Partial Class Customer
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(628, 328)
+        Me.btnDelete.Location = New System.Drawing.Point(593, 272)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(93, 23)
         Me.btnDelete.TabIndex = 115
@@ -179,7 +180,7 @@ Partial Class Customer
         '
         'txtCusDOB
         '
-        Me.txtCusDOB.Location = New System.Drawing.Point(192, 414)
+        Me.txtCusDOB.Location = New System.Drawing.Point(157, 358)
         Me.txtCusDOB.Name = "txtCusDOB"
         Me.txtCusDOB.Size = New System.Drawing.Size(330, 20)
         Me.txtCusDOB.TabIndex = 113
@@ -187,7 +188,7 @@ Partial Class Customer
         'PicEmal
         '
         Me.PicEmal.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicEmal.Location = New System.Drawing.Point(556, 382)
+        Me.PicEmal.Location = New System.Drawing.Point(521, 326)
         Me.PicEmal.Name = "PicEmal"
         Me.PicEmal.Size = New System.Drawing.Size(20, 16)
         Me.PicEmal.TabIndex = 111
@@ -197,7 +198,7 @@ Partial Class Customer
         'PicAddr
         '
         Me.PicAddr.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicAddr.Location = New System.Drawing.Point(556, 350)
+        Me.PicAddr.Location = New System.Drawing.Point(521, 294)
         Me.PicAddr.Name = "PicAddr"
         Me.PicAddr.Size = New System.Drawing.Size(20, 16)
         Me.PicAddr.TabIndex = 110
@@ -207,7 +208,7 @@ Partial Class Customer
         'PicLName
         '
         Me.PicLName.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicLName.Location = New System.Drawing.Point(556, 278)
+        Me.PicLName.Location = New System.Drawing.Point(521, 222)
         Me.PicLName.Name = "PicLName"
         Me.PicLName.Size = New System.Drawing.Size(20, 16)
         Me.PicLName.TabIndex = 109
@@ -217,7 +218,7 @@ Partial Class Customer
         'PicFName
         '
         Me.PicFName.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicFName.Location = New System.Drawing.Point(556, 237)
+        Me.PicFName.Location = New System.Drawing.Point(521, 181)
         Me.PicFName.Name = "PicFName"
         Me.PicFName.Size = New System.Drawing.Size(20, 16)
         Me.PicFName.TabIndex = 108
@@ -227,7 +228,7 @@ Partial Class Customer
         'PicGender
         '
         Me.PicGender.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicGender.Location = New System.Drawing.Point(556, 197)
+        Me.PicGender.Location = New System.Drawing.Point(521, 141)
         Me.PicGender.Name = "PicGender"
         Me.PicGender.Size = New System.Drawing.Size(20, 16)
         Me.PicGender.TabIndex = 107
@@ -237,7 +238,7 @@ Partial Class Customer
         'PicTitle
         '
         Me.PicTitle.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicTitle.Location = New System.Drawing.Point(556, 166)
+        Me.PicTitle.Location = New System.Drawing.Point(521, 110)
         Me.PicTitle.Name = "PicTitle"
         Me.PicTitle.Size = New System.Drawing.Size(20, 16)
         Me.PicTitle.TabIndex = 106
@@ -247,7 +248,7 @@ Partial Class Customer
         'PicPhone
         '
         Me.PicPhone.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicPhone.Location = New System.Drawing.Point(556, 320)
+        Me.PicPhone.Location = New System.Drawing.Point(521, 264)
         Me.PicPhone.Name = "PicPhone"
         Me.PicPhone.Size = New System.Drawing.Size(20, 16)
         Me.PicPhone.TabIndex = 105
@@ -258,7 +259,7 @@ Partial Class Customer
         '
         Me.txtGender.FormattingEnabled = True
         Me.txtGender.Items.AddRange(New Object() {"Male", "Female"})
-        Me.txtGender.Location = New System.Drawing.Point(192, 191)
+        Me.txtGender.Location = New System.Drawing.Point(157, 135)
         Me.txtGender.Name = "txtGender"
         Me.txtGender.Size = New System.Drawing.Size(330, 21)
         Me.txtGender.TabIndex = 104
@@ -266,7 +267,7 @@ Partial Class Customer
         'PicDOB
         '
         Me.PicDOB.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicDOB.Location = New System.Drawing.Point(556, 414)
+        Me.PicDOB.Location = New System.Drawing.Point(521, 358)
         Me.PicDOB.Name = "PicDOB"
         Me.PicDOB.Size = New System.Drawing.Size(20, 24)
         Me.PicDOB.TabIndex = 103
@@ -276,7 +277,7 @@ Partial Class Customer
         'PicCusID
         '
         Me.PicCusID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicCusID.Location = New System.Drawing.Point(556, 120)
+        Me.PicCusID.Location = New System.Drawing.Point(521, 64)
         Me.PicCusID.Name = "PicCusID"
         Me.PicCusID.Size = New System.Drawing.Size(20, 16)
         Me.PicCusID.TabIndex = 102
@@ -286,7 +287,7 @@ Partial Class Customer
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(82, 414)
+        Me.Label9.Location = New System.Drawing.Point(47, 358)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(68, 13)
         Me.Label9.TabIndex = 101
@@ -294,7 +295,7 @@ Partial Class Customer
         '
         'txtCusEmail
         '
-        Me.txtCusEmail.Location = New System.Drawing.Point(192, 382)
+        Me.txtCusEmail.Location = New System.Drawing.Point(157, 326)
         Me.txtCusEmail.Name = "txtCusEmail"
         Me.txtCusEmail.Size = New System.Drawing.Size(330, 20)
         Me.txtCusEmail.TabIndex = 100
@@ -302,7 +303,7 @@ Partial Class Customer
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(82, 385)
+        Me.Label8.Location = New System.Drawing.Point(47, 329)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(35, 13)
         Me.Label8.TabIndex = 99
@@ -310,7 +311,7 @@ Partial Class Customer
         '
         'txtCusAdd
         '
-        Me.txtCusAdd.Location = New System.Drawing.Point(192, 347)
+        Me.txtCusAdd.Location = New System.Drawing.Point(157, 291)
         Me.txtCusAdd.Name = "txtCusAdd"
         Me.txtCusAdd.Size = New System.Drawing.Size(330, 20)
         Me.txtCusAdd.TabIndex = 98
@@ -318,7 +319,7 @@ Partial Class Customer
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(82, 350)
+        Me.Label7.Location = New System.Drawing.Point(47, 294)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(45, 13)
         Me.Label7.TabIndex = 97
@@ -326,7 +327,7 @@ Partial Class Customer
         '
         'txtCusPhone
         '
-        Me.txtCusPhone.Location = New System.Drawing.Point(192, 316)
+        Me.txtCusPhone.Location = New System.Drawing.Point(157, 260)
         Me.txtCusPhone.Name = "txtCusPhone"
         Me.txtCusPhone.Size = New System.Drawing.Size(330, 20)
         Me.txtCusPhone.TabIndex = 96
@@ -334,7 +335,7 @@ Partial Class Customer
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(82, 319)
+        Me.Label6.Location = New System.Drawing.Point(47, 263)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(41, 13)
         Me.Label6.TabIndex = 95
@@ -342,7 +343,7 @@ Partial Class Customer
         '
         'txtCusLasName
         '
-        Me.txtCusLasName.Location = New System.Drawing.Point(192, 278)
+        Me.txtCusLasName.Location = New System.Drawing.Point(157, 222)
         Me.txtCusLasName.Name = "txtCusLasName"
         Me.txtCusLasName.Size = New System.Drawing.Size(330, 20)
         Me.txtCusLasName.TabIndex = 94
@@ -350,7 +351,7 @@ Partial Class Customer
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(82, 281)
+        Me.Label5.Location = New System.Drawing.Point(47, 225)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(61, 13)
         Me.Label5.TabIndex = 93
@@ -358,7 +359,7 @@ Partial Class Customer
         '
         'txtCusFirName
         '
-        Me.txtCusFirName.Location = New System.Drawing.Point(192, 237)
+        Me.txtCusFirName.Location = New System.Drawing.Point(157, 181)
         Me.txtCusFirName.Name = "txtCusFirName"
         Me.txtCusFirName.Size = New System.Drawing.Size(330, 20)
         Me.txtCusFirName.TabIndex = 92
@@ -366,7 +367,7 @@ Partial Class Customer
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(82, 240)
+        Me.Label4.Location = New System.Drawing.Point(47, 184)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 13)
         Me.Label4.TabIndex = 91
@@ -375,7 +376,7 @@ Partial Class Customer
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(82, 200)
+        Me.Label3.Location = New System.Drawing.Point(47, 144)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(42, 13)
         Me.Label3.TabIndex = 90
@@ -384,7 +385,7 @@ Partial Class Customer
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(82, 158)
+        Me.Label2.Location = New System.Drawing.Point(47, 102)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(27, 13)
         Me.Label2.TabIndex = 89
@@ -392,23 +393,14 @@ Partial Class Customer
         '
         'txtCusID
         '
-        Me.txtCusID.Location = New System.Drawing.Point(192, 117)
+        Me.txtCusID.Location = New System.Drawing.Point(157, 61)
         Me.txtCusID.Name = "txtCusID"
         Me.txtCusID.Size = New System.Drawing.Size(330, 20)
         Me.txtCusID.TabIndex = 88
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(82, 120)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 13)
-        Me.Label1.TabIndex = 87
-        Me.Label1.Text = "Customer ID"
-        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(628, 415)
+        Me.Button1.Location = New System.Drawing.Point(593, 359)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(93, 23)
         Me.Button1.TabIndex = 86
@@ -421,7 +413,7 @@ Partial Class Customer
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(916, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(897, 24)
         Me.MenuStrip1.TabIndex = 114
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -435,35 +427,35 @@ Partial Class Customer
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.CustomerToolStripMenuItem.Text = "New"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(115, 6)
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.RoomToolStripMenuItem.Text = "Room"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(115, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -471,6 +463,25 @@ Partial Class Customer
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
         Me.EditToolStripMenuItem.Text = "Edit"
+        '
+        'ReportToolStripMenuItem
+        '
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportToolStripMenuItem1, Me.BreakReportToolStripMenuItem})
+        Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.ReportToolStripMenuItem.Text = "Report "
+        '
+        'ReportToolStripMenuItem1
+        '
+        Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
+        Me.ReportToolStripMenuItem1.Text = "Report"
+        '
+        'BreakReportToolStripMenuItem
+        '
+        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
+        Me.BreakReportToolStripMenuItem.Text = "Break Report "
         '
         'HelpToolStripMenuItem
         '
@@ -497,7 +508,7 @@ Partial Class Customer
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustomeridDataGridViewTextBoxColumn, Me.TitleDataGridViewTextBoxColumn, Me.GenderDataGridViewTextBoxColumn, Me.FirstnameDataGridViewTextBoxColumn, Me.LastnameDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn, Me.DobDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.CustomerBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(73, 489)
+        Me.DataGridView1.Location = New System.Drawing.Point(38, 433)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(779, 150)
         Me.DataGridView1.TabIndex = 128
@@ -573,36 +584,36 @@ Partial Class Customer
         'lstBox
         '
         Me.lstBox.FormattingEnabled = True
-        Me.lstBox.Location = New System.Drawing.Point(613, 118)
+        Me.lstBox.Location = New System.Drawing.Point(575, 67)
         Me.lstBox.Name = "lstBox"
         Me.lstBox.Size = New System.Drawing.Size(291, 199)
         Me.lstBox.TabIndex = 134
         Me.lstBox.Visible = False
         '
-        'ReportToolStripMenuItem
+        'Label1
         '
-        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportToolStripMenuItem1, Me.BreakReportToolStripMenuItem})
-        Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
-        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
-        Me.ReportToolStripMenuItem.Text = "Report "
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(47, 64)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(65, 13)
+        Me.Label1.TabIndex = 87
+        Me.Label1.Text = "Customer ID"
         '
-        'ReportToolStripMenuItem1
+        'Label10
         '
-        Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
-        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ReportToolStripMenuItem1.Text = "Report"
-        '
-        'BreakReportToolStripMenuItem
-        '
-        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
-        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BreakReportToolStripMenuItem.Text = "Break Report "
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(572, 39)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(107, 13)
+        Me.Label10.TabIndex = 135
+        Me.Label10.Text = "Find Feature Improve"
         '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(916, 662)
+        Me.ClientSize = New System.Drawing.Size(897, 623)
+        Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.lstBox)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.txtCusTitl)
@@ -695,7 +706,6 @@ Partial Class Customer
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtCusID As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
@@ -726,4 +736,6 @@ Partial Class Customer
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents BreakReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label10 As Label
 End Class

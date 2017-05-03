@@ -23,9 +23,9 @@ Partial Class Room
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtRmFl = New System.Windows.Forms.ComboBox()
         Me.txtRmAva = New System.Windows.Forms.ComboBox()
         Me.txtRmType = New System.Windows.Forms.ComboBox()
@@ -60,6 +60,8 @@ Partial Class Room
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -83,8 +85,6 @@ Partial Class Room
         Me.PicRmPrice = New System.Windows.Forms.PictureBox()
         Me.PicRmNum = New System.Windows.Forms.PictureBox()
         Me.PicRmID = New System.Windows.Forms.PictureBox()
-        Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.HRRISdbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RoomBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,7 +103,7 @@ Partial Class Room
         '
         Me.txtRmFl.FormattingEnabled = True
         Me.txtRmFl.Items.AddRange(New Object() {"1", "2", "3", "4"})
-        Me.txtRmFl.Location = New System.Drawing.Point(180, 313)
+        Me.txtRmFl.Location = New System.Drawing.Point(158, 274)
         Me.txtRmFl.Name = "txtRmFl"
         Me.txtRmFl.Size = New System.Drawing.Size(343, 21)
         Me.txtRmFl.TabIndex = 123
@@ -112,7 +112,7 @@ Partial Class Room
         '
         Me.txtRmAva.FormattingEnabled = True
         Me.txtRmAva.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
-        Me.txtRmAva.Location = New System.Drawing.Point(180, 277)
+        Me.txtRmAva.Location = New System.Drawing.Point(158, 238)
         Me.txtRmAva.Name = "txtRmAva"
         Me.txtRmAva.Size = New System.Drawing.Size(343, 21)
         Me.txtRmAva.TabIndex = 122
@@ -121,7 +121,7 @@ Partial Class Room
         '
         Me.txtRmType.FormattingEnabled = True
         Me.txtRmType.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
-        Me.txtRmType.Location = New System.Drawing.Point(180, 165)
+        Me.txtRmType.Location = New System.Drawing.Point(158, 126)
         Me.txtRmType.Name = "txtRmType"
         Me.txtRmType.Size = New System.Drawing.Size(343, 21)
         Me.txtRmType.TabIndex = 121
@@ -129,7 +129,7 @@ Partial Class Room
         'btnUpdate
         '
         Me.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.btnUpdate.Location = New System.Drawing.Point(611, 277)
+        Me.btnUpdate.Location = New System.Drawing.Point(589, 238)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(91, 23)
         Me.btnUpdate.TabIndex = 119
@@ -140,7 +140,7 @@ Partial Class Room
         'btnFind
         '
         Me.btnFind.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.btnFind.Location = New System.Drawing.Point(611, 311)
+        Me.btnFind.Location = New System.Drawing.Point(589, 272)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(91, 23)
         Me.btnFind.TabIndex = 118
@@ -151,7 +151,7 @@ Partial Class Room
         'btnDelete
         '
         Me.btnDelete.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.btnDelete.Location = New System.Drawing.Point(611, 347)
+        Me.btnDelete.Location = New System.Drawing.Point(589, 308)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(91, 23)
         Me.btnDelete.TabIndex = 117
@@ -161,7 +161,7 @@ Partial Class Room
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(432, 390)
+        Me.btnLast.Location = New System.Drawing.Point(410, 351)
         Me.btnLast.Name = "btnLast"
         Me.btnLast.Size = New System.Drawing.Size(91, 23)
         Me.btnLast.TabIndex = 116
@@ -170,7 +170,7 @@ Partial Class Room
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(191, 390)
+        Me.btnPrevious.Location = New System.Drawing.Point(169, 351)
         Me.btnPrevious.Name = "btnPrevious"
         Me.btnPrevious.Size = New System.Drawing.Size(91, 23)
         Me.btnPrevious.TabIndex = 115
@@ -179,7 +179,7 @@ Partial Class Room
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(317, 390)
+        Me.btnNext.Location = New System.Drawing.Point(295, 351)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(91, 23)
         Me.btnNext.TabIndex = 114
@@ -188,7 +188,7 @@ Partial Class Room
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(74, 390)
+        Me.btnFirst.Location = New System.Drawing.Point(52, 351)
         Me.btnFirst.Name = "btnFirst"
         Me.btnFirst.Size = New System.Drawing.Size(91, 23)
         Me.btnFirst.TabIndex = 113
@@ -197,7 +197,7 @@ Partial Class Room
         '
         'txtRmBedNum
         '
-        Me.txtRmBedNum.Location = New System.Drawing.Point(180, 243)
+        Me.txtRmBedNum.Location = New System.Drawing.Point(158, 204)
         Me.txtRmBedNum.Name = "txtRmBedNum"
         Me.txtRmBedNum.Size = New System.Drawing.Size(343, 20)
         Me.txtRmBedNum.TabIndex = 107
@@ -205,7 +205,7 @@ Partial Class Room
         'Button1
         '
         Me.Button1.AccessibleRole = System.Windows.Forms.AccessibleRole.None
-        Me.Button1.Location = New System.Drawing.Point(611, 348)
+        Me.Button1.Location = New System.Drawing.Point(589, 309)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(91, 23)
         Me.Button1.TabIndex = 102
@@ -215,7 +215,7 @@ Partial Class Room
         '
         'txtRmDes
         '
-        Me.txtRmDes.Location = New System.Drawing.Point(180, 344)
+        Me.txtRmDes.Location = New System.Drawing.Point(158, 305)
         Me.txtRmDes.Name = "txtRmDes"
         Me.txtRmDes.Size = New System.Drawing.Size(343, 20)
         Me.txtRmDes.TabIndex = 101
@@ -223,7 +223,7 @@ Partial Class Room
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(70, 347)
+        Me.Label8.Location = New System.Drawing.Point(48, 308)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(60, 13)
         Me.Label8.TabIndex = 100
@@ -232,7 +232,7 @@ Partial Class Room
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(70, 313)
+        Me.Label7.Location = New System.Drawing.Point(48, 274)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 13)
         Me.Label7.TabIndex = 99
@@ -241,7 +241,7 @@ Partial Class Room
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(70, 281)
+        Me.Label6.Location = New System.Drawing.Point(48, 242)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(56, 13)
         Me.Label6.TabIndex = 98
@@ -250,7 +250,7 @@ Partial Class Room
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(70, 243)
+        Me.Label5.Location = New System.Drawing.Point(48, 204)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(83, 13)
         Me.Label5.TabIndex = 97
@@ -258,7 +258,7 @@ Partial Class Room
         '
         'txtRmPrice
         '
-        Me.txtRmPrice.Location = New System.Drawing.Point(180, 205)
+        Me.txtRmPrice.Location = New System.Drawing.Point(158, 166)
         Me.txtRmPrice.Name = "txtRmPrice"
         Me.txtRmPrice.Size = New System.Drawing.Size(343, 20)
         Me.txtRmPrice.TabIndex = 96
@@ -266,7 +266,7 @@ Partial Class Room
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(70, 203)
+        Me.Label4.Location = New System.Drawing.Point(48, 164)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(31, 13)
         Me.Label4.TabIndex = 95
@@ -275,7 +275,7 @@ Partial Class Room
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(70, 164)
+        Me.Label3.Location = New System.Drawing.Point(48, 125)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 94
@@ -283,7 +283,7 @@ Partial Class Room
         '
         'txtRmNum
         '
-        Me.txtRmNum.Location = New System.Drawing.Point(180, 128)
+        Me.txtRmNum.Location = New System.Drawing.Point(158, 89)
         Me.txtRmNum.Name = "txtRmNum"
         Me.txtRmNum.Size = New System.Drawing.Size(343, 20)
         Me.txtRmNum.TabIndex = 93
@@ -291,7 +291,7 @@ Partial Class Room
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(70, 131)
+        Me.Label2.Location = New System.Drawing.Point(48, 92)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 13)
         Me.Label2.TabIndex = 92
@@ -300,7 +300,7 @@ Partial Class Room
         'txtRmID
         '
         Me.txtRmID.AllowDrop = True
-        Me.txtRmID.Location = New System.Drawing.Point(180, 90)
+        Me.txtRmID.Location = New System.Drawing.Point(158, 51)
         Me.txtRmID.Name = "txtRmID"
         Me.txtRmID.Size = New System.Drawing.Size(343, 20)
         Me.txtRmID.TabIndex = 91
@@ -308,7 +308,7 @@ Partial Class Room
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(70, 93)
+        Me.Label1.Location = New System.Drawing.Point(48, 54)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 90
@@ -319,7 +319,7 @@ Partial Class Room
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(794, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(793, 24)
         Me.MenuStrip1.TabIndex = 120
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -377,6 +377,18 @@ Partial Class Room
         Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.ReportToolStripMenuItem.Text = "Report"
         '
+        'ReportToolStripMenuItem1
+        '
+        Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(138, 22)
+        Me.ReportToolStripMenuItem1.Text = "Report"
+        '
+        'BreakReportToolStripMenuItem
+        '
+        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
+        Me.BreakReportToolStripMenuItem.Text = "BreakReport"
+        '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.HelpPageToolStripMenuItem})
@@ -387,13 +399,13 @@ Partial Class Room
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(128, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'HelpPageToolStripMenuItem
         '
         Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.HelpPageToolStripMenuItem.Text = "Help page"
         '
         'HRRISdbDataSet
@@ -461,42 +473,42 @@ Partial Class Room
         'DataGridView1
         '
         Me.DataGridView1.AutoGenerateColumns = False
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.RoomidDataGridViewTextBoxColumn, Me.RoomnumberDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn, Me.NumbedsDataGridViewTextBoxColumn, Me.AvailabilityDataGridViewTextBoxColumn, Me.FloorDataGridViewTextBoxColumn, Me.DescriptionDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.RoomBindingSource
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DataGridView1.Location = New System.Drawing.Point(70, 419)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.Location = New System.Drawing.Point(48, 380)
         Me.DataGridView1.Name = "DataGridView1"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridView1.Size = New System.Drawing.Size(699, 150)
         Me.DataGridView1.TabIndex = 129
         '
         'PicRmDes
         '
         Me.PicRmDes.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmDes.Location = New System.Drawing.Point(561, 348)
+        Me.PicRmDes.Location = New System.Drawing.Point(539, 309)
         Me.PicRmDes.Name = "PicRmDes"
         Me.PicRmDes.Size = New System.Drawing.Size(20, 16)
         Me.PicRmDes.TabIndex = 111
@@ -506,7 +518,7 @@ Partial Class Room
         'PicRmAva
         '
         Me.PicRmAva.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmAva.Location = New System.Drawing.Point(561, 282)
+        Me.PicRmAva.Location = New System.Drawing.Point(539, 243)
         Me.PicRmAva.Name = "PicRmAva"
         Me.PicRmAva.Size = New System.Drawing.Size(20, 16)
         Me.PicRmAva.TabIndex = 110
@@ -516,7 +528,7 @@ Partial Class Room
         'PicRmType
         '
         Me.PicRmType.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmType.Location = New System.Drawing.Point(561, 169)
+        Me.PicRmType.Location = New System.Drawing.Point(539, 130)
         Me.PicRmType.Name = "PicRmType"
         Me.PicRmType.Size = New System.Drawing.Size(20, 16)
         Me.PicRmType.TabIndex = 109
@@ -526,7 +538,7 @@ Partial Class Room
         'PicRmFl
         '
         Me.PicRmFl.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmFl.Location = New System.Drawing.Point(561, 313)
+        Me.PicRmFl.Location = New System.Drawing.Point(539, 274)
         Me.PicRmFl.Name = "PicRmFl"
         Me.PicRmFl.Size = New System.Drawing.Size(20, 16)
         Me.PicRmFl.TabIndex = 108
@@ -536,7 +548,7 @@ Partial Class Room
         'PicRmBedNum
         '
         Me.PicRmBedNum.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmBedNum.Location = New System.Drawing.Point(561, 247)
+        Me.PicRmBedNum.Location = New System.Drawing.Point(539, 208)
         Me.PicRmBedNum.Name = "PicRmBedNum"
         Me.PicRmBedNum.Size = New System.Drawing.Size(20, 16)
         Me.PicRmBedNum.TabIndex = 106
@@ -546,7 +558,7 @@ Partial Class Room
         'PicRmPrice
         '
         Me.PicRmPrice.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmPrice.Location = New System.Drawing.Point(561, 209)
+        Me.PicRmPrice.Location = New System.Drawing.Point(539, 170)
         Me.PicRmPrice.Name = "PicRmPrice"
         Me.PicRmPrice.Size = New System.Drawing.Size(20, 16)
         Me.PicRmPrice.TabIndex = 105
@@ -556,7 +568,7 @@ Partial Class Room
         'PicRmNum
         '
         Me.PicRmNum.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmNum.Location = New System.Drawing.Point(561, 132)
+        Me.PicRmNum.Location = New System.Drawing.Point(539, 93)
         Me.PicRmNum.Name = "PicRmNum"
         Me.PicRmNum.Size = New System.Drawing.Size(20, 16)
         Me.PicRmNum.TabIndex = 104
@@ -566,30 +578,18 @@ Partial Class Room
         'PicRmID
         '
         Me.PicRmID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRmID.Location = New System.Drawing.Point(561, 94)
+        Me.PicRmID.Location = New System.Drawing.Point(539, 55)
         Me.PicRmID.Name = "PicRmID"
         Me.PicRmID.Size = New System.Drawing.Size(20, 16)
         Me.PicRmID.TabIndex = 103
         Me.PicRmID.TabStop = False
         Me.PicRmID.Visible = False
         '
-        'ReportToolStripMenuItem1
-        '
-        Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
-        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ReportToolStripMenuItem1.Text = "Report"
-        '
-        'BreakReportToolStripMenuItem
-        '
-        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
-        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.BreakReportToolStripMenuItem.Text = "BreakReport"
-        '
         'Room
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(794, 574)
+        Me.ClientSize = New System.Drawing.Size(793, 557)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.txtRmFl)
         Me.Controls.Add(Me.txtRmAva)

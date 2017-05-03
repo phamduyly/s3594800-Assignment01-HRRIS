@@ -32,7 +32,7 @@ Public Class Validation
     'regex for name
 
     Public Function IsNameRight(ByRef strVal As String) As Boolean
-        Dim pattern As Regex = New Regex("^[a-zA-Z' ]*$")
+        Dim pattern As Regex = New Regex("^[A-Z]+[A-Za-z' ]*$")
         If strVal.Length > 0 Then
             Return pattern.IsMatch(strVal)
         Else
@@ -63,5 +63,15 @@ Public Class Validation
         End If
     End Function
 
+    Public Function isNum(ByVal strVal As String) As Boolean
+        'a public function to check strVal right or wrong
+        Dim pattern As Regex = New Regex("^[1-6]*$")
+        'checking the string whether its contains only alphanumeric value
+        If strVal.Length > 0 Then
+            Return pattern.IsMatch(strVal)
+        Else
+            Return False
+        End If
+    End Function
 
 End Class

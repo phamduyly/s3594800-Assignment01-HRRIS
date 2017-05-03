@@ -121,7 +121,7 @@ Partial Class Booking
         Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.cboCusId)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Location = New System.Drawing.Point(74, 238)
+        Me.GroupBox2.Location = New System.Drawing.Point(43, 188)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(442, 50)
         Me.GroupBox2.TabIndex = 136
@@ -170,7 +170,7 @@ Partial Class Booking
         Me.GroupBox1.Controls.Add(Me.cboRoomID)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.txtType)
-        Me.GroupBox1.Location = New System.Drawing.Point(74, 174)
+        Me.GroupBox1.Location = New System.Drawing.Point(43, 124)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(442, 50)
         Me.GroupBox1.TabIndex = 135
@@ -232,7 +232,7 @@ Partial Class Booking
         '
         'btnInvoince
         '
-        Me.btnInvoince.Location = New System.Drawing.Point(594, 104)
+        Me.btnInvoince.Location = New System.Drawing.Point(563, 54)
         Me.btnInvoince.Name = "btnInvoince"
         Me.btnInvoince.Size = New System.Drawing.Size(79, 52)
         Me.btnInvoince.TabIndex = 134
@@ -244,7 +244,7 @@ Partial Class Booking
         Me.cboStays.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboStays.FormattingEnabled = True
         Me.cboStays.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8"})
-        Me.cboStays.Location = New System.Drawing.Point(193, 310)
+        Me.cboStays.Location = New System.Drawing.Point(162, 260)
         Me.cboStays.Name = "cboStays"
         Me.cboStays.Size = New System.Drawing.Size(317, 21)
         Me.cboStays.TabIndex = 132
@@ -254,14 +254,14 @@ Partial Class Booking
         Me.cboGuestNum.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboGuestNum.FormattingEnabled = True
         Me.cboGuestNum.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6"})
-        Me.cboGuestNum.Location = New System.Drawing.Point(193, 344)
+        Me.cboGuestNum.Location = New System.Drawing.Point(162, 294)
         Me.cboGuestNum.Name = "cboGuestNum"
         Me.cboGuestNum.Size = New System.Drawing.Size(317, 21)
         Me.cboGuestNum.TabIndex = 131
         '
         'btnLast
         '
-        Me.btnLast.Location = New System.Drawing.Point(521, 479)
+        Me.btnLast.Location = New System.Drawing.Point(490, 429)
         Me.btnLast.Name = "btnLast"
         Me.btnLast.Size = New System.Drawing.Size(79, 23)
         Me.btnLast.TabIndex = 129
@@ -270,7 +270,7 @@ Partial Class Booking
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(389, 479)
+        Me.btnNext.Location = New System.Drawing.Point(358, 429)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(79, 23)
         Me.btnNext.TabIndex = 128
@@ -279,7 +279,7 @@ Partial Class Booking
         '
         'btnPrevious
         '
-        Me.btnPrevious.Location = New System.Drawing.Point(251, 479)
+        Me.btnPrevious.Location = New System.Drawing.Point(220, 429)
         Me.btnPrevious.Name = "btnPrevious"
         Me.btnPrevious.Size = New System.Drawing.Size(79, 23)
         Me.btnPrevious.TabIndex = 127
@@ -288,7 +288,7 @@ Partial Class Booking
         '
         'btnFirst
         '
-        Me.btnFirst.Location = New System.Drawing.Point(114, 479)
+        Me.btnFirst.Location = New System.Drawing.Point(83, 429)
         Me.btnFirst.Name = "btnFirst"
         Me.btnFirst.Size = New System.Drawing.Size(79, 23)
         Me.btnFirst.TabIndex = 126
@@ -297,7 +297,7 @@ Partial Class Booking
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(594, 373)
+        Me.btnUpdate.Location = New System.Drawing.Point(563, 323)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(79, 23)
         Me.btnUpdate.TabIndex = 125
@@ -307,7 +307,7 @@ Partial Class Booking
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(594, 438)
+        Me.btnFind.Location = New System.Drawing.Point(563, 388)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(79, 23)
         Me.btnFind.TabIndex = 124
@@ -317,7 +317,7 @@ Partial Class Booking
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(594, 409)
+        Me.btnDelete.Location = New System.Drawing.Point(563, 359)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(79, 23)
         Me.btnDelete.TabIndex = 123
@@ -327,14 +327,14 @@ Partial Class Booking
         '
         'txtCheckinDate
         '
-        Me.txtCheckinDate.Location = New System.Drawing.Point(193, 378)
+        Me.txtCheckinDate.Location = New System.Drawing.Point(162, 328)
         Me.txtCheckinDate.Name = "txtCheckinDate"
         Me.txtCheckinDate.Size = New System.Drawing.Size(317, 20)
         Me.txtCheckinDate.TabIndex = 122
         '
         'txtDate
         '
-        Me.txtDate.Location = New System.Drawing.Point(193, 145)
+        Me.txtDate.Location = New System.Drawing.Point(162, 95)
         Me.txtDate.Name = "txtDate"
         Me.txtDate.Size = New System.Drawing.Size(317, 20)
         Me.txtDate.TabIndex = 121
@@ -342,7 +342,7 @@ Partial Class Booking
         'PicCkinDt
         '
         Me.PicCkinDt.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicCkinDt.Location = New System.Drawing.Point(552, 378)
+        Me.PicCkinDt.Location = New System.Drawing.Point(521, 328)
         Me.PicCkinDt.Name = "PicCkinDt"
         Me.PicCkinDt.Size = New System.Drawing.Size(17, 16)
         Me.PicCkinDt.TabIndex = 120
@@ -352,7 +352,7 @@ Partial Class Booking
         'PicDate
         '
         Me.PicDate.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicDate.Location = New System.Drawing.Point(551, 145)
+        Me.PicDate.Location = New System.Drawing.Point(520, 95)
         Me.PicDate.Name = "PicDate"
         Me.PicDate.Size = New System.Drawing.Size(17, 16)
         Me.PicDate.TabIndex = 119
@@ -362,7 +362,7 @@ Partial Class Booking
         'PicCmt
         '
         Me.PicCmt.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicCmt.Location = New System.Drawing.Point(552, 446)
+        Me.PicCmt.Location = New System.Drawing.Point(521, 396)
         Me.PicCmt.Name = "PicCmt"
         Me.PicCmt.Size = New System.Drawing.Size(17, 16)
         Me.PicCmt.TabIndex = 118
@@ -372,7 +372,7 @@ Partial Class Booking
         'PicStayingDay
         '
         Me.PicStayingDay.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicStayingDay.Location = New System.Drawing.Point(552, 310)
+        Me.PicStayingDay.Location = New System.Drawing.Point(521, 260)
         Me.PicStayingDay.Name = "PicStayingDay"
         Me.PicStayingDay.Size = New System.Drawing.Size(17, 16)
         Me.PicStayingDay.TabIndex = 117
@@ -382,7 +382,7 @@ Partial Class Booking
         'PicGuestNum
         '
         Me.PicGuestNum.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicGuestNum.Location = New System.Drawing.Point(552, 344)
+        Me.PicGuestNum.Location = New System.Drawing.Point(521, 294)
         Me.PicGuestNum.Name = "PicGuestNum"
         Me.PicGuestNum.Size = New System.Drawing.Size(17, 16)
         Me.PicGuestNum.TabIndex = 116
@@ -392,7 +392,7 @@ Partial Class Booking
         'PicPrice
         '
         Me.PicPrice.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicPrice.Location = New System.Drawing.Point(552, 410)
+        Me.PicPrice.Location = New System.Drawing.Point(521, 360)
         Me.PicPrice.Name = "PicPrice"
         Me.PicPrice.Size = New System.Drawing.Size(17, 16)
         Me.PicPrice.TabIndex = 115
@@ -402,7 +402,7 @@ Partial Class Booking
         'PicCusID
         '
         Me.PicCusID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicCusID.Location = New System.Drawing.Point(552, 260)
+        Me.PicCusID.Location = New System.Drawing.Point(521, 210)
         Me.PicCusID.Name = "PicCusID"
         Me.PicCusID.Size = New System.Drawing.Size(17, 16)
         Me.PicCusID.TabIndex = 114
@@ -412,7 +412,7 @@ Partial Class Booking
         'PicRoomID
         '
         Me.PicRoomID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicRoomID.Location = New System.Drawing.Point(552, 198)
+        Me.PicRoomID.Location = New System.Drawing.Point(521, 148)
         Me.PicRoomID.Name = "PicRoomID"
         Me.PicRoomID.Size = New System.Drawing.Size(17, 16)
         Me.PicRoomID.TabIndex = 113
@@ -422,7 +422,7 @@ Partial Class Booking
         'PicBookID
         '
         Me.PicBookID.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.PicBookID.Location = New System.Drawing.Point(551, 104)
+        Me.PicBookID.Location = New System.Drawing.Point(520, 54)
         Me.PicBookID.Name = "PicBookID"
         Me.PicBookID.Size = New System.Drawing.Size(17, 16)
         Me.PicBookID.TabIndex = 112
@@ -431,7 +431,7 @@ Partial Class Booking
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(594, 437)
+        Me.btnAdd.Location = New System.Drawing.Point(563, 387)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(79, 23)
         Me.btnAdd.TabIndex = 111
@@ -441,7 +441,7 @@ Partial Class Booking
         '
         'txtCmt
         '
-        Me.txtCmt.Location = New System.Drawing.Point(193, 442)
+        Me.txtCmt.Location = New System.Drawing.Point(162, 392)
         Me.txtCmt.Name = "txtCmt"
         Me.txtCmt.Size = New System.Drawing.Size(317, 20)
         Me.txtCmt.TabIndex = 110
@@ -449,7 +449,7 @@ Partial Class Booking
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(82, 442)
+        Me.Label9.Location = New System.Drawing.Point(51, 392)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 13)
         Me.Label9.TabIndex = 109
@@ -457,7 +457,7 @@ Partial Class Booking
         '
         'txtPrice
         '
-        Me.txtPrice.Location = New System.Drawing.Point(193, 410)
+        Me.txtPrice.Location = New System.Drawing.Point(162, 360)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(317, 20)
         Me.txtPrice.TabIndex = 108
@@ -465,7 +465,7 @@ Partial Class Booking
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(82, 413)
+        Me.Label8.Location = New System.Drawing.Point(51, 363)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(61, 13)
         Me.Label8.TabIndex = 107
@@ -474,7 +474,7 @@ Partial Class Booking
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(82, 378)
+        Me.Label7.Location = New System.Drawing.Point(51, 328)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(72, 13)
         Me.Label7.TabIndex = 106
@@ -483,7 +483,7 @@ Partial Class Booking
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(82, 347)
+        Me.Label6.Location = New System.Drawing.Point(51, 297)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(87, 13)
         Me.Label6.TabIndex = 105
@@ -492,7 +492,7 @@ Partial Class Booking
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(82, 309)
+        Me.Label5.Location = New System.Drawing.Point(51, 259)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 13)
         Me.Label5.TabIndex = 104
@@ -501,7 +501,7 @@ Partial Class Booking
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(82, 145)
+        Me.Label2.Location = New System.Drawing.Point(51, 95)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(30, 13)
         Me.Label2.TabIndex = 103
@@ -509,7 +509,7 @@ Partial Class Booking
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(192, 104)
+        Me.txtID.Location = New System.Drawing.Point(161, 54)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(317, 20)
         Me.txtID.TabIndex = 102
@@ -517,7 +517,7 @@ Partial Class Booking
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(82, 107)
+        Me.Label1.Location = New System.Drawing.Point(51, 57)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 101
@@ -528,7 +528,7 @@ Partial Class Booking
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1002, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1001, 24)
         Me.MenuStrip1.TabIndex = 130
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -629,7 +629,7 @@ Partial Class Booking
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingidDataGridViewTextBoxColumn, Me.BookingdateDataGridViewTextBoxColumn, Me.RoomidDataGridViewTextBoxColumn, Me.CustomeridDataGridViewTextBoxColumn, Me.NumdaysDataGridViewTextBoxColumn, Me.NumguestsDataGridViewTextBoxColumn, Me.CheckindateDataGridViewTextBoxColumn, Me.TotalpriceDataGridViewTextBoxColumn, Me.CommentsDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.BookingBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(82, 508)
+        Me.DataGridView1.Location = New System.Drawing.Point(51, 458)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(876, 150)
         Me.DataGridView1.TabIndex = 143
@@ -705,7 +705,7 @@ Partial Class Booking
         'LstBox
         '
         Me.LstBox.FormattingEnabled = True
-        Me.LstBox.Location = New System.Drawing.Point(697, 130)
+        Me.LstBox.Location = New System.Drawing.Point(666, 80)
         Me.LstBox.Name = "LstBox"
         Me.LstBox.Size = New System.Drawing.Size(293, 342)
         Me.LstBox.TabIndex = 149
@@ -714,7 +714,7 @@ Partial Class Booking
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(697, 104)
+        Me.Label11.Location = New System.Drawing.Point(666, 54)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(90, 13)
         Me.Label11.TabIndex = 150
@@ -725,7 +725,7 @@ Partial Class Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1002, 663)
+        Me.ClientSize = New System.Drawing.Size(1001, 632)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.LstBox)
         Me.Controls.Add(Me.DataGridView1)

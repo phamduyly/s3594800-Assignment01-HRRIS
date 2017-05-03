@@ -145,31 +145,6 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        bIsValid = IsNumeric(cboCusId.Text)
-        If bIsValid Then
-            PicCusID.Visible = False
-        Else
-            PicCusID.Visible = True
-            bAllFieldsValid = False
-        End If
-
-        bIsValid = IsNumeric(cboRoomID.Text)
-        If bIsValid Then
-            PicRoomID.Visible = False
-        Else
-            PicRoomID.Visible() = True
-            bAllFieldsValid = False
-        End If
-
-        bIsValid = IsNumeric(cboStays.Text)
-        If bIsValid Then
-            PicStayingDay.Visible = False
-
-        Else
-            PicStayingDay.Visible = True
-            bAllFieldsValid = False
-        End If
-
         'Date section
         bIsValid = IsDate(txtDate.Text)
         If bIsValid Then
@@ -188,6 +163,7 @@ Public Class Booking
         End If
 
         bIsValid = IsNumeric(cboGuestNum.Text)
+
         If bIsValid Then
             PicGuestNum.Visible = False
         Else
@@ -593,6 +569,20 @@ Public Class Booking
         cboRoomID.Text = CStr(CType(roomData("room_id"), String))
         txtRmPrice.Text = CStr(CInt(roomData("price")))
 
+    End Sub
+
+    'This is for the purpose of select guest- the guest cannot be out of the limit of room  
+    '
+    Private Sub cboGuestNum_Leave(sender As Object, e As EventArgs) Handles cboGuestNum.Leave
+        Select Case txtType.Text
+            Case "Normal"
+                If cboGuestNum.Text > "2" Then
+                    MsgBox("")
+                End If
+            Case "Deluxe"
+                MsgBox("The record was not delete")
+
+        End Select
     End Sub
 
 
