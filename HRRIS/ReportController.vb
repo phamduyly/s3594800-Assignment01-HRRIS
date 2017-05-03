@@ -314,7 +314,7 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT booking.booking_date, room.room_id, room.room_number, room.type, room.price, room.num_beds, room.availability, room.floor, room.description FROM booking, room WHERE booking.room_id = room.room_id AND DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
+            oCommand.CommandText = "SELECT booking.booking_date, booking.booking_id, room.room_id, room.room_number, room.type, room.price, room.num_beds, room.availability, room.floor, room.description FROM booking, room WHERE booking.room_id = room.room_id AND DatePart (""yyyy"", booking_date) = " & iYears & " AND DatePart(""m"", booking_date) = " & iMonths & ";"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
@@ -322,16 +322,17 @@ Public Class ReportController
             Dim htTempData As Hashtable
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-                htTempData("room_id") = CInt(oDataReader("booking.room_id"))
-                htTempData("booking_date") = CDate(oDataReader("booking.booking_date"))
-                htTempData("room_id") = CInt(oDataReader("room.room_id"))
-                htTempData("room_number") = CInt(oDataReader("room.room_number"))
-                htTempData("type") = CStr(oDataReader("room.type"))
-                htTempData("price") = CInt(oDataReader("room.price"))
-                htTempData("num_beds") = CInt(oDataReader("room.num_beds"))
-                htTempData("availability") = CStr(oDataReader("room.availability"))
-                htTempData("floor") = CInt(oDataReader("room.floor"))
-                htTempData("descripion") = CStr(oDataReader("room.description"))
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("booking_id") = CInt(oDataReader("booking_id"))
+                htTempData("booking_date") = CDate(oDataReader("booking_date"))
+                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("room_number") = CInt(oDataReader("room_number"))
+                htTempData("type") = CStr(oDataReader("type"))
+                htTempData("price") = CInt(oDataReader("price"))
+                htTempData("num_beds") = CInt(oDataReader("num_beds"))
+                htTempData("availability") = CStr(oDataReader("availability"))
+                htTempData("floor") = CInt(oDataReader("floor"))
+                htTempData("descripion") = CStr(oDataReader("description"))
 
                 lsData.Add(htTempData)
 
@@ -760,9 +761,9 @@ Public Class ReportController
         Dim htSample As Hashtable = lsData.Item(0)
         'Dim lsKeys = htSample.Keys
         Dim lsKeys As List(Of String) = New List(Of String)
-        lsKeys.Add("booking_id")
-        lsKeys.Add("booking_date")
         lsKeys.Add("room_id")
+        lsKeys.Add("booking_date")
+        lsKeys.Add("booking_id")
         lsKeys.Add("room_number")
         lsKeys.Add("type")
         lsKeys.Add("price")
@@ -805,7 +806,7 @@ Public Class ReportController
 
             '2a. Get a product and set the current key
             Dim booking As Hashtable = record
-            sCurrentControlField = CStr(booking("booking_id"))
+            sCurrentControlField = CStr(booking("room_id"))
 
             '2b. Do not check for control break on the first iteration of the loop
             If bFirstTime Then
@@ -815,8 +816,8 @@ Public Class ReportController
                 'And reset the total
                 If sCurrentControlField <> sPreviousControlField Then
                     sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total booking in " & sPreviousControlField _
-                        & " booking form: " & iCountRecordsPerCategory _
+                        & " Total booking for room in " & sPreviousControlField _
+                        & " room form: " & iCountRecordsPerCategory _
                         & "</td></tr>" _
                         & vbCrLf
                     sRows &= sTableRow
@@ -840,8 +841,8 @@ Public Class ReportController
 
         '3. After the loop, need to output the last total row
         sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total Booking in " & iCountRecordsPerCategory _
-                        & " booking in the given year is : " & sCurrentControlField _
+                        & " Total Booking for room in " & iCountRecordsPerCategory _
+                        & " booking for the given room in the given year is : " & sCurrentControlField _
                         & "</td></tr>" _
                         & vbCrLf
 
@@ -861,7 +862,7 @@ Public Class ReportController
 
         Dim lsData = BreakReport2(iYears)
         Dim sReportTitle = "Second controll break report "
-        Dim sReportContent = generateBreakReport(lsData, sReportTitle)
+        Dim sReportContent = generateBreakReport2(lsData, sReportTitle)
         'lsData is ... sReporttiltle is 
         Dim sReportFilename = "HRRIS second Control Break Report.html"
         saveReport(sReportContent, sReportFilename)
@@ -920,7 +921,7 @@ Public Class ReportController
         'Dim lsKeys = htSample.Keys
         Dim lsKeys As List(Of String) = New List(Of String)
         lsKeys.Add("booking_id")
-        lsKeys.Add("date")
+        lsKeys.Add("invoice_date")
         lsKeys.Add("amount")
 
 
@@ -957,8 +958,9 @@ Public Class ReportController
         For Each record In lsData
 
             '2a. Get a product and set the current key
-            Dim booking As Hashtable = record
-            sCurrentControlField = CStr(booking("booking_id"))
+            Dim invoice As Hashtable = record
+            sCurrentControlField = CStr(Month(CDate(invoice("invoice_date"))))
+
             'This part should be turn into "looking for date in "amount_date"""
 
             '2b. Do not check for control break on the first iteration of the loop
@@ -982,7 +984,7 @@ Public Class ReportController
             'The part for each break record 
             sTableRow = "<tr>" & vbCrLf
             For Each key In lsKeys
-                sTableRow &= "<td>" & "" 'month(name(month(cdate(invoice)))) '"" & "</td>" & vbCrLf
+                sTableRow &= "<td>" & CStr(invoice(key)) & "</td>" & vbCrLf
                 'Cstr(invoice(date))
             Next
             sTableRow &= "</tr>" & vbCrLf
