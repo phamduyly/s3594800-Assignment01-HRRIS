@@ -446,6 +446,7 @@ Public Class Booking
         btnDelete.Visible = True
         btnUpdate.Visible = True
         btnFind.Visible = True
+        'Starting sub 
         starting()
 
     End Sub
@@ -505,8 +506,6 @@ Public Class Booking
 
         'Else nothing becasue the software can only work if their is no record in ID fields
         'Reason: for importing new record to database 
-
-
 
     End Sub
 
