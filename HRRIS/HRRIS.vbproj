@@ -150,7 +150,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RoomDataController.vb" />
-    <Compile Include="UIController.vb" />
     <Compile Include="Validation.vb" />
   </ItemGroup>
   <ItemGroup>

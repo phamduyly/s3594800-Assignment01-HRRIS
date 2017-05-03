@@ -9,17 +9,13 @@ Imports System.IO
 'Date: 11 March 2017
 'Author: Ly Pham Duy 
 
-'Nore : modifing combo box, checkbox , radio box 
-'ACTUALLY, the report can be do by menustrip , do not need to add so much btn 
-
-
 
 Public Class Booking
     ' this code is for navigation within form
 
     Dim lsDataMov As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
-    Dim UIModi As New UIController
+
     Dim bindingsource1 As New BindingSource
 
     Private Sub Booking_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -51,11 +47,14 @@ Public Class Booking
         tootipBookg.SetToolTip(btnLast, "Navigation")
         tootipBookg.SetToolTip(btnUpdate, "Update booking information")
         starting()
+        PopulateOpen()
+        'Populate when open is allow to populate the record back to the 
+
 
     End Sub
+
+    'starting sub - contain
     Private Sub starting()
-
-
         'Form part 
         Dim Moving As BookingDataController = New BookingDataController
         lsDataMov = Moving.BookingfindALl()
@@ -85,6 +84,10 @@ Public Class Booking
         Dim selectedIndex1 As Integer = cboCusId.SelectedIndex
         Dim selectedItem1 As Object = cboCusId.SelectedItem
 
+    End Sub
+
+    'sub for populate when open the form 
+    Private Sub PopulateOpen()
         'populate() data when open - populateBookingFields()
         Dim htData As Hashtable
         Dim iIndex As Integer
@@ -94,6 +97,8 @@ Public Class Booking
         populateBookingFields(lsDataMov.Item(iIndex))
 
     End Sub
+
+    'Form load origin end - button thigns start
     'Combo box part - using txt inorder to keep track on and modify the code less 
     Private Sub cboRoomID_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboRoomID.SelectedIndexChanged
 
@@ -328,6 +333,7 @@ Public Class Booking
 
     'Populate is still missing two combobox - try to figure out how to populate data into a cbo that relating to database dropdown list
     Private Sub populateBookingFields(ByRef bookingData As Hashtable)
+        'populate need information and convert to string 
 
         txtID.Text = CStr(CInt(bookingData("booking_id")))
         txtDate.Text = CStr(CDate(bookingData("booking_date")))
@@ -413,6 +419,10 @@ Public Class Booking
         btnUpdate.Visible = False
         btnFind.Visible = False
         clearForm()
+        starting()
+
+
+
 
     End Sub
     'To open custoemr form 
@@ -425,16 +435,16 @@ Public Class Booking
     End Sub
     'To open room form 
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
-        Dim bok As New Room
+        Dim rom As New Room
         Me.Hide()
-        bok.Show()
+        rom.ShowDialog()
         Me.Close()
     End Sub
     'To open report fomr
     Private Sub ReportToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem1.Click
         Dim repor1 As New Report
         Me.Hide()
-        repor1.Show()
+        repor1.ShowDialog()
         Me.Close()
 
     End Sub
@@ -448,6 +458,9 @@ Public Class Booking
         btnFind.Visible = True
         'Starting sub 
         starting()
+        PopulateOpen()
+
+
 
     End Sub
 
@@ -455,7 +468,7 @@ Public Class Booking
     Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
         Dim brkreport1 As New BreakReport
         Me.Hide()
-        brkreport1.Show()
+        brkreport1.ShowDialog()
         Me.Close()
     End Sub
     'These code is to open the HTML help and about page
@@ -483,7 +496,7 @@ Public Class Booking
     Private Sub InvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InvoiceToolStripMenuItem.Click
         Dim invoicenav As New Invoice
         Me.Hide()
-        invoicenav.Show()
+        invoicenav.ShowDialog()
         Me.Show()
     End Sub
 

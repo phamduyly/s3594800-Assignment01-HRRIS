@@ -229,7 +229,7 @@ Public Class BookingDataController
             oCommand.Connection = oConnection
 
             'todo
-            oCommand.CommandText = "DELETE FROM booking WHERE booking_id = ?;"
+            oCommand.CommandText = "DELETE booking_id, booking_date, customer_id, room_id, num_days, num_guests, checkin_date, total_price, comments FROM booking WHERE booking_id = ?;"
             oCommand.Parameters.Add("booking_id", OleDbType.Integer, 8)
             oCommand.Parameters("booking_id").Value = CInt(sId)
             oCommand.Prepare()
@@ -240,7 +240,7 @@ Public Class BookingDataController
 
         Catch ex As Exception
             Debug.Print(CStr(iNumRows))
-            Debug.Print("an error occured. the record was not deleted")
+            MsgBox("You cannot delete this record because it is related to invoice" & vbCrLf & " Please delete invocie first if it is appropriate")
 
         Finally
             oConnection.Close()

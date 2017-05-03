@@ -84,6 +84,9 @@ Partial Class Customer
         Me.HRRISdbDataSet1 = New HRRIS.HRRISdbDataSet1()
         Me.CustomerTableAdapter = New HRRIS.HRRISdbDataSet1TableAdapters.customerTableAdapter()
         Me.lstBox = New System.Windows.Forms.ListBox()
+        Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.PicEmal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicAddr, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicLName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -415,7 +418,7 @@ Partial Class Customer
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(916, 24)
@@ -576,6 +579,25 @@ Partial Class Customer
         Me.lstBox.TabIndex = 134
         Me.lstBox.Visible = False
         '
+        'ReportToolStripMenuItem
+        '
+        Me.ReportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportToolStripMenuItem1, Me.BreakReportToolStripMenuItem})
+        Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.ReportToolStripMenuItem.Text = "Report "
+        '
+        'ReportToolStripMenuItem1
+        '
+        Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ReportToolStripMenuItem1.Text = "Report"
+        '
+        'BreakReportToolStripMenuItem
+        '
+        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BreakReportToolStripMenuItem.Text = "Break Report "
+        '
         'Customer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -701,4 +723,7 @@ Partial Class Customer
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lstBox As ListBox
+    Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents BreakReportToolStripMenuItem As ToolStripMenuItem
 End Class

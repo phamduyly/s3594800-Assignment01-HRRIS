@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Report
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,18 +20,17 @@ Partial Class Report
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,6 +51,7 @@ Partial Class Report
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cboReportMonth = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.cboBookId = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -66,7 +66,7 @@ Partial Class Report
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.BreakReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(623, 24)
@@ -75,21 +75,10 @@ Partial Class Report
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.ToolStripMenuItem1, Me.RoomToolStripMenuItem, Me.InvoiceToolStripMenuItem, Me.BookingToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RoomToolStripMenuItem, Me.InvoiceToolStripMenuItem, Me.BookingToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
-        '
-        'NewToolStripMenuItem
-        '
-        Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.NewToolStripMenuItem.Text = "New"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
         '
         'RoomToolStripMenuItem
         '
@@ -126,6 +115,12 @@ Partial Class Report
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
+        'BreakReportToolStripMenuItem
+        '
+        Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(86, 20)
+        Me.BreakReportToolStripMenuItem.Text = "Break Report"
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.HelpPageToolStripMenuItem})
@@ -148,7 +143,7 @@ Partial Class Report
         'Yearerror
         '
         Me.Yearerror.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.Yearerror.Location = New System.Drawing.Point(503, 185)
+        Me.Yearerror.Location = New System.Drawing.Point(415, 170)
         Me.Yearerror.Name = "Yearerror"
         Me.Yearerror.Size = New System.Drawing.Size(17, 16)
         Me.Yearerror.TabIndex = 143
@@ -212,7 +207,7 @@ Partial Class Report
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(373, 184)
+        Me.Label11.Location = New System.Drawing.Point(282, 170)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(29, 13)
         Me.Label11.TabIndex = 83
@@ -220,7 +215,7 @@ Partial Class Report
         '
         'txtReportYear
         '
-        Me.txtReportYear.Location = New System.Drawing.Point(422, 181)
+        Me.txtReportYear.Location = New System.Drawing.Point(327, 168)
         Me.txtReportYear.Name = "txtReportYear"
         Me.txtReportYear.Size = New System.Drawing.Size(75, 20)
         Me.txtReportYear.TabIndex = 82
@@ -238,7 +233,7 @@ Partial Class Report
         '
         Me.cboCusId.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboCusId.FormattingEnabled = True
-        Me.cboCusId.Location = New System.Drawing.Point(180, 140)
+        Me.cboCusId.Location = New System.Drawing.Point(145, 113)
         Me.cboCusId.Name = "cboCusId"
         Me.cboCusId.Size = New System.Drawing.Size(317, 21)
         Me.cboCusId.TabIndex = 142
@@ -246,7 +241,7 @@ Partial Class Report
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(93, 50)
+        Me.Label1.Location = New System.Drawing.Point(58, 31)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 143
@@ -255,7 +250,7 @@ Partial Class Report
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(93, 91)
+        Me.Label3.Location = New System.Drawing.Point(66, 64)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 139
@@ -264,7 +259,7 @@ Partial Class Report
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(93, 140)
+        Me.Label4.Location = New System.Drawing.Point(58, 116)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(68, 13)
         Me.Label4.TabIndex = 140
@@ -273,7 +268,7 @@ Partial Class Report
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(93, 202)
+        Me.Label12.Location = New System.Drawing.Point(81, 173)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
         Me.Label12.TabIndex = 84
@@ -290,18 +285,36 @@ Partial Class Report
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.cboBookId)
-        Me.GroupBox1.Location = New System.Drawing.Point(35, 38)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.txtReportYear)
+        Me.GroupBox1.Controls.Add(Me.Yearerror)
+        Me.GroupBox1.Controls.Add(Me.Label12)
+        Me.GroupBox1.Controls.Add(Me.cboCusId)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Location = New System.Drawing.Point(35, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(513, 202)
+        Me.GroupBox1.Size = New System.Drawing.Size(496, 230)
         Me.GroupBox1.TabIndex = 145
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(387, 201)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 152
+        Me.Button1.Text = "Clear"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'cboBookId
         '
         Me.cboBookId.FormattingEnabled = True
-        Me.cboBookId.Location = New System.Drawing.Point(145, 12)
+        Me.cboBookId.Location = New System.Drawing.Point(145, 23)
         Me.cboBookId.Name = "cboBookId"
         Me.cboBookId.Size = New System.Drawing.Size(317, 21)
         Me.cboBookId.TabIndex = 152
@@ -372,22 +385,14 @@ Partial Class Report
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.cboReportMonth)
-        Me.Controls.Add(Me.Yearerror)
         Me.Controls.Add(Me.cboRoomID)
-        Me.Controls.Add(Me.cboCusId)
-        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.btnReport4)
         Me.Controls.Add(Me.btnReport5)
         Me.Controls.Add(Me.btnReport6)
-        Me.Controls.Add(Me.txtReportYear)
         Me.Controls.Add(Me.btnReport3)
         Me.Controls.Add(Me.btnReport2)
         Me.Controls.Add(Me.btnCusReport)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Report"
@@ -395,6 +400,7 @@ Partial Class Report
         Me.MenuStrip1.PerformLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -402,8 +408,6 @@ Partial Class Report
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents NewToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents RoomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CustomerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem8 As ToolStripSeparator
@@ -437,4 +441,6 @@ Partial Class Report
     Friend WithEvents Label9 As Label
     Friend WithEvents cboBookId As ComboBox
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BreakReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
 End Class

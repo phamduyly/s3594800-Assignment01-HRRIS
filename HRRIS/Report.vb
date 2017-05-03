@@ -7,6 +7,15 @@ Option Explicit On
 
 Public Class Report
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        cboBookId.Items.Clear()
+        cboCusId.Items.Clear()
+        cboRoomID.Items.Clear()
+        txtReportYear.Clear()
+        cboReportMonth.ResetText()
+
+    End Sub
+
     '1.generate cus report ABOUT last-booking time , days booked  
     Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
 
@@ -159,15 +168,17 @@ Public Class Report
 #Region "menu"
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
         Dim rm As New Room
-        rm.Show()
         Me.Hide()
+        rm.ShowDialog()
+        Me.Close()
 
     End Sub
 
     Private Sub InvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InvoiceToolStripMenuItem.Click
         Dim ivnoe As New Invoice
-        ivnoe.Show()
         Me.Hide()
+        ivnoe.ShowDialog()
+        Me.Close()
 
     End Sub
 
@@ -180,8 +191,9 @@ Public Class Report
 
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
         Dim csu As New Customer
-        csu.Show()
         Me.Hide()
+        csu.ShowDialog()
+        Me.Close()
 
     End Sub
 
@@ -210,6 +222,23 @@ Public Class Report
 
         System.Diagnostics.Process.Start(sParam)
     End Sub
+
+    Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
+        Dim brkrep As New BreakReport
+        Me.Hide()
+        brkrep.ShowDialog()
+        Me.Close()
+        'With showDialog, 
+        'The form seem to beable to open and close seperately with the main form
+
+
+
+    End Sub
+
+
+
 #End Region
+
+
 
 End Class

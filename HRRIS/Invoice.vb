@@ -5,8 +5,6 @@ Option Explicit On
 'Date: 10/4/2017
 'Author: Ly Pham Duy 
 
-Imports System.Data.OleDb
-Imports System.IO
 
 Public Class Invoice
     Public Property bookingIdPass As String
@@ -223,61 +221,46 @@ Public Class Invoice
     End Sub
 
 #Region "Menuthings"
-    Private Sub UpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem.Click
 
-
-    End Sub
-
-    Private Sub FindToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FindToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
-
-    End Sub
 
     Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingToolStripMenuItem.Click
         Dim bk1 As New Booking
-        bk1.Show()
         Me.Hide()
+        bk1.ShowDialog()
+        Me.Close()
     End Sub
 
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
         Dim rm1 As New Room
-        rm1.Show()
         Me.Hide()
+        rm1.ShowDialog()
+        Me.Close()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
 
-    Private Sub btnBookingNav_Click(sender As Object, e As EventArgs) Handles btnBookingNav.Click
-        Dim bk1 As New Booking
-        bk1.Show()
-        Me.Hide()
-    End Sub
 
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
         Dim cus As New Customer
-        cus.Show()
         Me.Hide()
+        cus.ShowDialog()
+        Me.Close()
 
     End Sub
 
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
 
+    End Sub
 
+    Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
 
+    End Sub
 
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
 
+    End Sub
 
 
 #End Region

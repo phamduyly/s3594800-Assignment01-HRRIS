@@ -14,7 +14,7 @@ Public Class Customer
     'moving between record section
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
-    Dim UIModi As New UIController
+
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet1.customer' table. You can move, or remove it, as needed.
@@ -252,8 +252,8 @@ Public Class Customer
 
     Private Sub clearForm()
         txtCusID.Clear()
-        txtCusTitl.Items.Clear()
-        txtGender.Items.Clear()
+        txtCusTitl.ResetText()
+        txtGender.ResetText()
         txtCusFirName.Clear()
         txtCusLasName.Clear()
         txtCusPhone.Clear()
@@ -360,15 +360,18 @@ Public Class Customer
     Private Sub RoomToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RoomToolStripMenuItem.Click
 
         Dim room1 As New Room
+        Me.Hide()
         room1.ShowDialog()
-
+        Me.Close()
 
     End Sub
 
     Private Sub BookingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BookingToolStripMenuItem.Click
 
         Dim booking1 As New Booking
+        Me.Hide()
         booking1.ShowDialog()
+        Me.Close()
 
     End Sub
     'Menu: EDIT part

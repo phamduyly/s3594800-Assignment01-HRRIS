@@ -13,7 +13,7 @@ Public Class Room
     'moving betweeen record section
     Dim lsData As New List(Of Hashtable)
     Dim iCurrentIndex As Integer
-    Dim UImodi As New UIController
+
 
     'Binding for datagrid refresh
 
@@ -238,11 +238,11 @@ Public Class Room
 
         txtRmID.Clear()
         txtRmNum.Clear()
-        txtRmType.Items.Clear()
+        txtRmType.ResetText()
         txtRmPrice.Clear()
         txtRmBedNum.Clear()
-        txtRmAva.Items.Clear()
-        txtRmFl.Items.Clear()
+        txtRmAva.ResetText()
+        txtRmFl.ResetText()
         txtRmDes.Clear()
 
     End Sub
@@ -325,23 +325,21 @@ Public Class Room
     End Sub
 
     Private Sub CustomerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomerToolStripMenuItem.Click
-        Try
-            Dim customer3 As New Customer
-            customer3.ShowDialog()
-        Catch ex As Exception
-            MsgBox("You have already opened Customer Form")
-        End Try
+        Dim cus1 As New Customer
+        Me.Hide()
+        cus1.ShowDialog()
+        Me.Close()
+
     End Sub
 
 
 
     Private Sub BookingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BookingToolStripMenuItem.Click
-        Try
-            Dim book3 As New Booking
-            book3.ShowDialog()
-        Catch ex As Exception
-            MsgBox("You have already opened Booking Form")
-        End Try
+        Dim bok1 As New Booking
+        Me.Hide()
+        bok1.ShowDialog()
+        Me.Close()
+
     End Sub
     'Purpose: enable all fucntion for RUD relating to database 
     'Displaying the first record 
@@ -388,6 +386,20 @@ Public Class Room
         Debug.Print("sParam: " & sParam)
 
         System.Diagnostics.Process.Start(sParam)
+    End Sub
+
+    Private Sub ReportToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem1.Click
+        Dim repor1 As New Report
+        Me.Hide()
+        repor1.ShowDialog()
+        Me.Close()
+    End Sub
+
+    Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
+        Dim brkreport1 As New BreakReport
+        Me.Hide()
+        brkreport1.ShowDialog()
+        Me.Close()
     End Sub
 #End Region
 
