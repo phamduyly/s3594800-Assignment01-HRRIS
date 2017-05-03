@@ -50,6 +50,12 @@ Public Class Booking
         tootipBookg.SetToolTip(btnPrevious, "Navigation")
         tootipBookg.SetToolTip(btnLast, "Navigation")
 
+        starting()
+
+    End Sub
+    Private Sub starting()
+
+
         'Form part 
         Dim Moving As BookingDataController = New BookingDataController
         lsDataMov = Moving.BookingfindALl()
@@ -287,10 +293,13 @@ Public Class Booking
         txtID.Clear()
         cboRoomID.Items.Clear()
         cboCusId.Items.Clear()
-        cboStays.Items.Clear()
-        cboGuestNum.Items.Clear()
+        cboStays.ResetText()
+        cboGuestNum.ResetText()
         txtPrice.Clear()
         txtCmt.Clear()
+        txtType.ResetText()
+        txtRmPrice.Clear()
+        txtFirstName.Clear()
 
     End Sub
 
@@ -371,7 +380,12 @@ Public Class Booking
 
     'Calculating done - add more elseif inorder to provide more right calculation
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
-        txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmNum.Text))
+        Try
+            txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmPrice.Text))
+        Catch ex As Exception
+            MsgBox("No room Price or staying date value available")
+        End Try
+
 
     End Sub
 
@@ -429,7 +443,7 @@ Public Class Booking
         btnDelete.Visible = True
         btnUpdate.Visible = True
         btnFind.Visible = True
-
+        starting()
 
     End Sub
 
@@ -477,12 +491,12 @@ Public Class Booking
 
         Dim sCusId = cboCusId.Text
 
-            Dim oController As New CustomerDataController
-            Dim lsData = oController.CustomerFind(sCusId)
+        Dim oController As New CustomerDataController
+        Dim lsData = oController.CustomerFind(sCusId)
 
-            If lsData.Count = 1 Then
-                populatecus(lsData.Item(0))
-            End If
+        If lsData.Count = 1 Then
+            populatecus(lsData.Item(0))
+        End If
 
         'Else nothing becasue the software can only work if their is no record in ID fields
         'Reason: for importing new record to database 
@@ -495,12 +509,12 @@ Public Class Booking
 
         Dim sRmId = cboRoomID.Text
 
-            Dim oController As New RoomDataController
-            Dim lsData = oController.DisplayByRmId(sRmId)
+        Dim oController As New RoomDataController
+        Dim lsData = oController.DisplayByRmId(sRmId)
 
-            If lsData.Count = 1 Then
-                populateroom(lsData.Item(0))
-            End If
+        If lsData.Count = 1 Then
+            populateroom(lsData.Item(0))
+        End If
 
         'Else nothing becasue the software can only work if their is no record in ID fields
         'Reason: for importing new record to database 
@@ -516,7 +530,7 @@ Public Class Booking
     Private Sub populateroom(ByRef roomData As Hashtable)
 
         txtType.Text = CStr(roomData("type"))
-        txtRmNum.Text = CStr(CInt(roomData("price")))
+        txtRmPrice.Text = CStr(CInt(roomData("price")))
 
     End Sub
 
@@ -560,7 +574,7 @@ Public Class Booking
     Private Sub populateRoom2(ByRef roomData As Hashtable)
 
         cboRoomID.Text = CStr(CType(roomData("room_id"), String))
-        txtRmNum.Text = CStr(CInt(roomData("price")))
+        txtRmPrice.Text = CStr(CInt(roomData("price")))
 
     End Sub
 
