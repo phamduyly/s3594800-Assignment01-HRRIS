@@ -273,7 +273,8 @@ Public Class Booking
         populateBookingFields(lsDataMov.Item(iIndex))
 
     End Sub
-
+    'Delete function
+    'Add msgbox.Yesno 
     Private Sub btnDelete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnDelete.Click
         Dim oController As BookingDataController = New BookingDataController
         Dim sId = txtID.Text
@@ -292,7 +293,9 @@ Public Class Booking
         Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
 
     End Sub
-
+    'clear form sub 
+    'cbo with Database related is Items.clear
+    'Cbo with only text value is REsettext - this do not erase all the data in the dropdown list
     Private Sub clearForm()
 
         txtID.Clear()
@@ -305,10 +308,13 @@ Public Class Booking
         txtType.ResetText()
         txtRmPrice.Clear()
         txtFirstName.Clear()
+        txtDate.ResetText()
+        txtCheckinDate.ResetText()
+
 
     End Sub
-
-
+    'Find fiunciton
+    'This function should can only go wrong if the insert bookingID is not right 
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
         Dim bIsValid As Boolean
         bIsValid = IsNumeric(txtID.Text)
@@ -346,7 +352,8 @@ Public Class Booking
         txtCmt.Text = CStr(CStr(bookingData("comments")))
 
     End Sub
-
+    'Updateing the record in the database with new information added into the form 
+    'Add the last line so that the record within the bookingTable DataGridview reload with the newest information
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Dim bIsValid = BookValid()
 
@@ -367,6 +374,7 @@ Public Class Booking
 
     End Sub
 
+    'Get data input to form and return a bookindata hashtable 
     Private Function getBookingData() As Hashtable
         Dim BookingData As Hashtable = New Hashtable
         BookingData("booking_id") = txtID.Text
@@ -384,7 +392,7 @@ Public Class Booking
 
     End Function
 
-    'Calculating done - add more elseif inorder to provide more right calculation
+    'Calculation in simple way 
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
         Try
             txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmPrice.Text))
@@ -394,7 +402,6 @@ Public Class Booking
 
 
     End Sub
-
     'Move to invoice form 
     Private Sub btnInvoince_Click(sender As Object, e As EventArgs) Handles btnInvoince.Click
 
@@ -403,14 +410,14 @@ Public Class Booking
         invoiceform.Show()
         Me.Hide()
 
-
     End Sub
 
     'MENU SECTION 
+    'Exit form
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
-    'For new record
+    'New menu - enable, clear form, load room ID and customer ID comboBox
     Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
         txtID.Clear()
         txtID.Enabled = False
@@ -420,9 +427,6 @@ Public Class Booking
         btnFind.Visible = False
         clearForm()
         starting()
-
-
-
 
     End Sub
     'To open custoemr form 
@@ -449,7 +453,6 @@ Public Class Booking
 
     End Sub
     'Edit menu 
-
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         txtID.Enabled = True
         btnAdd.Visible = False
@@ -459,9 +462,6 @@ Public Class Booking
         'Starting sub 
         starting()
         PopulateOpen()
-
-
-
     End Sub
 
     'To open break report form
