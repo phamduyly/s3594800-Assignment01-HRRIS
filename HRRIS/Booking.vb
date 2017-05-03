@@ -49,6 +49,12 @@ Public Class Booking
         tootipBookg.SetToolTip(btnNext, "Navigation")
         tootipBookg.SetToolTip(btnPrevious, "Navigation")
         tootipBookg.SetToolTip(btnLast, "Navigation")
+        tootipBookg.SetToolTip(btnUpdate, "Update booking information")
+        starting()
+
+    End Sub
+    Private Sub starting()
+
 
         'Form part 
         Dim Moving As BookingDataController = New BookingDataController
@@ -287,10 +293,13 @@ Public Class Booking
         txtID.Clear()
         cboRoomID.Items.Clear()
         cboCusId.Items.Clear()
-        cboStays.Items.Clear()
-        cboGuestNum.Items.Clear()
+        cboStays.ResetText()
+        cboGuestNum.ResetText()
         txtPrice.Clear()
         txtCmt.Clear()
+        txtType.ResetText()
+        txtRmPrice.Clear()
+        txtFirstName.Clear()
 
     End Sub
 
@@ -371,7 +380,12 @@ Public Class Booking
 
     'Calculating done - add more elseif inorder to provide more right calculation
     Private Sub txtPrice_Leave(sender As Object, e As EventArgs) Handles txtPrice.Leave
-        txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmNum.Text))
+        Try
+            txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmPrice.Text))
+        Catch ex As Exception
+            MsgBox("No room Price or staying date value available")
+        End Try
+
 
     End Sub
 
@@ -405,20 +419,23 @@ Public Class Booking
 
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
         Dim customer As New Customer
-        customer.Show()
-
-
+        Me.Hide()
+        customer.ShowDialog()
+        Me.Close()
     End Sub
     'To open room form 
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
         Dim bok As New Room
+        Me.Hide()
         bok.Show()
+        Me.Close()
     End Sub
     'To open report fomr
     Private Sub ReportToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem1.Click
         Dim repor1 As New Report
-        repor1.Show()
         Me.Hide()
+        repor1.Show()
+        Me.Close()
 
     End Sub
     'Edit menu 
@@ -429,15 +446,16 @@ Public Class Booking
         btnDelete.Visible = True
         btnUpdate.Visible = True
         btnFind.Visible = True
-
+        starting()
 
     End Sub
 
     'To open break report form
     Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
         Dim brkreport1 As New BreakReport
-        brkreport1.Show()
         Me.Hide()
+        brkreport1.Show()
+        Me.Close()
     End Sub
     'These code is to open the HTML help and about page
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem1.Click
@@ -463,12 +481,13 @@ Public Class Booking
     End Sub
     Private Sub InvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InvoiceToolStripMenuItem.Click
         Dim invoicenav As New Invoice
-        invoicenav.Show()
         Me.Hide()
+        invoicenav.Show()
+        Me.Show()
     End Sub
 
 
-#Region "enhance"
+#Region "enhance -appear customer and room information by performing search in room and customer datacontroller"
 
     'for the room secttion here. 
     'Due to the reason that this is for record insert. Therefore, only room that have status that "available" = yes 
@@ -477,12 +496,12 @@ Public Class Booking
 
         Dim sCusId = cboCusId.Text
 
-            Dim oController As New CustomerDataController
-            Dim lsData = oController.CustomerFind(sCusId)
+        Dim oController As New CustomerDataController
+        Dim lsData = oController.CustomerFind(sCusId)
 
-            If lsData.Count = 1 Then
-                populatecus(lsData.Item(0))
-            End If
+        If lsData.Count = 1 Then
+            populatecus(lsData.Item(0))
+        End If
 
         'Else nothing becasue the software can only work if their is no record in ID fields
         'Reason: for importing new record to database 
@@ -495,12 +514,12 @@ Public Class Booking
 
         Dim sRmId = cboRoomID.Text
 
-            Dim oController As New RoomDataController
-            Dim lsData = oController.DisplayByRmId(sRmId)
+        Dim oController As New RoomDataController
+        Dim lsData = oController.DisplayByRmId(sRmId)
 
-            If lsData.Count = 1 Then
-                populateroom(lsData.Item(0))
-            End If
+        If lsData.Count = 1 Then
+            populateroom(lsData.Item(0))
+        End If
 
         'Else nothing becasue the software can only work if their is no record in ID fields
         'Reason: for importing new record to database 
@@ -516,7 +535,7 @@ Public Class Booking
     Private Sub populateroom(ByRef roomData As Hashtable)
 
         txtType.Text = CStr(roomData("type"))
-        txtRmNum.Text = CStr(CInt(roomData("price")))
+        txtRmPrice.Text = CStr(CInt(roomData("price")))
 
     End Sub
 
@@ -560,7 +579,7 @@ Public Class Booking
     Private Sub populateRoom2(ByRef roomData As Hashtable)
 
         cboRoomID.Text = CStr(CType(roomData("room_id"), String))
-        txtRmNum.Text = CStr(CInt(roomData("price")))
+        txtRmPrice.Text = CStr(CInt(roomData("price")))
 
     End Sub
 

@@ -30,7 +30,7 @@ Partial Class Booking
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtRmNum = New System.Windows.Forms.TextBox()
+        Me.txtRmPrice = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cboRoomID = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -165,7 +165,7 @@ Partial Class Booking
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txtRmNum)
+        Me.GroupBox1.Controls.Add(Me.txtRmPrice)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.cboRoomID)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -186,12 +186,12 @@ Partial Class Booking
         Me.Label3.TabIndex = 23
         Me.Label3.Text = "Room ID "
         '
-        'txtRmNum
+        'txtRmPrice
         '
-        Me.txtRmNum.Location = New System.Drawing.Point(376, 21)
-        Me.txtRmNum.Name = "txtRmNum"
-        Me.txtRmNum.Size = New System.Drawing.Size(59, 20)
-        Me.txtRmNum.TabIndex = 89
+        Me.txtRmPrice.Location = New System.Drawing.Point(376, 21)
+        Me.txtRmPrice.Name = "txtRmPrice"
+        Me.txtRmPrice.Size = New System.Drawing.Size(59, 20)
+        Me.txtRmPrice.TabIndex = 89
         '
         'Label13
         '
@@ -796,7 +796,7 @@ Partial Class Booking
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtRmNum As TextBox
+    Friend WithEvents txtRmPrice As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents cboRoomID As ComboBox
     Friend WithEvents Label10 As Label
