@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-<title>Room booked frequency2 in months3 and year 2017</title>
+<title>Room booked frequency4 in months3 and year 2017</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,7 +9,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Room booked frequency2 in months3 and year 2017</h1>
+<h1>Room booked frequency4 in months3 and year 2017</h1>
 <table class ="table table-hover">
 <tr>
 <th>booking_id</th>
@@ -23,14 +23,14 @@
 <th>comments</th>
 </tr>
 <tr>
-<td>2</td>
+<td>4</td>
 <td>3/31/2017</td>
-<td>2</td>
-<td>2</td>
-<td>1</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
 <td>1</td>
 <td>3/31/2017</td>
-<td>1</td>
+<td>75</td>
 <td>No</td>
 </tr>
 </table>

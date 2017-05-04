@@ -42,9 +42,16 @@ Public Class Customer
         tootipBookg.SetToolTip(btnNext, "Navigation")
         tootipBookg.SetToolTip(btnPrevious, "Navigation")
         tootipBookg.SetToolTip(btnLast, "Navigation")
+        'Implemeting tooltip for the Customer form 
+        Dim tooltip1 As New ToolTip
 
-        'moving between record section
-        'Displaying the first record 
+        displayNmove()
+        'For disslay first record and moving between record
+    End Sub
+
+    'Display the very first record in the database and moving bewtween record
+    Private Sub displayNmove()
+
         Dim MoveRecord As CustomerDataController = New CustomerDataController
         lsData = MoveRecord.CusfindALl()
 
@@ -55,11 +62,8 @@ Public Class Customer
         htData = lsData.Item(iIndex)
         populateCusFields(lsData.Item(iIndex))
 
-        'Implemeting tooltip for the Customer form 
-        Dim tooltip1 As New ToolTip
-        tooltip1.SetToolTip(txtCusID, "Customer ID")
-
     End Sub
+
     'btnInsert and validate data: Valiate data stage - trying using menu 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim bIsValid = CusValid()
@@ -391,20 +395,9 @@ Public Class Customer
         btnFind.Visible = True
         lstBox.Visible = True
         Button1.Visible = False
-
-        'Display the very first record in the database 
-        Dim MoveRecord As CustomerDataController = New CustomerDataController
-        lsData = MoveRecord.CusfindALl()
-
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = 0
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateCusFields(lsData.Item(iIndex))
-
+        displayNmove()
+        'displayNmove is for sub display and move which also beused in form_load
     End Sub
-
 
     'Help and about page part: - this part allow to open help and about HTML 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
@@ -428,6 +421,22 @@ Public Class Customer
 
         System.Diagnostics.Process.Start(sParam)
     End Sub
+
+    Private Sub BreakReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BreakReportToolStripMenuItem.Click
+        Dim brkre As New BreakReport
+        Me.Hide()
+        brkre.ShowDialog()
+        Me.Close()
+
+    End Sub
+
+    Private Sub ReportToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReportToolStripMenuItem1.Click
+        Dim re As New Report
+        Me.Hide()
+        re.ShowDialog()
+        Me.Close()
+    End Sub
+
 #End Region
 
 
@@ -583,6 +592,7 @@ Public Class Customer
         End If
 
     End Sub
+
 
 
 

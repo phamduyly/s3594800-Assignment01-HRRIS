@@ -14,6 +14,9 @@ Public Class Report
         txtReportYear.Clear()
         cboReportMonth.ResetText()
 
+        Reportload()
+        'Form_load original - load data into cus, room, book combobox 
+
     End Sub
 
     '1.generate cus report ABOUT last-booking time , days booked  
@@ -136,6 +139,11 @@ Public Class Report
         reporttip.SetToolTip(btnReport4, "Choose time period")
         reporttip.SetToolTip(btnReport5, "Choose time period")
         reporttip.SetToolTip(btnReport6, "Choose room ID and time period")
+        Reportload()
+
+    End Sub
+    'Load data into combo box - room, cus, book
+    Private Sub Reportload()
 
         cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
         Dim oController1 As New RoomDataController
@@ -179,8 +187,9 @@ Public Class Report
 
     Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingToolStripMenuItem.Click
         Dim book As New Booking
-        book.Show()
         Me.Hide()
+        book.ShowDialog()
+        Me.Close()
 
     End Sub
 
