@@ -14,6 +14,29 @@ Public Class Report
         txtReportYear.Clear()
         cboReportMonth.ResetText()
 
+        cboRoomID.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim oController1 As New RoomDataController
+        Dim lsData1 = oController1.RoomfindALl()
+        For Each Room In lsData1
+            cboRoomID.Items.Add(CStr(Room("room_id")))
+        Next
+
+        'Comboxbox cusID - traacking data from database and populate() to the box
+        'main point: show name , import id
+        cboCusId.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim ooController As CustomerDataController = New CustomerDataController
+        Dim lsData3 = ooController.CusfindALl()
+        For Each Customer In lsData3
+            cboCusId.Items.Add(CStr(Customer("customer_id")))
+        Next
+
+        cboBookId.DropDownStyle = ComboBoxStyle.DropDownList
+        Dim vController As New BookingDataController
+        Dim lsData4 = vController.BookingfindALl()
+        For Each book In lsData4
+            cboBookId.Items.Add(CStr(book("booking_id")))
+        Next
+
     End Sub
 
     '1.generate cus report ABOUT last-booking time , days booked  
@@ -179,8 +202,9 @@ Public Class Report
 
     Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingToolStripMenuItem.Click
         Dim book As New Booking
-        book.Show()
         Me.Hide()
+        book.ShowDialog()
+        Me.Show()
 
     End Sub
 
