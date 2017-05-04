@@ -212,8 +212,8 @@ Public Class ReportController
 
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
-
-            oCommand.CommandText = "SELECT customer_id, month(checkin_date) AS checkinMonth, year(checkin_date) AS CheckinYear FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
+            oCommand.CommandText = "SELECT customer_id, checkin_date FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
+            'oCommand.CommandText = "SELECT customer_id, month(checkin_date) AS checkinMonth, year(checkin_date) AS CheckinYear FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
 
             Dim oDataReader = oCommand.ExecuteReader()
 
@@ -221,8 +221,7 @@ Public Class ReportController
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
                 htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("checkinMonth") = CStr(oDataReader("checkinMonth"))
-                htTempData("CheckinYear") = CStr(oDataReader("CheckinYear"))
+                htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
 
                 lsData.Add(htTempData)
             Loop
@@ -543,8 +542,8 @@ Public Class ReportController
         'Modify lskey value
 
         lsKeys.Add("customer_id")
-        lsKeys.Add("checkinMonth")
-        lsKeys.Add("checkinYear")
+        lsKeys.Add("checkin_date")
+
 
         Dim lsData = FifthReport(iMonths, iYears)
         Dim sReportTitle = "Customer who are late for month" & iMonths & " And year " & iYears & ""
