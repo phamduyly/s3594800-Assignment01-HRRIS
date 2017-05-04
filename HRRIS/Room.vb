@@ -76,15 +76,18 @@ Public Class Room
             roomData("floor") = txtRmFl.Text
             roomData("description") = txtRmDes.Text
 
-
-            Dim Roomimport As RoomDataController = New RoomDataController
-
-            Roomimport.RoomInsert(roomData)
-
+            Select Case MsgBox("Are you sure to insert this record", MsgBoxStyle.YesNo, "delete")
+                Case MsgBoxResult.Yes
+                    Dim Roomimport As RoomDataController = New RoomDataController
+                    Roomimport.RoomInsert(roomData)
+                    Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
+                Case MsgBoxResult.No
+                    MsgBox("The record was not Inserted")
+            End Select
 
         End If
 
-        Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
+
     End Sub
 
     Private Function valid() As Boolean
@@ -153,7 +156,7 @@ Public Class Room
         End If
 
         If bAllFieldsValid Then
-            MsgBox("Click OK to import data")
+            MsgBox("All Input fields are valid ")
         Else
             MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
@@ -251,7 +254,6 @@ Public Class Room
     Private Sub btnFind_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFind.Click
         Dim bIsValid As Boolean
         bIsValid = IsNumeric(txtRmID.Text)
-
         If bIsValid Then
             Dim oControler As RoomDataController = New RoomDataController
             Dim sId = txtRmID.Text
@@ -282,17 +284,37 @@ Public Class Room
     End Sub
 
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
-        Dim oController As RoomDataController = New RoomDataController
-        Dim iNumRows = oController.RoomsUpdate(getRoomData)
+        Dim bIsValid = valid()
 
-        If iNumRows = 1 Then
-            Debug.Print("The record was updated. check")
-        Else
-            Debug.Print("The record was not update")
+        If bIsValid Then
+            Select Case MsgBox("Are you sure to update booking ?", MsgBoxStyle.YesNo, "Update")
+                Case MsgBoxResult.Yes
+                    'If the user choose YES, the customer data controller then is dimed under the name of cusimport. 
+                    'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
+                    Dim oController As RoomDataController = New RoomDataController
+                    Dim iNumRows = oController.RoomsUpdate(getRoomData)
 
+                    If iNumRows = 1 Then
+                        Debug.Print("The record was updated. check")
+                    Else
+                        Debug.Print("The record was not update")
+
+                    End If
+                    MsgBox("The record was updated")
+                    'then the msgbox appear 
+                    'Bellow code allow the Datagrid view to refresh
+                    Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
+
+                Case MsgBoxResult.No
+                    'The choose no, the result is the data is not inserted and the msgbox is appear. 
+                    MsgBox("The record was not updated")
+            End Select
         End If
 
-        Me.RoomTableAdapter.Fill(Me.HRRISdbDataSet.room)
+
+
+
+
 
     End Sub
 

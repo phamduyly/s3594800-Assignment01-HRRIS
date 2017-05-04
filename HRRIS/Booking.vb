@@ -133,12 +133,21 @@ Public Class Booking
             bookingData("total_price") = txtPrice.Text
             bookingData("comments") = txtCmt.Text
 
-            Dim bookingimport As BookingDataController = New BookingDataController
-            bookingimport.BookingInsert(bookingData)
-            Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
+            Select Case MsgBox("Are you sure to insert this record?", MsgBoxStyle.YesNo, "Insert")
+                Case MsgBoxResult.Yes
+                    'If the user choose YES, the customer data controller then is dimed under the name of cusimport. 
+                    'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
+                    Dim bookingimport As BookingDataController = New BookingDataController
+                    bookingimport.BookingInsert(bookingData)
+                    MsgBox("The record was Inserted")
+                    'then the msgbox appear 
+                    'Bellow code allow the Datagrid view to refresh
+                    Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
+                Case MsgBoxResult.No
+                    'The choose no, the result is the data is not inserted and the msgbox is appear. 
+                    MsgBox("The record was not inserted")
+            End Select
         End If
-
-
 
     End Sub
     'validate private function
@@ -191,7 +200,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
         If bAllFieldsValid Then
-            MsgBox("Click OK to import data")
+            MsgBox("All input fields are valid")
         Else
             MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
@@ -338,18 +347,31 @@ Public Class Booking
 
 
         If bIsValid Then
-            Dim oController As BookingDataController = New BookingDataController
-            Dim iNumRows = oController.BookingsUpdate(getBookingData)
 
-            If iNumRows = 1 Then
-                Debug.Print("The record was updated. check")
-            Else
-                Debug.Print("The record was not update")
+            Select Case MsgBox("Are you sure to update booking ?", MsgBoxStyle.YesNo, "Update")
+                Case MsgBoxResult.Yes
+                    'If the user choose YES, the customer data controller then is dimed under the name of cusimport. 
+                    'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
+                    Dim oController As BookingDataController = New BookingDataController
+                    Dim iNumRows = oController.BookingsUpdate(getBookingData)
 
-            End If
+                    If iNumRows = 1 Then
+                        Debug.Print("The record was updated. check")
+                    Else
+                        Debug.Print("The record was not update")
+
+                    End If
+                    MsgBox("The record was updated")
+                    'then the msgbox appear 
+                    'Bellow code allow the Datagrid view to refresh
+                    Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
+                Case MsgBoxResult.No
+                    'The choose no, the result is the data is not inserted and the msgbox is appear. 
+                    MsgBox("The record was not updated")
+            End Select
+
         End If
 
-        Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
 
     End Sub
 

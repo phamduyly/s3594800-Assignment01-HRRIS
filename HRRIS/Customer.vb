@@ -80,7 +80,7 @@ Public Class Customer
             CusData("dob") = txtCusDOB.Text
 
             'Select case allow to choose whether you want to import the data into the database by choosing yes or no 
-            Select Case MsgBox("Record will be add to the database", MsgBoxStyle.YesNo, "Insert")
+            Select Case MsgBox("Ready to be added to the database ?", MsgBoxStyle.YesNo, "Insert")
                 Case MsgBoxResult.Yes
                     'If the user choose YES, the customer data controller then is dimed under the name of cusimport. 
                     'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
@@ -161,7 +161,7 @@ Public Class Customer
         End If
 
         If bAllFieldsValid Then
-
+            MsgBox("All input fields are valid")
         Else
             MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
