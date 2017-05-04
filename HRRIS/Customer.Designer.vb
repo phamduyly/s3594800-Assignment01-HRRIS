@@ -150,7 +150,7 @@ Partial Class Customer
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(593, 330)
+        Me.btnUpdate.Location = New System.Drawing.Point(593, 301)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(93, 23)
         Me.btnUpdate.TabIndex = 117
@@ -160,7 +160,7 @@ Partial Class Customer
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(593, 301)
+        Me.btnFind.Location = New System.Drawing.Point(593, 330)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(93, 23)
         Me.btnFind.TabIndex = 116
@@ -170,7 +170,7 @@ Partial Class Customer
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(593, 272)
+        Me.btnDelete.Location = New System.Drawing.Point(593, 359)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(93, 23)
         Me.btnDelete.TabIndex = 115
@@ -474,13 +474,13 @@ Partial Class Customer
         'ReportToolStripMenuItem1
         '
         Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
-        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(144, 22)
         Me.ReportToolStripMenuItem1.Text = "Report"
         '
         'BreakReportToolStripMenuItem
         '
         Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
-        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(144, 22)
         Me.BreakReportToolStripMenuItem.Text = "Break Report "
         '
         'HelpToolStripMenuItem

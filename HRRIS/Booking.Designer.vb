@@ -320,7 +320,7 @@ Partial Class Booking
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(563, 388)
+        Me.btnFind.Location = New System.Drawing.Point(563, 357)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(79, 23)
         Me.btnFind.TabIndex = 124
@@ -330,7 +330,7 @@ Partial Class Booking
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(563, 359)
+        Me.btnDelete.Location = New System.Drawing.Point(563, 387)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(79, 23)
         Me.btnDelete.TabIndex = 123

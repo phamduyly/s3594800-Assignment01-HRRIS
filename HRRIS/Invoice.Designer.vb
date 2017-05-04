@@ -30,7 +30,6 @@ Partial Class Invoice
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.BreakReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -71,7 +70,7 @@ Partial Class Invoice
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(575, 24)
@@ -88,37 +87,31 @@ Partial Class Invoice
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.RoomToolStripMenuItem.Text = "Room "
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
-        '
-        'EditToolStripMenuItem
-        '
-        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
-        Me.EditToolStripMenuItem.Text = "Edit"
         '
         'ReportToolStripMenuItem
         '
@@ -149,13 +142,13 @@ Partial Class Invoice
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'HelpPageToolStripMenuItem
         '
         Me.HelpPageToolStripMenuItem.Name = "HelpPageToolStripMenuItem"
-        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.HelpPageToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.HelpPageToolStripMenuItem.Text = "Help Page"
         '
         'txtAmount
@@ -233,7 +226,7 @@ Partial Class Invoice
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(477, 96)
+        Me.btnDelete.Location = New System.Drawing.Point(477, 179)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 8
@@ -278,7 +271,7 @@ Partial Class Invoice
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(477, 67)
+        Me.btnAdd.Location = New System.Drawing.Point(477, 92)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 13
@@ -287,7 +280,7 @@ Partial Class Invoice
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(477, 169)
+        Me.btnFind.Location = New System.Drawing.Point(477, 150)
         Me.btnFind.Name = "btnFind"
         Me.btnFind.Size = New System.Drawing.Size(75, 23)
         Me.btnFind.TabIndex = 14
@@ -328,7 +321,7 @@ Partial Class Invoice
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(477, 135)
+        Me.btnUpdate.Location = New System.Drawing.Point(477, 121)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
         Me.btnUpdate.TabIndex = 20
@@ -393,7 +386,6 @@ Partial Class Invoice
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
