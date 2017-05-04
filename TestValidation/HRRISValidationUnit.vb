@@ -125,5 +125,51 @@ Imports HRRIS.Validation
         Assert.AreEqual(False, oValidation.isPhoneVal(sPhone))
     End Sub
 
+    <TestMethod()> Public Sub TestNum_01()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "6"
+        Assert.AreEqual(False, oValidation.isNum(iNum))
+    End Sub
+
+    <TestMethod()> Public Sub TestNum_02()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "0"
+        Assert.AreEqual(False, oValidation.isNum(iNum))
+    End Sub
+
+    <TestMethod()> Public Sub TestNum_03()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "1"
+        Assert.AreEqual(True, oValidation.isNum(iNum))
+    End Sub
+
+
+    <TestMethod()> Public Sub TestAva_01()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "No"
+        Assert.AreEqual(True, oValidation.IsRm(iNum))
+    End Sub
+
+
+    <TestMethod()> Public Sub TestAva_02()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "1"
+        Assert.AreEqual(False, oValidation.IsRm(iNum))
+    End Sub
+
+
+    <TestMethod()> Public Sub TestType_01()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "Economy"
+        Assert.AreEqual(True, oValidation.IsType(iNum))
+    End Sub
+
+
+    <TestMethod()> Public Sub TestType_02()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "1"
+        Assert.AreEqual(False, oValidation.IsType(iNum))
+    End Sub
+
 
 End Class
