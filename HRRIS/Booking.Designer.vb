@@ -29,6 +29,7 @@ Partial Class Booking
         Me.cboCusId = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PicType = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtRmPrice = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -100,6 +101,7 @@ Partial Class Booking
         Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PicType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicDate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -164,6 +166,7 @@ Partial Class Booking
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PicType)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtRmPrice)
         Me.GroupBox1.Controls.Add(Me.Label13)
@@ -176,6 +179,16 @@ Partial Class Booking
         Me.GroupBox1.TabIndex = 135
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input any collum - all data will appear"
+        '
+        'PicType
+        '
+        Me.PicType.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.PicType.Location = New System.Drawing.Point(297, 25)
+        Me.PicType.Name = "PicType"
+        Me.PicType.Size = New System.Drawing.Size(17, 16)
+        Me.PicType.TabIndex = 151
+        Me.PicType.TabStop = False
+        Me.PicType.Visible = False
         '
         'Label3
         '
@@ -196,7 +209,7 @@ Partial Class Booking
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(297, 25)
+        Me.Label13.Location = New System.Drawing.Point(339, 25)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(31, 13)
         Me.Label13.TabIndex = 88
@@ -771,6 +784,7 @@ Partial Class Booking
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PicType, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicDate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicCmt, System.ComponentModel.ISupportInitialize).EndInit()
@@ -864,4 +878,5 @@ Partial Class Booking
     Friend WithEvents InvoiceToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LstBox As ListBox
     Friend WithEvents Label11 As Label
+    Friend WithEvents PicType As PictureBox
 End Class

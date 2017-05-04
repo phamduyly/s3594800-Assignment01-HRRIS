@@ -584,9 +584,7 @@ Public Class Customer
 
     End Sub
 
-    Private Sub txtCusFirName_TextChanged(sender As Object, e As EventArgs) Handles txtCusFirName.TextChanged
 
-    End Sub
 
 #End Region
 

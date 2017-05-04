@@ -17,9 +17,11 @@ Public Class Invoice
 
         Dim InvoiceMov As InvoiceDataController = New InvoiceDataController
         lsDataMov1 = InvoiceMov.InvoiceFindALl()
-        'This little things Is having problem beccause record inside of database Is still having prblem
+
+        'This line of code related to form booking. The purpose of it is that allow the form to take the current value in booking ID in Booking form to populate right into the invoce form 
         txtId.Text = bookingIdPass
 
+        'Tooltip - this part sometimes is very usefull
         Dim tl As New ToolTip
         'Button part 
         tl.SetToolTip(btnAdd, "click this to save record to Invoice database")
@@ -175,7 +177,7 @@ Public Class Invoice
         Me.InvoiceTableAdapter.Fill(Me.HRRISdbDataSet3.invoice)
 
     End Sub
-
+    'This fucntion allow to update the record in the invoice database 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Dim bIsValid1 = validInvoice()
 
@@ -222,18 +224,18 @@ Public Class Invoice
 
 #Region "Menuthings"
 
-
+    'This part is just open and close, moving between form and so on - for the file menu 
     Private Sub BookingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookingToolStripMenuItem.Click
-        Dim bk1 As New Booking
+        Dim b1 As New Booking
         Me.Hide()
-        bk1.ShowDialog()
+        b1.ShowDialog()
         Me.Close()
     End Sub
 
     Private Sub RoomToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RoomToolStripMenuItem.Click
-        Dim rm1 As New Room
+        Dim r1 As New Room
         Me.Hide()
-        rm1.ShowDialog()
+        r1.ShowDialog()
         Me.Close()
     End Sub
 
@@ -243,23 +245,33 @@ Public Class Invoice
 
 
     Private Sub CustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CustomerToolStripMenuItem.Click
-        Dim cus As New Customer
+        Dim cs As New Customer
         Me.Hide()
-        cus.ShowDialog()
+        cs.ShowDialog()
         Me.Close()
 
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sAbout As String
+        sAbout = "About.html "
+        Dim sParam As String = """" & Application.StartupPath & "\" & sAbout & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
 
+        System.Diagnostics.Process.Start(sParam)
     End Sub
 
     Private Sub HelpPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpPageToolStripMenuItem.Click
+        'This part can be reuse cause it is unchangeable 
+        Dim sAbout As String
+        sAbout = "Help.html "
+        Dim sParam As String = """" & Application.StartupPath & "\" & sAbout & """"
+        ' the """"" can fix into the access to the file path
+        Debug.Print("sParam: " & sParam)
 
-    End Sub
-
-    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
-
+        System.Diagnostics.Process.Start(sParam)
     End Sub
 
 

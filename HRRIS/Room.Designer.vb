@@ -111,7 +111,7 @@ Partial Class Room
         'txtRmAva
         '
         Me.txtRmAva.FormattingEnabled = True
-        Me.txtRmAva.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
+        Me.txtRmAva.Items.AddRange(New Object() {"Yes", "No"})
         Me.txtRmAva.Location = New System.Drawing.Point(158, 238)
         Me.txtRmAva.Name = "txtRmAva"
         Me.txtRmAva.Size = New System.Drawing.Size(343, 21)

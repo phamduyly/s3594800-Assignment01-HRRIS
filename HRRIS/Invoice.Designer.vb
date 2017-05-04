@@ -25,8 +25,6 @@ Partial Class Invoice
         Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,49 +80,38 @@ Partial Class Invoice
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.ToolStripMenuItem2, Me.CustomerToolStripMenuItem, Me.BookingToolStripMenuItem, Me.RoomToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CustomerToolStripMenuItem, Me.BookingToolStripMenuItem, Me.RoomToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'NewToolStripMenuItem
-        '
-        Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.NewToolStripMenuItem.Text = "New"
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(123, 6)
-        '
         'CustomerToolStripMenuItem
         '
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
-        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CustomerToolStripMenuItem.Text = "Customer"
         '
         'BookingToolStripMenuItem
         '
         Me.BookingToolStripMenuItem.Name = "BookingToolStripMenuItem"
-        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.BookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BookingToolStripMenuItem.Text = "Booking"
         '
         'RoomToolStripMenuItem
         '
         Me.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem"
-        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.RoomToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RoomToolStripMenuItem.Text = "Room "
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(149, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'EditToolStripMenuItem
@@ -143,13 +130,13 @@ Partial Class Invoice
         'ReportToolStripMenuItem1
         '
         Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
-        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(141, 22)
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ReportToolStripMenuItem1.Text = "Report "
         '
         'BreakReportToolStripMenuItem
         '
         Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
-        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.BreakReportToolStripMenuItem.Text = "Break Report"
         '
         'HelpToolStripMenuItem
@@ -416,8 +403,6 @@ Partial Class Invoice
     Friend WithEvents Label3 As Label
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnDelete As Button
-    Friend WithEvents NewToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem2 As ToolStripSeparator
     Friend WithEvents CustomerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BookingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RoomToolStripMenuItem As ToolStripMenuItem

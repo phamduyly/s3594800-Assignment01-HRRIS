@@ -101,7 +101,7 @@ Public Class Room
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isAlphaNumericVal(txtRmType.Text)
+        bIsValid = oValidation.IsType(txtRmType.Text)
         If bIsValid Then
             PicRmType.Visible = False
         Else
@@ -126,7 +126,8 @@ Public Class Room
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isAlphaNumericVal(txtRmAva.Text)
+        'Only can choose yes or no 
+        bIsValid = oValidation.IsRm(txtRmAva.Text)
         If bIsValid Then
             PicRmAva.Visible = False
         Else
@@ -154,7 +155,7 @@ Public Class Room
         If bAllFieldsValid Then
             MsgBox("Click OK to import data")
         Else
-            MsgBox("Please recheck data where the error pop-up appear")
+            MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
 
         Return bAllFieldsValid = True

@@ -50,7 +50,7 @@ Public Class RoomDataController
             MsgBox("data input fail")
         End Try
     End Sub
-
+    'Find all fucntion for room
     Public Function RoomfindALl() As List(Of Hashtable)
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
@@ -93,7 +93,7 @@ Public Class RoomDataController
 
         Return lsData
     End Function
-
+    'This is used in combobox - findby ID function
     Public Function RoomsFindById(ByVal sId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
@@ -107,7 +107,7 @@ Public Class RoomDataController
 
             oCommand.Connection = oConnection
             oCommand.CommandText = "SELECT * FROM room WHERE room_id = ?;"
-            'Actually,can variable of type be added to here and then find both at the same time
+
             oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
             oCommand.Parameters("room_id").Value = CStr(sId)
             oCommand.Prepare()
@@ -141,12 +141,12 @@ Public Class RoomDataController
 
         Return lsData
     End Function
-
+    'This purely for display purpose of combobox
     Public Function DisplayByRmId(ByRef sRmId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
-        Dim sAva As String = "Yes"
+
 
         Try
             Debug.Print("Connection String: " & oConnection.ConnectionString)
@@ -194,12 +194,12 @@ Public Class RoomDataController
 
     'Room finds by type 
     'variable : sType - finds tools
-
+    'Purely for populate data about room into the field
     Public Function DisplayByType(ByRef sType As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
-        Dim sAva As String = "Yes"
+
 
         Try
             Debug.Print("Connection String: " & oConnection.ConnectionString)

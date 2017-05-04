@@ -17,6 +17,7 @@ Public Class Booking
     Dim iCurrentIndex As Integer
 
     Dim bindingsource1 As New BindingSource
+    Dim tootipBookg As New ToolTip
 
     Private Sub Booking_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'HRRISdbDataSet2.booking' table. You can move, or remove it, as needed.
@@ -31,7 +32,7 @@ Public Class Booking
         tootipBookg.SetToolTip(txtType, "Choose room type to show all room that available for that type")
         tootipBookg.SetToolTip(cboCusId, "Choose customer ID from the dropdown box")
         tootipBookg.SetToolTip(cboStays, "Choose customer stays days from the dropdown box")
-        tootipBookg.SetToolTip(cboStays, "Choose number of guest from the dropdown box")
+        tootipBookg.SetToolTip(cboGuestNum, "Choose number of guest from the dropdown box")
         tootipBookg.SetToolTip(txtCheckinDate, "Choose customer checkin date here")
         tootipBookg.SetToolTip(txtPrice, "Booking price will be automatic calculate")
         tootipBookg.SetToolTip(txtCmt, "Input comment here if there are some")
@@ -53,7 +54,9 @@ Public Class Booking
 
     End Sub
 
-    'starting sub - contain
+    'The reason to dividing the origin form load into sub is to reuse it in both form_load and edit menu strip. 
+    'Becasue there are too many code so the dividen is needed, other form is only needed to coppy and paste
+    'starting sub - 
     Private Sub starting()
         'Form part 
         Dim Moving As BookingDataController = New BookingDataController
@@ -145,29 +148,21 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        'Date section
-        bIsValid = IsDate(txtDate.Text)
-        If bIsValid Then
-            PicDate.Visible = False
-        Else
-            PicDate.Visible = True
-            bAllFieldsValid = False
-        End If
-
-        bIsValid = IsDate(txtCheckinDate.Text)
-        If bIsValid Then
-            PicCkinDt.Visible = False
-        Else
-            PicCkinDt.Visible = True
-            bAllFieldsValid = False
-        End If
-
-        bIsValid = IsNumeric(cboGuestNum.Text)
-
+        bIsValid = oValidation.isNum(cboGuestNum.Text)
         If bIsValid Then
             PicGuestNum.Visible = False
         Else
+            tootipBookg.SetToolTip(cboGuestNum, "Number of guests is out of range")
             PicGuestNum.Visible = True
+            bAllFieldsValid = False
+        End If
+
+        bIsValid = IsNumeric(cboStays.Text)
+        If bIsValid Then
+            PicStayingDay.Visible = False
+        Else
+            tootipBookg.SetToolTip(PicStayingDay, "Days have to be input in Number")
+            PicStayingDay.Visible = True
             bAllFieldsValid = False
         End If
 
@@ -187,10 +182,18 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
+        bIsValid = oValidation.IsType(txtType.Text)
+        If bIsValid Then
+            PicType.Visible = False
+        Else
+            tootipBookg.SetToolTip(txtType, "Room type can only be chosen from the combobox ")
+            PicType.Visible = True
+            bAllFieldsValid = False
+        End If
         If bAllFieldsValid Then
             MsgBox("Click OK to import data")
         Else
-            MsgBox("Please recheck data where the error pop-up appear")
+            MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
 
         Return bAllFieldsValid
@@ -379,12 +382,16 @@ Public Class Booking
 
     End Sub
     'Move to invoice form 
+    'This is the part which related to invoice form where with bookingIDpass - this allow the invoice form to capture the data and populate right in booking ID invoice form which furthermore, run other procedure 
+    'in invoice form 
     Private Sub btnInvoince_Click(sender As Object, e As EventArgs) Handles btnInvoince.Click
 
         Dim invoiceform As New Invoice
+        'this line is to pass the value 
         invoiceform.bookingIdPass = txtID.Text
-        invoiceform.Show()
         Me.Hide()
+        invoiceform.ShowDialog()
+        Me.Close()
 
     End Sub
 
@@ -473,13 +480,12 @@ Public Class Booking
         Dim invoicenav As New Invoice
         Me.Hide()
         invoicenav.ShowDialog()
-        Me.Show()
+        Me.Close()
     End Sub
 
 
 #Region "enhance -appear customer and room information by performing search in room and customer datacontroller"
 
-    'for the room secttion here. 
     'Due to the reason that this is for record insert. Therefore, only room that have status that "available" = yes 
     'That the room detail can be appear to populate to other fields OR list on to list box on the left hand side 
     Private Sub cboCusId_TextChanged(sender As Object, e As EventArgs) Handles cboCusId.TextChanged
@@ -497,7 +503,7 @@ Public Class Booking
         'Reason: for importing new record to database 
 
     End Sub
-
+    'this si to find and populate the record Price and RmType by changing the rmID 
     Private Sub cboRoomID_TextChanged(sender As Object, e As EventArgs) Handles cboRoomID.TextChanged
 
         Dim sRmId = cboRoomID.Text
@@ -514,12 +520,13 @@ Public Class Booking
 
 
     End Sub
-
+    'For cboCus_Textchange - ot populate the firstname of the customer
     Private Sub populatecus(ByRef cusData As Hashtable)
 
         txtFirstName.Text = CStr(cusData("firstname"))
     End Sub
 
+    'this sub is for cboRoom_Textchaged - to populate found record into the Type and rm Price 
     Private Sub populateroom(ByRef roomData As Hashtable)
 
         txtType.Text = CStr(roomData("type"))
@@ -556,35 +563,52 @@ Public Class Booking
                 sTDetails = sTDetails & " | " & CStr(room("description"))
                 LstBox.Items.Add(sTDetails)
             Next
-
-
-
         Else
 
         End If
     End Sub
 
-    Private Sub populateRoom2(ByRef roomData As Hashtable)
 
-        cboRoomID.Text = CStr(CType(roomData("room_id"), String))
-        txtRmPrice.Text = CStr(CInt(roomData("price")))
+    'This function is little bit different than in cusotmer form
+    'this can only be done by txtId = nothing becasue this can only bedone in add data to bookign
+    Private Sub txtFirstName_leave(sender As Object, e As EventArgs) Handles txtFirstName.Leave
+
+        If txtID.Text = Nothing Then
+            Dim sFNAme As String = txtFirstName.Text
+            Dim lsDataFCus As List(Of Hashtable)
+            Dim oController As New CustomerDataController
+            lsDataFCus = oController.findCusByFirstName(sFNAme)
+
+
+            If lsDataFCus.Count > 1 Then
+                'This is for showing the records to list bos only the list box if the record > 1
+
+                LstBox.Items.Clear()
+                Dim sFDetails As String
+                For Each customer In lsDataFCus
+                    sFDetails = CStr(customer("customer_id"))
+                    sFDetails = sFDetails & " | " & CStr(customer("title"))
+                    sFDetails = sFDetails & " | " & CStr(customer("gender"))
+                    sFDetails = sFDetails & " | " & CStr(customer("firstname"))
+                    sFDetails = sFDetails & " | " & CStr(customer("lastname"))
+                    sFDetails = sFDetails & " | " & CStr(customer("phone"))
+                    sFDetails = sFDetails & " | " & CStr(customer("address"))
+                    sFDetails = sFDetails & " | " & CStr(customer("email"))
+                    sFDetails = sFDetails & " | " & CDate(customer("dob"))
+
+                    LstBox.Items.Add(sFDetails)
+                Next
+            Else
+                'If there are no record found
+                MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+            End If
+        End If
 
     End Sub
 
-    'This is for the purpose of select guest- the guest cannot be out of the limit of room  
-    '
-    Private Sub cboGuestNum_Leave(sender As Object, e As EventArgs) Handles cboGuestNum.Leave
-        Select Case txtType.Text
-            Case "Normal"
-                If cboGuestNum.Text > "2" Then
-                    MsgBox("")
-                End If
-            Case "Deluxe"
-                MsgBox("The record was not delete")
+    Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
 
-        End Select
     End Sub
-
 
 
 #End Region
