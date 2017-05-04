@@ -54,7 +54,7 @@ Public Class BreakReport
         Dim bAllFieldsValid As Boolean = True
 
 
-        iValid = oValidation.isMonth(cboReportMonth.Text)
+        iValid = IsNumeric(cboReportMonth.Text)
         If iValid Then
             bAllFieldsValid = True
         Else

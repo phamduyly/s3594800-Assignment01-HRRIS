@@ -213,28 +213,21 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT customer_id FROM booking WHERE  checkin_date < NOW();"
-            'Not NOW() but have to be the part that iYears, iMonths
+            oCommand.CommandText = "SELECT customer_id, month(checkin_date) AS checkinMonth, year(checkin_date) AS CheckinYear FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
+
             Dim oDataReader = oCommand.ExecuteReader()
 
             Dim htTempData As Hashtable
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-                htTempData("booking_id") = CInt(oDataReader("booking_id"))
-                htTempData("booking_date") = CDate(oDataReader("booking_date"))
-                htTempData("room_id") = CInt(oDataReader("room_id"))
                 htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("num_days") = CInt(oDataReader("num_days"))
-                htTempData("num_guests") = CInt(oDataReader("num_guests"))
-                htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
-                htTempData("total_price") = CInt(oDataReader("total_price"))
-                htTempData("comments") = CStr(oDataReader("comments"))
+                htTempData("checkinMonth") = CStr(oDataReader("checkinMonth"))
+                htTempData("CheckinYear") = CStr(oDataReader("CheckinYear"))
+
                 lsData.Add(htTempData)
             Loop
 
             Debug.Print("the record was found.")
-
-
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
@@ -548,26 +541,18 @@ Public Class ReportController
         'modify dim 
         Dim lsKeys As New List(Of String)
         'Modify lskey value
-        lsKeys.Add("booking_id")
-        lsKeys.Add("booking_date")
-        lsKeys.Add("room_id")
+
         lsKeys.Add("customer_id")
-        lsKeys.Add("num_days")
-        lsKeys.Add("num_guests")
-        lsKeys.Add("checkin_date")
-        lsKeys.Add("total_price")
-        lsKeys.Add("comments")
-
-
+        lsKeys.Add("checkinMonth")
+        lsKeys.Add("checkinYear")
 
         Dim lsData = FifthReport(iMonths, iYears)
-        Dim sReportTitle = "Customer who are late for month" & iMonths & " and year " & iYears & ""
+        Dim sReportTitle = "Customer who are late for month" & iMonths & " And year " & iYears & ""
         Dim sReportContent = generateReport03(lsData, sReportTitle, lsKeys)
         Dim sReportFileName = "Late checking customer"
         'Stop modify
 
         saveReport(sReportContent, sReportFileName)
-
 
         'This part can be reuse cause it is unchangeable 
         Dim sParam As String = """" & Application.StartupPath & "\" & sReportFileName & """"
