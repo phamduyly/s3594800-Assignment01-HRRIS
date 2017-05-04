@@ -90,7 +90,7 @@ Public Class Customer
                     'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
                     Dim Cusimport As CustomerDataController = New CustomerDataController
                     Cusimport.CusInsert(CusData)
-                    MsgBox("The record was Inserted")
+
                     'then the msgbox appear 
                     'Bellow code allow the Datagrid view to refresh
                     Me.CustomerTableAdapter.Fill(Me.HRRISdbDataSet1.customer)
@@ -165,7 +165,7 @@ Public Class Customer
         End If
 
         If bAllFieldsValid Then
-            MsgBox("All input fields are valid")
+
         Else
             MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If

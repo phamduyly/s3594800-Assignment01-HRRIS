@@ -139,7 +139,6 @@ Public Class Booking
                     'After that , we call the CusInsert function in customerdatacontroller class and import the Cusdata hastable
                     Dim bookingimport As BookingDataController = New BookingDataController
                     bookingimport.BookingInsert(bookingData)
-                    MsgBox("The record was Inserted")
                     'then the msgbox appear 
                     'Bellow code allow the Datagrid view to refresh
                     Me.BookingTableAdapter.Fill(Me.HRRISdbDataSet2.booking)
@@ -157,7 +156,7 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        'Date part 
+        'Date booked have to be at least to day
         bIsValid = IsDate(txtDate.Text) And txtDate.Value > DateTime.Today
         If bIsValid Then
             PicDate.Visible = False
@@ -168,13 +167,14 @@ Public Class Booking
 
         End If
 
-        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value > DateTime.Today
+        'checkin date have to be later than booking date and today 
+        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value > DateTime.Today And txtCheckinDate.Value > txtDate.Value
         If bIsValid Then
-            PicDate.Visible = False
+            PicCkinDt.Visible = False
         Else
             bAllFieldsValid = False
-        PicDate.Visible = True
-        tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
+            PicCkinDt.Visible = True
+            tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
 
         End If
         bIsValid = oValidation.isNum(cboGuestNum.Text)
@@ -220,7 +220,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
         If bAllFieldsValid Then
-            MsgBox("All input fields are valid")
+
         Else
             MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If

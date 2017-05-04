@@ -43,9 +43,13 @@ Public Class Room
         tootipBookg.SetToolTip(btnNext, "Navigation")
         tootipBookg.SetToolTip(btnPrevious, "Navigation")
         tootipBookg.SetToolTip(btnLast, "Navigation")
+        movingAndDisplay()
 
-        ' moving betweeen record section
-        'Display the very first record of room from database 
+    End Sub
+
+    'moving betweeen record section
+    'Display the very first record of room from database 
+    Private Sub movingAndDisplay()
 
         Dim MoveRecord As RoomDataController = New RoomDataController
         lsData = MoveRecord.RoomfindALl()
@@ -156,7 +160,7 @@ Public Class Room
         End If
 
         If bAllFieldsValid Then
-            MsgBox("All Input fields are valid ")
+
         Else
             MsgBox("Unable to add data where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
@@ -310,12 +314,6 @@ Public Class Room
                     MsgBox("The record was not updated")
             End Select
         End If
-
-
-
-
-
-
     End Sub
 
     Private Function getRoomData() As Hashtable
@@ -373,15 +371,8 @@ Public Class Room
         btnFind.Visible = True
         btnUpdate.Visible = True
 
-        Dim MoveRecord As RoomDataController = New RoomDataController
-        lsData = MoveRecord.RoomfindALl()
+        movingAndDisplay()
 
-        Dim htData As Hashtable
-        Dim iIndex As Integer
-        iIndex = 0
-        iCurrentIndex = iIndex
-        htData = lsData.Item(iIndex)
-        populateRoomsFields(lsData.Item(iIndex))
 
     End Sub
 
