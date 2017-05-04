@@ -201,7 +201,6 @@ Partial Class Booking
         '
         'txtRmPrice
         '
-        Me.txtRmPrice.Enabled = False
         Me.txtRmPrice.Location = New System.Drawing.Point(376, 21)
         Me.txtRmPrice.Name = "txtRmPrice"
         Me.txtRmPrice.Size = New System.Drawing.Size(59, 20)

@@ -157,27 +157,6 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
-        'Date part 
-        bIsValid = IsDate(txtDate.Text) And txtDate.Value > DateTime.Today
-        If bIsValid Then
-            PicDate.Visible = False
-        Else
-            bAllFieldsValid = False
-            PicDate.Visible = True
-            tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
-
-        End If
-
-        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value > DateTime.Today
-        If bIsValid Then
-            PicDate.Visible = False
-        Else
-            bAllFieldsValid = False
-            PicDate.Visible = True
-            tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
-
-        End If
-
         bIsValid = oValidation.isNum(cboGuestNum.Text)
         If bIsValid Then
             PicGuestNum.Visible = False

@@ -42,10 +42,10 @@ Partial Class BreakReport
         Me.btnBreakReport2 = New System.Windows.Forms.Button()
         Me.btnBreakReport1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.MonthError = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
@@ -208,15 +208,6 @@ Partial Class BreakReport
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(356, 81)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(105, 27)
-        Me.Button1.TabIndex = 154
-        Me.Button1.Text = "Clear"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'MonthError
         '
         Me.MonthError.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
@@ -245,6 +236,15 @@ Partial Class BreakReport
         Me.Label2.Size = New System.Drawing.Size(307, 13)
         Me.Label2.TabIndex = 153
         Me.Label2.Text = "Purpose: All invoices in the current year, broken down by month"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(356, 81)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(105, 27)
+        Me.Button1.TabIndex = 154
+        Me.Button1.Text = "Clear"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -278,7 +278,6 @@ Partial Class BreakReport
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "BreakReport"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BreakReport"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

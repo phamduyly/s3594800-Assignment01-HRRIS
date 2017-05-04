@@ -27,11 +27,9 @@ Public Class ReportController
             oCommand.Connection = oConnection
 
 
-            oCommand.CommandText = "SELECT customer_id, num_days, booking_date FROM booking WHERE customer_id = ? AND booking_date = (SELECT MAX(booking_date) FROM booking WHERE customer_id = ? );"
+            oCommand.CommandText = "SELECT customer_id, num_days, booking_date FROM booking WHERE customer_id = ?;"
             oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
             oCommand.Parameters("customer_id").Value = CInt(sCusId)
-            oCommand.Parameters.Add("customer_Id", OleDbType.IDispatch, 8)
-            oCommand.Parameters("customer_Id").Value = CInt(sCusId)
 
             oCommand.Prepare()
 
@@ -63,6 +61,7 @@ Public Class ReportController
     End Function
 
     '2ND report generator function 
+
     Public Function SecondReport(ByVal sRmId As String) As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
@@ -119,32 +118,40 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT customer_id, COUNT(room_id) AS total_room FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & " AND customer_id = ? GROUP BY customer_id;"
+            oCommand.CommandText = "SELECT  room_id FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & " And customer_id = ?;"
+
+
             oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
             oCommand.Parameters("customer_id").Value = CInt(sCusId)
             oCommand.Prepare()
 
+
+
             Dim oDataReader = oCommand.ExecuteReader()
+
             Dim htTempData As Hashtable
 
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
-                htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("total_room") = CInt(oDataReader("total_room"))
+
+                htTempData("room_id") = CInt(oDataReader("room_id"))
                 lsData.Add(htTempData)
             Loop
+
             Debug.Print("the record was found.")
+
+
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
             MsgBox("an error occured. The record(s) could not be found")
         Finally
             oConnection.Close()
+
         End Try
 
         Return lsData
     End Function
-
     '4th report
     Public Function FourthReport(ByVal iMonths As Integer, ByVal iYears As Integer) As List(Of Hashtable)
 
@@ -205,7 +212,7 @@ Public Class ReportController
 
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
-            oCommand.CommandText = "SELECT customer_id, Month(checkin_date) AS checkinMonth, Year(checkin_date) AS checkinYear FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
+            oCommand.CommandText = "SELECT customer_id, checkin_date FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
             'oCommand.CommandText = "SELECT customer_id, month(checkin_date) AS checkinMonth, year(checkin_date) AS CheckinYear FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & ";"
 
             Dim oDataReader = oCommand.ExecuteReader()
@@ -214,8 +221,7 @@ Public Class ReportController
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
                 htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("checkinYear") = CStr(oDataReader("checkinYear"))
-                htTempData("checkinMonth") = CStr(oDataReader("checkinMonth"))
+                htTempData("checkin_date") = CDate(oDataReader("checkin_date"))
 
                 lsData.Add(htTempData)
             Loop
@@ -223,7 +229,7 @@ Public Class ReportController
             Debug.Print("the record was found.")
 
         Catch ex As Exception
-            Debug.Print("Error:  " & ex.Message)
+            Debug.Print("ERROR: " & ex.Message)
             MsgBox("an error occured. The record(s) could not be found")
         Finally
             oConnection.Close()
@@ -466,14 +472,12 @@ Public Class ReportController
 
     '3RD report " report section 
     'a.CreateReport 
-
     Public Sub CreateReport03(ByVal sCusId As String, ByVal iMonths As Integer, ByVal iYears As Integer)
         Debug.Print("Create Room Booking Information Report")
 
         'modify dim 
         Dim lsKeys As New List(Of String)
-        lsKeys.Add("customer_id")
-        lsKeys.Add("total_room")
+        lsKeys.Add("room_id")
 
         Dim lsData = ThirdReport(sCusId, iMonths, iYears)
         Dim sReportTitle = "Customer Booking Report from month " & iMonths & " to year " & iYears & ""
@@ -538,8 +542,7 @@ Public Class ReportController
         'Modify lskey value
 
         lsKeys.Add("customer_id")
-        lsKeys.Add("checkinYear")
-        lsKeys.Add("checkinMonth")
+        lsKeys.Add("checkin_date")
 
 
         Dim lsData = FifthReport(iMonths, iYears)
