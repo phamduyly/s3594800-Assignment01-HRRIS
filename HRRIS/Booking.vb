@@ -29,7 +29,7 @@ Public Class Booking
         'Input fields part 
         tootipBookg.SetToolTip(txtID, "Input ID to perform program function")
         tootipBookg.SetToolTip(txtDate, "Choose booking date here")
-        tootipBookg.SetToolTip(txtType, "Choose room type to show all room that available for that type")
+        tootipBookg.SetToolTip(txtRmType, "Choose room type to show all room that available for that type")
         tootipBookg.SetToolTip(cboCusId, "Choose customer ID from the dropdown box")
         tootipBookg.SetToolTip(cboStays, "Choose customer stays days from the dropdown box")
         tootipBookg.SetToolTip(cboGuestNum, "Choose number of guest from the dropdown box")
@@ -182,11 +182,11 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.IsType(txtType.Text)
+        bIsValid = oValidation.IsType(txtRmType.Text)
         If bIsValid Then
             PicType.Visible = False
         Else
-            tootipBookg.SetToolTip(txtType, "Room type can only be chosen from the combobox ")
+            tootipBookg.SetToolTip(txtRmType, "Room type can only be chosen from the combobox ")
             PicType.Visible = True
             bAllFieldsValid = False
         End If
@@ -284,7 +284,7 @@ Public Class Booking
         cboGuestNum.ResetText()
         txtPrice.Clear()
         txtCmt.Clear()
-        txtType.ResetText()
+        txtRmType.ResetText()
         txtRmPrice.Clear()
         txtFirstName.Clear()
         txtDate.ResetText()
@@ -529,7 +529,7 @@ Public Class Booking
     'this sub is for cboRoom_Textchaged - to populate found record into the Type and rm Price 
     Private Sub populateroom(ByRef roomData As Hashtable)
 
-        txtType.Text = CStr(roomData("type"))
+        txtRmType.Text = CStr(roomData("type"))
         txtRmPrice.Text = CStr(CInt(roomData("price")))
 
     End Sub
@@ -538,10 +538,10 @@ Public Class Booking
     'Because the type have multiple thinsg
     'Therefore, room record will then be display to the left hand side
     'FOR adding purpose, therefore, txtID have to be nothing.
-    Private Sub txtType_TextChanged(sender As Object, e As EventArgs) Handles txtType.TextChanged
+    Private Sub txtType_TextChanged(sender As Object, e As EventArgs) Handles txtRmType.TextChanged
         If txtID.Text = Nothing Then
 
-            Dim sType As String = txtType.Text
+            Dim sType As String = txtRmType.Text
             Dim lsDataType As List(Of Hashtable)
             Dim oController As New RoomDataController
             lsDataType = oController.DisplayByType(sType)
@@ -609,6 +609,8 @@ Public Class Booking
     Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
 
     End Sub
+
+
 
 
 #End Region

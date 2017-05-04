@@ -276,7 +276,6 @@ Partial Class Report
         '
         'cboReportMonth
         '
-        Me.cboReportMonth.FormattingEnabled = True
         Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
         Me.cboReportMonth.Location = New System.Drawing.Point(180, 194)
         Me.cboReportMonth.Name = "cboReportMonth"

@@ -24,14 +24,13 @@ Partial Class BreakReport
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RoomToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BookingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,41 +42,33 @@ Partial Class BreakReport
         Me.btnBreakReport2 = New System.Windows.Forms.Button()
         Me.btnBreakReport1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cboRoomID = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.MonthError = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.MonthError, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(641, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(560, 24)
         Me.MenuStrip1.TabIndex = 132
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.ToolStripMenuItem1, Me.RoomToolStripMenuItem, Me.InvoiceToolStripMenuItem, Me.BookingToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RoomToolStripMenuItem, Me.InvoiceToolStripMenuItem, Me.BookingToolStripMenuItem, Me.CustomerToolStripMenuItem, Me.ToolStripMenuItem8, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
-        '
-        'NewToolStripMenuItem
-        '
-        Me.NewToolStripMenuItem.Name = "NewToolStripMenuItem"
-        Me.NewToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
-        Me.NewToolStripMenuItem.Text = "New"
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(123, 6)
         '
         'RoomToolStripMenuItem
         '
@@ -114,6 +105,12 @@ Partial Class BreakReport
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
+        'ReportToolStripMenuItem
+        '
+        Me.ReportToolStripMenuItem.Name = "ReportToolStripMenuItem"
+        Me.ReportToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.ReportToolStripMenuItem.Text = "Report"
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem1, Me.HelpPageToolStripMenuItem})
@@ -136,7 +133,7 @@ Partial Class BreakReport
         'Yearerror
         '
         Me.Yearerror.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.Yearerror.Location = New System.Drawing.Point(532, 40)
+        Me.Yearerror.Location = New System.Drawing.Point(365, 40)
         Me.Yearerror.Name = "Yearerror"
         Me.Yearerror.Size = New System.Drawing.Size(17, 16)
         Me.Yearerror.TabIndex = 148
@@ -147,7 +144,7 @@ Partial Class BreakReport
         '
         Me.cboReportMonth.FormattingEnabled = True
         Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cboReportMonth.Location = New System.Drawing.Point(290, 37)
+        Me.cboReportMonth.Location = New System.Drawing.Point(103, 40)
         Me.cboReportMonth.Name = "cboReportMonth"
         Me.cboReportMonth.Size = New System.Drawing.Size(79, 21)
         Me.cboReportMonth.TabIndex = 147
@@ -155,7 +152,7 @@ Partial Class BreakReport
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(224, 40)
+        Me.Label12.Location = New System.Drawing.Point(45, 40)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
         Me.Label12.TabIndex = 146
@@ -164,7 +161,7 @@ Partial Class BreakReport
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(397, 40)
+        Me.Label11.Location = New System.Drawing.Point(230, 40)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(29, 13)
         Me.Label11.TabIndex = 145
@@ -172,7 +169,7 @@ Partial Class BreakReport
         '
         'txtReportYear
         '
-        Me.txtReportYear.Location = New System.Drawing.Point(449, 38)
+        Me.txtReportYear.Location = New System.Drawing.Point(282, 40)
         Me.txtReportYear.Name = "txtReportYear"
         Me.txtReportYear.Size = New System.Drawing.Size(60, 20)
         Me.txtReportYear.TabIndex = 144
@@ -197,37 +194,29 @@ Partial Class BreakReport
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.cboRoomID)
-        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.MonthError)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.txtReportYear)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.Yearerror)
         Me.GroupBox1.Controls.Add(Me.cboReportMonth)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 40)
+        Me.GroupBox1.Location = New System.Drawing.Point(27, 40)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(584, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(500, 124)
         Me.GroupBox1.TabIndex = 151
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
         '
-        'cboRoomID
+        'MonthError
         '
-        Me.cboRoomID.FormattingEnabled = True
-        Me.cboRoomID.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
-        Me.cboRoomID.Location = New System.Drawing.Point(88, 36)
-        Me.cboRoomID.Name = "cboRoomID"
-        Me.cboRoomID.Size = New System.Drawing.Size(79, 21)
-        Me.cboRoomID.TabIndex = 150
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(20, 36)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 13)
-        Me.Label3.TabIndex = 149
-        Me.Label3.Text = "Room ID"
+        Me.MonthError.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.MonthError.Location = New System.Drawing.Point(208, 40)
+        Me.MonthError.Name = "MonthError"
+        Me.MonthError.Size = New System.Drawing.Size(17, 16)
+        Me.MonthError.TabIndex = 149
+        Me.MonthError.TabStop = False
+        Me.MonthError.Visible = False
         '
         'Label1
         '
@@ -248,11 +237,40 @@ Partial Class BreakReport
         Me.Label2.TabIndex = 153
         Me.Label2.Text = "Purpose: All invoices in the current year, broken down by month"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(356, 81)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(105, 27)
+        Me.Button1.TabIndex = 154
+        Me.Button1.Text = "Clear"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(34, 194)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(95, 13)
+        Me.Label3.TabIndex = 154
+        Me.Label3.Text = "Input: Month & Year"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(36, 272)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(59, 13)
+        Me.Label4.TabIndex = 155
+        Me.Label4.Text = "Input: Year"
+        '
         'BreakReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(641, 423)
+        Me.ClientSize = New System.Drawing.Size(560, 338)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnBreakReport2)
@@ -266,6 +284,7 @@ Partial Class BreakReport
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.MonthError, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -273,8 +292,6 @@ Partial Class BreakReport
 
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents NewToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As ToolStripSeparator
     Friend WithEvents RoomToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InvoiceToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BookingToolStripMenuItem As ToolStripMenuItem
@@ -293,7 +310,10 @@ Partial Class BreakReport
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents cboRoomID As ComboBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents HelpPageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MonthError As PictureBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
 End Class

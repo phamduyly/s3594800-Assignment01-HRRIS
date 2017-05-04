@@ -86,7 +86,7 @@ Public Class Validation
         End If
 
     End Function
-    'Check type
+    'Check room type 
     Public Function IsType(ByVal txtRmType As String) As Boolean
 
         If txtRmType = "Normal" Or txtRmType = "Economy" Or txtRmType = "Deluxe" Or txtRmType = "Luxury" Or txtRmType = "Diamond" Then
@@ -95,7 +95,17 @@ Public Class Validation
             Return False
         End If
 
+    End Function
 
+    Public Function isMonth(ByVal strVal As String) As Boolean
+        'a public function to check strVal right or wrong
+        Dim pattern As Regex = New Regex("^[1-9]|[12]*$")
+        'checking the string whether its contains only alphanumeric value
+        If strVal.Length > 0 Then
+            Return pattern.IsMatch(strVal)
+        Else
+            Return False
+        End If
     End Function
 
 End Class

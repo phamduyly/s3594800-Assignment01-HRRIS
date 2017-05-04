@@ -6,7 +6,7 @@ Option Explicit On
 'Author: Ly Pham Duy 
 
 Public Class Report
-
+    'button clear -  this is to clear the value in fields
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         cboBookId.Items.Clear()
         cboCusId.Items.Clear()
@@ -18,8 +18,6 @@ Public Class Report
 
     '1.generate cus report ABOUT last-booking time , days booked  
     Private Sub btnCusReport_Click(sender As Object, e As EventArgs) Handles btnCusReport.Click
-
-
 
         Dim GenerateCusReportByID As New ReportController
         Try
@@ -48,9 +46,6 @@ Public Class Report
             MsgBox("Please choose room ID ")
 
         End Try
-
-
-
     End Sub
     '3.Report customer_id report ABOUT given period = " year and month = 
     'SQL code is SELECT * FROM booking WHERE customer_id = ? AND booking_date = ?; 
@@ -230,15 +225,8 @@ Public Class Report
         Me.Close()
         'With showDialog, 
         'The form seem to beable to open and close seperately with the main form
-
-
-
     End Sub
 
-
-
 #End Region
-
-
 
 End Class

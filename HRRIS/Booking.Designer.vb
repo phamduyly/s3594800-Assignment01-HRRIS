@@ -35,7 +35,7 @@ Partial Class Booking
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cboRoomID = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtType = New System.Windows.Forms.ComboBox()
+        Me.txtRmType = New System.Windows.Forms.ComboBox()
         Me.btnInvoince = New System.Windows.Forms.Button()
         Me.cboStays = New System.Windows.Forms.ComboBox()
         Me.cboGuestNum = New System.Windows.Forms.ComboBox()
@@ -172,7 +172,7 @@ Partial Class Booking
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.cboRoomID)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.txtType)
+        Me.GroupBox1.Controls.Add(Me.txtRmType)
         Me.GroupBox1.Location = New System.Drawing.Point(43, 124)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(442, 50)
@@ -233,15 +233,15 @@ Partial Class Booking
         Me.Label10.TabIndex = 71
         Me.Label10.Text = "Type"
         '
-        'txtType
+        'txtRmType
         '
-        Me.txtType.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
-        Me.txtType.FormattingEnabled = True
-        Me.txtType.Items.AddRange(New Object() {"Normal", "Deluxe", "Luxury"})
-        Me.txtType.Location = New System.Drawing.Point(211, 21)
-        Me.txtType.Name = "txtType"
-        Me.txtType.Size = New System.Drawing.Size(80, 21)
-        Me.txtType.TabIndex = 86
+        Me.txtRmType.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.txtRmType.FormattingEnabled = True
+        Me.txtRmType.Items.AddRange(New Object() {"Normal", "Deluxe", "Luxury"})
+        Me.txtRmType.Location = New System.Drawing.Point(211, 21)
+        Me.txtRmType.Name = "txtRmType"
+        Me.txtRmType.Size = New System.Drawing.Size(80, 21)
+        Me.txtRmType.TabIndex = 86
         '
         'btnInvoince
         '
@@ -814,7 +814,7 @@ Partial Class Booking
     Friend WithEvents Label13 As Label
     Friend WithEvents cboRoomID As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents txtType As ComboBox
+    Friend WithEvents txtRmType As ComboBox
     Friend WithEvents btnInvoince As Button
     Friend WithEvents cboStays As ComboBox
     Friend WithEvents cboGuestNum As ComboBox
