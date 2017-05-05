@@ -607,6 +607,7 @@ Partial Class Customer
         Me.Label10.Size = New System.Drawing.Size(107, 13)
         Me.Label10.TabIndex = 135
         Me.Label10.Text = "Find Feature Improve"
+        Me.Label10.Visible = False
         '
         'Customer
         '

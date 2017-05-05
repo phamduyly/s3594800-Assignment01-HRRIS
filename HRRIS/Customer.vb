@@ -362,6 +362,7 @@ Public Class Customer
         btnUpdate.Visible = False
         btnFind.Visible = False
         lstBox.Visible = False
+        Label10.Visible = False
         clearForm()
 
 
@@ -395,6 +396,7 @@ Public Class Customer
         btnFind.Visible = True
         lstBox.Visible = True
         Button1.Visible = False
+        Label10.Visible = True
         displayNmove()
         'displayNmove is for sub display and move which also beused in form_load
     End Sub
@@ -592,9 +594,6 @@ Public Class Customer
         End If
 
     End Sub
-
-
-
 
 #End Region
 

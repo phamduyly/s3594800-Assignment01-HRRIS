@@ -484,6 +484,7 @@ Public Class Booking
         btnDelete.Visible = True
         btnUpdate.Visible = True
         btnFind.Visible = True
+        cboRoomID.Items.Clear()
         'Starting sub 
         starting()
         PopulateOpen()
