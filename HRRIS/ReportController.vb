@@ -684,7 +684,7 @@ Public Class ReportController
         'lskey part 
 
         Dim lsData = BreakReport1(iMonths, iYears)
-        Dim sReportTitle = "First controll break report "
+        Dim sReportTitle = "First control break report "
         Dim sReportContent = generateBreakReport(lsData, sReportTitle)
         'lsData is ... sReporttiltle is 
         Dim sReportFilename = "HRRIS First Control Break Report.html"
@@ -841,7 +841,7 @@ Public Class ReportController
         'lskey part 
 
         Dim lsData = BreakReport2(iYears)
-        Dim sReportTitle = "Second controll break report "
+        Dim sReportTitle = "Second control break report "
         Dim sReportContent = generateBreakReport2(lsData, sReportTitle)
         'lsData is ... sReporttiltle is 
         Dim sReportFilename = "HRRIS second Control Break Report.html"
@@ -978,8 +978,8 @@ Public Class ReportController
 
         '3. After the loop, need to output the last total row
         sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total Booking in " & iCountRecordsPerCategory _
-                        & " booking in the given year is : " & sCurrentControlField _
+                        & " Total invoice in " & iCountRecordsPerCategory _
+                        & " in the given year is : " & sCurrentControlField _
                         & "</td></tr>" _
                         & vbCrLf
 
