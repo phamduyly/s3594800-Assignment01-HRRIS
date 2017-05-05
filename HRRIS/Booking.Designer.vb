@@ -99,6 +99,7 @@ Partial Class Booking
         Me.BookingTableAdapter = New HRRIS.HRRISdbDataSet2TableAdapters.bookingTableAdapter()
         Me.LstBox = New System.Windows.Forms.ListBox()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.ErrorName = New System.Windows.Forms.PictureBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PicType, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,10 +116,12 @@ Partial Class Booking
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorName, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ErrorName)
         Me.GroupBox2.Controls.Add(Me.txtFirstName)
         Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.cboCusId)
@@ -132,7 +135,7 @@ Partial Class Booking
         '
         'txtFirstName
         '
-        Me.txtFirstName.Location = New System.Drawing.Point(300, 19)
+        Me.txtFirstName.Location = New System.Drawing.Point(279, 19)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(135, 20)
         Me.txtFirstName.TabIndex = 92
@@ -201,6 +204,7 @@ Partial Class Booking
         '
         'txtRmPrice
         '
+        Me.txtRmPrice.Enabled = False
         Me.txtRmPrice.Location = New System.Drawing.Point(376, 21)
         Me.txtRmPrice.Name = "txtRmPrice"
         Me.txtRmPrice.Size = New System.Drawing.Size(59, 20)
@@ -734,6 +738,16 @@ Partial Class Booking
         Me.Label11.Text = "Room Information"
         Me.Label11.Visible = False
         '
+        'ErrorName
+        '
+        Me.ErrorName.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.ErrorName.Location = New System.Drawing.Point(418, 22)
+        Me.ErrorName.Name = "ErrorName"
+        Me.ErrorName.Size = New System.Drawing.Size(17, 16)
+        Me.ErrorName.TabIndex = 152
+        Me.ErrorName.TabStop = False
+        Me.ErrorName.Visible = False
+        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -799,6 +813,7 @@ Partial Class Booking
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorName, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -879,4 +894,5 @@ Partial Class Booking
     Friend WithEvents LstBox As ListBox
     Friend WithEvents Label11 As Label
     Friend WithEvents PicType As PictureBox
+    Friend WithEvents ErrorName As PictureBox
 End Class

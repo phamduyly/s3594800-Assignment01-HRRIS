@@ -156,19 +156,32 @@ Public Class Booking
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
+        'Validate first name 
+        bIsValid = oValidation.IsNameRight(txtFirstName.Text)
+        If bIsValid Then
+            ErrorName.Visible = False
+        Else
+            ErrorName.Visible = True
+            bAllFieldsValid = False
+            tootipBookg.SetToolTip(txtFirstName, "First letter have to be capital")
+
+        End If
+
         'Date booked have to be at least to day
-        bIsValid = IsDate(txtDate.Text) And txtDate.Value > DateTime.Today
+        bIsValid = IsDate(txtDate.Text) And txtDate.Value >= DateTime.Today
         If bIsValid Then
             PicDate.Visible = False
         Else
             bAllFieldsValid = False
-        PicDate.Visible = True
-        tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
+
+            PicDate.Visible = True
+
+            tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
 
         End If
 
         'checkin date have to be later than booking date and today 
-        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value > DateTime.Today And txtCheckinDate.Value > txtDate.Value
+        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value >= DateTime.Today And txtCheckinDate.Value > txtDate.Value
         If bIsValid Then
             PicCkinDt.Visible = False
         Else
@@ -177,6 +190,8 @@ Public Class Booking
             tootipBookg.SetToolTip(txtDate, "Input could not be later than today")
 
         End If
+
+        'Validation for number of guest - due to limitation of hotel that no more than 5 cust can be in a room
         bIsValid = oValidation.isNum(cboGuestNum.Text)
         If bIsValid Then
             PicGuestNum.Visible = False
@@ -186,20 +201,13 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
+        'Validation for staying day
         bIsValid = IsNumeric(cboStays.Text)
         If bIsValid Then
             PicStayingDay.Visible = False
         Else
             tootipBookg.SetToolTip(PicStayingDay, "Days have to be input in Number")
             PicStayingDay.Visible = True
-            bAllFieldsValid = False
-        End If
-
-        bIsValid = IsNumeric(txtPrice.Text)
-        If bIsValid Then
-            PicPrice.Visible = False
-        Else
-            PicPrice.Visible = True
             bAllFieldsValid = False
         End If
 
@@ -211,6 +219,7 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
+        'Validatiom type 
         bIsValid = oValidation.IsType(txtRmType.Text)
         If bIsValid Then
             PicType.Visible = False
@@ -219,6 +228,17 @@ Public Class Booking
             PicType.Visible = True
             bAllFieldsValid = False
         End If
+
+        'Validation for total price  - total price have to be numeric 
+        bIsValid = IsNumeric(txtPrice.Text)
+        If bIsValid Then
+            PicPrice.Visible = False
+        Else
+            tootipBookg.SetToolTip(txtPrice, "Price have to be in number ")
+            PicPrice.Visible = True
+            bAllFieldsValid = False
+        End If
+
         If bAllFieldsValid Then
 
         Else
@@ -607,7 +627,7 @@ Public Class Booking
                 LstBox.Items.Add(sTDetails)
             Next
         Else
-
+            LstBox.Items.Add("No details")
         End If
     End Sub
 
@@ -642,20 +662,11 @@ Public Class Booking
                     LstBox.Items.Add(sFDetails)
                 Next
             Else
-                'If there are no record found
-                MsgBox("The record was not found", MsgBoxStyle.MsgBoxHelp, "Help")
+                LstBox.Items.Add("No details")
             End If
         End If
 
     End Sub
-
-    Private Sub txtFirstName_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
-
-    End Sub
-
-
-
-
 #End Region
 
 

@@ -110,6 +110,26 @@ Public Class Customer
         Dim bIsValid As Boolean
         Dim bAllFieldsValid As Boolean = True
 
+        bIsValid = txtCusTitl.Text = "Mr" Or txtCusTitl.Text = "Mrs" Or txtCusTitl.Text = "Miss"
+        If bIsValid Then
+            PicTitle.Visible = False
+
+        Else
+            tootipBookg.SetToolTip(txtCusTitl, "You have to choose from the drop down the list")
+            PicTitle.Visible = True
+            bAllFieldsValid = False
+        End If
+
+        bIsValid = txtGender.Text = "Male" Or txtGender.Text = "Female"
+        If bIsValid Then
+            PicGender.Visible = False
+
+        Else
+            tootipBookg.SetToolTip(txtGender, "You have to choose from the drop down the list")
+            PicGender.Visible = True
+            bAllFieldsValid = False
+        End If
+
         bIsValid = oValidation.IsNameRight(txtCusFirName.Text) And txtCusFirName.TextLength < 20
         If bIsValid Then
             PicFName.Visible = False
