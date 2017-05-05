@@ -63,7 +63,7 @@ Public Class Report
             report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
         Catch ex As Exception
             Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & Environment.NewLine & " Customer ID, months or year is not selected")
+            MsgBox("The report could not generate, it could be because" & vbCrLf & " Customer ID, months or year is not selected")
         End Try
 
     End Sub
@@ -140,6 +140,8 @@ Public Class Report
         reporttip.SetToolTip(btnReport5, "Choose time period")
         reporttip.SetToolTip(btnReport6, "Choose room ID and time period")
         Reportload()
+
+        txtReportYear.Text = "2017"
 
     End Sub
     'Load data into combo box - room, cus, book

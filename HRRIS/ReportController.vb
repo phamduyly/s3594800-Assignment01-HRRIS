@@ -30,6 +30,9 @@ Public Class ReportController
             oCommand.CommandText = "SELECT customer_id, num_days, booking_date FROM booking WHERE customer_id = ? AND booking_date = (SELECT MAX(booking_date) FROM booking WHERE customer_id = ? ) ;"
             oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
             oCommand.Parameters("customer_id").Value = CInt(sCusId)
+            oCommand.Parameters.Add("customer_Id", OleDbType.Integer, 8)
+            oCommand.Parameters("customer_Id").Value = CInt(sCusId)
+
             oCommand.Prepare()
 
 
@@ -117,11 +120,10 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT customer_id, COUNT(room_id) AS total_room FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & " AND customer_id = ? GROUP BY customer_id;"
+            oCommand.CommandText = "SELECT customer_id, COUNT(room_id) AS total_room FROM booking WHERE DatePart (""yyyy"", booking_date) = " & iYears & " And DatePart(""m"", booking_date) = " & iMonths & " AND customer_id = ? GROUP BY customer_id, room_id;"
             oCommand.Parameters.Add("customer_id", OleDbType.Integer, 8)
             oCommand.Parameters("customer_id").Value = CInt(sCusId)
-            oCommand.Parameters.Add("customer_Id", OleDbType.Integer, 8)
-            oCommand.Parameters("customer_Id").Value = CInt(sCusId)
+
             oCommand.Prepare()
 
             Dim oDataReader = oCommand.ExecuteReader()
@@ -130,7 +132,7 @@ Public Class ReportController
             Do While oDataReader.Read() = True
                 htTempData = New Hashtable
                 htTempData("customer_id") = CInt(oDataReader("customer_id"))
-                htTempData("room_id") = CInt(oDataReader("room_id"))
+                htTempData("total_room") = CInt(oDataReader("total_room"))
                 lsData.Add(htTempData)
             Loop
             Debug.Print("the record was found.")
@@ -380,7 +382,7 @@ Public Class ReportController
 
 #End Region
 
-#Region "HTML section"
+#Region "HTML Generate for Report only section"
 
     'REPORT SECTION
     'Content generating section - HTML file 
