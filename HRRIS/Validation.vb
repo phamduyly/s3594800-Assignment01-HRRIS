@@ -3,7 +3,9 @@ Option Strict On
 
 Imports System.Text.RegularExpressions
 
-'description: class containing validation methods
+'Name: Validation
+'Date: 20/4/2017 
+'Author: Ly Pham Duy 
 
 Public Class Validation
     'isAlphaNumericVal widely used in many form due to its only purpose is to check whether the input is alphanumeric or not. 
@@ -96,6 +98,18 @@ Public Class Validation
         End If
 
     End Function
+
+    Public Function IsMonth(ByVal strVal As String) As Boolean
+        'a public function to check strVal right or wrong
+        Dim pattern As Regex = New Regex("^[1-5]*$")
+        'checking the string whether its contains only alphanumeric value
+        If strVal.Length > 0 Then
+            Return pattern.IsMatch(strVal)
+        Else
+            Return False
+        End If
+    End Function
+
 
 
 End Class

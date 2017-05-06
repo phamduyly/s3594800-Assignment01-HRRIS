@@ -177,8 +177,6 @@ Public Class RoomDataController
 
             Debug.Print("the record was found.")
 
-
-
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)
 
@@ -231,8 +229,6 @@ Public Class RoomDataController
             Loop
 
             Debug.Print("the record was found.")
-
-
 
         Catch ex As Exception
             Debug.Print("ERROR: " & ex.Message)

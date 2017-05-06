@@ -33,17 +33,16 @@ Public Class BreakReport
     'Button 2 - break report 2 - c break down invoice dividen by month 
     Private Sub btnBreakReport2_Click(sender As Object, e As EventArgs) Handles btnBreakReport2.Click
         Dim breakreport2 As New ReportController
-        Dim valid = YearValidate()
-        If valid Then
-            Try
-                Dim iYears = txtReportYear.Text
-                breakreport2.createBreakReport2(CInt(iYears))
 
-            Catch ex As Exception
-                Debug.Print("the error is :" & ex.Message)
-                MsgBox("The report could not generate, please recheck")
-            End Try
-        End If
+
+        Try
+            Dim iYears = txtReportYear.Text
+            breakreport2.createBreakReport2()
+
+        Catch ex As Exception
+            Debug.Print("the error is :" & ex.Message)
+            MsgBox("The report could not generate, please recheck")
+        End Try
 
     End Sub
 

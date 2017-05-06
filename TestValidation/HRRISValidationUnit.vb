@@ -4,6 +4,7 @@ Option Explicit On
 'Name: HRRIS Valdation unit testing 
 'Date: 20/4/2017
 'Author: Ly Pham Duy
+
 Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 

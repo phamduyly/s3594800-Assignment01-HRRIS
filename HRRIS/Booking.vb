@@ -181,7 +181,7 @@ Public Class Booking
         End If
 
         'checkin date have to be later than booking date and today 
-        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value >= DateTime.Today And txtCheckinDate.Value > txtDate.Value
+        bIsValid = IsDate(txtCheckinDate.Text) And txtCheckinDate.Value >= DateTime.Today And txtCheckinDate.Value >= txtDate.Value
         If bIsValid Then
             PicCkinDt.Visible = False
         Else

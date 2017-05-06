@@ -77,9 +77,11 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT room_id, total_price, booking_date FROM booking WHERE room_id = ?;"
+            oCommand.CommandText = "SELECT room_id, total_price, booking_date FROM booking WHERE room_id = ? AND booking_date = (SELECT MAX(booking_date) FROM booking WHERE room_id = ?);"
             oCommand.Parameters.Add("room_id", OleDbType.Integer, 8)
             oCommand.Parameters("room_id").Value = CInt(sRmId)
+            oCommand.Parameters.Add("room_Id", OleDbType.Integer, 8)
+            oCommand.Parameters("room_Id").Value = CInt(sRmId)
             oCommand.Prepare()
 
             Dim oDataReader = oCommand.ExecuteReader()
@@ -339,7 +341,7 @@ Public Class ReportController
         Return lsData
     End Function
 
-    Public Function BreakReport2(ByVal iYears As Integer) As List(Of Hashtable)
+    Public Function BreakReport2() As List(Of Hashtable)
 
         Dim oConnection As OleDbConnection = New OleDbConnection(CONNECTION_STRING)
         Dim lsData As New List(Of Hashtable)
@@ -352,7 +354,7 @@ Public Class ReportController
             Dim oCommand As OleDbCommand = New OleDbCommand
             oCommand.Connection = oConnection
 
-            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart(""yyyy"", invoice_date) = " & iYears & ";"
+            oCommand.CommandText = "SELECT * FROM invoice WHERE DatePart(""yyyy"", invoice_date) = Year(Now);"
 
             oCommand.Prepare()
             Dim oDataReader = oCommand.ExecuteReader()
@@ -577,8 +579,6 @@ Public Class ReportController
         lsKeys.Add("total_price")
         lsKeys.Add("comments")
 
-
-
         Dim lsData = SixthReport(sRmId, iMonths, iYears)
         Dim sReportTitle = "Room booked frequency" & sRmId & " in months" & iMonths & " and year " & iYears & ""
         Dim sReportContent = generateReport03(lsData, sReportTitle, lsKeys)
@@ -798,7 +798,7 @@ Public Class ReportController
                 'And reset the total
                 If sCurrentControlField <> sPreviousControlField Then
                     sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total booking for room in " & sPreviousControlField _
+                        & " Total booking for room with Room ID: " & sPreviousControlField _
                         & " room form: " & iCountRecordsPerCategory _
                         & "</td></tr>" _
                         & vbCrLf
@@ -823,8 +823,8 @@ Public Class ReportController
 
         '3. After the loop, need to output the last total row
         sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
-                        & " Total Booking for room in " & iCountRecordsPerCategory _
-                        & " booking for the given room in the given year is : " & sCurrentControlField _
+                        & " Total Booking for all room  " & iCountRecordsPerCategory _
+                        & " in the given year is : " & sCurrentControlField _
                         & "</td></tr>" _
                         & vbCrLf
 
@@ -837,12 +837,12 @@ Public Class ReportController
 
 #Region "Break2"
 
-    Public Sub createBreakReport2(ByRef iYears As Integer)
+    Public Sub createBreakReport2()
         Debug.Print("CreatBreakReport...")
 
         'lskey part 
 
-        Dim lsData = BreakReport2(iYears)
+        Dim lsData = BreakReport2()
         Dim sReportTitle = "Second control break report "
         Dim sReportContent = generateBreakReport2(lsData, sReportTitle)
         'lsData is ... sReporttiltle is 
@@ -954,7 +954,7 @@ Public Class ReportController
                 If sCurrentControlField <> sPreviousControlField Then
                     sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
                     & " Total invoice in " & sPreviousControlField _
-                        & " booking form: " & iCountRecordsPerCategory _
+                        & ": " & iCountRecordsPerCategory _
                         & "</td></tr>" _
                         & vbCrLf
                     sRows &= sTableRow
@@ -981,7 +981,7 @@ Public Class ReportController
         '3. After the loop, need to output the last total row
         sTableRow = "<tr><td colspan = """ & lsKeys.Count & """>" _
                         & " Total invoice in " & iCountRecordsPerCategory _
-                        & " in the given year is : " & sCurrentControlField _
+                        & " : " & sCurrentControlField _
                         & "</td></tr>" _
                         & vbCrLf
 

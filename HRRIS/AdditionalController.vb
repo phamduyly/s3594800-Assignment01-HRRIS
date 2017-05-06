@@ -2,7 +2,6 @@
 Option Explicit On
 
 'Name: controller for additional features for booking form 1.Customer section 2.Room section 3. For calculating money
-'Note: class contain string inside SQL command 
 'Date: 22/4/2017
 'Author: Pham Duy Ly 
 
