@@ -123,13 +123,13 @@ Partial Class Invoice
         'ReportToolStripMenuItem1
         '
         Me.ReportToolStripMenuItem1.Name = "ReportToolStripMenuItem1"
-        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ReportToolStripMenuItem1.Size = New System.Drawing.Size(141, 22)
         Me.ReportToolStripMenuItem1.Text = "Report "
         '
         'BreakReportToolStripMenuItem
         '
         Me.BreakReportToolStripMenuItem.Name = "BreakReportToolStripMenuItem"
-        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.BreakReportToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.BreakReportToolStripMenuItem.Text = "Break Report"
         '
         'HelpToolStripMenuItem

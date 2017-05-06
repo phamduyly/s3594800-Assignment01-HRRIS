@@ -33,10 +33,8 @@ Public Class BreakReport
     'Button 2 - break report 2 - c break down invoice dividen by month 
     Private Sub btnBreakReport2_Click(sender As Object, e As EventArgs) Handles btnBreakReport2.Click
         Dim breakreport2 As New ReportController
-
-
         Try
-            Dim iYears = txtReportYear.Text
+
             breakreport2.createBreakReport2()
 
         Catch ex As Exception
@@ -53,7 +51,7 @@ Public Class BreakReport
         Dim bAllFieldsValid As Boolean = True
 
 
-        iValid = IsNumeric(cboReportMonth.Text)
+        iValid = oValidation.IsMonth(cboReportMonth.Text)
         If iValid Then
             bAllFieldsValid = True
         Else
@@ -61,7 +59,7 @@ Public Class BreakReport
             bAllFieldsValid = False
         End If
 
-        iValid = IsNumeric(txtReportYear.Text)
+        iValid = oValidation.IsYear(txtReportYear.Text) And txtReportYear.TextLength < 5
         If iValid = True Then
             bAllFieldsValid = True
         Else
@@ -74,7 +72,7 @@ Public Class BreakReport
             MsgBox("Unable to create report where Error pop up appears due to reason bellow:" & vbCrLf & "1.Out of range" & vbCrLf & "2.Wrong format" & vbCrLf & "Point to where popup appear to see the error")
         End If
 
-        Return bAllFieldsValid = True
+        Return bAllFieldsValid
 
     End Function
     'Load form 

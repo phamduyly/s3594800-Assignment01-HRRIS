@@ -65,9 +65,11 @@ Partial Class Report
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.Montherror = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.Montherror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -282,7 +284,7 @@ Partial Class Report
         '
         'cboReportMonth
         '
-        Me.cboReportMonth.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cboReportMonth.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"})
         Me.cboReportMonth.Location = New System.Drawing.Point(180, 194)
         Me.cboReportMonth.Name = "cboReportMonth"
         Me.cboReportMonth.Size = New System.Drawing.Size(79, 21)
@@ -290,6 +292,7 @@ Partial Class Report
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Montherror)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.cboBookId)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -433,6 +436,16 @@ Partial Class Report
         Me.Label17.TabIndex = 160
         Me.Label17.Text = "Input: Room ID, Month & Year"
         '
+        'Montherror
+        '
+        Me.Montherror.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.Montherror.Location = New System.Drawing.Point(234, 170)
+        Me.Montherror.Name = "Montherror"
+        Me.Montherror.Size = New System.Drawing.Size(17, 16)
+        Me.Montherror.TabIndex = 153
+        Me.Montherror.TabStop = False
+        Me.Montherror.Visible = False
+        '
         'Report
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -467,6 +480,7 @@ Partial Class Report
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.Montherror, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -515,4 +529,5 @@ Partial Class Report
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
+    Friend WithEvents Montherror As PictureBox
 End Class

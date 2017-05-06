@@ -65,6 +65,31 @@ Public Class Validation
             Return False
         End If
     End Function
+
+    'Motnh
+
+    Public Function IsMonth(ByVal strVal As String) As Boolean
+        'a public function to check strVal right or wrong
+        Dim pattern As Regex = New Regex("^(0[1-9]|1[012])*$")
+        'checking the string whether its contains only alphanumeric value
+        If strVal.Length > 0 Then
+            Return pattern.IsMatch(strVal)
+        Else
+            Return False
+        End If
+    End Function
+    'is year
+    Public Function IsYear(ByVal strVal As String) As Boolean
+        'a public function to check strVal right or wrong
+        Dim pattern As Regex = New Regex("^(20[0-9]+[0-9])*$")
+        'checking the string whether its contains only alphanumeric value
+        If strVal.Length > 0 Then
+            Return pattern.IsMatch(strVal)
+        Else
+            Return False
+        End If
+    End Function
+
     'IsNum mostly is for limit the number of customer in booking form. The number come from normal hotel persons/room 
     Public Function isNum(ByVal strVal As String) As Boolean
         'a public function to check strVal right or wrong
@@ -99,16 +124,6 @@ Public Class Validation
 
     End Function
 
-    Public Function IsMonth(ByVal strVal As String) As Boolean
-        'a public function to check strVal right or wrong
-        Dim pattern As Regex = New Regex("^[1-5]*$")
-        'checking the string whether its contains only alphanumeric value
-        If strVal.Length > 0 Then
-            Return pattern.IsMatch(strVal)
-        Else
-            Return False
-        End If
-    End Function
 
 
 

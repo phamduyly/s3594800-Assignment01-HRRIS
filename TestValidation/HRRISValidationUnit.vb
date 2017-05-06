@@ -166,11 +166,42 @@ Imports HRRIS.Validation
     End Sub
 
 
-    <TestMethod()> Public Sub TestType_02()
+    <TestMethod()> Public Sub TestMonth_01()
         Dim oValidation As New HRRIS.Validation
-        Dim iNum = "1"
-        Assert.AreEqual(False, oValidation.IsType(iNum))
+        Dim iNum = "01"
+        Assert.AreEqual(True, oValidation.IsMonth(iNum))
     End Sub
 
+    <TestMethod()> Public Sub TestMonth_02()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "43"
+        Assert.AreEqual(False, oValidation.IsMonth(iNum))
+    End Sub
+
+
+
+    <TestMethod()> Public Sub TestYear_01()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "01"
+        Assert.AreEqual(False, oValidation.IsYear(iNum))
+    End Sub
+
+    <TestMethod()> Public Sub TestYear_02()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "2013"
+        Assert.AreEqual(True, oValidation.IsYear(iNum))
+    End Sub
+
+    <TestMethod()> Public Sub TestYear_03()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "3001"
+        Assert.AreEqual(False, oValidation.IsYear(iNum))
+    End Sub
+
+    <TestMethod()> Public Sub TestYear_04()
+        Dim oValidation As New HRRIS.Validation
+        Dim iNum = "2033"
+        Assert.AreEqual(True, oValidation.IsYear(iNum))
+    End Sub
 
 End Class

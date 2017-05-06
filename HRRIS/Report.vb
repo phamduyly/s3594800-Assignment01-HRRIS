@@ -54,17 +54,26 @@ Public Class Report
     'SQL code is SELECT * FROM booking WHERE customer_id = ? AND booking_date = ?; 
     'Create input for months(cbbox) and years(text), dim here 
     Private Sub btnReport3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport3.Click
-        Dim report3 As New ReportController
-        Try
-            Dim sCusID = cboCusId.Text
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
 
-            report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " Customer ID, months or year is not selected")
-        End Try
+        Dim report3 As New ReportController
+
+        Dim valit = YearValidate()
+        If valit Then
+            Try
+                Dim sCusID = cboCusId.Text
+                Dim iYears = txtReportYear.Text
+                Dim iMonths = cboReportMonth.Text
+
+                report3.CreateReport03(CStr(sCusID), CInt(iMonths), CInt(iYears))
+            Catch ex As Exception
+                Debug.Print("the erros is: " & ex.Message)
+                MsgBox("The report could not generate, it could be because:" & vbCrLf & " 1.Customer ID, months or year is not selected" & vbCrLf & "2.Data of the record is not in the database")
+
+            End Try
+        Else
+
+        End If
+
 
     End Sub
     '4. all bookings in given months and years (??)
@@ -77,7 +86,7 @@ Public Class Report
             Dim iMonths = cboReportMonth.Text
             report4.CreateReport04(CInt(iMonths), CInt(iYears))
         Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
+            Debug.Print("the erros Is:  " & ex.Message)
             MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
         End Try
     End Sub
@@ -119,12 +128,24 @@ Public Class Report
     End Sub
     'Addition Validation function for further use
     Private Function YearValidate() As Boolean
+        Dim oValidation As New Validation
         Dim iValid As Boolean
+        Dim iAllValid As Boolean = True
 
-        iValid = IsNumeric(txtReportYear.Text)
+        iValid = oValidation.IsMonth(cboReportMonth.Text)
+        If iValid Then
+            Montherror.Visible = False
+
+        Else
+            Montherror.Visible = True
+            iAllValid = False
+        End If
+
+        iValid = oValidation.IsYear(txtReportYear.Text) And txtReportYear.TextLength < 5
         If iValid = True Then
         Else
             Yearerror.Visible = True
+            iAllValid = False
 
         End If
 
