@@ -108,13 +108,13 @@ Public Class Room
             bAllFieldsValid = False
         End If
 
-        'bIsValid = oValidation.IsType(txtRmType.Text)
-        'If bIsValid Then
-        '    PicRmType.Visible = False
-        'Else
-        '    PicRmType.Visible = True
-        '    bAllFieldsValid = False
-        'End If
+        bIsValid = oValidation.IsType(txtRmType.Text)
+        If bIsValid Then
+            PicRmType.Visible = False
+        Else
+            PicRmType.Visible = True
+            bAllFieldsValid = False
+        End If
 
         bIsValid = IsNumeric(txtRmPrice.Text)
         If bIsValid Then

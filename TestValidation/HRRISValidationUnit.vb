@@ -145,18 +145,6 @@ Imports HRRIS.Validation
     End Sub
 
 
-    <TestMethod()> Public Sub TestAva_01()
-        Dim oValidation As New HRRIS.Validation
-        Dim iNum = "No"
-        Assert.AreEqual(True, oValidation.IsRm(iNum))
-    End Sub
-
-
-    <TestMethod()> Public Sub TestAva_02()
-        Dim oValidation As New HRRIS.Validation
-        Dim iNum = "1"
-        Assert.AreEqual(False, oValidation.IsRm(iNum))
-    End Sub
 
 
     <TestMethod()> Public Sub TestType_01()

@@ -90,39 +90,18 @@ Public Class Validation
         End If
     End Function
 
-    'IsNum mostly is for limit the number of customer in booking form. The number come from normal hotel persons/room 
-    Public Function isNum(ByVal strVal As String) As Boolean
-        'a public function to check strVal right or wrong
-        Dim pattern As Regex = New Regex("^[1-5]*$")
-        'checking the string whether its contains only alphanumeric value
-        If strVal.Length > 0 Then
-            Return pattern.IsMatch(strVal)
+
+
+    ''Check room type 
+    Public Function IsType(ByVal txtRmType As String) As Boolean
+
+        If txtRmType = "Normal" Or txtRmType = "Economy" Or txtRmType = "Deluxe" Or txtRmType = "Luxury" Or txtRmType = "Diamond" Then
+            Return True
         Else
             Return False
         End If
+
     End Function
-
-    '' This is for room ava only can choose yes or no
-    'Public Function IsRm(ByVal txtRmAva As String) As Boolean
-
-    '    If txtRmAva = "Yes" Or txtRmAva = "No" Then
-    '        Return True
-
-    '    Else
-    '        Return False
-    '    End If
-
-    'End Function
-    ''Check room type 
-    'Public Function IsType(ByVal txtRmType As String) As Boolean
-
-    '    If txtRmType = "Normal" Or txtRmType = "Economy" Or txtRmType = "Deluxe" Or txtRmType = "Luxury" Or txtRmType = "Diamond" Then
-    '        Return True
-    '    Else
-    '        Return False
-    '    End If
-
-    'End Function
 
 
 
