@@ -219,15 +219,6 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        'Validatiom type 
-        bIsValid = oValidation.IsType(txtRmType.Text)
-        If bIsValid Then
-            PicType.Visible = False
-        Else
-            tootipBookg.SetToolTip(txtRmType, "Room type can only be chosen from the combobox ")
-            PicType.Visible = True
-            bAllFieldsValid = False
-        End If
 
         'Validation for total price  - total price have to be numeric 
         bIsValid = IsNumeric(txtPrice.Text)
@@ -438,7 +429,7 @@ Public Class Booking
         Try
             txtPrice.Text = CStr(CInt(cboStays.Text) * CInt(txtRmPrice.Text))
         Catch ex As Exception
-            MsgBox("No room Price or staying date value available")
+
         End Try
 
 
@@ -627,7 +618,7 @@ Public Class Booking
                 LstBox.Items.Add(sTDetails)
             Next
         Else
-            LstBox.Items.Add("No details")
+
         End If
     End Sub
 
@@ -667,6 +658,8 @@ Public Class Booking
         End If
 
     End Sub
+
+
 #End Region
 
 

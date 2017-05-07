@@ -141,6 +141,7 @@ Partial Class BreakReport
         '
         'cboReportMonth
         '
+        Me.cboReportMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboReportMonth.FormattingEnabled = True
         Me.cboReportMonth.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"})
         Me.cboReportMonth.Location = New System.Drawing.Point(103, 40)

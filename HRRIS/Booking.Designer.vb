@@ -24,6 +24,7 @@ Partial Class Booking
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ErrorName = New System.Windows.Forms.PictureBox()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.cboCusId = New System.Windows.Forms.ComboBox()
@@ -99,8 +100,8 @@ Partial Class Booking
         Me.BookingTableAdapter = New HRRIS.HRRISdbDataSet2TableAdapters.bookingTableAdapter()
         Me.LstBox = New System.Windows.Forms.ListBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.ErrorName = New System.Windows.Forms.PictureBox()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.ErrorName, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PicType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicCkinDt, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,7 +117,6 @@ Partial Class Booking
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorName, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -132,6 +132,16 @@ Partial Class Booking
         Me.GroupBox2.TabIndex = 136
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Input any collum - all data will appear"
+        '
+        'ErrorName
+        '
+        Me.ErrorName.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.ErrorName.Location = New System.Drawing.Point(418, 22)
+        Me.ErrorName.Name = "ErrorName"
+        Me.ErrorName.Size = New System.Drawing.Size(17, 16)
+        Me.ErrorName.TabIndex = 152
+        Me.ErrorName.TabStop = False
+        Me.ErrorName.Visible = False
         '
         'txtFirstName
         '
@@ -240,8 +250,9 @@ Partial Class Booking
         'txtRmType
         '
         Me.txtRmType.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.txtRmType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtRmType.FormattingEnabled = True
-        Me.txtRmType.Items.AddRange(New Object() {"Normal", "Deluxe", "Luxury"})
+        Me.txtRmType.Items.AddRange(New Object() {"Normal", "Economy", "Deluxe", "Luxury", "Diamond"})
         Me.txtRmType.Location = New System.Drawing.Point(211, 21)
         Me.txtRmType.Name = "txtRmType"
         Me.txtRmType.Size = New System.Drawing.Size(80, 21)
@@ -260,7 +271,7 @@ Partial Class Booking
         '
         Me.cboStays.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
         Me.cboStays.FormattingEnabled = True
-        Me.cboStays.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8"})
+        Me.cboStays.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6"})
         Me.cboStays.Location = New System.Drawing.Point(162, 260)
         Me.cboStays.Name = "cboStays"
         Me.cboStays.Size = New System.Drawing.Size(317, 21)
@@ -269,8 +280,9 @@ Partial Class Booking
         'cboGuestNum
         '
         Me.cboGuestNum.AutoCompleteCustomSource.AddRange(New String() {"""1""", """2""", """3""", """4""", """5"""})
+        Me.cboGuestNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboGuestNum.FormattingEnabled = True
-        Me.cboGuestNum.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6"})
+        Me.cboGuestNum.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
         Me.cboGuestNum.Location = New System.Drawing.Point(162, 294)
         Me.cboGuestNum.Name = "cboGuestNum"
         Me.cboGuestNum.Size = New System.Drawing.Size(317, 21)
@@ -545,7 +557,7 @@ Partial Class Booking
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.EditToolStripMenuItem, Me.ReportToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1001, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(954, 24)
         Me.MenuStrip1.TabIndex = 130
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -738,21 +750,11 @@ Partial Class Booking
         Me.Label11.Text = "Room Information"
         Me.Label11.Visible = False
         '
-        'ErrorName
-        '
-        Me.ErrorName.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.ErrorName.Location = New System.Drawing.Point(418, 22)
-        Me.ErrorName.Name = "ErrorName"
-        Me.ErrorName.Size = New System.Drawing.Size(17, 16)
-        Me.ErrorName.TabIndex = 152
-        Me.ErrorName.TabStop = False
-        Me.ErrorName.Visible = False
-        '
         'Booking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1001, 632)
+        Me.ClientSize = New System.Drawing.Size(954, 632)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.LstBox)
         Me.Controls.Add(Me.DataGridView1)
@@ -796,6 +798,7 @@ Partial Class Booking
         Me.Text = "Booking"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.ErrorName, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PicType, System.ComponentModel.ISupportInitialize).EndInit()
@@ -813,7 +816,6 @@ Partial Class Booking
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookingBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HRRISdbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorName, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

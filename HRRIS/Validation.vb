@@ -102,27 +102,27 @@ Public Class Validation
         End If
     End Function
 
-    ' This is for room ava only can choose yes or no
-    Public Function IsRm(ByVal txtRmAva As String) As Boolean
+    '' This is for room ava only can choose yes or no
+    'Public Function IsRm(ByVal txtRmAva As String) As Boolean
 
-        If txtRmAva = "Yes" Or txtRmAva = "No" Then
-            Return True
+    '    If txtRmAva = "Yes" Or txtRmAva = "No" Then
+    '        Return True
 
-        Else
-            Return False
-        End If
+    '    Else
+    '        Return False
+    '    End If
 
-    End Function
-    'Check room type 
-    Public Function IsType(ByVal txtRmType As String) As Boolean
+    'End Function
+    ''Check room type 
+    'Public Function IsType(ByVal txtRmType As String) As Boolean
 
-        If txtRmType = "Normal" Or txtRmType = "Economy" Or txtRmType = "Deluxe" Or txtRmType = "Luxury" Or txtRmType = "Diamond" Then
-            Return True
-        Else
-            Return False
-        End If
+    '    If txtRmType = "Normal" Or txtRmType = "Economy" Or txtRmType = "Deluxe" Or txtRmType = "Luxury" Or txtRmType = "Diamond" Then
+    '        Return True
+    '    Else
+    '        Return False
+    '    End If
 
-    End Function
+    'End Function
 
 
 

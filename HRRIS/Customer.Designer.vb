@@ -105,6 +105,7 @@ Partial Class Customer
         '
         'txtCusTitl
         '
+        Me.txtCusTitl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtCusTitl.FormattingEnabled = True
         Me.txtCusTitl.Items.AddRange(New Object() {"Mr", "Mrs", "Miss"})
         Me.txtCusTitl.Location = New System.Drawing.Point(157, 99)
@@ -257,6 +258,7 @@ Partial Class Customer
         '
         'txtGender
         '
+        Me.txtGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtGender.FormattingEnabled = True
         Me.txtGender.Items.AddRange(New Object() {"Male", "Female"})
         Me.txtGender.Location = New System.Drawing.Point(157, 135)

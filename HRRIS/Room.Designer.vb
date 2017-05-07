@@ -101,6 +101,7 @@ Partial Class Room
         '
         'txtRmFl
         '
+        Me.txtRmFl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtRmFl.FormattingEnabled = True
         Me.txtRmFl.Items.AddRange(New Object() {"1", "2", "3", "4"})
         Me.txtRmFl.Location = New System.Drawing.Point(158, 274)
@@ -110,6 +111,7 @@ Partial Class Room
         '
         'txtRmAva
         '
+        Me.txtRmAva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtRmAva.FormattingEnabled = True
         Me.txtRmAva.Items.AddRange(New Object() {"Yes", "No"})
         Me.txtRmAva.Location = New System.Drawing.Point(158, 238)
@@ -119,6 +121,7 @@ Partial Class Room
         '
         'txtRmType
         '
+        Me.txtRmType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.txtRmType.FormattingEnabled = True
         Me.txtRmType.Items.AddRange(New Object() {"Normal ", "Economy", "Deluxe ", "Luxury", "Diamond"})
         Me.txtRmType.Location = New System.Drawing.Point(158, 126)

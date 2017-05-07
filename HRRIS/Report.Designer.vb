@@ -51,6 +51,7 @@ Partial Class Report
         Me.Label12 = New System.Windows.Forms.Label()
         Me.cboReportMonth = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Montherror = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.cboBookId = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -65,7 +66,6 @@ Partial Class Report
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.Montherror = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Yearerror, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -284,6 +284,7 @@ Partial Class Report
         '
         'cboReportMonth
         '
+        Me.cboReportMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboReportMonth.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"})
         Me.cboReportMonth.Location = New System.Drawing.Point(180, 194)
         Me.cboReportMonth.Name = "cboReportMonth"
@@ -309,6 +310,16 @@ Partial Class Report
         Me.GroupBox1.TabIndex = 145
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Input Fields"
+        '
+        'Montherror
+        '
+        Me.Montherror.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
+        Me.Montherror.Location = New System.Drawing.Point(234, 170)
+        Me.Montherror.Name = "Montherror"
+        Me.Montherror.Size = New System.Drawing.Size(17, 16)
+        Me.Montherror.TabIndex = 153
+        Me.Montherror.TabStop = False
+        Me.Montherror.Visible = False
         '
         'Button1
         '
@@ -435,16 +446,6 @@ Partial Class Report
         Me.Label17.Size = New System.Drawing.Size(143, 13)
         Me.Label17.TabIndex = 160
         Me.Label17.Text = "Input: Room ID, Month & Year"
-        '
-        'Montherror
-        '
-        Me.Montherror.Image = Global.HRRIS.My.Resources.Resources.Button_Close_icon
-        Me.Montherror.Location = New System.Drawing.Point(234, 170)
-        Me.Montherror.Name = "Montherror"
-        Me.Montherror.Size = New System.Drawing.Size(17, 16)
-        Me.Montherror.TabIndex = 153
-        Me.Montherror.TabStop = False
-        Me.Montherror.Visible = False
         '
         'Report
         '
