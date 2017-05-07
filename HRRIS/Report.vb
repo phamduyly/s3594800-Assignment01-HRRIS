@@ -6,14 +6,12 @@ Option Explicit On
 'Author: Ly Pham Duy 
 
 Public Class Report
-    'button clear -  this is to clear the value in fields
+    'button clear -  this is to clear the value in fields - motnh do not need to clear 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         cboBookId.Items.Clear()
         cboCusId.Items.Clear()
         cboRoomID.Items.Clear()
         txtReportYear.Clear()
-        cboReportMonth.ResetText()
-
         Reportload()
         'Form_load original - load data into cus, room, book combobox 
 
@@ -80,15 +78,18 @@ Public Class Report
     'SQL code is SELECT * FROM booking WHERE (bookingdate = ?); find how to do it with date and year
     Private Sub btnReport4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport4.Click
         Dim report4 As New ReportController
+        Dim validate3 = YearValidate()
+        If validate3 Then
+            Try
+                Dim iYears = txtReportYear.Text
+                Dim iMonths = cboReportMonth.Text
+                report4.CreateReport04(CInt(iMonths), CInt(iYears))
+            Catch ex As Exception
+                Debug.Print("the erros Is:  " & ex.Message)
+                MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
+            End Try
+        End If
 
-        Try
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
-            report4.CreateReport04(CInt(iMonths), CInt(iYears))
-        Catch ex As Exception
-            Debug.Print("the erros Is:  " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
-        End Try
     End Sub
 
     '5.show customer = ? who are due for checkin in a given month or year 
@@ -97,34 +98,41 @@ Public Class Report
 
     Private Sub btnReport5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport5.Click
         Dim report5 As New ReportController
+        Dim validate2 = YearValidate()
+        If validate2 Then
+            Try
+                Dim iYears = txtReportYear.Text
+                Dim iMonths = cboReportMonth.Text
 
-        Try
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
+                report5.CreateReport05(CInt(iMonths), CInt(iYears))
 
-            report5.CreateReport05(CInt(iMonths), CInt(iYears))
+            Catch ex As Exception
+                Debug.Print("the erros is: " & ex.Message)
+                MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
+            End Try
+        End If
 
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " months or year is not selected")
-        End Try
     End Sub
     '6.show room_id = ? ABOUT bookings * in given months or year 
     'SQL code is SELECT * FROM bookings WHERE room_id = ? AND month = ? OR year = ?;
     Private Sub btnReport6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnReport6.Click
         Dim report6 As New ReportController
+        Dim validate = YearValidate()
+        If validate Then
+            Try
+                Dim sRmId = cboRoomID.Text
+                Dim iYears = txtReportYear.Text
+                Dim iMonths = cboReportMonth.Text
 
-        Try
-            Dim sRmId = cboRoomID.Text
-            Dim iYears = txtReportYear.Text
-            Dim iMonths = cboReportMonth.Text
+                report6.CreateReport06(CStr(sRmId), CInt(iMonths), CInt(iYears))
 
-            report6.CreateReport06(CStr(sRmId), CInt(iMonths), CInt(iYears))
+            Catch ex As Exception
+                Debug.Print("the erros is: " & ex.Message)
+                MsgBox("The report could not generate, it could be because" & vbCrLf & " room ID, months or year is not selected")
+            End Try
 
-        Catch ex As Exception
-            Debug.Print("the erros is: " & ex.Message)
-            MsgBox("The report could not generate, it could be because" & vbCrLf & " room ID, months or year is not selected")
-        End Try
+        End If
+
     End Sub
     'Addition Validation function for further use
     Private Function YearValidate() As Boolean
@@ -132,14 +140,6 @@ Public Class Report
         Dim iValid As Boolean
         Dim iAllValid As Boolean = True
 
-        iValid = oValidation.IsMonth(cboReportMonth.Text)
-        If iValid Then
-            Montherror.Visible = False
-
-        Else
-            Montherror.Visible = True
-            iAllValid = False
-        End If
 
         iValid = oValidation.IsYear(txtReportYear.Text) And txtReportYear.TextLength < 5
         If iValid = True Then

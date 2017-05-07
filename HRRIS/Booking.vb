@@ -191,16 +191,6 @@ Public Class Booking
 
         End If
 
-        'Validation for number of guest - due to limitation of hotel that no more than 5 cust can be in a room
-        bIsValid = oValidation.isNum(cboGuestNum.Text)
-        If bIsValid Then
-            PicGuestNum.Visible = False
-        Else
-            tootipBookg.SetToolTip(cboGuestNum, "Number of guests is out of range")
-            PicGuestNum.Visible = True
-            bAllFieldsValid = False
-        End If
-
         'Validation for staying day
         bIsValid = IsNumeric(cboStays.Text)
         If bIsValid Then
@@ -211,15 +201,6 @@ Public Class Booking
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isAlphaNumericVal(txtCmt.Text)
-        If bIsValid Then
-            PicCmt.Visible = False
-        Else
-            PicCmt.Visible = True
-            bAllFieldsValid = False
-        End If
-
-
         'Validation for total price  - total price have to be numeric 
         bIsValid = IsNumeric(txtPrice.Text)
         If bIsValid Then
@@ -229,6 +210,16 @@ Public Class Booking
             PicPrice.Visible = True
             bAllFieldsValid = False
         End If
+
+
+        bIsValid = oValidation.isAlphaNumericVal(txtCmt.Text)
+        If bIsValid Then
+            PicCmt.Visible = False
+        Else
+            PicCmt.Visible = True
+            bAllFieldsValid = False
+        End If
+
 
         If bAllFieldsValid Then
 

@@ -125,35 +125,14 @@ Imports HRRIS.Validation
         Dim sPhone = "number"
         Assert.AreEqual(False, oValidation.isPhoneVal(sPhone))
     End Sub
-
-    <TestMethod()> Public Sub TestNum_01()
-        Dim oValidation As New HRRIS.Validation
-        Dim iNum = "6"
-        Assert.AreEqual(False, oValidation.isNum(iNum))
-    End Sub
-
-    <TestMethod()> Public Sub TestNum_02()
-        Dim oValidation As New HRRIS.Validation
-        Dim iNum = "0"
-        Assert.AreEqual(False, oValidation.isNum(iNum))
-    End Sub
-
-    <TestMethod()> Public Sub TestNum_03()
-        Dim oValidation As New HRRIS.Validation
-        Dim iNum = "1"
-        Assert.AreEqual(True, oValidation.isNum(iNum))
-    End Sub
-
-
-
-
+    'Test type for only the part in the Room form because it is needed
     <TestMethod()> Public Sub TestType_01()
         Dim oValidation As New HRRIS.Validation
         Dim iNum = "Economy"
         Assert.AreEqual(True, oValidation.IsType(iNum))
     End Sub
 
-
+    'Test month - can only be inputed with the 01-12 elese cannot be input
     <TestMethod()> Public Sub TestMonth_01()
         Dim oValidation As New HRRIS.Validation
         Dim iNum = "01"
@@ -167,7 +146,7 @@ Imports HRRIS.Validation
     End Sub
 
 
-
+    'Year : can only be 4 character and in the range of 20..
     <TestMethod()> Public Sub TestYear_01()
         Dim oValidation As New HRRIS.Validation
         Dim iNum = "01"
@@ -191,5 +170,6 @@ Imports HRRIS.Validation
         Dim iNum = "2033"
         Assert.AreEqual(True, oValidation.IsYear(iNum))
     End Sub
+
 
 End Class

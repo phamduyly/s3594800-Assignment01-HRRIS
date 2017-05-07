@@ -148,7 +148,7 @@ Public Class Customer
             bAllFieldsValid = False
         End If
 
-        bIsValid = oValidation.isPhoneVal(txtCusPhone.Text) And txtCusPhone.TextLength < 11
+        bIsValid = oValidation.isPhoneVal(txtCusPhone.Text) And txtCusPhone.TextLength < 12
         If bIsValid Then
             PicPhone.Visible = False
 

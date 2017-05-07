@@ -50,15 +50,7 @@ Public Class BreakReport
         Dim oValidation As New Validation
         Dim bAllFieldsValid As Boolean = True
 
-
-        iValid = oValidation.IsMonth(cboReportMonth.Text)
-        If iValid Then
-            bAllFieldsValid = True
-        Else
-            MonthError.Visible = True
-            bAllFieldsValid = False
-        End If
-
+        'Have to be under 5 character and fit the requirement in the validation clss : 20..
         iValid = oValidation.IsYear(txtReportYear.Text) And txtReportYear.TextLength < 5
         If iValid = True Then
             bAllFieldsValid = True
@@ -78,10 +70,11 @@ Public Class BreakReport
     'Load form 
     Private Sub BreakReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
         Dim breakrep As New ToolTip
         breakrep.SetToolTip(btnBreakReport1, "Choose room ID and time period")
         breakrep.SetToolTip(btnBreakReport1, "Choose year only")
+
+        txtReportYear.Text = "2017"
     End Sub
     'menu section
 #Region "Menu"
@@ -150,9 +143,9 @@ Public Class BreakReport
         Me.Close()
     End Sub
 
+    'Clear button - month do not need to clear
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         txtReportYear.Clear()
-        cboReportMonth.ResetText()
 
     End Sub
 
